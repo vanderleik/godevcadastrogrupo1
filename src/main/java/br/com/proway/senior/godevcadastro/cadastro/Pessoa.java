@@ -1,12 +1,12 @@
 package br.com.proway.senior.godevcadastro.cadastro;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Pessoa {
 
 	private String nome;
 	private String sobrenome;
-	private Date dataDeNascimento;
+	private LocalDate dataDeNascimento;
 	private String nomeSocial;
 	private String genero;
 	private char sexo;
@@ -15,7 +15,7 @@ public class Pessoa {
 	private String nacionalidade;
 	private boolean pcd = false;
 
-	public Pessoa(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero, char sexo,
+	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero, char sexo,
 			String nomeDaMae, String cpf, String nacionalidade, boolean pcd) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
@@ -29,7 +29,7 @@ public class Pessoa {
 		this.pcd = pcd;
 	}
 
-	public Pessoa(String nome, String sobrenome, Date dataDeNascimento, String genero, char sexo, String nomeDaMae,
+	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, char sexo, String nomeDaMae,
 			String cpf, String nacionalidade) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
@@ -60,11 +60,11 @@ public class Pessoa {
 		this.sobrenome = sobrenome;
 	}
 
-	public Date getDataDeNascimento() {
+	public LocalDate getDataDeNascimento() {
 		return dataDeNascimento;
 	}
 
-	public void setDataDeNascimento(Date dataDeNascimento) {
+	public void setDataDeNascimento(LocalDate dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
 

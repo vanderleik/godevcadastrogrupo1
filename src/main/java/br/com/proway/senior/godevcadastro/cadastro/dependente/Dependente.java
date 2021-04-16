@@ -1,21 +1,21 @@
 package br.com.proway.senior.godevcadastro.cadastro.dependente;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import br.com.proway.senior.godevcadastro.cadastro.Pessoa;
 
 /**
  * 
- * Esta classe herda seus atributos primários da classe Pessoa.
- * É vinculada ao colaborador pelo atributo idColaborador.
- * Somente será instanciada na Classe Colaborador se o optanteDependente for true.
+ * Esta classe herda seus atributos primários da classe Pessoa. É vinculada ao
+ * colaborador pelo atributo idColaborador. Somente será instanciada na Classe
+ * Colaborador se o optanteDependente for true.
  * 
  * @author Samuel Alves
  */
 public class Dependente extends Pessoa {
 
-	private Long id;
-	private Long idColaborador;
+	private Integer id;
+	private Integer idColaborador;
 	private String tipoDependente;
 	private boolean optanteIR;
 
@@ -23,14 +23,9 @@ public class Dependente extends Pessoa {
 		super();
 	}
 
-	public Dependente(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero, char sexo,
-			String nomeDaMae, String cpf, String nacionalidade, boolean pcd) {
-		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
-	}
-
-	public Dependente(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero, char sexo,
-			String nomeDaMae, String cpf, String nacionalidade, boolean pcd, Long id, Long idColaborador,
-			String tipoDependente, boolean optanteIR) {
+	public Dependente(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
+			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd, Integer id,
+			Integer idColaborador, String tipoDependente, boolean optanteIR) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 		this.id = id;
 		this.idColaborador = idColaborador;
@@ -38,19 +33,19 @@ public class Dependente extends Pessoa {
 		this.optanteIR = optanteIR;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Long getIdColaborador() {
+	public Integer getIdColaborador() {
 		return idColaborador;
 	}
 
-	public void setIdColaborador(Long idColaborador) {
+	public void setIdColaborador(Integer idColaborador) {
 		this.idColaborador = idColaborador;
 	}
 
