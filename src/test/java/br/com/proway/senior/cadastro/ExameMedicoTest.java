@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import br.com.prowaysenior.godevcadastro.cadastro.ExameMedico;
+import br.com.proway.senior.godevcadastro.cadastro.ExameMedico;
 
 public class ExameMedicoTest {
 
