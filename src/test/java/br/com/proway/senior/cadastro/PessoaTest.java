@@ -1,10 +1,12 @@
-package br.com.proway.senior.godevcadastro.cadastro;
+package br.com.proway.senior.cadastro;
 
 import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDate;
 
 import org.junit.Test;
+
+import br.com.proway.senior.godevcadastro.cadastro.Pessoa;
 
 public class PessoaTest {
 	
@@ -33,5 +35,28 @@ public class PessoaTest {
 		assertEquals(pessoaTesteConstrutorSecundario.getCpf(), "87654321021");
 		assertEquals(pessoaTesteConstrutorSecundario.getNacionalidade(), "Moçambique");
 		assertEquals(pessoaTesteConstrutorSecundario.isPcd(), false);
+		
+		pessoaTesteConstrutorPrincipal.setNome("Joana");
+		pessoaTesteConstrutorPrincipal.setSobrenome("Marques");
+		pessoaTesteConstrutorPrincipal.setDataDeNascimento(LocalDate.of(2002, 3, 11));
+		pessoaTesteConstrutorPrincipal.setNomeSocial("Antoni");
+		pessoaTesteConstrutorPrincipal.setGenero("Transsexual");
+		pessoaTesteConstrutorPrincipal.setSexo('F');
+		pessoaTesteConstrutorPrincipal.setNomeDaMae("Marcela Trindade Pereira");
+		pessoaTesteConstrutorPrincipal.setCpf("124512644762");
+		pessoaTesteConstrutorPrincipal.setNacionalidade("Mônaco");
+		pessoaTesteConstrutorPrincipal.setPcd(false);
+		
+		assertEquals(pessoaTesteConstrutorPrincipal.getNome(), "Joana");
+		assertEquals(pessoaTesteConstrutorPrincipal.getSobrenome(), "Marques");
+		assertEquals(pessoaTesteConstrutorPrincipal.getDataDeNascimento(), LocalDate.of(2002, 3, 11));
+		assertEquals(pessoaTesteConstrutorPrincipal.getNomeSocial(), "Antoni");
+		assertEquals(pessoaTesteConstrutorPrincipal.getGenero(), "Transsexual");
+		assertEquals(pessoaTesteConstrutorPrincipal.getSexo(), 'F');
+		assertEquals(pessoaTesteConstrutorPrincipal.getNomeDaMae(), "Marcela Trindade Pereira");
+		assertEquals(pessoaTesteConstrutorPrincipal.getCpf(), "124512644762");
+		assertEquals(pessoaTesteConstrutorPrincipal.getNacionalidade(), "Mônaco");
+		assertEquals(pessoaTesteConstrutorPrincipal.isPcd(), false);
+		
 	}
 }

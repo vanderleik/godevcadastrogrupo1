@@ -10,5 +10,4 @@ public class ColaboradorTest {
 	public void testConstrutorColaborador() {
 		fail("Not yet implemented");
 	}
-
 }
