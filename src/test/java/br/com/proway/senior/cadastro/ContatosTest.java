@@ -48,7 +48,8 @@ public class ContatosTest {
 	@Test
 	public void testToString() {
 		Contatos contatos = new Contatos("47987654321", "47123456789", "123@teste.com.br");
-		assertEquals("Contatos [telefonePrincipal=47987654321, telefoneSecundario=47123456789, email=123@teste.com.br]", contatos.toString());
+		assertEquals("Contatos [telefonePrincipal=47987654321, telefoneSecundario=47123456789, email=123@teste.com.br]",
+				contatos.toString());
 	}
 
 }

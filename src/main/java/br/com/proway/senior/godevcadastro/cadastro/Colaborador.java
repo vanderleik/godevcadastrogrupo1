@@ -1,70 +1,70 @@
 package br.com.proway.senior.godevcadastro.cadastro;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Colaborador extends Pessoa {
-	
+
 	/**
 	 * Classe Colaborador
 	 * 
-	 * A classe Colaborador extende da classe mãe Pessoa e estancia as
-	 * classes Documentos, Enderecos, Contatos e ExameMedico para
-	 * concluir o cadastro do colaborador.
+	 * A classe Colaborador extende da classe mãe Pessoa e estancia as classes
+	 * Documentos, Enderecos, Contatos e ExameMedico para concluir o cadastro do
+	 * colaborador.
 	 */
 
 	/**
 	 * Atributos da Classe colaborador
 	 * 
-	 * @param String nome
-	 * @param String sobrenome
-	 * @param Date dataDeNascimento
-	 * @param String genero
-	 * @param char sexo
-	 * @param String nomeDaMae
-	 * @param Long cpf
-	 * @param String nacionalidade
-	 * @param Long idColaborador
-	 * @param Integer numCargo
-	 * @param Integer nit
-	 * @param boolean optanteVT
-	 * @param boolean optanteVAVR
-	 * @param Date dataAdmissao
-	 * @param String nacionalidade
-	 * @param String nacionalidade
-	 * @param boolean optanteDependente
-	 * @param Documentos documentos Instância da classe Documentos
-	 * para setar dados de RG, título, reservista, NIT, entre outros.
-	 * @param Endereco endereco Instância da classe Endereco para
-	 * setar dados de residência do colaborador: logradouro, número,
-	 * bairro, entre outros.
-	 * @param Contatos contatos Instância da classe Contatos para
-	 * setar dados de telefone e e-mail do colaborador.
-	 * @param ExameMedico exameMedico Instância da Classe ExameMedico
-	 * para setar dados dos exames do colaborador: admissional, demissional
-	 * e periódico.	 * 
+	 * @param String      nome
+	 * @param String      sobrenome
+	 * @param Date        dataDeNascimento
+	 * @param String      genero
+	 * @param char        sexo
+	 * @param String      nomeDaMae
+	 * @param Long        cpf
+	 * @param String      nacionalidade
+	 * @param Long        idColaborador
+	 * @param Integer     numCargo
+	 * @param Integer     nit
+	 * @param boolean     optanteVT
+	 * @param boolean     optanteVAVR
+	 * @param Date        dataAdmissao
+	 * @param String      nacionalidade
+	 * @param String      nacionalidade
+	 * @param boolean     optanteDependente
+	 * @param Documentos  documentos Instância da classe Documentos para setar dados
+	 *                    de RG, título, reservista, NIT, entre outros.
+	 * @param Endereco    endereco Instância da classe Endereco para setar dados de
+	 *                    residência do colaborador: logradouro, número, bairro,
+	 *                    entre outros.
+	 * @param Contatos    contatos Instância da classe Contatos para setar dados de
+	 *                    telefone e e-mail do colaborador.
+	 * @param ExameMedico exameMedico Instância da Classe ExameMedico para setar
+	 *                    dados dos exames do colaborador: admissional, demissional
+	 *                    e periódico. *
 	 */
-		
+
 	private Long idColaborador;
 	private Integer numCargo;
 	private Integer nit;
 	private boolean optanteVT;
 	private boolean optanteVAVR;
-	private Date dataAdmissao;
+	private LocalDate dataAdmissao;
 	private String nacionalidade;
 	private boolean optanteDependente;
 	private Documentos documentos;
 	private Endereco endereco;
 	private Contatos contatos;
 	private ExameMedico exameMedico;
-		
-	
+
 	// Construtores classe mãe
-	public Colaborador(String nome, String sobrenome, Date dataDeNascimento, String genero, char sexo, String nomeDaMae,
-			String cpf, String nacionalidade) {
+	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, char sexo,
+			String nomeDaMae, String cpf, String nacionalidade) {
 		super(nome, sobrenome, dataDeNascimento, genero, sexo, nomeDaMae, cpf, nacionalidade);
 	}
 
-	public Colaborador(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero,
+	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 	}
@@ -109,11 +109,11 @@ public class Colaborador extends Pessoa {
 		this.optanteVAVR = optanteVAVR;
 	}
 
-	public Date getDataAdmissao() {
+	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
 
-	public void setDataAdmissao(Date dataAdmissao) {
+	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
 
@@ -165,11 +165,9 @@ public class Colaborador extends Pessoa {
 		this.exameMedico = exameMedico;
 	}
 
-	
 	/**
-	 * Construtor com todos os campos setados para preenchimento.
-	 * Utilizado quando possuírem todos os dados do colaborador 
-	 * no momento do cadastro.
+	 * Construtor com todos os campos setados para preenchimento. Utilizado quando
+	 * possuírem todos os dados do colaborador no momento do cadastro.
 	 * 
 	 * @param nome
 	 * @param sobrenome
@@ -194,9 +192,9 @@ public class Colaborador extends Pessoa {
 	 * @param contatos
 	 * @param exameMedico
 	 */
-	public Colaborador(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero,
+	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd, Long idColaborador,
-			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, Date dataAdmissao,
+			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, LocalDate dataAdmissao,
 			String nacionalidade2, boolean optanteDependente, Documentos documentos, Endereco endereco,
 			Contatos contatos, ExameMedico exameMedico) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
@@ -214,13 +212,9 @@ public class Colaborador extends Pessoa {
 		this.exameMedico = exameMedico;
 	}
 
-	
-	
-	
 	/**
-	 * Construtor não recebe a informação de PCD, considerada 
-	 * false por padrão. Demais dados são necessários para
-	 * cadastro do colaborador.
+	 * Construtor não recebe a informação de PCD, considerada false por padrão.
+	 * Demais dados são necessários para cadastro do colaborador.
 	 * 
 	 * @param nome
 	 * @param sobrenome
@@ -245,12 +239,13 @@ public class Colaborador extends Pessoa {
 	 * @param contatos
 	 * @param exameMedico
 	 */
-	public Colaborador(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero,
-			char sexo, String nomeDaMae, String cpf, String nacionalidade, Long idColaborador,
-			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, Date dataAdmissao,
-			String nacionalidade2, boolean optanteDependente, Documentos documentos, Endereco endereco,
-			Contatos contatos, ExameMedico exameMedico) {
-		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, optanteDependente);
+	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
+			char sexo, String nomeDaMae, String cpf, String nacionalidade, Long idColaborador, Integer numCargo,
+			Integer nit, boolean optanteVT, boolean optanteVAVR, LocalDate dataAdmissao, String nacionalidade2,
+			boolean optanteDependente, Documentos documentos, Endereco endereco, Contatos contatos,
+			ExameMedico exameMedico) {
+		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade,
+				optanteDependente);
 		this.idColaborador = idColaborador;
 		this.numCargo = numCargo;
 		this.nit = nit;
@@ -272,6 +267,6 @@ public class Colaborador extends Pessoa {
 				+ ", nacionalidade=" + nacionalidade + ", optanteDependente=" + optanteDependente + ", documentos="
 				+ documentos + ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico=" + exameMedico
 				+ "]";
-	}	
+	}
 
 }
