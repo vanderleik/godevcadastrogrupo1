@@ -1,5 +1,6 @@
 package br.com.proway.senior.godevcadastro.cadastro;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ExameMedico {
@@ -18,28 +19,38 @@ public class ExameMedico {
 	 * @param private boolean apto
 	 */
 	TiposExame tipoExame;
-	private Date dataExame;
+	private LocalDate dataExame;
 	private boolean apto;
 	
 	int escolha;
 	
-	public String testeTipo(int tipo) {
-		String resultado = null;
+	/**
+	 * Selecionar o tipo de exame.
+	 * 
+	 * O método realiza o check do tipo do exame a partir
+	 * do seu ID (de 0 à 2) para retornar o nome do referido
+	 * exame.
+	 * 
+	 * @param int tipo Valor númerico que representa o exame. 
+	 * @return resultado
+	 */
+	public String selecionarTipoExame(int tipo) {
+		String resultadoExame = null;
 		switch (tipo) {
 			case 0: 
-			resultado = tipoExame.EXAME_ADMISSIONAL.toString();
+			resultadoExame = tipoExame.EXAME_ADMISSIONAL.toString();
 			break;
 			case 1:
-			resultado = tipoExame.EXAME_PERIODICO.toString();
+			resultadoExame = tipoExame.EXAME_PERIODICO.toString();
 			break;
 			case 2:
-			resultado = tipoExame.EXAME_DEMISSIONAL.toString();
+			resultadoExame = tipoExame.EXAME_DEMISSIONAL.toString();
 			break;
 			default:
 			System.out.println("Insira uma opção válida.");			
 		}
 		
-		return resultado;
+		return resultadoExame;
 	}	
 	
 	public TiposExame getTipoExame() {
@@ -48,10 +59,10 @@ public class ExameMedico {
 	public void setTipoExame(TiposExame tipoExame) {
 		this.tipoExame = tipoExame;
 	}
-	public Date getDataExame() {
+	public LocalDate getDataExame() {
 		return dataExame;
 	}
-	public void setDataExame(Date dataExame) {
+	public void setDataExame(LocalDate dataExame) {
 		this.dataExame = dataExame;
 	}
 	public boolean isApto() {
@@ -65,13 +76,27 @@ public class ExameMedico {
 	public ExameMedico() {
 		
 	}
-
-	public ExameMedico(TiposExame tipoExame, Date dataExame, boolean apto) {
+	
+	/**
+	 * Construtor para o cadastro do exame.
+	 * Recebe os dados referente ao tipo do exame, a data de 
+	 * realização e o resultado.
+	 * @param tipoExame Tipo do exame conoforme parâmetros: EXAME_ADMISSIONAL (0), 
+	 * EXAME_PERIODICO (1), EXAME_DEMISSIONAL (2).
+	 * @param LocalDate dataExame Data d realização do exame.
+	 * @param boolean apto Para a definição se apto (true) ou inapto (falso).
+	 */
+	public ExameMedico(TiposExame tipoExame, LocalDate dataExame, boolean apto) {
 		this.tipoExame = tipoExame;
 		this.dataExame = dataExame;
 		this.apto = apto;
 	}
 	
 	
+	public ExameMedico (int tipoExame, String descricaoExame,
+	LocalDate dataExame, boolean apto) { ExameMedico exameMedico = null;
+	descricaoExame = exameMedico.selecionarTipoExame(tipoExame); this.dataExame =
+	dataExame; this.apto = apto; }
+	 
 	
 }

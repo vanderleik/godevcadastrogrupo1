@@ -22,7 +22,7 @@ public class Endereco {
 	 * @param pais Pais do endereço.
 	 */
 	private String logradouro;
-	private int numero;
+	private Integer numero;
 	private String bairro;
 	private String cidade;
 	private String uf;
@@ -68,11 +68,11 @@ public class Endereco {
 		this.logradouro = logradouro;
 	}
 
-	public int getNumero() {
+	public Integer getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 
