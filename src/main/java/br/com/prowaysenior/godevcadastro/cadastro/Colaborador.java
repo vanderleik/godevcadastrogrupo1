@@ -1,4 +1,4 @@
-package br.com.proway.senior.cadastro;
+package br.com.prowaysenior.godevcadastro.cadastro;
 
 import java.util.Date;
 
@@ -32,11 +32,16 @@ public class Colaborador extends Pessoa {
 	 * @param String nacionalidade
 	 * @param String nacionalidade
 	 * @param boolean optanteDependente
-	 * @param Documentos documentos
-	 * @param Enderecos endereco
-	 * @param Contatos contatos
-	 * @param ExameMedico exameMedico
-	 * 
+	 * @param Documentos documentos Instância da classe Documentos
+	 * para setar dados de RG, título, reservista, NIT, entre outros.
+	 * @param Endereco endereco Instância da classe Endereco para
+	 * setar dados de residência do colaborador: logradouro, número,
+	 * bairro, entre outros.
+	 * @param Contatos contatos Instância da classe Contatos para
+	 * setar dados de telefone e e-mail do colaborador.
+	 * @param ExameMedico exameMedico Instância da Classe ExameMedico
+	 * para setar dados dos exames do colaborador: admissional, demissional
+	 * e periódico.	 * 
 	 */
 		
 	private Long idColaborador;
@@ -47,9 +52,9 @@ public class Colaborador extends Pessoa {
 	private Date dataAdmissao;
 	private String nacionalidade;
 	private boolean optanteDependente;
-	//private Documentos documentos;
-	//private Enderecos endereco;
-	//private Contatos contatos;
+	private Documentos documentos;
+	private Endereco endereco;
+	private Contatos contatos;
 	private ExameMedico exameMedico;
 		
 	
@@ -63,8 +68,210 @@ public class Colaborador extends Pessoa {
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 	}
+
+	public Long getIdColaborador() {
+		return idColaborador;
+	}
+
+	public void setIdColaborador(Long idColaborador) {
+		this.idColaborador = idColaborador;
+	}
+
+	public Integer getNumCargo() {
+		return numCargo;
+	}
+
+	public void setNumCargo(Integer numCargo) {
+		this.numCargo = numCargo;
+	}
+
+	public Integer getNit() {
+		return nit;
+	}
+
+	public void setNit(Integer nit) {
+		this.nit = nit;
+	}
+
+	public boolean isOptanteVT() {
+		return optanteVT;
+	}
+
+	public void setOptanteVT(boolean optanteVT) {
+		this.optanteVT = optanteVT;
+	}
+
+	public boolean isOptanteVAVR() {
+		return optanteVAVR;
+	}
+
+	public void setOptanteVAVR(boolean optanteVAVR) {
+		this.optanteVAVR = optanteVAVR;
+	}
+
+	public Date getDataAdmissao() {
+		return dataAdmissao;
+	}
+
+	public void setDataAdmissao(Date dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
+	}
+
+	public String getNacionalidade() {
+		return nacionalidade;
+	}
+
+	public void setNacionalidade(String nacionalidade) {
+		this.nacionalidade = nacionalidade;
+	}
+
+	public boolean isOptanteDependente() {
+		return optanteDependente;
+	}
+
+	public void setOptanteDependente(boolean optanteDependente) {
+		this.optanteDependente = optanteDependente;
+	}
+
+	public Documentos getDocumentos() {
+		return documentos;
+	}
+
+	public void setDocumentos(Documentos documentos) {
+		this.documentos = documentos;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public Contatos getContatos() {
+		return contatos;
+	}
+
+	public void setContatos(Contatos contatos) {
+		this.contatos = contatos;
+	}
+
+	public ExameMedico getExameMedico() {
+		return exameMedico;
+	}
+
+	public void setExameMedico(ExameMedico exameMedico) {
+		this.exameMedico = exameMedico;
+	}
+
+	
+	/**
+	 * Construtor com todos os campos setados para preenchimento.
+	 * Utilizado quando possuírem todos os dados do colaborador 
+	 * no momento do cadastro.
+	 * 
+	 * @param nome
+	 * @param sobrenome
+	 * @param dataDeNascimento
+	 * @param nomeSocial
+	 * @param genero
+	 * @param sexo
+	 * @param nomeDaMae
+	 * @param cpf
+	 * @param nacionalidade
+	 * @param pcd
+	 * @param idColaborador
+	 * @param numCargo
+	 * @param nit
+	 * @param optanteVT
+	 * @param optanteVAVR
+	 * @param dataAdmissao
+	 * @param nacionalidade2
+	 * @param optanteDependente
+	 * @param documentos
+	 * @param endereco
+	 * @param contatos
+	 * @param exameMedico
+	 */
+	public Colaborador(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero,
+			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd, Long idColaborador,
+			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, Date dataAdmissao,
+			String nacionalidade2, boolean optanteDependente, Documentos documentos, Endereco endereco,
+			Contatos contatos, ExameMedico exameMedico) {
+		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
+		this.idColaborador = idColaborador;
+		this.numCargo = numCargo;
+		this.nit = nit;
+		this.optanteVT = optanteVT;
+		this.optanteVAVR = optanteVAVR;
+		this.dataAdmissao = dataAdmissao;
+		nacionalidade = nacionalidade2;
+		this.optanteDependente = optanteDependente;
+		this.documentos = documentos;
+		this.endereco = endereco;
+		this.contatos = contatos;
+		this.exameMedico = exameMedico;
+	}
+
 	
 	
 	
+	/**
+	 * Construtor não recebe a informação de PCD, considerada 
+	 * false por padrão. Demais dados são necessários para
+	 * cadastro do colaborador.
+	 * 
+	 * @param nome
+	 * @param sobrenome
+	 * @param dataDeNascimento
+	 * @param nomeSocial
+	 * @param genero
+	 * @param sexo
+	 * @param nomeDaMae
+	 * @param cpf
+	 * @param nacionalidade
+	 * @param pcd
+	 * @param idColaborador
+	 * @param numCargo
+	 * @param nit
+	 * @param optanteVT
+	 * @param optanteVAVR
+	 * @param dataAdmissao
+	 * @param nacionalidade2
+	 * @param optanteDependente
+	 * @param documentos
+	 * @param endereco
+	 * @param contatos
+	 * @param exameMedico
+	 */
+	public Colaborador(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero,
+			char sexo, String nomeDaMae, String cpf, String nacionalidade, Long idColaborador,
+			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, Date dataAdmissao,
+			String nacionalidade2, boolean optanteDependente, Documentos documentos, Endereco endereco,
+			Contatos contatos, ExameMedico exameMedico) {
+		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, optanteDependente);
+		this.idColaborador = idColaborador;
+		this.numCargo = numCargo;
+		this.nit = nit;
+		this.optanteVT = optanteVT;
+		this.optanteVAVR = optanteVAVR;
+		this.dataAdmissao = dataAdmissao;
+		nacionalidade = nacionalidade2;
+		this.optanteDependente = optanteDependente;
+		this.documentos = documentos;
+		this.endereco = endereco;
+		this.contatos = contatos;
+		this.exameMedico = exameMedico;
+	}
+
+	@Override
+	public String toString() {
+		return "Colaborador [idColaborador=" + idColaborador + ", numCargo=" + numCargo + ", nit=" + nit
+				+ ", optanteVT=" + optanteVT + ", optanteVAVR=" + optanteVAVR + ", dataAdmissao=" + dataAdmissao
+				+ ", nacionalidade=" + nacionalidade + ", optanteDependente=" + optanteDependente + ", documentos="
+				+ documentos + ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico=" + exameMedico
+				+ "]";
+	}	
 
 }

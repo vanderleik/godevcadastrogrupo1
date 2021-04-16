@@ -1,4 +1,4 @@
-package br.com.proway.senior.cadastro;
+package br.com.prowaysenior.godevcadastro.cadastro;
 
 import java.util.Date;
 

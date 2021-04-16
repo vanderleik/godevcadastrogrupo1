@@ -1,4 +1,4 @@
-package br.com.proway.senior.cadastro;
+package br.com.prowaysenior.godevcadastro.cadastro;
 
 /**
  * Classe que engloba e abstrai as informações de endereco de um Colaborador/Empresa
@@ -9,19 +9,8 @@ package br.com.proway.senior.cadastro;
  */
 public class Endereco {
 
-	private String logradouro;
-	private int numero;
-	private String bairro;
-	private String cidade;
-	private String uf;
-	private String complemento;
-	private String cep;
-	private String pais;
-	
-	
 	/**
-	 * Construtor Endereço
-	 * 
+	 * Atributos da classe
 	 * 
 	 * @param logradouro Ruas, avenidas, praças, viadutos.
 	 * @param numero Número do endereço.
@@ -32,6 +21,17 @@ public class Endereco {
 	 * @param cep  Código de Endereçamento Postal do endereço.
 	 * @param pais Pais do endereço.
 	 */
+	private String logradouro;
+	private int numero;
+	private String bairro;
+	private String cidade;
+	private String uf;
+	private String complemento;
+	private String cep;
+	private String pais;
+	
+	
+	
 	public Endereco(String logradouro, int numero, String bairro, String cidade, String uf, String complemento,
 			String cep, String pais) {
 		super();
@@ -45,17 +45,6 @@ public class Endereco {
 		this.pais = pais;
 	}
 	
-	/**
-	 * Construtor Endereço
-	 * 
-	 * @param logradouro Ruas, avenidas, praças, viadutos.
-	 * @param numero Número do endereço.
-	 * @param bairro Bairro do endereço.
-	 * @param cidade Cidade do endereço.
-	 * @param uf Estado do endereço. Deve-sepreencher a sigla do Estado.
-	 * @param cep  Código de Endereçamento Postal do endereço.
-	 * @param pais Pais do endereço.
-	 */
 	public Endereco(String logradouro, int numero, String bairro, String cidade, String uf, String cep, String pais) {
 		super();
 		this.logradouro = logradouro;
