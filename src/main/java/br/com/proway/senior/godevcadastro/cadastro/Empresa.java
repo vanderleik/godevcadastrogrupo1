@@ -26,13 +26,14 @@ public class Empresa {
 	 * @param dataInicioContrato Data do início do contrato (DD/MM/YYYY).
 	 * @param cnpj Cnpj da Empresa
 	 */
-	public Empresa(long empresaId, String nomeEmpresa, LocalDate dataInicioContrato, String cnpj, Endereco endereco) {
+	public Empresa(long empresaId, String nomeEmpresa, LocalDate dataInicioContrato, String cnpj, Endereco endereco, Contatos contato) {
 		super();
 		this.empresaId = empresaId;
 		this.nomeEmpresa = nomeEmpresa;
 		this.dataInicioContrato = dataInicioContrato;
 		this.cnpj = cnpj;
 		this.endereco = endereco;
+		this.contato = contato;
 	}
 	
 	public Empresa() {
@@ -70,11 +71,21 @@ public class Empresa {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	
+	public Contatos getContato() {
+		return contato;
+	}
+	
+	public void setContato(Contatos contato) {
+		this.contato = contato;
+	}
+	
+	private Contatos contato;
 
 	@Override
 	public String toString() {
 		return "Empresa [empresaId=" + empresaId + ", nomeEmpresa=" + nomeEmpresa + ", dataInicioContrato="
-				+ dataInicioContrato + ", cnpj=" + cnpj + ", endereco=" + endereco + "]";
+				+ dataInicioContrato + ", cnpj=" + cnpj + ", endereco=" + endereco + ", contato= " + contato + "]";
 	}
 	
 
