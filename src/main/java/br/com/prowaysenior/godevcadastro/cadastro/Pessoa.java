@@ -1,4 +1,4 @@
-package br.com.prowaysenior.godevcadastro.cadastro;
+package br.com.proway.senior.cadastro;
 
 import java.util.Date;
 
@@ -39,6 +39,9 @@ public class Pessoa {
 		this.nomeDaMae = nomeDaMae;
 		this.cpf = cpf;
 		this.nacionalidade = nacionalidade;
+	}
+
+	public Pessoa() {
 	}
 
 	public String getNome() {
