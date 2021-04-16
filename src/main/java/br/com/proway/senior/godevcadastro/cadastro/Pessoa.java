@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * 
  * É herdada por Colaborador, PrestadorServico e Dependente.
  * 
- * @author Vitor Nathan Gonçalves
+ * @author Sarah Neuburger, Samuel Levi, Lorran Pereira, Thiago Luiz e Vitor Gonçalves
  *
  */
 public class Pessoa {
