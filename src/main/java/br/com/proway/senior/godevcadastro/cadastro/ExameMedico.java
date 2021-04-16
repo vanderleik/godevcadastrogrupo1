@@ -1,6 +1,6 @@
 package br.com.proway.senior.godevcadastro.cadastro;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class ExameMedico {
 	
@@ -18,7 +18,7 @@ public class ExameMedico {
 	 * @param private boolean apto
 	 */
 	TiposExame tipoExame;
-	private Date dataExame;
+	private LocalDate dataExame;
 	private boolean apto;
 	
 	int escolha;
@@ -48,10 +48,10 @@ public class ExameMedico {
 	public void setTipoExame(TiposExame tipoExame) {
 		this.tipoExame = tipoExame;
 	}
-	public Date getDataExame() {
+	public LocalDate getDataExame() {
 		return dataExame;
 	}
-	public void setDataExame(Date dataExame) {
+	public void setDataExame(LocalDate dataExame) {
 		this.dataExame = dataExame;
 	}
 	public boolean isApto() {
@@ -66,7 +66,7 @@ public class ExameMedico {
 		
 	}
 
-	public ExameMedico(TiposExame tipoExame, Date dataExame, boolean apto) {
+	public ExameMedico(TiposExame tipoExame, LocalDate dataExame, boolean apto) {
 		this.tipoExame = tipoExame;
 		this.dataExame = dataExame;
 		this.apto = apto;

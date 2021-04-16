@@ -1,5 +1,6 @@
 package br.com.proway.senior.godevcadastro.cadastro;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Colaborador extends Pessoa {
@@ -49,7 +50,7 @@ public class Colaborador extends Pessoa {
 	private Integer nit;
 	private boolean optanteVT;
 	private boolean optanteVAVR;
-	private Date dataAdmissao;
+	private LocalDate dataAdmissao;
 	private String nacionalidade;
 	private boolean optanteDependente;
 	private Documentos documentos;
@@ -59,12 +60,12 @@ public class Colaborador extends Pessoa {
 		
 	
 	// Construtores classe mãe
-	public Colaborador(String nome, String sobrenome, Date dataDeNascimento, String genero, char sexo, String nomeDaMae,
+	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, char sexo, String nomeDaMae,
 			String cpf, String nacionalidade) {
 		super(nome, sobrenome, dataDeNascimento, genero, sexo, nomeDaMae, cpf, nacionalidade);
 	}
 
-	public Colaborador(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero,
+	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 	}
@@ -109,11 +110,11 @@ public class Colaborador extends Pessoa {
 		this.optanteVAVR = optanteVAVR;
 	}
 
-	public Date getDataAdmissao() {
+	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
 
-	public void setDataAdmissao(Date dataAdmissao) {
+	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
 
@@ -194,9 +195,9 @@ public class Colaborador extends Pessoa {
 	 * @param contatos
 	 * @param exameMedico
 	 */
-	public Colaborador(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero,
+	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd, Long idColaborador,
-			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, Date dataAdmissao,
+			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, LocalDate dataAdmissao,
 			String nacionalidade2, boolean optanteDependente, Documentos documentos, Endereco endereco,
 			Contatos contatos, ExameMedico exameMedico) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
@@ -245,9 +246,9 @@ public class Colaborador extends Pessoa {
 	 * @param contatos
 	 * @param exameMedico
 	 */
-	public Colaborador(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero,
+	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, Long idColaborador,
-			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, Date dataAdmissao,
+			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, LocalDate dataAdmissao,
 			String nacionalidade2, boolean optanteDependente, Documentos documentos, Endereco endereco,
 			Contatos contatos, ExameMedico exameMedico) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, optanteDependente);

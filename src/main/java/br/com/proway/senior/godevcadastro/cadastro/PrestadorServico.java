@@ -1,6 +1,6 @@
 package br.com.proway.senior.godevcadastro.cadastro;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Classe que abstrai as informações do prestador de serviço contratado.
@@ -20,7 +20,7 @@ public class PrestadorServico extends Pessoa {
 	/**
 	 * Data de início da validade do contrato com o prestador de serviço
 	 */
-	private Date dataInicioContrato;
+	private LocalDate dataInicioContrato;
 	
 	/**
 	 * ID da empresa na qual o prestador de serviço trabalha
@@ -58,9 +58,9 @@ public class PrestadorServico extends Pessoa {
 	 * @param idSetor
 	 * @param contatos
 	 */
-	public PrestadorServico(String nome, String sobrenome, Date dataDeNascimento, String nomeSocial, String genero,
+	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd, long idPrestadorServico,
-			Date dataInicioContrato, long idEmpresa, long idSetor, Contatos contatos) {
+			LocalDate dataInicioContrato, long idEmpresa, long idSetor, Contatos contatos) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 		this.idPrestadorServico = idPrestadorServico;
 		this.dataInicioContrato = dataInicioContrato;
@@ -87,9 +87,9 @@ public class PrestadorServico extends Pessoa {
 	 * @param idSetor
 	 * @param contatos
 	 */
-	public PrestadorServico(String nome, String sobrenome, Date dataDeNascimento, String genero,
+	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String genero,
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, long idPrestadorServico,
-			Date dataInicioContrato, long idEmpresa, long idSetor, Contatos contatos) {
+			LocalDate dataInicioContrato, long idEmpresa, long idSetor, Contatos contatos) {
 		super(nome, sobrenome, dataDeNascimento, genero, sexo, nomeDaMae, cpf, nacionalidade);
 		this.idPrestadorServico = idPrestadorServico;
 		this.dataInicioContrato = dataInicioContrato;
@@ -106,11 +106,11 @@ public class PrestadorServico extends Pessoa {
 		this.idPrestadorServico = idPrestadorServico;
 	}
 
-	public Date getDataInicioContrato() {
+	public LocalDate getDataInicioContrato() {
 		return dataInicioContrato;
 	}
 
-	public void setDataInicioContrato(Date dataInicioContrato) {
+	public void setDataInicioContrato(LocalDate dataInicioContrato) {
 		this.dataInicioContrato = dataInicioContrato;
 	}
 

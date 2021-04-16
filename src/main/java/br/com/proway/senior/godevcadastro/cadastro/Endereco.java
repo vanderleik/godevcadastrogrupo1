@@ -31,7 +31,18 @@ public class Endereco {
 	private String pais;
 	
 	
-	
+	/**
+	 * Construtor de Endereço com todos os atributos
+	 * 
+	 * @param logradouro
+	 * @param numero
+	 * @param bairro
+	 * @param cidade
+	 * @param uf
+	 * @param complemento
+	 * @param cep
+	 * @param pais
+	 */
 	public Endereco(String logradouro, int numero, String bairro, String cidade, String uf, String complemento,
 			String cep, String pais) {
 		super();
@@ -45,6 +56,18 @@ public class Endereco {
 		this.pais = pais;
 	}
 	
+	/**
+	 * Construtor de Endereco
+	 * Não inclui o complemento.
+	 * 
+	 * @param logradouro
+	 * @param numero
+	 * @param bairro
+	 * @param cidade
+	 * @param uf
+	 * @param cep
+	 * @param pais
+	 */
 	public Endereco(String logradouro, int numero, String bairro, String cidade, String uf, String cep, String pais) {
 		super();
 		this.logradouro = logradouro;
@@ -129,4 +152,5 @@ public class Endereco {
 		return "Endereco [logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade
 				+ ", uf=" + uf + ", complemento=" + complemento + ", cep=" + cep + ", pais=" + pais + "]";
 	}
+
 }

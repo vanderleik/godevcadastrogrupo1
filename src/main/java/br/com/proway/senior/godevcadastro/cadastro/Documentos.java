@@ -1,6 +1,6 @@
 package br.com.proway.senior.godevcadastro.cadastro;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Classe que engloba e abstrai os documentos necessários para o Colaborador.
@@ -25,7 +25,7 @@ public class Documentos {
 	/**
 	 * Data de emissão da carteira de trabalho
 	 */
-	private Date dataEmissaoCTPS;
+	private LocalDate dataEmissaoCTPS;
 	
 	/**
 	 * Nome do banco para pagamento do salário do colaborador
@@ -75,7 +75,7 @@ public class Documentos {
 	/**
 	 * Data de emissão do RG da pessoa
 	 */
-	private Date dataEmissaoRG;
+	private LocalDate dataEmissaoRG;
 
 	/**
 	 * Construtor padrão da classe.
@@ -96,9 +96,9 @@ public class Documentos {
 	 * @param orgaoEmissorRG
 	 * @param dataEmissaoRG
 	 */
-	public Documentos(int ctpsNumero, int ctpsSerie, Date dataEmissao, String bancoNome, int bancoAgencia,
+	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissao, String bancoNome, int bancoAgencia,
 			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long raNumero, long rgNumero,
-			String orgaoEmissorRG, Date dataEmissaoRG) {
+			String orgaoEmissorRG, LocalDate dataEmissaoRG) {
 		this.ctpsNumero = ctpsNumero;
 		this.ctpsSerie = ctpsSerie;
 		this.dataEmissaoCTPS = dataEmissao;
@@ -133,9 +133,9 @@ public class Documentos {
 	 * @param orgaoEmissorRG
 	 * @param dataEmissaoRG
 	 */
-	public Documentos(int ctpsNumero, int ctpsSerie, Date dataEmissaoCTPS, String bancoNome, int bancoAgencia,
+	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissaoCTPS, String bancoNome, int bancoAgencia,
 			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long rgNumero,
-			String orgaoEmissorRG, Date dataEmissaoRG) {
+			String orgaoEmissorRG, LocalDate dataEmissaoRG) {
 		this.ctpsNumero = ctpsNumero;
 		this.ctpsSerie = ctpsSerie;
 		this.dataEmissaoCTPS = dataEmissaoCTPS;
@@ -167,11 +167,11 @@ public class Documentos {
 		this.ctpsSerie = ctpsSerie;
 	}
 
-	public Date getDataEmissaoCTPS() {
+	public LocalDate getDataEmissaoCTPS() {
 		return dataEmissaoCTPS;
 	}
 
-	public void setDataEmissao(Date dataEmissao) {
+	public void setDataEmissao(LocalDate dataEmissao) {
 		this.dataEmissaoCTPS = dataEmissao;
 	}
 
@@ -247,11 +247,11 @@ public class Documentos {
 		this.orgaoEmissorRG = orgaoEmissorRG;
 	}
 
-	public Date getDataEmissaoRG() {
+	public LocalDate getDataEmissaoRG() {
 		return dataEmissaoRG;
 	}
 
-	public void setDataEmissaoRG(Date dataEmissaoRG) {
+	public void setDataEmissaoRG(LocalDate dataEmissaoRG) {
 		this.dataEmissaoRG = dataEmissaoRG;
 	}
 }
