@@ -6,7 +6,7 @@ import java.util.Date;
 public class Colaborador extends Pessoa {
 	
 	/**
-	 * Classe Colaborador
+	 * Classe Colaborador.
 	 * 
 	 * A classe Colaborador extende da classe mãe Pessoa e estancia as
 	 * classes Documentos, Enderecos, Contatos e ExameMedico para
