@@ -1,6 +1,7 @@
 package br.com.proway.senior.godevcadastro.cadastro;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * Classe que abstrai as informações do prestador de serviço contratado.

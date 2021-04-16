@@ -1,7 +1,18 @@
 package br.com.proway.senior.godevcadastro.cadastro;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 
+
+/**
+ * Classe pessoa, abstrai os atributos de uma pessoa.
+ * 
+ * É herdada por Colaborador, PrestadorServico e Dependente.
+ * 
+ * @author Sarah Neuburger, Samuel Levi, Lorran Pereira, Thiago Luiz e Vitor Gonçalves
+ *
+ */
 public class Pessoa {
 
 	private String nome;
@@ -15,8 +26,24 @@ public class Pessoa {
 	private String nacionalidade;
 	private boolean pcd = false;
 
-	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero, char sexo,
-			String nomeDaMae, String cpf, String nacionalidade, boolean pcd) {
+
+	/**
+	 * Construtor principal para a classe Pessoa.
+	 * 
+	 * Inclui os atributos pcd e nomeSocial
+	 * @param nome
+	 * @param sobrenome
+	 * @param dataDeNascimento
+	 * @param nomeSocial
+	 * @param genero
+	 * @param sexo
+	 * @param nomeDaMae
+	 * @param cpf
+	 * @param nacionalidade
+	 * @param pcd
+	 */
+	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
+			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.dataDeNascimento = dataDeNascimento;
@@ -29,6 +56,20 @@ public class Pessoa {
 		this.pcd = pcd;
 	}
 
+	
+	/**
+	 * Construtor secundário da classe Pessoa.
+	 * 
+	 * NÃO inclui os atributos pcd e nomeSocial.
+	 * @param nome
+	 * @param sobrenome
+	 * @param dataDeNascimento
+	 * @param genero
+	 * @param sexo
+	 * @param nomeDaMae
+	 * @param cpf
+	 * @param nacionalidade
+	 */
 	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, char sexo, String nomeDaMae,
 			String cpf, String nacionalidade) {
 		this.nome = nome;
@@ -127,5 +168,5 @@ public class Pessoa {
 				+ ", nomeSocial=" + nomeSocial + ", genero=" + genero + ", sexo=" + sexo + ", nomeDaMae=" + nomeDaMae
 				+ ", cpf=" + cpf + ", nacionalidade=" + nacionalidade + ", pcd=" + pcd + "]";
 	}
-	
+
 }
