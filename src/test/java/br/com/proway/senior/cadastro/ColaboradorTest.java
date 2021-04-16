@@ -70,5 +70,4 @@ public class ColaboradorTest {
 		assertEquals(LocalDate.of(2021, 05, 15), colab.getExameMedico().getDataExame());
 		
 	}
-
 }

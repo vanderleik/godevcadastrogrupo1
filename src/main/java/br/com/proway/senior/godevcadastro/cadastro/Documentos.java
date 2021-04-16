@@ -172,8 +172,9 @@ public class Documentos {
 		return dataEmissaoCTPS;
 	}
 
-	public void setDataEmissao(LocalDate dataEmissao) {
-		this.dataEmissaoCTPS = dataEmissao;
+
+	public void setDataEmissaoCTPS(LocalDate dataEmissaoCTPS) {
+		this.dataEmissaoCTPS = dataEmissaoCTPS;
 	}
 
 	public String getBancoNome() {

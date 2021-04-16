@@ -4,13 +4,13 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Colaborador extends Pessoa {
-	
+
 	/**
 	 * Classe Colaborador
 	 * 
-	 * A classe Colaborador extende da classe mãe Pessoa e estancia as
-	 * classes Documentos, Enderecos, Contatos e ExameMedico para
-	 * concluir o cadastro do colaborador.
+	 * A classe Colaborador extende da classe mãe Pessoa e estancia as classes
+	 * Documentos, Enderecos, Contatos e ExameMedico para concluir o cadastro do
+	 * colaborador.
 	 */
 
 	/**
@@ -54,11 +54,12 @@ public class Colaborador extends Pessoa {
 	private Endereco endereco;
 	private Contatos contatos;
 	private ExameMedico exameMedico;
-		
-	
+
 	// Construtores classe mãe
+
 	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, char sexo, String nomeDaMae,
 			String cpf, String nacionalidade) {
+
 		super(nome, sobrenome, dataDeNascimento, genero, sexo, nomeDaMae, cpf, nacionalidade);
 	}
 
@@ -155,11 +156,9 @@ public class Colaborador extends Pessoa {
 		this.exameMedico = exameMedico;
 	}
 
-	
 	/**
-	 * Construtor com todos os campos setados para preenchimento.
-	 * Utilizado quando possuírem todos os dados do colaborador 
-	 * no momento do cadastro.
+	 * Construtor com todos os campos setados para preenchimento. Utilizado quando
+	 * possuírem todos os dados do colaborador no momento do cadastro.
 	 * 
 	 * @param nome
 	 * @param sobrenome
@@ -201,13 +200,9 @@ public class Colaborador extends Pessoa {
 		this.exameMedico = exameMedico;
 	}
 
-	
-	
-	
 	/**
-	 * Construtor não recebe a informação de PCD, considerada 
-	 * false por padrão. Demais dados são necessários para
-	 * cadastro do colaborador.
+	 * Construtor não recebe a informação de PCD, considerada false por padrão.
+	 * Demais dados são necessários para cadastro do colaborador.
 	 * 
 	 * @param nome
 	 * @param sobrenome
@@ -232,6 +227,7 @@ public class Colaborador extends Pessoa {
 	 * @param exameMedico
 	 */
 	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
+
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, Integer idColaborador,
 			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, LocalDate dataAdmissao,
 			boolean optanteDependente, Documentos documentos, Endereco endereco,
@@ -257,6 +253,6 @@ public class Colaborador extends Pessoa {
 				+ ", optanteDependente=" + optanteDependente + ", documentos="
 				+ documentos + ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico=" + exameMedico
 				+ "]";
-	}	
+	}
 
 }
