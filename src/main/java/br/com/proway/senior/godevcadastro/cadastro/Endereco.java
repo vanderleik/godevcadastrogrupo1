@@ -1,4 +1,4 @@
-package br.com.proway.senior.cadastro;
+package br.com.proway.senior.godevcadastro.cadastro;
 
 /**
  * Classe que engloba e abstrai as informações de endereco de um Colaborador/Empresa

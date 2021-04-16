@@ -1,4 +1,4 @@
-package br.com.proway.senior.cadastro;
+package br.com.proway.senior.godevcadastro.cadastro;
 
 public enum TiposExame {
 	

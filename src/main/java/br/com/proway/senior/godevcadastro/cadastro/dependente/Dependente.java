@@ -1,8 +1,8 @@
-package br.com.proway.senior.cadastro.dependente;
+package br.com.proway.senior.godevcadastro.cadastro.dependente;
 
 import java.util.Date;
 
-import br.com.proway.senior.cadastro.Pessoa;
+import br.com.proway.senior.godevcadastro.cadastro.Pessoa;
 
 /**
  * 

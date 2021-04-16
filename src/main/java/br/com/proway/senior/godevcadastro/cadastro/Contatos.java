@@ -1,4 +1,4 @@
-package br.com.proway.senior.cadastro;
+package br.com.proway.senior.godevcadastro.cadastro;
 
 /**
  * Armazena os contatos necessários de um colaborador, empresa ou prestador de serviço.
