@@ -3,6 +3,7 @@ package br.com.proway.senior.godevcadastro.cadastro;
 import java.time.LocalDate;
 import java.util.Date;
 
+
 public class ExameMedico {
 	
 	/**
@@ -76,7 +77,6 @@ public class ExameMedico {
 	public ExameMedico() {
 		
 	}
-	
 	/**
 	 * Construtor para o cadastro do exame.
 	 * Recebe os dados referente ao tipo do exame, a data de 

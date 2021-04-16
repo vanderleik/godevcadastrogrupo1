@@ -6,7 +6,7 @@ import java.util.Date;
 public class Colaborador extends Pessoa {
 
 	/**
-	 * Classe Colaborador
+	 * Classe Colaborador.
 	 * 
 	 * A classe Colaborador extende da classe mãe Pessoa e estancia as classes
 	 * Documentos, Enderecos, Contatos e ExameMedico para concluir o cadastro do
@@ -227,7 +227,6 @@ public class Colaborador extends Pessoa {
 	 * @param exameMedico
 	 */
 	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, Integer idColaborador,
 			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, LocalDate dataAdmissao,
 			boolean optanteDependente, Documentos documentos, Endereco endereco,

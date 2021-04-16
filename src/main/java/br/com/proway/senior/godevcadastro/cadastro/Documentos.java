@@ -1,7 +1,9 @@
 package br.com.proway.senior.godevcadastro.cadastro;
 
 import java.time.LocalDate;
+
 import java.util.Date;
+
 
 /**
  * Classe que engloba e abstrai os documentos necessários para o Colaborador.
@@ -171,7 +173,6 @@ public class Documentos {
 	public LocalDate getDataEmissaoCTPS() {
 		return dataEmissaoCTPS;
 	}
-
 
 	public void setDataEmissaoCTPS(LocalDate dataEmissaoCTPS) {
 		this.dataEmissaoCTPS = dataEmissaoCTPS;

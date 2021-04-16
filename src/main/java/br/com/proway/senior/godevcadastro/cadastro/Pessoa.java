@@ -26,6 +26,7 @@ public class Pessoa {
 	private String nacionalidade;
 	private boolean pcd = false;
 
+
 	/**
 	 * Construtor principal para a classe Pessoa.
 	 * 
@@ -43,7 +44,6 @@ public class Pessoa {
 	 */
 	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd) {
-
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.dataDeNascimento = dataDeNascimento;
@@ -55,7 +55,7 @@ public class Pessoa {
 		this.nacionalidade = nacionalidade;
 		this.pcd = pcd;
 	}
-	
+
 	
 	/**
 	 * Construtor secundário da classe Pessoa.
