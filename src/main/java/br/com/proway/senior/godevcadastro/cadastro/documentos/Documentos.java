@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import java.util.Date;
 
-
 /**
  * Classe que engloba e abstrai os documentos necessários para o Colaborador.
  * 
@@ -19,62 +18,62 @@ public class Documentos {
 	 * Número da carteira de trabalho do colaborador
 	 */
 	private int ctpsNumero;
-	
+
 	/**
 	 * Série da carteira de trabalho do colaborador
 	 */
 	private int ctpsSerie;
-	
+
 	/**
 	 * Data de emissão da carteira de trabalho
 	 */
 	private LocalDate dataEmissaoCTPS;
-	
+
 	/**
 	 * Nome do banco para pagamento do salário do colaborador
 	 */
 	private String bancoNome;
-	
+
 	/**
-	 * Número da agência do banco 
+	 * Número da agência do banco
 	 */
 	private int bancoAgencia;
-	
+
 	/**
 	 * Número da conta da pessoa
 	 */
 	private int bancoNumeroConta;
-	
+
 	/**
 	 * Número do título de eleitor da pessoa
 	 */
 	private long tituloNumero;
-	
+
 	/**
 	 * Número da zona eleitoral da pessoa
 	 */
 	private int tituloZona;
-	
+
 	/**
 	 * Número da seção eleitoral da pessoa
 	 */
 	private int tituloSecao;
-	
+
 	/**
 	 * Número do registro de alistamento da pessoa
 	 */
 	private long raNumero;
-	
+
 	/**
 	 * Número do RG da pessoa
 	 */
 	private long rgNumero;
-	
+
 	/**
 	 * Órgão emissor do RG da pessoa
 	 */
 	private String orgaoEmissorRG;
-	
+
 	/**
 	 * Data de emissão do RG da pessoa
 	 */
@@ -257,4 +256,14 @@ public class Documentos {
 	public void setDataEmissaoRG(LocalDate dataEmissaoRG) {
 		this.dataEmissaoRG = dataEmissaoRG;
 	}
+
+	@Override
+	public String toString() {
+		return "Documentos [ctpsNumero=" + ctpsNumero + ", ctpsSerie=" + ctpsSerie + ", dataEmissaoCTPS="
+				+ dataEmissaoCTPS + ", bancoNome=" + bancoNome + ", bancoAgencia=" + bancoAgencia
+				+ ", bancoNumeroConta=" + bancoNumeroConta + ", tituloNumero=" + tituloNumero + ", tituloZona="
+				+ tituloZona + ", tituloSecao=" + tituloSecao + ", raNumero=" + raNumero + ", rgNumero=" + rgNumero
+				+ ", orgaoEmissorRG=" + orgaoEmissorRG + ", dataEmissaoRG=" + dataEmissaoRG + "]";
+	}
+
 }
