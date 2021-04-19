@@ -19,7 +19,7 @@ public class Empresa {
 	private LocalDate dataInicioContrato;
 	private String cnpj;
 	private Endereco endereco;
-	
+	private Contatos contato;
 
 	/**
 	 * Construtor Empresa com todos os atributos.
@@ -83,8 +83,6 @@ public class Empresa {
 		this.contato = contato;
 	}
 	
-	private Contatos contato;
-
 	@Override
 	public String toString() {
 		return "Empresa [empresaId=" + empresaId + ", nomeEmpresa=" + nomeEmpresa + ", dataInicioContrato="
