@@ -47,7 +47,7 @@ public class Endereco {
 	 * @param cep
 	 * @param pais
 	 */
-	public Endereco(String logradouro, int numero, String bairro, Cidades cidade, UnidadesFederativas uf, String complemento,
+	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UnidadesFederativas uf, String complemento,
 			String cep, Paises pais) {
 		super();
 		this.logradouro = logradouro;
@@ -72,7 +72,7 @@ public class Endereco {
 	 * @param cep
 	 * @param pais
 	 */
-	public Endereco(String logradouro, int numero, String bairro, Cidades cidade, UnidadesFederativas uf, String cep, Paises pais) {
+	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UnidadesFederativas uf, String cep, Paises pais) {
 		super();
 		this.logradouro = logradouro;
 		this.numero = numero;

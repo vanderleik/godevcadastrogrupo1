@@ -5,14 +5,17 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import br.com.proway.senior.godevcadastro.cadastro.endereco.Endereco;
+import br.com.proway.senior.godevcadastro.cadastro.enums.Cidades;
+import br.com.proway.senior.godevcadastro.cadastro.enums.Paises;
+import br.com.proway.senior.godevcadastro.cadastro.enums.UnidadesFederativas;
 
 public class EnderecoTest {
 
 	Endereco enderecoSemComplemento = new Endereco("Sítio Côrrego de Santo Antônio", 10, "Côrrego de Santo Antonio",
-			"Barra Alegre", "rj", "28666971", "Brasil");
+			Cidades.FLORIANOPOLIS, UnidadesFederativas.SC, "28666971", Paises.BRASIl);
 
-	Endereco enderecoCompleto = new Endereco("Rua José Delepranni, s/n", (Integer) null, "Alto Caldeirão", "Alto Caldeirão", "es",
-			"Casa", "29656980", "Brasil");
+	Endereco enderecoCompleto = new Endereco("Rua José Delepranni, s/n", null, "Alto Caldeirão", Cidades.PORTO_ALEGRE, 
+			UnidadesFederativas.RS, "Casa", "29656980", Paises.BRASIl);
 
 	@Test
 	public void testeEnderecoSemComplemento() {
