@@ -2,7 +2,9 @@ package br.com.proway.senior.godevcadastro.cadastro.dependente;
 
 import java.time.LocalDate;
 
-import br.com.proway.senior.godevcadastro.cadastro.Pessoa;
+import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
+import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
+import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
 
 /**
  * 
@@ -16,7 +18,7 @@ public class Dependente extends Pessoa {
 
 	private Integer id;
 	private Integer idColaborador;
-	private String tipoDependente;
+	private TiposDependentes tipoDependente;
 	private boolean optanteIR;
 
 	public Dependente() {
@@ -24,8 +26,8 @@ public class Dependente extends Pessoa {
 	}
 
 	public Dependente(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd, Integer id,
-			Integer idColaborador, String tipoDependente, boolean optanteIR) {
+			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, boolean pcd, Integer id,
+			Integer idColaborador, TiposDependentes tipoDependente, boolean optanteIR) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 		this.id = id;
 		this.idColaborador = idColaborador;
@@ -49,11 +51,11 @@ public class Dependente extends Pessoa {
 		this.idColaborador = idColaborador;
 	}
 
-	public String getTipoDependente() {
+	public TiposDependentes getTipoDependente() {
 		return tipoDependente;
 	}
 
-	public void setTipoDependente(String tipoDependente) {
+	public void setTipoDependente(TiposDependentes tipoDependente) {
 		this.tipoDependente = tipoDependente;
 	}
 

@@ -6,8 +6,8 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.Contatos;
-import br.com.proway.senior.godevcadastro.cadastro.PrestadorServico;
+import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
+import br.com.proway.senior.godevcadastro.cadastro.prestadorservico.PrestadorServico;
 
 public class PrestadorServicoTest {
 

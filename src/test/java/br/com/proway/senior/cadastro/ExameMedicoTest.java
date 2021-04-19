@@ -6,8 +6,8 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.ExameMedico;
-import br.com.proway.senior.godevcadastro.cadastro.TiposExame;
+import br.com.proway.senior.godevcadastro.cadastro.examemedico.ExameMedico;
+import br.com.proway.senior.godevcadastro.cadastro.examemedico.TiposExame;
 
 public class ExameMedicoTest {
 

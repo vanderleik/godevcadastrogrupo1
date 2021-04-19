@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.Endereco;
+import br.com.proway.senior.godevcadastro.cadastro.endereco.Endereco;
 
 public class EnderecoTest {
 

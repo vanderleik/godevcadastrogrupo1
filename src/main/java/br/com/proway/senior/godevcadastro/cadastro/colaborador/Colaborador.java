@@ -1,7 +1,18 @@
-package br.com.proway.senior.godevcadastro.cadastro;
+package br.com.proway.senior.godevcadastro.cadastro.colaborador;
 
 import java.time.LocalDate;
 import java.util.Date;
+
+import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
+import br.com.proway.senior.godevcadastro.cadastro.documentos.Documentos;
+import br.com.proway.senior.godevcadastro.cadastro.endereco.Endereco;
+import br.com.proway.senior.godevcadastro.cadastro.enums.Cidades;
+import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
+import br.com.proway.senior.godevcadastro.cadastro.enums.Paises;
+import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
+import br.com.proway.senior.godevcadastro.cadastro.enums.UnidadesFederativas;
+import br.com.proway.senior.godevcadastro.cadastro.examemedico.ExameMedico;
+import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
 
 public class Colaborador extends Pessoa {
 
@@ -16,31 +27,39 @@ public class Colaborador extends Pessoa {
 	/**
 	 * Atributos da Classe colaborador
 	 * 
-	 * @param String nome
-	 * @param String sobrenome
-	 * @param Date dataDeNascimento
-	 * @param String genero
-	 * @param char sexo
-	 * @param String nomeDaMae
-	 * @param String cpf
-	 * @param String nacionalidade
-	 * @param Integer idColaborador
-	 * @param Integer numCargo
-	 * @param Integer nit
-	 * @param boolean optanteVT
-	 * @param boolean optanteVAVR
-	 * @param Date dataAdmissao
-	 * @param boolean optanteDependente
-	 * @param Documentos documentos Instância da classe Documentos
-	 * para setar dados de RG, título, reservista, NIT, entre outros.
+	 * @param String nome;
+	 * @param String sobrenome;
+	 * @param Date dataDeNascimento;
+	 * @param String genero;
+	 * @param SexoPessoa sexo Instância do enum SexoPessoa
+	 * para setar dados de sexo;
+	 * @param String nomeDaMae;
+	 * @param String cpf;
+	 * @param Nacionalidades nacionalidade Instância do enum Nacionalidades
+	 * para setar a nacionalidade do colaborador;
+	 * @param Integer idColaborador;
+	 * @param Integer numCargo;
+	 * @param Integer nit;
+	 * @param boolean optanteVT;
+	 * @param boolean optanteVAVR;
+	 * @param Date dataAdmissao;
+	 * @param boolean optanteDependente;
+	 * @param Cidades cidadeNascimento Instância do enum Cidades para
+	 * setar a cidade de nascimento do colaborador;
+	 * @param UnidadesFederativas UfNascimento Instância do enum UnidadesFederativas
+	 * para setar a unidade federativa de nascimento do colaborador;
+	 * @param Paises paisNascimento Instância do enum Paises para
+	 * setar o pais de nascimento do colaborador;
+	 * @param Documentos documentos Instância da classe Documentos;
+	 * para setar dados de RG, título, reservista, NIT, entre outros;
 	 * @param Endereco endereco Instância da classe Endereco para
 	 * setar dados de residência do colaborador: logradouro, número,
-	 * bairro, entre outros.
+	 * bairro, entre outros;
 	 * @param Contatos contatos Instância da classe Contatos para
-	 * setar dados de telefone e e-mail do colaborador.
+	 * setar dados de telefone e e-mail do colaborador;
 	 * @param ExameMedico exameMedico Instância da Classe ExameMedico
 	 * para setar dados dos exames do colaborador: admissional, demissional
-	 * e periódico.	 * 
+	 * e periódico. 
 	 */
 		
 	private Integer idColaborador;
@@ -50,6 +69,9 @@ public class Colaborador extends Pessoa {
 	private boolean optanteVAVR;
 	private LocalDate dataAdmissao;
 	private boolean optanteDependente;
+	private Cidades cidadeNascimento;
+	private UnidadesFederativas UfNascimento;
+	private Paises paisNascimento;
 	private Documentos documentos;
 	private Endereco endereco;
 	private Contatos contatos;
@@ -57,14 +79,14 @@ public class Colaborador extends Pessoa {
 
 	// Construtores classe mãe
 
-	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, char sexo, String nomeDaMae,
-			String cpf, String nacionalidade) {
+	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, SexoPessoa sexo, String nomeDaMae,
+			String cpf, Nacionalidades nacionalidade) {
 
 		super(nome, sobrenome, dataDeNascimento, genero, sexo, nomeDaMae, cpf, nacionalidade);
 	}
 
 	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd) {
+			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, boolean pcd) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 	}
 
@@ -124,6 +146,30 @@ public class Colaborador extends Pessoa {
 		this.optanteDependente = optanteDependente;
 	}
 
+	public Cidades getCidadeNascimento() {
+		return cidadeNascimento;
+	}
+
+	public void setCidadeNascimento(Cidades cidadeNascimento) {
+		this.cidadeNascimento = cidadeNascimento;
+	}
+
+	public UnidadesFederativas getUfNascimento() {
+		return UfNascimento;
+	}
+
+	public void setUfNascimento(UnidadesFederativas ufNascimento) {
+		UfNascimento = ufNascimento;
+	}
+
+	public Paises getPaisNascimento() {
+		return paisNascimento;
+	}
+
+	public void setPaisNascimento(Paises paisNascimento) {
+		this.paisNascimento = paisNascimento;
+	}
+
 	public Documentos getDocumentos() {
 		return documentos;
 	}
@@ -156,6 +202,7 @@ public class Colaborador extends Pessoa {
 		this.exameMedico = exameMedico;
 	}
 
+
 	/**
 	 * Construtor com todos os campos setados para preenchimento. Utilizado quando
 	 * possuírem todos os dados do colaborador no momento do cadastro.
@@ -177,15 +224,20 @@ public class Colaborador extends Pessoa {
 	 * @param optanteVAVR
 	 * @param dataAdmissao
 	 * @param optanteDependente
+	 * @param cidadeNascimento
+	 * @param ufNascimento
+	 * @param paisNascimento
 	 * @param documentos
 	 * @param endereco
 	 * @param contatos
 	 * @param exameMedico
 	 */
 	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd, Integer idColaborador,
+			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, boolean pcd, Integer idColaborador,
 			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, LocalDate dataAdmissao,
-			boolean optanteDependente, Documentos documentos, Endereco endereco, Contatos contatos, ExameMedico exameMedico) {
+			boolean optanteDependente, Cidades cidadeNascimento, UnidadesFederativas ufNascimento,
+			Paises paisNascimento, Documentos documentos, Endereco endereco, Contatos contatos,
+			ExameMedico exameMedico) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 		this.idColaborador = idColaborador;
 		this.numCargo = numCargo;
@@ -194,6 +246,9 @@ public class Colaborador extends Pessoa {
 		this.optanteVAVR = optanteVAVR;
 		this.dataAdmissao = dataAdmissao;
 		this.optanteDependente = optanteDependente;
+		this.cidadeNascimento = cidadeNascimento;
+		this.UfNascimento = ufNascimento;
+		this.paisNascimento = paisNascimento;
 		this.documentos = documentos;
 		this.endereco = endereco;
 		this.contatos = contatos;
@@ -221,17 +276,21 @@ public class Colaborador extends Pessoa {
 	 * @param optanteVAVR
 	 * @param dataAdmissao
 	 * @param optanteDependente
+	 * @param cidadeNascimento
+	 * @param ufNascimento
+	 * @param paisNascimento
 	 * @param documentos
 	 * @param endereco
 	 * @param contatos
 	 * @param exameMedico
 	 */
 	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			char sexo, String nomeDaMae, String cpf, String nacionalidade, Integer idColaborador,
+			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, Integer idColaborador,
 			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, LocalDate dataAdmissao,
-			boolean optanteDependente, Documentos documentos, Endereco endereco,
-			Contatos contatos, ExameMedico exameMedico) {
-		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, optanteDependente);
+			boolean optanteDependente, Cidades cidadeNascimento, UnidadesFederativas ufNascimento,
+			Paises paisNascimento, Documentos documentos, Endereco endereco, Contatos contatos,
+			ExameMedico exameMedico) {
+		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade);
 		this.idColaborador = idColaborador;
 		this.numCargo = numCargo;
 		this.nit = nit;
@@ -239,19 +298,24 @@ public class Colaborador extends Pessoa {
 		this.optanteVAVR = optanteVAVR;
 		this.dataAdmissao = dataAdmissao;
 		this.optanteDependente = optanteDependente;
+		this.cidadeNascimento = cidadeNascimento;
+		this.UfNascimento = ufNascimento;
+		this.paisNascimento = paisNascimento;
 		this.documentos = documentos;
 		this.endereco = endereco;
 		this.contatos = contatos;
 		this.exameMedico = exameMedico;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Colaborador [idColaborador=" + idColaborador + ", numCargo=" + numCargo + ", nit=" + nit
 				+ ", optanteVT=" + optanteVT + ", optanteVAVR=" + optanteVAVR + ", dataAdmissao=" + dataAdmissao
-				+ ", optanteDependente=" + optanteDependente + ", documentos="
-				+ documentos + ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico=" + exameMedico
-				+ "]";
+				+ ", optanteDependente=" + optanteDependente + ", cidadeNascimento=" + cidadeNascimento
+				+ ", UfNascimento=" + UfNascimento + ", paisNascimento=" + paisNascimento + ", documentos=" + documentos
+				+ ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico=" + exameMedico + "]";
 	}
 
+	
 }

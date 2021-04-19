@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.Pessoa;
+import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
 
 public class PessoaTest {
 	

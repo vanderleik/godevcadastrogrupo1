@@ -1,7 +1,12 @@
-package br.com.proway.senior.godevcadastro.cadastro;
+package br.com.proway.senior.godevcadastro.cadastro.prestadorservico;
 
 import java.time.LocalDate;
 import java.util.Date;
+
+import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
+import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
+import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
+import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
 
 /**
  * Classe que abstrai as informações do prestador de serviço contratado.
@@ -60,7 +65,7 @@ public class PrestadorServico extends Pessoa {
 	 * @param contatos
 	 */
 	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			char sexo, String nomeDaMae, String cpf, String nacionalidade, boolean pcd, long idPrestadorServico,
+			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, boolean pcd, long idPrestadorServico,
 			LocalDate dataInicioContrato, long idEmpresa, long idSetor, Contatos contatos) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 		this.idPrestadorServico = idPrestadorServico;
@@ -89,7 +94,7 @@ public class PrestadorServico extends Pessoa {
 	 * @param contatos
 	 */
 	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String genero,
-			char sexo, String nomeDaMae, String cpf, String nacionalidade, long idPrestadorServico,
+			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, long idPrestadorServico,
 			LocalDate dataInicioContrato, long idEmpresa, long idSetor, Contatos contatos) {
 		super(nome, sobrenome, dataDeNascimento, genero, sexo, nomeDaMae, cpf, nacionalidade);
 		this.idPrestadorServico = idPrestadorServico;
