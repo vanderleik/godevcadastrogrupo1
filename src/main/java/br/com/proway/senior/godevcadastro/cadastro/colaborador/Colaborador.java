@@ -1,7 +1,7 @@
 package br.com.proway.senior.godevcadastro.cadastro.colaborador;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
 
 import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
 import br.com.proway.senior.godevcadastro.cadastro.documentos.Documentos;
@@ -27,41 +27,43 @@ public class Colaborador extends Pessoa {
 	/**
 	 * Atributos da Classe colaborador
 	 * 
-	 * @param String nome;
-	 * @param String sobrenome;
-	 * @param Date dataDeNascimento;
-	 * @param String genero;
-	 * @param SexoPessoa sexo Instância do enum SexoPessoa
-	 * para setar dados de sexo;
-	 * @param String nomeDaMae;
-	 * @param String cpf;
-	 * @param Nacionalidades nacionalidade Instância do enum Nacionalidades
-	 * para setar a nacionalidade do colaborador;
-	 * @param Integer idColaborador;
-	 * @param Integer numCargo;
-	 * @param Integer nit;
-	 * @param boolean optanteVT;
-	 * @param boolean optanteVAVR;
-	 * @param Date dataAdmissao;
-	 * @param boolean optanteDependente;
-	 * @param Cidades cidadeNascimento Instância do enum Cidades para
-	 * setar a cidade de nascimento do colaborador;
+	 * @param String              nome;
+	 * @param String              sobrenome;
+	 * @param Date                dataDeNascimento;
+	 * @param String              genero;
+	 * @param SexoPessoa          sexo Instância do enum SexoPessoa para setar dados
+	 *                            de sexo;
+	 * @param String              nomeDaMae;
+	 * @param String              cpf;
+	 * @param Nacionalidades      nacionalidade Instância do enum Nacionalidades
+	 *                            para setar a nacionalidade do colaborador;
+	 * @param Integer             idColaborador;
+	 * @param Integer             numCargo;
+	 * @param Integer             nit;
+	 * @param boolean             optanteVT;
+	 * @param boolean             optanteVAVR;
+	 * @param Date                dataAdmissao;
+	 * @param boolean             optanteDependente;
+	 * @param Cidades             cidadeNascimento Instância do enum Cidades para
+	 *                            setar a cidade de nascimento do colaborador;
 	 * @param UnidadesFederativas UfNascimento Instância do enum UnidadesFederativas
-	 * para setar a unidade federativa de nascimento do colaborador;
-	 * @param Paises paisNascimento Instância do enum Paises para
-	 * setar o pais de nascimento do colaborador;
-	 * @param Documentos documentos Instância da classe Documentos;
-	 * para setar dados de RG, título, reservista, NIT, entre outros;
-	 * @param Endereco endereco Instância da classe Endereco para
-	 * setar dados de residência do colaborador: logradouro, número,
-	 * bairro, entre outros;
-	 * @param Contatos contatos Instância da classe Contatos para
-	 * setar dados de telefone e e-mail do colaborador;
-	 * @param ExameMedico exameMedico Instância da Classe ExameMedico
-	 * para setar dados dos exames do colaborador: admissional, demissional
-	 * e periódico. 
+	 *                            para setar a unidade federativa de nascimento do
+	 *                            colaborador;
+	 * @param Paises              paisNascimento Instância do enum Paises para setar
+	 *                            o pais de nascimento do colaborador;
+	 * @param Documentos          documentos Instância da classe Documentos; para
+	 *                            setar dados de RG, título, reservista, NIT, entre
+	 *                            outros;
+	 * @param Endereco            endereco Instância da classe Endereco para setar
+	 *                            dados de residência do colaborador: logradouro,
+	 *                            número, bairro, entre outros;
+	 * @param Contatos            contatos Instância da classe Contatos para setar
+	 *                            dados de telefone e e-mail do colaborador;
+	 * @param ExameMedico         exameMedico Instância da Classe ExameMedico para
+	 *                            setar dados dos exames do colaborador:
+	 *                            admissional, demissional e periódico.
 	 */
-		
+
 	private Integer idColaborador;
 	private Integer numCargo;
 	private Integer nit;
@@ -79,8 +81,8 @@ public class Colaborador extends Pessoa {
 
 	// Construtores classe mãe
 
-	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, SexoPessoa sexo, String nomeDaMae,
-			String cpf, Nacionalidades nacionalidade) {
+	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, SexoPessoa sexo,
+			String nomeDaMae, String cpf, Nacionalidades nacionalidade) {
 
 		super(nome, sobrenome, dataDeNascimento, genero, sexo, nomeDaMae, cpf, nacionalidade);
 	}
@@ -202,7 +204,6 @@ public class Colaborador extends Pessoa {
 		this.exameMedico = exameMedico;
 	}
 
-
 	/**
 	 * Construtor com todos os campos setados para preenchimento. Utilizado quando
 	 * possuírem todos os dados do colaborador no momento do cadastro.
@@ -233,11 +234,11 @@ public class Colaborador extends Pessoa {
 	 * @param exameMedico
 	 */
 	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, boolean pcd, Integer idColaborador,
-			Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR, LocalDate dataAdmissao,
-			boolean optanteDependente, Cidades cidadeNascimento, UnidadesFederativas ufNascimento,
-			Paises paisNascimento, Documentos documentos, Endereco endereco, Contatos contatos,
-			ExameMedico exameMedico) {
+			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, boolean pcd,
+			Integer idColaborador, Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR,
+			LocalDate dataAdmissao, boolean optanteDependente, Cidades cidadeNascimento,
+			UnidadesFederativas ufNascimento, Paises paisNascimento, Documentos documentos, Endereco endereco,
+			Contatos contatos, ExameMedico exameMedico) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 		this.idColaborador = idColaborador;
 		this.numCargo = numCargo;
@@ -307,6 +308,84 @@ public class Colaborador extends Pessoa {
 		this.exameMedico = exameMedico;
 	}
 
+	/** 
+	 *  Cadastrar colaborador
+	 * 
+	 * Realiza cadastro do colaborador no ArrayList.
+	 * 
+	 * @param colaborador
+	 * @return
+	 */
+	public static void cadastrarColaborador(ArrayList<Colaborador> colaboradores, Colaborador colaborador) {
+		colaboradores.add(colaborador);
+		for (Colaborador colaborador2 : colaboradores) {
+			System.out.println(colaborador2);
+		}
+		
+	}
+	
+	/**
+	 * Listar todos colaboradores
+	 * 
+	 * Realiza a leitura de todos os colaboradores cadastrados
+	 * e apresenta na tela.
+	 * @param colaboradores
+	 * @return ArrayList colaboradores
+	 */
+	public static String listarTodosColaboradores(ArrayList<Colaborador> colaboradores) {
+		String teste = "";
+		for (Colaborador colaborador2 : colaboradores) {
+			System.out.println(colaborador2);
+			teste += colaborador2.toString();
+			
+		}
+		
+		return teste;
+	}
+	
+	/**
+	 * Listar colaboradores por código
+	 * 
+	 * Realiza a leitura dos dados do colaboradore
+	 * conforme parâmetro
+	 * @param colaboradores
+	 * @return ArrayList colaboradores
+	 */
+	public static ArrayList<Colaborador> listarColaboradorCodigo(ArrayList<Colaborador> colaboradores, Colaborador colaborador) {
+		for (Colaborador colaborador2 : colaboradores) {
+			if (colaboradores.contains(colaborador)) {
+			System.out.println(colaborador2);
+			}
+		}
+		return colaboradores;
+	}
+	
+	/**
+	 * Atualizar colaborador
+	 * 
+	 * Realiza a atualização dos dados do colaborador
+	 * através dos dados informados (colaboradorNovo)
+	 * 
+	 * @param colaboradores
+	 * @param colaboradorNovo
+	 * @param colaboradorAntigo
+	 */
+	public static void atualizarColaborador(ArrayList<Colaborador> colaboradores, Colaborador colaboradorNovo, Colaborador colaboradorAntigo) {
+		colaboradores.set(colaboradores.indexOf(colaboradorAntigo), colaboradorNovo);
+	}
+	
+	/**
+	 * Deletar colaborador
+	 * 
+	 * Realiza a exclusão do colaborador conforme parâmetro
+	 * passado (Colaborador colaborador).
+	 * @param colaboradores
+	 * @param colaborador
+	 */
+	public static void deletarColaborador(ArrayList<Colaborador> colaboradores, Colaborador colaborador) {
+		colaboradores.remove(colaborador);
+	}
+	
 
 	@Override
 	public String toString() {
@@ -317,5 +396,4 @@ public class Colaborador extends Pessoa {
 				+ ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico=" + exameMedico + "]";
 	}
 
-	
 }

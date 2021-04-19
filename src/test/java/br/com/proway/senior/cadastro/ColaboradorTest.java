@@ -1,8 +1,12 @@
 package br.com.proway.senior.cadastro;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -49,11 +53,43 @@ public class ColaboradorTest {
 	TiposExame tipo = TiposExame.EXAME_PERIODICO;
 	ExameMedico exameMedico = new ExameMedico(tipo, LocalDate.of(2021, 05, 15), true);
 	
+	String nome2 = "José";
+	String sobrenome2 = "Silva";
+	static LocalDate dataDeNascimento2 = LocalDate.of(1988, 05, 9);
+	String genero2 = "Masculino";
+	SexoPessoa sexo2 = SexoPessoa.MASCULINO;
+	String nomeDaMae2 = "Dulce";
+	String cpf2 = "12345678966";
+	Nacionalidades nacionalidade2 = Nacionalidades.BRASILEIRA;
+	Integer idColaborador2 = 5599;
+	Integer numCargo2 = 0456;
+	Integer nit2 = 100015600;
+	boolean optanteVT2 = true;
+	boolean optanteVAVR2 = false;
+	boolean pcd2 = true;
+	LocalDate dataAdmissao2 = LocalDate.of(2021, 01, 06);
+	boolean optanteDependente2 = false;
+	Documentos documentos2 = new Documentos(513, 222, LocalDate.of(2020, 9, 15), "Banco do Brasil",
+			0404,7777, 77885566, 1080, 808, 808080, "SSP", LocalDate.of(2015, 10, 02));
+	Cidades cidadeNasc2 = Cidades.BAGE;
+	UnidadesFederativas ufNasc2 = UnidadesFederativas.RS;
+	Paises paisNasc2 = Paises.BRASIl;
+	Cidades cidadeEnd2 = Cidades.BLUMENAU;
+	UnidadesFederativas ufEnd2 = UnidadesFederativas.SC;
+	Paises paisEnd2 = Paises.BRASIl;
+	Endereco endereco2 = new Endereco("Quadra 10", 25, "Centro", cidadeEnd, ufEnd, "89030180", paisEnd);
+	Contatos contatos2 = new Contatos("77788855523", "josé@gmail.com");
+	TiposExame tipo2 = TiposExame.EXAME_ADMISSIONAL;
+	ExameMedico exameMedico2 = new ExameMedico(tipo, LocalDate.of(2021, 02, 15), true);
+	
 	Colaborador colab = new Colaborador(nome, sobrenome, dataDeNascimento, null, genero, sexo, nomeDaMae, 
 			cpf, nacionalidade, pcd, idColaborador, numCargo, nit, optanteVT, optanteVAVR, dataAdmissao, 
 			optanteDependente, cidadeNasc, ufNasc, paisNasc, documentos, endereco, contatos, exameMedico);
 	
-
+	Colaborador colab2 = new Colaborador(nome2, sobrenome2, dataDeNascimento2, null, genero2, sexo2, nomeDaMae2, 
+			cpf2, nacionalidade2, pcd2, idColaborador2, numCargo2, nit2, optanteVT2, optanteVAVR2, dataAdmissao2, 
+			optanteDependente2, cidadeNasc2, ufNasc2, paisNasc2, documentos2, endereco2, contatos2, exameMedico2);
+	
 	@Test
 	public void testConstrutorColaborador() {
 		assertEquals(nome, colab.getNome());
@@ -86,4 +122,62 @@ public class ColaboradorTest {
 		assertEquals(LocalDate.of(2021, 05, 15), colab.getExameMedico().getDataExame());
 		
 	}
+	
+	ArrayList<Colaborador> colaboradores = new ArrayList<Colaborador>();
+	
+	@Test
+	public void testCadastrarColaborador() {
+		Colaborador.cadastrarColaborador(colaboradores, colab);
+		Colaborador.cadastrarColaborador(colaboradores, colab2);
+		assertTrue(colaboradores.indexOf(colab)>=0);
+		assertTrue(colaboradores.indexOf(colab2)>=0);
+		
+	}
+	
+	@Test
+	public void testCadastrarColaboradorErrado() {
+		Colaborador.cadastrarColaborador(colaboradores, colab);
+		assertFalse(colaboradores.indexOf(colab)<0);
+	}
+	
+//	@Test
+//	public void testListarTodosColaboradores() {
+//		assertNotEquals("Colaborador [idColaborador=5599, numCargo=302, nit=100015600, optanteVT=true, optanteVAVR=false, dataAdmissao=2021-01-06, optanteDependente=false, cidadeNascimento=BAGE, UfNascimento=RS, paisNascimento=BRASIl, "
+//				+ "documentos=Documentos [ctpsNumero=513, ctpsSerie=222, dataEmissaoCTPS=2020-09-15, bancoNome=Banco do Brasil, bancoAgencia=260, bancoNumeroConta=7777, tituloNumero=77885566, tituloZona=1080, tituloSecao=808, raNumero=0, "
+//				+ "rgNumero=808080, orgaoEmissorRG=SSP, dataEmissaoRG=2015-10-02], endereco=Endereco [logradouro=Quadra 10, numero=25, bairro=Centro, cidade=BLUMENAU, uf=SC, complemento=null, cep=89030180, pais=BRASIl], contatos=Contatos "
+//				+ "[telefonePrincipal=77788855523, telefoneSecundario=null, email=josé@gmail.com], exameMedico=ExameMedico [tipoExame=EXAME_PERIODICO, dataExame=2021-02-15, apto=true, escolha=0]]", 
+//				Colaborador.listarTodosColaboradores(colaboradores));
+//	}
+//
+//	@Test
+//	public void testListarPorCodigo() {
+//		Colaborador.cadastrarColaborador(colaboradores, colab);
+//		Colaborador.listarColaboradorCodigo(colaboradores, colab);
+//		assertNotEquals("Colaborador [idColaborador=5528, numCargo=302, nit=1000089300, optanteVT=false, optanteVAVR=true, dataAdmissao=2021-04-06, optanteDependente=false, "
+//				+ "cidadeNascimento=BLUMENAU, UfNascimento=SC, paisNascimento=BRASIl, documentos=Documentos [ctpsNumero=88999, ctpsSerie=108, dataEmissaoCTPS=2020-09-15, "
+//				+ "bancoNome=Banco do Brasil, bancoAgencia=260, bancoNumeroConta=88888, tituloNumero=80809090, tituloZona=1080, tituloSecao=808, raNumero=0, rgNumero=808080, "
+//				+ "orgaoEmissorRG=SSP, dataEmissaoRG=2015-10-02], endereco=Endereco [logradouro=Rua 10, numero=25, bairro=Centro, cidade=BLUMENAU, uf=SC, complemento=null, cep=89030180,"
+//				+ " pais=BRASIl], contatos=Contatos [telefonePrincipal=47999368888, telefoneSecundario=null, email=maria@gmail.com], exameMedico=ExameMedico [tipoExame=EXAME_PERIODICO, "
+//				+ "dataExame=2021-05-15, apto=true, escolha=0]]", Colaborador.listarColaboradorCodigo(colaboradores, colab));
+//	}
+	
+	@Test
+	public void testAtualizarColaborador() {
+		Colaborador.cadastrarColaborador(colaboradores, colab2);
+		Colaborador.atualizarColaborador(colaboradores, colab, colab2);
+		assertNotEquals("Colaborador [idColaborador=5599, numCargo=302, nit=100015600, optanteVT=true, optanteVAVR=false, dataAdmissao=2021-01-06, optanteDependente=false, "
+				+ "cidadeNascimento=BAGE, UfNascimento=RS, paisNascimento=BRASIl, documentos=Documentos [ctpsNumero=513, ctpsSerie=222, dataEmissaoCTPS=2020-09-15, bancoNome=Banco "
+				+ "do Brasil, bancoAgencia=260, bancoNumeroConta=7777, tituloNumero=77885566, tituloZona=1080, tituloSecao=808, raNumero=0, rgNumero=808080, orgaoEmissorRG=SSP, dataEmissaoRG=2015-10-02], "
+				+ "endereco=Endereco [logradouro=Quadra 10, numero=25, bairro=Centro, cidade=BLUMENAU, uf=SC, complemento=null, cep=89030180, pais=BRASIl], contatos=Contatos [telefonePrincipal=77788855523, "
+				+ "telefoneSecundario=null, email=josé@gmail.com], exameMedico=ExameMedico [tipoExame=EXAME_PERIODICO, dataExame=2021-02-15, apto=true, escolha=0]]", colaboradores.get(0).toString());
+	}
+	
+	@Test
+	public void testDeletarColaborador() {
+		Colaborador.cadastrarColaborador(colaboradores, colab);
+		Colaborador.cadastrarColaborador(colaboradores, colab2);
+		Colaborador.deletarColaborador(colaboradores, colab2);
+		assertTrue(colaboradores.size() == 1);
+	}
+
 }
