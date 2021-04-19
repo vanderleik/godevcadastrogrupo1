@@ -1,6 +1,7 @@
 package br.com.proway.senior.godevcadastro.cadastro.empresa;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
 import br.com.proway.senior.godevcadastro.cadastro.endereco.Endereco;
@@ -82,6 +83,56 @@ public class Empresa {
 	public void setContato(Contatos contato) {
 		this.contato = contato;
 	}
+	
+	/**
+	 * @author Samuel, Vitor.
+	 * 
+	 * Criar uma empresa.
+	 * 
+	 * Cria uma empresa e atribui ao ArrayList.
+	 * 
+	 * @param Empresa Recebe uma instância de Empresa
+	 * @param ArrayList Recebe uma instância de ArrayList.
+	 */
+	public static void createEmpresa (ArrayList<Empresa> empresas, Empresa empresa) {
+		empresas.add(empresa);
+	}
+	
+	/**
+	 * @author Samuel, Vitor.
+	 * 
+	 * Exibir todas as  empresas.
+	 * 
+	 * Mostra todas as empresas que estão no ArrayList.
+	 * 
+	 * @param ArrayList Recebe uma instância de ArrayList.
+	 */
+	public static void readEmpresa (ArrayList<Empresa> empresas) {
+		for (Empresa empresa : empresas) {
+			System.out.println(empresa.toString());
+		}
+	}
+	
+	/**
+	 * @author Samuel, Vitor.
+	 * 
+	 * Atualizar uma empresa.
+	 * 
+	 * Substitui o objeto "Empresa" antigo, pelo novo objeto informado no parâmetro.
+	 * 
+	 * @param ArrayList Recebe uma instância de ArrayList.
+	 * @param Empresa Recebe um objeto da empresa nova
+	 * @param Empresa Recebe o objeto referente à empresa antiga
+	 */
+	public static void updateEmpresa (ArrayList<Empresa> empresas, Empresa empresa, Empresa empresaAntiga) {
+		int indice = empresas.indexOf(empresaAntiga);
+		empresas.set(indice, empresa);
+	}
+	
+	
+	
+	
+	
 	
 	@Override
 	public String toString() {
