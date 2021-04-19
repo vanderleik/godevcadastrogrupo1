@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.Documentos;
+import br.com.proway.senior.godevcadastro.cadastro.documentos.Documentos;
 
 public class DocumentosTest {
 	

@@ -1,4 +1,4 @@
-package br.com.proway.senior.godevcadastro.cadastro;
+package br.com.proway.senior.godevcadastro.cadastro.documentos;
 
 import java.time.LocalDate;
 

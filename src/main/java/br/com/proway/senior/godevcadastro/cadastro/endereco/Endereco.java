@@ -1,4 +1,8 @@
-package br.com.proway.senior.godevcadastro.cadastro;
+package br.com.proway.senior.godevcadastro.cadastro.endereco;
+
+import br.com.proway.senior.godevcadastro.cadastro.enums.Cidades;
+import br.com.proway.senior.godevcadastro.cadastro.enums.Paises;
+import br.com.proway.senior.godevcadastro.cadastro.enums.UnidadesFederativas;
 
 /**
  * Classe que engloba e abstrai as informações de endereco de um Colaborador/Empresa
@@ -24,11 +28,11 @@ public class Endereco {
 	private String logradouro;
 	private Integer numero;
 	private String bairro;
-	private String cidade;
-	private String uf;
+	private Cidades cidade;
+	private UnidadesFederativas uf;
 	private String complemento;
 	private String cep;
-	private String pais;
+	private Paises pais;
 	
 	
 	/**
@@ -43,8 +47,8 @@ public class Endereco {
 	 * @param cep
 	 * @param pais
 	 */
-	public Endereco(String logradouro, int numero, String bairro, String cidade, String uf, String complemento,
-			String cep, String pais) {
+	public Endereco(String logradouro, int numero, String bairro, Cidades cidade, UnidadesFederativas uf, String complemento,
+			String cep, Paises pais) {
 		super();
 		this.logradouro = logradouro;
 		this.numero = numero;
@@ -68,7 +72,7 @@ public class Endereco {
 	 * @param cep
 	 * @param pais
 	 */
-	public Endereco(String logradouro, int numero, String bairro, String cidade, String uf, String cep, String pais) {
+	public Endereco(String logradouro, int numero, String bairro, Cidades cidade, UnidadesFederativas uf, String cep, Paises pais) {
 		super();
 		this.logradouro = logradouro;
 		this.numero = numero;
@@ -107,19 +111,19 @@ public class Endereco {
 		this.bairro = bairro;
 	}
 
-	public String getCidade() {
+	public Cidades getCidade() {
 		return cidade;
 	}
 
-	public void setCidade(String cidade) {
+	public void setCidade(Cidades cidade) {
 		this.cidade = cidade;
 	}
 
-	public String getUf() {
+	public UnidadesFederativas getUf() {
 		return uf;
 	}
 
-	public void setUf(String uf) {
+	public void setUf(UnidadesFederativas uf) {
 		this.uf = uf;
 	}
 
@@ -139,11 +143,11 @@ public class Endereco {
 		this.cep = cep;
 	}
 
-	public String getPais() {
+	public Paises getPais() {
 		return pais;
 	}
 
-	public void setPais(String pais) {
+	public void setPais(Paises pais) {
 		this.pais = pais;
 	}
 

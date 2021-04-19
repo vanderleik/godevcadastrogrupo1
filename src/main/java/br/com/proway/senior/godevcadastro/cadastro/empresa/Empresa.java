@@ -1,6 +1,9 @@
-package br.com.proway.senior.godevcadastro.cadastro;
+package br.com.proway.senior.godevcadastro.cadastro.empresa;
 
 import java.time.LocalDate;
+
+import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
+import br.com.proway.senior.godevcadastro.cadastro.endereco.Endereco;
 
 /**
  * Classe que abstrai as informações de uma Empresa contratada.

@@ -1,10 +1,12 @@
-package br.com.proway.senior.godevcadastro.cadastro.dependente;
+package br.com.proway.senior.cadastro;
 
 import static org.junit.Assert.*;
 
 import java.time.LocalDate;
 
 import org.junit.Test;
+
+import br.com.proway.senior.godevcadastro.cadastro.dependente.Dependente;
 
 public class DependenteTest {
 	Dependente dep01 = new Dependente("Paulo", "Levi",
