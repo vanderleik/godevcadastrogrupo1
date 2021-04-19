@@ -1,5 +1,9 @@
 package br.com.proway.senior.godevcadastro.cadastro.contatos;
 
+import java.util.ArrayList;
+
+import br.com.proway.senior.godevcadastro.cadastro.colaborador.Colaborador;
+
 /**
  * Armazena os contatos necessários de um colaborador, empresa ou prestador de serviço.
  * 
@@ -75,6 +79,57 @@ public class Contatos {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	/**
+	 * Cadastrar contato
+	 * 
+	 * Realiza cadastro de contato no ArrayList<Contatos>
+	 * 
+	 * @param contatos
+	 * @param contato
+	 */
+	public static void cadastrarContato(ArrayList<Contatos> contatos, Contatos contato) {
+		contatos.add(contato);
+	}
+	
+	/**
+	 * Formatar telefone
+	 * 
+	 * Realiza a validação do telefone para verificar se possui apenas numeros.
+	 * 
+	 * @param String telefone
+	 * @return telefone Formatado
+	 */
+	public static String formatarTelefone(String telefone) {
+		String telefoneFormatado = "";
+		for (byte code : telefone.getBytes()) {
+			if (code-48 < 10 && code - 48 >= 0) {
+				telefoneFormatado += Character.toString((char) code);
+			}
+		}
+		return telefoneFormatado;
+	}
+
+	
+	/**
+	 * Validar email
+	 * 
+	 * Realiza validação do email para verificar se possui o caracter "@".
+	 * 
+	 * @param String email
+	 * @return true caso valido
+	 */
+	public static boolean validarEmail(String email) {
+		if(!email.contentEquals("@")) {
+			return false;
+		}
+		return true;
+	}
+	
+	public static void listarContato() {
+		
+	}
+	
 
 	@Override
 	public String toString() {

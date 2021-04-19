@@ -2,12 +2,17 @@ package br.com.proway.senior.cadastro;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
+import br.com.proway.senior.godevcadastro.cadastro.colaborador.Colaborador;
 import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
 
 public class ContatosTest {
 
+	ArrayList<Contatos> contatos = new ArrayList<Contatos>();
+	
 	@Test
 	public void testContatosPrincipal() {
 		Contatos contatos = new Contatos("47987654321", "47123456789", "123@teste.com.br");
@@ -50,6 +55,13 @@ public class ContatosTest {
 		Contatos contatos = new Contatos("47987654321", "47123456789", "123@teste.com.br");
 		assertEquals("Contatos [telefonePrincipal=47987654321, telefoneSecundario=47123456789, email=123@teste.com.br]",
 				contatos.toString());
+	}
+	
+	@Test
+	public void testCadastroContato() {
+		Contatos contato = new Contatos("47987654321", "47123456789", "123@teste.com.br");
+		Contatos.cadastrarContato(contatos, contato);
+		assertTrue(contatos.indexOf(contato)>=0);
 	}
 
 }
