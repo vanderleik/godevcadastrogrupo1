@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import org.junit.Test;
 
 import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
+import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
+import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
 import br.com.proway.senior.godevcadastro.cadastro.prestadorservico.PrestadorServico;
 
 public class PrestadorServicoTest {
@@ -14,7 +16,7 @@ public class PrestadorServicoTest {
 	Contatos contatos = new Contatos("4798653726", "4799887766", "steven@gmail.com");
 	
 	PrestadorServico prestServicoCompleto = new PrestadorServico("Steven", "Jobs", LocalDate.of(1955, 2, 24),
-			"Steal", "Bissexual", 'm', "Reed Jobs", "18287498007", "americano", false, 123456,
+			"Steal", "Bissexual", SexoPessoa.MASCULINO, "Reed Jobs", "18287498007", Nacionalidades.BRASILEIRA, false, 123456,
 			LocalDate.of(2018, 7, 9), 5, 7,	contatos);
 	
 	
@@ -25,10 +27,10 @@ public class PrestadorServicoTest {
 		assertEquals(LocalDate.of(1955, 2, 24), prestServicoCompleto.getDataDeNascimento());
 		assertEquals("Steal", prestServicoCompleto.getNomeSocial());
 		assertEquals("Bissexual", prestServicoCompleto.getGenero());
-		assertEquals('m', prestServicoCompleto.getSexo());
+		assertEquals(SexoPessoa.MASCULINO, prestServicoCompleto.getSexo());
 		assertEquals("Reed Jobs", prestServicoCompleto.getNomeDaMae());
 		assertEquals("18287498007", prestServicoCompleto.getCpf());
-		assertEquals("americano", prestServicoCompleto.getNacionalidade());
+		assertEquals(Nacionalidades.BRASILEIRA, prestServicoCompleto.getNacionalidade());
 		assertEquals(123456, prestServicoCompleto.getIdPrestadorServico());
 		assertEquals(LocalDate.of(2018, 7, 9), prestServicoCompleto.getDataInicioContrato());
 		assertEquals(5, prestServicoCompleto.getIdEmpresa());
