@@ -1,12 +1,15 @@
 package br.com.proway.senior.godevcadastro.cadastro.endereco;
 
+import java.util.ArrayList;
+
 import br.com.proway.senior.godevcadastro.cadastro.enums.Cidades;
 import br.com.proway.senior.godevcadastro.cadastro.enums.Paises;
 import br.com.proway.senior.godevcadastro.cadastro.enums.UnidadesFederativas;
 
 /**
- * Classe que engloba e abstrai as informações de endereco de um Colaborador/Empresa
- * Esta classe será instanciada nas classes Colaborador e Empresa
+ * Classe que engloba e abstrai as informações de endereco de um
+ * Colaborador/Empresa Esta classe será instanciada nas classes Colaborador e
+ * Empresa
  * 
  * @author Thiago Barbieri
  *
@@ -16,14 +19,14 @@ public class Endereco {
 	/**
 	 * Atributos da classe
 	 * 
-	 * @param logradouro Ruas, avenidas, praças, viadutos.
-	 * @param numero Número do endereço.
-	 * @param bairro Bairro do endereço.
-	 * @param cidade Cidade do endereço.
-	 * @param uf Estado do endereço. Deve-sepreencher a sigla do Estado.
+	 * @param logradouro  Ruas, avenidas, praças, viadutos.
+	 * @param numero      Número do endereço.
+	 * @param bairro      Bairro do endereço.
+	 * @param cidade      Cidade do endereço.
+	 * @param uf          Estado do endereço. Deve-sepreencher a sigla do Estado.
 	 * @param complemento Complemento do endereço (Ex: loja 1; Bloco A, Box. 100).
-	 * @param cep  Código de Endereçamento Postal do endereço.
-	 * @param pais Pais do endereço.
+	 * @param cep         Código de Endereçamento Postal do endereço.
+	 * @param pais        Pais do endereço.
 	 */
 	private String logradouro;
 	private Integer numero;
@@ -33,8 +36,7 @@ public class Endereco {
 	private String complemento;
 	private String cep;
 	private Paises pais;
-	
-	
+
 	/**
 	 * Construtor de Endereço com todos os atributos
 	 * 
@@ -47,8 +49,8 @@ public class Endereco {
 	 * @param cep
 	 * @param pais
 	 */
-	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UnidadesFederativas uf, String complemento,
-			String cep, Paises pais) {
+	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UnidadesFederativas uf,
+			String complemento, String cep, Paises pais) {
 		super();
 		this.logradouro = logradouro;
 		this.numero = numero;
@@ -59,10 +61,9 @@ public class Endereco {
 		this.cep = cep;
 		this.pais = pais;
 	}
-	
+
 	/**
-	 * Construtor de Endereco
-	 * Não inclui o complemento.
+	 * Construtor de Endereco Não inclui o complemento.
 	 * 
 	 * @param logradouro
 	 * @param numero
@@ -72,7 +73,8 @@ public class Endereco {
 	 * @param cep
 	 * @param pais
 	 */
-	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UnidadesFederativas uf, String cep, Paises pais) {
+	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UnidadesFederativas uf,
+			String cep, Paises pais) {
 		super();
 		this.logradouro = logradouro;
 		this.numero = numero;
@@ -151,6 +153,90 @@ public class Endereco {
 		this.pais = pais;
 	}
 
+	/**
+	 * Adiciona um novo objeto Endereco ao ArrayList enderecos
+	 * 
+	 * @param Endereco            endereco
+	 * @param ArrayList<Endereco> enderecos
+	 * @return
+	 */
+	public static void create(Endereco endereco, ArrayList<Endereco> enderecos) {
+		enderecos.add(endereco);
+	}
+	
+	/**
+	 * Lista todos os elementos do ArrayList<Endereco>
+	 * @param enderecos
+	 */
+	public static void readAll(ArrayList<Endereco> enderecos) {
+		for (Endereco endereco : enderecos) {
+			System.out.println(endereco.toString());
+		}
+	}
+	
+	/**
+	 * Lista apenas 1 elemento contido no ArrayList de enderecos.
+	 * 
+	 * Verifica se o endereco já está no banco de dados.
+	 * @param enderecos
+	 * @param endereco
+	 * @return
+	 */
+	public static String readOne(ArrayList<Endereco> enderecos, Endereco endereco) {
+		if (enderecos.contains(endereco)) {
+			return (endereco.toString());
+		} else {
+			return ("O endereço não consta na base de dados");
+		}
+	}
+	
+	/**
+	 * Muda um elemento do ArrayList<Endereco> para um novo elemento
+	 * @param enderecos
+	 * @param enderecoNovo
+	 * @param enderecoAntigo
+	 */
+	public static void update(ArrayList<Endereco> enderecos, Endereco enderecoNovo, Endereco enderecoAntigo) {
+		int index = enderecos.indexOf(enderecoAntigo);
+		enderecos.set(index, enderecoNovo);
+	}
+	
+	/**
+	 * Apaga um endereco de um ArrayList<Endereco>
+	 * @param enderecos
+	 * @param endereco
+	 */
+	public static void delete(ArrayList<Endereco> enderecos, Endereco endereco) {
+		enderecos.remove(enderecos.indexOf(endereco));		
+	}
+	
+	/**
+	 * Remove todos os caracteres que não são os algarismos numéricos da String de CEP
+	 * @param cep
+	 * @return
+	 */
+	public static String formataCEP(String cep) {
+		String output = "";
+		for (byte code : cep.getBytes()) {
+			if (code-48 < 10 && code - 48 >= 0) {
+				output += Character.toString((char) code);
+			}
+		}
+		return output;
+	}
+	
+	/**
+	 * Verifica se CEP contém 8 dígitos
+	 * @param cep
+	 * @return
+	 */
+	public static boolean validaCEP(String cep) {
+		if(Endereco.formataCEP(cep).length() != 8) {
+			return false;
+		} 
+		return true;
+	}
+	
 	@Override
 	public String toString() {
 		return "Endereco [logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade
