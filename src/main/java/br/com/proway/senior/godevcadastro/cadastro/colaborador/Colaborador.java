@@ -309,23 +309,23 @@ public class Colaborador extends Pessoa {
 	}
 
 	/** 
-	 *  Cadastrar colaborador
+	 * Cadastrar colaborador
 	 * 
 	 * Realiza cadastro do colaborador no ArrayList.
 	 * 
-	 * @param colaborador
-	 * @return
+	 * @param ArrayList<Colaborador> colaboradores
+	 * @param Colaborador colaborador
+	 * @return void
 	 */
 	public static void cadastrarColaborador(ArrayList<Colaborador> colaboradores, Colaborador colaborador) {
 		colaboradores.add(colaborador);
-//		for (Colaborador colaborador2 : colaboradores) {
-//			System.out.println(colaborador2);
-//		}
-		
+		for (Colaborador colaborador2 : colaboradores) {
+		System.out.println(colaborador2);
+		}
 	}
 	
 	/**
-	 * Listar todos colaboradores
+	 * Listar todos os colaboradores
 	 * 
 	 * Realiza a leitura de todos os colaboradores cadastrados
 	 * e apresenta na tela.
