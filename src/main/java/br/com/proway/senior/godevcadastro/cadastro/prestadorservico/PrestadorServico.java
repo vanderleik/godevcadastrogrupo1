@@ -210,8 +210,22 @@ public class PrestadorServico extends Pessoa {
 	 * @param prestadorNovo
 	 * @return void
 	 */
-	public static void atualizarExameMedico(ArrayList<PrestadorServico> prestadores, ExameMedico exameAntigo, ExameMedico exameNovo) {
-		prestadores.set(prestadores.indexOf(exameAntigo), exameNovo);
+	public static void atualizarPrestadorServico(ArrayList<PrestadorServico> prestadores, PrestadorServico prestadorAntigo, PrestadorServico prestadorNovo) {
+		prestadores.set(prestadores.indexOf(prestadorAntigo), prestadorNovo);
+	}
+	
+	/**
+	 * Deletar prestador de serviço
+	 * 
+	 * Realiza a exclusão do prestador de serviço conforme parâmetro
+	 * passado (PrestadorServico prestador).
+	 * 
+	 * @param ArrayList<PrestadorServico> prestadores
+	 * @param PrestadorServico prestador
+	 * @return void
+	 */
+	public static void deletarPrestadorServico(ArrayList<PrestadorServico> prestadores, PrestadorServico prestador) {
+		prestadores.remove(prestador);
 	}
 	
 	

@@ -90,6 +90,22 @@ public class PrestadorServicoTest {
 		assertTrue(prestadores.indexOf(prestador2) == 1);
 	}
 	
+	@Test
+	public void testAtualizarPrestador() {
+		PrestadorServico.cadastrarPrestadorServico(prestadores, prestador1);
+		PrestadorServico.atualizarPrestadorServico(prestadores, prestador1, prestador2);
+		assertEquals("PrestadorServico [idPrestadorServico=37, dataInicioContrato=2018-12-25, idEmpresa=9, idSetor=42, "
+				+ "contatos=Contatos [telefonePrincipal=null, telefoneSecundario=499223366, email=joao@gmail.com]]", 
+				prestadores.get(0).toString());
+	}
+	
+	@Test
+	public void testDeletarPrestador() {
+		PrestadorServico.cadastrarPrestadorServico(prestadores, prestador1);
+		PrestadorServico.deletarPrestadorServico(prestadores, prestador1);
+		assertTrue(prestadores.size() == 0);
+	}
+	
 	
 	
 }
