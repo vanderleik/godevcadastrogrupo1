@@ -67,4 +67,9 @@ public class PessoaTest {
 		assertEquals(pessoaTesteConstrutorPrincipal.isPcd(), false);
 		
 	}
+	
+	@Test
+	public void testValidarCpf() {
+		System.out.println(Pessoa.validarCPF(""));
+	}
 }

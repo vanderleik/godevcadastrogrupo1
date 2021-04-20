@@ -10,7 +10,8 @@ import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
  * 
  * É herdada por Colaborador, PrestadorServico e Dependente.
  * 
- * @author Sarah Neuburger, Samuel Levi, Lorran Pereira, Thiago Luiz e Vitor Gonçalves
+ * @author Sarah Neuburger, Samuel Levi, Lorran Pereira, Thiago Luiz e Vitor
+ *         Gonçalves
  *
  */
 public class Pessoa {
@@ -26,11 +27,11 @@ public class Pessoa {
 	private Nacionalidades nacionalidade;
 	private boolean pcd = false;
 
-
 	/**
 	 * Construtor principal para a classe Pessoa.
 	 * 
 	 * Inclui os atributos pcd e nomeSocial
+	 * 
 	 * @param nome
 	 * @param sobrenome
 	 * @param dataDeNascimento
@@ -60,6 +61,7 @@ public class Pessoa {
 	 * Construtor secundário da classe Pessoa.
 	 * 
 	 * NÃO inclui os atributos pcd e nomeSocial.
+	 * 
 	 * @param nome
 	 * @param sobrenome
 	 * @param dataDeNascimento
@@ -69,7 +71,7 @@ public class Pessoa {
 	 * @param cpf
 	 * @param nacionalidade
 	 */
-	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, SexoPessoa sexo, 
+	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, SexoPessoa sexo,
 			String nomeDaMae, String cpf, Nacionalidades nacionalidade) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
@@ -80,7 +82,6 @@ public class Pessoa {
 		this.cpf = cpf;
 		this.nacionalidade = nacionalidade;
 	}
-	
 
 	/**
 	 * Construtor secundário da classe Pessoa.
@@ -192,6 +193,47 @@ public class Pessoa {
 
 	public void setPcd(boolean pcd) {
 		this.pcd = pcd;
+	}
+
+	/**
+	 * Formatar CPF
+	 * 
+	 * Formata uma String que contenha um CPF para que possua apenas algarismos.
+	 * 
+	 * @return
+	 */
+	public static String formatarCPF(String CPF) {
+		String output = "";
+		for (byte code : CPF.getBytes()) {
+			if (code - 48 < 10 && code - 48 >= 0) {
+				output += Character.toString((char) code);
+			}
+		}
+		return output;
+	}
+
+	public static boolean validarCPF(String CPF) {
+		String CPFFormatado = Pessoa.formatarCPF(CPF);
+		if (CPF.length() == 11) {
+			
+			int soma = 0;
+			int mult = 10;
+			for(int i = 0; i < 9; i++) {
+				soma += mult * ((CPFFormatado.charAt(i) -48));
+				mult--;
+			}
+			if(soma%11 == CPFFormatado.charAt(9) - 48) {
+				boolean valido;
+			} else if (soma%11 == 10 && CPFFormatado.charAt(9) - 48 == 0) {
+				boolean valido;
+			} else {
+				return false;
+			}
+			
+			
+
+		}
+		return true;
 	}
 
 	@Override
