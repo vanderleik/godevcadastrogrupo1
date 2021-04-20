@@ -11,7 +11,7 @@ import br.com.proway.senior.godevcadastro.cadastro.endereco.Endereco;
  * Classe que abstrai as informações de uma Empresa contratada.
  * Esta Classe será instanciada na Classe PrestadorServico, e instanciará as classes Endereco e Contato
  *
- * @author Thiago Barbieri
+ * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
  *
  */
 public class Empresa {

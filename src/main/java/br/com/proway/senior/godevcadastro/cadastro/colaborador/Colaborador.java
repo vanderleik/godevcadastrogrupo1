@@ -15,13 +15,15 @@ import br.com.proway.senior.godevcadastro.cadastro.examemedico.ExameMedico;
 import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
 
 public class Colaborador extends Pessoa {
-
+	
 	/**
 	 * Classe Colaborador.
 	 * 
 	 * A classe Colaborador extende da classe mãe Pessoa e estancia as classes
 	 * Documentos, Enderecos, Contatos e ExameMedico para concluir o cadastro do
 	 * colaborador.
+	 * 
+	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
 	 */
 
 	/**

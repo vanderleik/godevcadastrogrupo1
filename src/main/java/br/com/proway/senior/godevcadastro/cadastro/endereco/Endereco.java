@@ -6,14 +6,14 @@ import br.com.proway.senior.godevcadastro.cadastro.enums.Cidades;
 import br.com.proway.senior.godevcadastro.cadastro.enums.Paises;
 import br.com.proway.senior.godevcadastro.cadastro.enums.UnidadesFederativas;
 
-/**
- * Classe que engloba e abstrai as informações de endereco de um
- * Colaborador/Empresa Esta classe será instanciada nas classes Colaborador e
- * Empresa
- * 
- * @author Thiago Barbieri
- *
- */
+	/**
+	 * Classe que engloba e abstrai as informações de endereco de um
+	 * Colaborador/Empresa Esta classe será instanciada nas classes Colaborador e
+	 * Empresa
+	 * 
+	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
+	 *
+	 */
 public class Endereco {
 
 	/**
