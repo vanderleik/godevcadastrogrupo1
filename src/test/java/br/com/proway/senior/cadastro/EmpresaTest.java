@@ -65,6 +65,11 @@ public class EmpresaTest {
 	}
 	
 	@Test
+	public void testeFormataCNPJ() {
+		assertEquals(Empresa.formataCNPJ("14.572.457.0001-85:/"), "14572457000185");
+	}
+	
+	@Test
 	public void testeValidaCNPJ() {
 		assertTrue(Empresa.validaCNPJ("14.572.457.0001-85"));
 		assertFalse(Empresa.validaCNPJ("14.572.457.0001-84"));

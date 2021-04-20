@@ -89,6 +89,14 @@ public class Empresa {
 		
 	}
 	
+	/**
+	 * Torna uma String correspondente à um CNPJ em uma String que 
+	 * contém apenas algarismos.
+	 * 
+	 * @param cnpj
+	 * @return
+	 * @author VItor Nathan Gonçalves
+	 */
 	public static String formataCNPJ(String cnpj) {
 		String output = "";
 		for (byte code : cnpj.getBytes()) {
