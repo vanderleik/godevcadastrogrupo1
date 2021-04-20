@@ -7,14 +7,14 @@ import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
 import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
 import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
 
-/**
- * 
- * Esta classe herda seus atributos primários da classe Pessoa. É vinculada ao
- * colaborador pelo atributo idColaborador. Somente será instanciada na Classe
- * Colaborador se o optanteDependente for true.
- * 
- * @author Samuel Alves
- */
+	/**
+	 * Esta classe herda seus atributos primários da classe Pessoa. É vinculada ao
+	 * colaborador pelo atributo idColaborador. Somente será instanciada na Classe
+	 * Colaborador se o optanteDependente for true.
+	 * 
+	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
+	 */
+
 public class Dependente extends Pessoa {
 
 	private Integer id;

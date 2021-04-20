@@ -13,6 +13,8 @@ public class ExameMedico {
 	 * 
 	 * Classe recebe informações para cadastro dos exames médicos que será
 	 * instanciada na classe Colaborador para o cadastramento do mesmo
+	 * 
+	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
 	 */
 
 	/**

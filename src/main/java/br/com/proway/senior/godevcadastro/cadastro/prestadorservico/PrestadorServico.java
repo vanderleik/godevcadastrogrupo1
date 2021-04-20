@@ -10,14 +10,14 @@ import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
 import br.com.proway.senior.godevcadastro.cadastro.examemedico.ExameMedico;
 import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
 
-/**
- * Classe que abstrai as informações do prestador de serviço contratado.
- * 
- * Possui instância de Contatos.
- * s
- * @author Vitor Nathan Gonçalves
- *
- */
+	/**
+	 * Classe que abstrai as informações do prestador de serviço contratado.
+	 * 
+	 * Possui instância de Contatos.
+	 * 
+	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
+	 */
+
 public class PrestadorServico extends Pessoa {
 
 	/**

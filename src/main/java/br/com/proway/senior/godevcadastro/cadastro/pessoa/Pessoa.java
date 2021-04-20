@@ -5,15 +5,15 @@ import java.time.LocalDate;
 import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
 import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
 
-/**
- * Classe pessoa, abstrai os atributos de uma pessoa.
- * 
- * É herdada por Colaborador, PrestadorServico e Dependente.
- * 
- * @author Sarah Neuburger, Samuel Levi, Lorran Pereira, Thiago Luiz e Vitor
- *         Gonçalves
- *
- */
+	/**
+	 * Classe pessoa, abstrai os atributos de uma pessoa.
+	 * 
+	 * É herdada por Colaborador, PrestadorServico e Dependente.
+	 * 
+	 * @author @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
+	 *
+	 */
+
 public class Pessoa {
 
 	private String nome;

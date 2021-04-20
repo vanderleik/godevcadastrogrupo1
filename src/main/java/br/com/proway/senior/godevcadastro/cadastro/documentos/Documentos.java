@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * Classe que engloba e abstrai os documentos necessários para o Colaborador.
- * 
- * É instanciada na classe Colaborador.
- * 
- * @author Vitor Nathan Gonçalves
- *
- */
+	/**
+	 * Classe que engloba e abstrai os documentos necessários para o Colaborador.
+	 * 
+	 * É instanciada na classe Colaborador.
+	 * 
+	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
+	 */
+
 public class Documentos {
 
 	/**

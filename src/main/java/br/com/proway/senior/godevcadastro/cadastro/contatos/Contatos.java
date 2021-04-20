@@ -1,16 +1,16 @@
 package br.com.proway.senior.godevcadastro.cadastro.contatos;
 
 import java.util.ArrayList;
+	
+	/**
+	 * Armazena os contatos necessários de um colaborador, empresa ou prestador de
+	 * serviço.
+	 * 
+	 * É instanciada nas classes Colaborador, Empresa, e PrestadorServico.
+	 * 
+	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
+	 */
 
-/**
- * Armazena os contatos necessários de um colaborador, empresa ou prestador de
- * serviço.
- * 
- * É instanciada nas classes Colaborador, Empresa, e PrestadorServico.
- * 
- * @author Vitor Nathan Gonçalves
- *
- */
 public class Contatos {
 
 	/**
