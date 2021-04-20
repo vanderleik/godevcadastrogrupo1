@@ -1,11 +1,13 @@
 package br.com.proway.senior.godevcadastro.cadastro.prestadorservico;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
 import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
 import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
+import br.com.proway.senior.godevcadastro.cadastro.examemedico.ExameMedico;
 import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
 
 /**
@@ -21,7 +23,7 @@ public class PrestadorServico extends Pessoa {
 	/**
 	 * ID do prestador de serviço
 	 */
-	private long idPrestadorServico;
+	private Integer idPrestadorServico;
 	
 	/**
 	 * Data de início da validade do contrato com o prestador de serviço
@@ -31,12 +33,12 @@ public class PrestadorServico extends Pessoa {
 	/**
 	 * ID da empresa na qual o prestador de serviço trabalha
 	 */
-	private long idEmpresa;
+	private Integer idEmpresa;
 	
 	/**
 	 * ID do setor no qual o prestador de serviço trabalha
 	 */
-	private long idSetor;
+	private Integer idSetor;
 	
 	/**
 	 * Armazena as informações de contato do prestador de serviço
@@ -65,8 +67,8 @@ public class PrestadorServico extends Pessoa {
 	 * @param contatos
 	 */
 	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, boolean pcd, long idPrestadorServico,
-			LocalDate dataInicioContrato, long idEmpresa, long idSetor, Contatos contatos) {
+			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, boolean pcd, Integer idPrestadorServico,
+			LocalDate dataInicioContrato, Integer idEmpresa, Integer idSetor, Contatos contatos) {
 		super(nome, sobrenome, dataDeNascimento, nomeSocial, genero, sexo, nomeDaMae, cpf, nacionalidade, pcd);
 		this.idPrestadorServico = idPrestadorServico;
 		this.dataInicioContrato = dataInicioContrato;
@@ -94,8 +96,8 @@ public class PrestadorServico extends Pessoa {
 	 * @param contatos
 	 */
 	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String genero,
-			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, long idPrestadorServico,
-			LocalDate dataInicioContrato, long idEmpresa, long idSetor, Contatos contatos) {
+			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, Integer idPrestadorServico,
+			LocalDate dataInicioContrato, Integer idEmpresa, Integer idSetor, Contatos contatos) {
 		super(nome, sobrenome, dataDeNascimento, genero, sexo, nomeDaMae, cpf, nacionalidade);
 		this.idPrestadorServico = idPrestadorServico;
 		this.dataInicioContrato = dataInicioContrato;
@@ -108,7 +110,7 @@ public class PrestadorServico extends Pessoa {
 		return idPrestadorServico;
 	}
 
-	public void setIdPrestadorServico(long idPrestadorServico) {
+	public void setIdPrestadorServico(Integer idPrestadorServico) {
 		this.idPrestadorServico = idPrestadorServico;
 	}
 
@@ -124,7 +126,7 @@ public class PrestadorServico extends Pessoa {
 		return idEmpresa;
 	}
 
-	public void setIdEmpresa(long idEmpresa) {
+	public void setIdEmpresa(Integer idEmpresa) {
 		this.idEmpresa = idEmpresa;
 	}
 
@@ -132,7 +134,7 @@ public class PrestadorServico extends Pessoa {
 		return idSetor;
 	}
 
-	public void setIdSetor(long idSetor) {
+	public void setIdSetor(Integer idSetor) {
 		this.idSetor = idSetor;
 	}
 
@@ -143,4 +145,81 @@ public class PrestadorServico extends Pessoa {
 	public void setContatos(Contatos contatos) {
 		this.contatos = contatos;
 	}
+
+	/** 
+	 * Cadastrar prestador de serviço
+	 * 
+	 * Realiza cadastro de um prestador de serviço
+	 * 
+	 * @param ArrayList<PrestadorServico> prestadores
+	 * @param PrestadorServico prestador
+	 * @return void
+	 */
+	public static void cadastrarPrestadorServico(ArrayList<PrestadorServico> prestadores, PrestadorServico prestador) {
+		prestadores.add(prestador);
+		for (PrestadorServico prestador2 : prestadores) {
+		System.out.println(prestador2);
+		}
+	}
+	
+	/**
+	 * Listar todos os prestadores de serviços
+	 * 
+	 * Realiza a leitura dos prestadores de serviços cadastrados
+	 * e apresenta na tela.
+	 * 
+	 * @param PrestadorServico prestador
+	 * @param ArrayList prestadores
+	 * @return ArrayList prestadores
+	 */
+	public static ArrayList<PrestadorServico> listarTodosPrestadores(ArrayList<PrestadorServico> prestadores) {
+		for (PrestadorServico prestador2 : prestadores) {
+			System.out.println(prestador2);			
+		}
+		return prestadores;
+	}
+	
+	/**
+	 * Listar o prestador de serviço conforme parâmetro
+	 * 
+	 * Realiza a leitura do prestador de serviço informado via parâmetro
+	 * e apresenta na tela.
+	 * 
+	 * @param PrestadorServico prestador
+	 * @param ArrayList prestadores
+	 * @return ArrayList prestadores
+	 */
+	public static ArrayList<PrestadorServico> listarPrestadorCodigo(ArrayList<PrestadorServico> prestadores, PrestadorServico prestador) {
+		for (PrestadorServico prestador2 : prestadores) {
+			if (prestadores.contains(prestador)) {
+			System.out.println(prestador2);		
+			}
+		}	
+		return prestadores;
+	}
+	
+	
+	/**
+	 * Atualizar prestador de serviços
+	 * 
+	 * Realiza a atualização dos dados do prestador de serviços
+	 * através dos dados informados (prestadorNovo)
+	 * 
+	 * @param prestadores
+	 * @param prestadorAntigo
+	 * @param prestadorNovo
+	 * @return void
+	 */
+	public static void atualizarExameMedico(ArrayList<PrestadorServico> prestadores, ExameMedico exameAntigo, ExameMedico exameNovo) {
+		prestadores.set(prestadores.indexOf(exameAntigo), exameNovo);
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "PrestadorServico [idPrestadorServico=" + idPrestadorServico + ", dataInicioContrato="
+				+ dataInicioContrato + ", idEmpresa=" + idEmpresa + ", idSetor=" + idSetor + ", contatos=" + contatos
+				+ "]";
+	}
+	
 }
