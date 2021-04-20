@@ -1,6 +1,7 @@
 package br.com.proway.senior.godevcadastro.cadastro.dependente;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
 import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
@@ -66,11 +67,54 @@ public class Dependente extends Pessoa {
 	public void setOptanteIR(boolean optanteIR) {
 		this.optanteIR = optanteIR;
 	}
-
-	@Override
-	public String toString() {
-		return "Dependente [id=" + id + ", idColaborador=" + idColaborador + ", tipoDependente=" + tipoDependente
-				+ ", optanteIR=" + optanteIR + "]";
+	
+	/**
+	 * Adiciona um dependente ao ArrayList<Dependente>
+	 * 
+	 * @param dependentes
+	 * @param dependente
+	 * @author Vitor, Samuel
+	 */
+	public static void createDependente(ArrayList<Dependente> dependentes, Dependente dependente) {
+		dependentes.add(dependente);
 	}
+	
+	
+	/**
+	 * Mostra as informações dos dependentes no console
+	 * @param dependentes
+	 * @author Vitor, Samuel
+	 */
+	public static void readDependente(ArrayList<Dependente> dependentes) {
+		for (Dependente dependente : dependentes) {
+			System.out.println(dependente.toString());
+		}
+	}
+	
+	/**
+	 * Realizar a atualização dos dados.
+	 * 
+	 * Altera um dependente do ArrayList para o novo dependente informado.
+	 * @param dependentes
+	 * @param dependenteAntigo
+	 * @param dependenteNovo
+	 * @author Vitor, Samuel
+	 */
+	public static void updateDependente(ArrayList<Dependente> dependentes, Dependente dependenteAntigo, Dependente dependenteNovo) {
+		int indice = dependentes.indexOf(dependenteAntigo);
+		dependentes.set(indice, dependenteNovo);
+	}
+	
+	/**
+	 * Deletar um dependente do ArrayList.
+	 * 
+	 * Deleta o dependente selecionado do ArrayList.
+	 * @param dependentes
+	 * @param dependente
+	 */
+	public static void deleteDependente(ArrayList<Dependente> dependentes, Dependente dependente) {
+		dependentes.remove(dependente);
+	}
+		
 
 }

@@ -3,7 +3,9 @@ package br.com.proway.senior.cadastro;
 import static org.junit.Assert.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import br.com.proway.senior.godevcadastro.cadastro.dependente.Dependente;
@@ -16,6 +18,10 @@ public class DependenteTest {
 			LocalDate.of(2007, 5, 12), null, "Masculino",
 			SexoPessoa.MASCULINO, "Daniela Alves","00012345678", Nacionalidades.BRASILEIRA,
 			false, 23, 5515, TiposDependentes.TIPO_FILHO, true);
+	Dependente dep02 = new Dependente("Marcos", "João",
+			LocalDate.of(2005, 2, 3), null, "Feminino",
+			SexoPessoa.FEMININO, "Marcela Alves","00452345678", Nacionalidades.BRASILEIRA,
+			false, 22, 555, TiposDependentes.TIPO_CONJUGE, true);
 	
 	@Test
 	public void testConstrutorDependente() {
@@ -34,5 +40,37 @@ public class DependenteTest {
 		assertEquals(TiposDependentes.TIPO_FILHO, dep01.getTipoDependente());
 		assertEquals(true, dep01.isOptanteIR());
 	}
-
+	
+	@Test
+	public void testCreateDependente() {
+		ArrayList<Dependente> dependentes = new ArrayList<Dependente>();
+		Dependente.createDependente(dependentes, dep01);
+		assertEquals(dependentes.get(0), dep01);
+		assertEquals(dependentes.size(), 1);
+	}
+	
+	@Ignore
+	@Test
+	public void testReadDependente() {
+		ArrayList<Dependente> dependentes = new ArrayList<Dependente>();
+		Dependente.createDependente(dependentes, dep01);
+		Dependente.readDependente(dependentes);
+	}
+	
+	@Test
+	public void testUpdateDependente() {
+		ArrayList<Dependente> dependentes = new ArrayList<Dependente>();
+		dependentes.add(dep01);
+		Dependente.updateDependente(dependentes, dep01, dep02);
+		assertEquals(dependentes.get(0), dep02);
+		assertFalse(dependentes.contains(dep01));
+	}
+	
+	@Test
+	public void testDeleteDependente() {
+		ArrayList<Dependente> dependentes = new ArrayList<Dependente>();
+		dependentes.add(dep01);
+		Dependente.deleteDependente(dependentes, dep01);
+		assertEquals(dependentes.size(), 0);
+	}
 }
