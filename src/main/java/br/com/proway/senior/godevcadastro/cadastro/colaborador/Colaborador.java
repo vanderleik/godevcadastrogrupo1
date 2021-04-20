@@ -318,9 +318,9 @@ public class Colaborador extends Pessoa {
 	 */
 	public static void cadastrarColaborador(ArrayList<Colaborador> colaboradores, Colaborador colaborador) {
 		colaboradores.add(colaborador);
-		for (Colaborador colaborador2 : colaboradores) {
-			System.out.println(colaborador2);
-		}
+//		for (Colaborador colaborador2 : colaboradores) {
+//			System.out.println(colaborador2);
+//		}
 		
 	}
 	
@@ -332,15 +332,11 @@ public class Colaborador extends Pessoa {
 	 * @param colaboradores
 	 * @return ArrayList colaboradores
 	 */
-	public static String listarTodosColaboradores(ArrayList<Colaborador> colaboradores) {
-		String teste = "";
+	public static ArrayList<Colaborador> listarTodosColaboradores(ArrayList<Colaborador> colaboradores) {
 		for (Colaborador colaborador2 : colaboradores) {
-			System.out.println(colaborador2);
-			teste += colaborador2.toString();
-			
+			System.out.println(colaborador2);			
 		}
-		
-		return teste;
+		return colaboradores;
 	}
 	
 	/**
