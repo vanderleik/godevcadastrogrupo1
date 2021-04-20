@@ -52,8 +52,8 @@ public class Contatos {
 	 * @param email
 	 */
 	public Contatos(String telefonePrincipal, String email) {
-		this.telefonePrincipal = telefonePrincipal;
-		this.email = email;
+		setTelefonePrincipal(telefonePrincipal);
+		setEmail(email);
 	}
 
 	public String getTelefonePrincipal() {
@@ -62,7 +62,7 @@ public class Contatos {
 
 	public void setTelefonePrincipal(String telefonePrincipal) {
 		String telFormatado = formatarTelefone(telefonePrincipal);
-		if(validarTamanhoTel(telefonePrincipal)) {
+		if(validarTamanhoTel(telFormatado)) {
 			this.telefonePrincipal = telFormatado;
 		} else {
 			System.out.println("Telefone inválido!");
@@ -73,8 +73,20 @@ public class Contatos {
 		return telefoneSecundario;
 	}
 
+	/**
+	 * Insere o telefone principal no Objeto Contatos
+	 * 
+	 * Este metodo faz a inserção do telefone no objeto, desde que seja valido
+	 * 
+	 * @param telefoneSecundario
+	 */
 	public void setTelefoneSecundario(String telefoneSecundario) {
-		this.telefoneSecundario = telefoneSecundario;
+		String telFormatado = formatarTelefone(telefoneSecundario);
+		if(validarTamanhoTel(telFormatado)) {
+			this.telefoneSecundario = telFormatado;
+		} else {
+			System.out.println("Telefone inválido!");
+		}
 	}
 
 	public String getEmail() {
@@ -97,23 +109,20 @@ public class Contatos {
 		}
 	}
 	
+	/**
+	 * Valida o tamanho do telefone
+	 * 
+	 * Este metodo verifica se ha 11 digitos no telefone. Se houver ele retorna true
+	 * caso contrario retorna false.
+	 * 
+	 * @param telefone
+	 * @return true || false
+	 */
 	public boolean validarTamanhoTel(String telefone) {
 		if(telefone.length() != 11) {
 			return false;
 		}
 		return true;
-	}
-
-	/**
-	 * Cadastrar contato
-	 * 
-	 * Realiza cadastro de contato no ArrayList<Contatos>
-	 * 
-	 * @param contatos
-	 * @param contato
-	 */
-	public static void cadastrarContato(ArrayList<Contatos> contatos, Contatos contato) {
-		contatos.add(contato);
 	}
 
 	/**
@@ -133,6 +142,19 @@ public class Contatos {
 		}
 		return telefoneFormatado;
 	}
+	
+	/**
+	 * Cadastrar contato
+	 * 
+	 * Realiza cadastro de contato no ArrayList<Contatos>
+	 * 
+	 * @param contatos
+	 * @param contato
+	 */
+	public static void cadastrarContato(ArrayList<Contatos> contatos, Contatos contato) {
+		contatos.add(contato);
+	}
+
 
 	/**
 	 * Validar email
