@@ -1,7 +1,10 @@
 package br.com.proway.senior.godevcadastro.cadastro.examemedico;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+
+import br.com.proway.senior.godevcadastro.cadastro.colaborador.Colaborador;
 
 public class ExameMedico {
 
@@ -20,8 +23,6 @@ public class ExameMedico {
 	TiposExame tipoExame;
 	private LocalDate dataExame;
 	private boolean apto;
-
-	int escolha;
 
 	/**
 	 * Selecionar o tipo de exame.
@@ -94,17 +95,90 @@ public class ExameMedico {
 		this.apto = apto;
 	}
 
-	public ExameMedico(int tipoExame, String descricaoExame, LocalDate dataExame, boolean apto) {
-		ExameMedico exameMedico = null;
-		descricaoExame = exameMedico.selecionarTipoExame(tipoExame);
-		this.dataExame = dataExame;
-		this.apto = apto;
+	/** 
+	 * Cadastrar exame médico
+	 * 
+	 * Realiza cadastro de um exame médico
+	 * 
+	 * @param ArrayList<ExameMedico> exames
+	 * @param ExameMedico exame
+	 * @return void
+	 */
+	public static void cadastrarExameMedico(ArrayList<ExameMedico> exames, ExameMedico exame) {
+		exames.add(exame);
+		for (ExameMedico exame2 : exames) {
+		System.out.println(exame2);
+		}
 	}
-
+	
+	/**
+	 * Listar todos os exames médicos
+	 * 
+	 * Realiza a leitura de todos os exames médicos cadastrados
+	 * e apresenta na tela.
+	 * 
+	 * @param ExameMedico exame
+	 * @param ArrayList exames
+	 * @return ArrayList exames
+	 */
+	public static ArrayList<ExameMedico> listarTodosExames(ArrayList<ExameMedico> exames) {
+		for (ExameMedico exame2 : exames) {
+			System.out.println(exame2);			
+		}
+		return exames;
+	}
+	
+	/**
+	 * Listar o exame médico conforme parâmetro
+	 * 
+	 * Realiza a leitura do exame médico informado via parâmetro
+	 * e apresenta na tela.
+	 * 
+	 * @param ExameMedico exame
+	 * @param ArrayList exames
+	 * @return ArrayList exames
+	 */
+	public static ArrayList<ExameMedico> listarExameCodigo(ArrayList<ExameMedico> exames, ExameMedico exame) {
+		for (ExameMedico exame2 : exames) {
+			if (exames.contains(exame)) {
+			System.out.println(exame2);		
+			}
+		}	
+		return exames;
+	}
+	
+	/**
+	 * Atualizar exame médico
+	 * 
+	 * Realiza a atualização dos dados do exame médico
+	 * através dos dados informados (exameNovo)
+	 * 
+	 * @param exames
+	 * @param exameAntigo
+	 * @param exameNovo
+	 * @return void
+	 */
+	public static void atualizarExameMedico(ArrayList<ExameMedico> exames, ExameMedico exameAntigo, ExameMedico exameNovo) {
+		exames.set(exames.indexOf(exameAntigo), exameNovo);
+	}
+	
+	/**
+	 * Deletar exame médico
+	 * 
+	 * Realiza a exclusão do exame médico conforme parâmetro
+	 * passado (ExameMedico exame).
+	 * 
+	 * @param ArrayList<ExameMedico> exames
+	 * @param ExameMedico exame
+	 * @return void
+	 */
+	public static void deletarExameMedico(ArrayList<ExameMedico> exames, ExameMedico exame) {
+		exames.remove(exame);
+	}
+	
 	@Override
 	public String toString() {
-		return "ExameMedico [tipoExame=" + tipoExame + ", dataExame=" + dataExame + ", apto=" + apto + ", escolha="
-				+ escolha + "]";
+		return "ExameMedico [tipoExame=" + tipoExame + ", dataExame=" + dataExame + ", apto=" + apto + ", escolha=]";
 	}
 
 }
