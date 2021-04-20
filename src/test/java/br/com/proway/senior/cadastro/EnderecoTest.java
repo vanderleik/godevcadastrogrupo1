@@ -48,44 +48,46 @@ public class EnderecoTest {
 
 
 	@Test
-	public void testeCreate() {
-		ArrayList<Endereco> enderecos = new ArrayList<Endereco>();
-		Endereco.create(enderecoSemComplemento, enderecos);
-		assertTrue(enderecos.indexOf(enderecoSemComplemento) >= 0);
+	public void testeCadastrarEndereco() {
+		ArrayList<Endereco> listaEnderecos = new ArrayList<Endereco>();
+		Endereco.cadastrarEndereco(enderecoSemComplemento, listaEnderecos);
+		assertTrue(listaEnderecos.indexOf(enderecoSemComplemento) >= 0);
 	}
 	
 	@Test
-	public void testeReadOne() {
-		ArrayList<Endereco> enderecos = new ArrayList<Endereco>();
-		enderecos.add(enderecoSemComplemento);
-		assertEquals("Endereco [logradouro=Sítio Côrrego de Santo Antônio, numero=10, bairro=Côrrego de Santo Antonio, cidade=FLORIANOPOLIS, uf=SC, complemento=null, cep=28666971, pais=BRASIl]", Endereco.readOne(enderecos, enderecoSemComplemento));
+	public void testeListarEnderecoCodigo() {
+		ArrayList<Endereco> listaEnderecos = new ArrayList<Endereco>();
+		listaEnderecos.add(enderecoSemComplemento);
+		assertEquals("Endereco [logradouro=Sítio Côrrego de Santo Antônio, numero=10, "
+				+ "bairro=Côrrego de Santo Antonio, cidade=FLORIANOPOLIS, uf=SC, complemento=null,"
+				+ " cep=28666971, pais=BRASIl]", 
+				Endereco.listarEnderecoCodigo(listaEnderecos, enderecoSemComplemento));
 	}
 	
 	@Test
-	public void testeUpdate() {
-		ArrayList<Endereco> enderecos = new ArrayList<Endereco>();
-		enderecos.add(enderecoSemComplemento);
-		Endereco.update(enderecos, enderecoCompleto, enderecoSemComplemento);
-		assertEquals(enderecoCompleto, enderecos.get(0));
-		assertFalse(enderecoSemComplemento.equals(enderecos.get(0)));
+	public void testeAtualizarEndereco() {
+		ArrayList<Endereco> listaEnderecos = new ArrayList<Endereco>();
+		listaEnderecos.add(enderecoSemComplemento);
+		Endereco.atualizarEndereco(listaEnderecos, enderecoCompleto, enderecoSemComplemento);
+		assertEquals(enderecoCompleto, listaEnderecos.get(0));
+		assertFalse(enderecoSemComplemento.equals(listaEnderecos.get(0)));
 	}
 	
 	@Test
-	public void testeDelete() {
-		ArrayList<Endereco> enderecos = new ArrayList<Endereco>();
-		enderecos.add(enderecoSemComplemento);
-		Endereco.delete(enderecos, enderecoSemComplemento);
-		assertTrue(enderecos.size() == 0);
+	public void testeDeletarEndereco() {
+		ArrayList<Endereco> listaEnderecos = new ArrayList<Endereco>();
+		listaEnderecos.add(enderecoSemComplemento);
+		Endereco.deletarEndereco(listaEnderecos, enderecoSemComplemento);
+		assertTrue(listaEnderecos.size() == 0);
 	}
 	
 	@Test 
-	public void testeFormataCEP() {
-		System.out.println(Endereco.formataCEP("1008383492/:"));
-		assertEquals(Endereco.formataCEP("1008383492/:"), "1008383492");
+	public void testeFormatarCEP() {
+		assertEquals(Endereco.formatarCEP("1008383492/:"), "1008383492");
 	}
 	
 	@Test
-	public void testeValidaCEP() {
-		assertTrue(Endereco.validaCEP("45112589"));
+	public void testeValidarCEP() {
+		assertTrue(Endereco.validarCEP("45112589"));
 	}
 }

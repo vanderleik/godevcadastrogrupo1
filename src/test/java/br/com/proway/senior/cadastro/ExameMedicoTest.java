@@ -24,9 +24,10 @@ public class ExameMedicoTest {
 	ExameMedico exame1 = new ExameMedico(tipoExame1, dataExame1, apto1);
 	ExameMedico exame2 = new ExameMedico(tipoExame2, dataExame2, apto2);
 	
-	ArrayList<ExameMedico> exames = new ArrayList<ExameMedico>();
+	ArrayList<ExameMedico> listaExames = new ArrayList<ExameMedico>();
 	
 	@Test 
+	@Ignore
 	public void testEnumTipo() { 
 		ExameMedico exame = new ExameMedico();
 		String teste = exame.selecionarTipoExame(0); 
@@ -45,61 +46,61 @@ public class ExameMedicoTest {
 	
 	@Test
 	public void testCadastrarExameMedico() {
-		ExameMedico.cadastrarExameMedico(exames, exame1);
-		ExameMedico.cadastrarExameMedico(exames, exame2);
-		assertTrue(exames.indexOf(exame1) == 0);
-		assertTrue(exames.indexOf(exame2) == 1);
+		ExameMedico.cadastrarExameMedico(listaExames, exame1);
+		ExameMedico.cadastrarExameMedico(listaExames, exame2);
+		assertTrue(listaExames.indexOf(exame1) == 0);
+		assertTrue(listaExames.indexOf(exame2) == 1);
 	}
 	
 	@Test
 	public void testCadastrarExameErrado() {
-		ExameMedico.cadastrarExameMedico(exames, exame1);
-		assertFalse(exames.indexOf(exame1)<0);
+		ExameMedico.cadastrarExameMedico(listaExames, exame1);
+		assertFalse(listaExames.indexOf(exame1)<0);
 	}
 	
 	@Ignore
 	@Test
 	public void testListarTodosExames() {
-		ExameMedico.cadastrarExameMedico(exames, exame1);
-		ExameMedico.cadastrarExameMedico(exames, exame2);
-		ExameMedico.listarTodosExames(exames);
-		assertEquals(tipoExame1, ExameMedico.listarTodosExames(exames).get(0).getTipoExame());
-		assertEquals(dataExame1, ExameMedico.listarTodosExames(exames).get(0).getDataExame());
-		assertEquals(apto1, ExameMedico.listarTodosExames(exames).get(0).isApto());
-		assertEquals(tipoExame2, ExameMedico.listarTodosExames(exames).get(1).getTipoExame());
-		assertEquals(dataExame2, ExameMedico.listarTodosExames(exames).get(1).getDataExame());
-		assertEquals(apto2, ExameMedico.listarTodosExames(exames).get(1).isApto());
+		ExameMedico.cadastrarExameMedico(listaExames, exame1);
+		ExameMedico.cadastrarExameMedico(listaExames, exame2);
+		ExameMedico.listarTodosExames(listaExames);
+		assertEquals(tipoExame1, ExameMedico.listarTodosExames(listaExames).get(0).getTipoExame());
+		assertEquals(dataExame1, ExameMedico.listarTodosExames(listaExames).get(0).getDataExame());
+		assertEquals(apto1, ExameMedico.listarTodosExames(listaExames).get(0).isApto());
+		assertEquals(tipoExame2, ExameMedico.listarTodosExames(listaExames).get(1).getTipoExame());
+		assertEquals(dataExame2, ExameMedico.listarTodosExames(listaExames).get(1).getDataExame());
+		assertEquals(apto2, ExameMedico.listarTodosExames(listaExames).get(1).isApto());
 	}
 	
 	@Ignore
 	@Test
 	public void testListarExameCodigo() {
-		ExameMedico.cadastrarExameMedico(exames, exame1);
-		ExameMedico.cadastrarExameMedico(exames, exame2);
-		ExameMedico.listarExameCodigo(exames, exame1);
-		ExameMedico.listarExameCodigo(exames, exame2);
-		assertEquals(tipoExame1, ExameMedico.listarExameCodigo(exames, exame1).get(0).getTipoExame());
-		assertEquals(dataExame1, ExameMedico.listarExameCodigo(exames, exame1).get(0).getDataExame());
-		assertEquals(apto1, ExameMedico.listarExameCodigo(exames, exame1).get(0).isApto());
-		assertEquals(tipoExame2, ExameMedico.listarExameCodigo(exames, exame2).get(1).getTipoExame());
-		assertEquals(dataExame2, ExameMedico.listarExameCodigo(exames, exame2).get(1).getDataExame());
-		assertEquals(apto2, ExameMedico.listarExameCodigo(exames, exame2).get(1).isApto());
+		ExameMedico.cadastrarExameMedico(listaExames, exame1);
+		ExameMedico.cadastrarExameMedico(listaExames, exame2);
+		ExameMedico.listarExameCodigo(listaExames, exame1);
+		ExameMedico.listarExameCodigo(listaExames, exame2);
+		assertEquals(tipoExame1, ExameMedico.listarExameCodigo(listaExames, exame1).get(0).getTipoExame());
+		assertEquals(dataExame1, ExameMedico.listarExameCodigo(listaExames, exame1).get(0).getDataExame());
+		assertEquals(apto1, ExameMedico.listarExameCodigo(listaExames, exame1).get(0).isApto());
+		assertEquals(tipoExame2, ExameMedico.listarExameCodigo(listaExames, exame2).get(1).getTipoExame());
+		assertEquals(dataExame2, ExameMedico.listarExameCodigo(listaExames, exame2).get(1).getDataExame());
+		assertEquals(apto2, ExameMedico.listarExameCodigo(listaExames, exame2).get(1).isApto());
 		
 	}
 	
 	@Test
 	public void testAtualizarExameMedico() {
-		ExameMedico.cadastrarExameMedico(exames, exame1);
-		ExameMedico.atualizarExameMedico(exames, exame1, exame2);
+		ExameMedico.cadastrarExameMedico(listaExames, exame1);
+		ExameMedico.atualizarExameMedico(listaExames, exame1, exame2);
 		assertEquals("ExameMedico [tipoExame=EXAME_ADMISSIONAL, dataExame=2021-06-10, apto=true, escolha=]", 
-				exames.get(0).toString());
+				listaExames.get(0).toString());
 	}
 	
 	@Test
-	public void testDeletarColaborador() {
-		ExameMedico.cadastrarExameMedico(exames, exame1);
-		ExameMedico.deletarExameMedico(exames, exame1);
-		assertTrue(exames.size() == 0);
+	public void testDeletarExameMedico() {
+		ExameMedico.cadastrarExameMedico(listaExames, exame1);
+		ExameMedico.deletarExameMedico(listaExames, exame1);
+		assertTrue(listaExames.size() == 0);
 	}
 	
 }

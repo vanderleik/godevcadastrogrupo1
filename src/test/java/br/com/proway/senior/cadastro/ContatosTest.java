@@ -11,97 +11,90 @@ import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
 
 public class ContatosTest {
 
-	ArrayList<Contatos> contatos = new ArrayList<Contatos>();
+	ArrayList<Contatos> listaContatos = new ArrayList<Contatos>();
 	
 	@Test
 	public void testContatosPrincipal() {
-		Contatos contatos = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
-		assertEquals("47999999999", contatos.getTelefonePrincipal());
-		assertEquals("47123456789", contatos.getTelefoneSecundario());
-		assertEquals("123@teste.com.br", contatos.getEmail());
+		Contatos contato = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
+		assertEquals("47999999999", contato.getTelefonePrincipal());
+		assertEquals("47123456789", contato.getTelefoneSecundario());
+		assertEquals("123@teste.com.br", contato.getEmail());
 	}
 
 	@Test
 	public void testContatosTelefonePrincipalEEmail() {
-		Contatos contatos = new Contatos("(47) 99999-9999", "123@teste.com.br");
-		assertEquals("47999999999", contatos.getTelefonePrincipal());
-		assertEquals("123@teste.com.br", contatos.getEmail());
+		Contatos contato = new Contatos("(47) 99999-9999", "123@teste.com.br");
+		assertEquals("47999999999", contato.getTelefonePrincipal());
+		assertEquals("123@teste.com.br", contato.getEmail());
 	}
 
 	@Test
 	public void testSetTelefonePrincipal() {
-		Contatos contatos = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
-		assertEquals("47999999999", contatos.getTelefonePrincipal());
+		Contatos contato = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
+		assertEquals("47999999999", contato.getTelefonePrincipal());
 	}
 
 	@Test
 	public void testSetTelefoneSecundario() {
-		Contatos contatos = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
-		assertEquals("47123456789", contatos.getTelefoneSecundario());
+		Contatos contato = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
+		assertEquals("47123456789", contato.getTelefoneSecundario());
 	}
 
 	@Test
 	public void testSetEmail() {
-		Contatos contatos = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
-		assertEquals("123@teste.com.br", contatos.getEmail());
+		Contatos contato = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
+		assertEquals("123@teste.com.br", contato.getEmail());
 	}
 
 	@Test
-	public void testToString() {
-		Contatos contatos = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
-		assertEquals("Contatos [telefonePrincipal=47999999999, telefoneSecundario=47123456789, email=123@teste.com.br]",
-				contatos.toString());
-	}
-	
-	@Test
 	public void testCadastroContato() {
 		Contatos contato = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
-		Contatos.cadastrarContato(contatos, contato);
-		assertTrue(contatos.indexOf(contato)>=0);
+		Contatos.cadastrarContato(listaContatos, contato);
+		assertTrue(listaContatos.indexOf(contato)>=0);
 	}
 	
 	@Test
 	public void testListarUmContato() {
 		Contatos contato1 = new Contatos("(47) 99999-9999", "(47) 12345-6789", "456@teste.com.br");
-		Contatos.cadastrarContato(contatos, contato1);
+		Contatos.cadastrarContato(listaContatos, contato1);
 		Contatos contato2 = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
-		Contatos.cadastrarContato(contatos, contato2);
-		assertEquals("47999999999", Contatos.listarContato(contatos, 0).getTelefonePrincipal());
-		assertEquals("47123456789", Contatos.listarContato(contatos, 0).getTelefoneSecundario());
-		assertEquals("456@teste.com.br", Contatos.listarContato(contatos, 0).getEmail());
+		Contatos.cadastrarContato(listaContatos, contato2);
+		assertEquals("47999999999", Contatos.listarContato(listaContatos, 0).getTelefonePrincipal());
+		assertEquals("47123456789", Contatos.listarContato(listaContatos, 0).getTelefoneSecundario());
+		assertEquals("456@teste.com.br", Contatos.listarContato(listaContatos, 0).getEmail());
 	}
 
 	@Test
 	public void testAtualizarUmContato() {
 		Contatos contato1 = new Contatos("(47) 99999-9999", "48573459863", "456@teste.com.br");
-		Contatos.cadastrarContato(contatos, contato1);
+		Contatos.cadastrarContato(listaContatos, contato1);
 		Contatos contato2 = new Contatos("(47) 99999-9999", "47123456789", "123@teste.com.br");
-		Contatos.atualizarUmContato(contatos, contato2, 0);
-		assertEquals("47999999999", contatos.get(0).getTelefonePrincipal());
-		assertEquals("123@teste.com.br", contatos.get(0).getEmail());
+		Contatos.atualizarContato(listaContatos, contato2, 0);
+		assertEquals("47999999999", listaContatos.get(0).getTelefonePrincipal());
+		assertEquals("123@teste.com.br", listaContatos.get(0).getEmail());
 	}
 	
 	@Test
-	public void testRemoverUmContatoPorId() {
+	public void testDeletarUmContatoPorId() {
 		Contatos contato1 = new Contatos("(47) 99999-9999", "(47) 12345-6789", "456@teste.com.br");
-		Contatos.cadastrarContato(contatos, contato1);
+		Contatos.cadastrarContato(listaContatos, contato1);
 		Contatos contato2 = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
-		Contatos.cadastrarContato(contatos, contato2);
-		Contatos.removerUmContato(contatos, 0);
-		assertEquals("47999999999", contatos.get(0).getTelefonePrincipal());
-		assertEquals("123@teste.com.br", contatos.get(0).getEmail());
+		Contatos.cadastrarContato(listaContatos, contato2);
+		Contatos.deletarContato(listaContatos, 0);
+		assertEquals("47999999999", listaContatos.get(0).getTelefonePrincipal());
+		assertEquals("123@teste.com.br", listaContatos.get(0).getEmail());
 	}
 	
 	@Test
-	public void testRemoverUmContatoPassandoUmContato() {
+	public void testDeletarUmContatoPassandoUmContato() {
 		Contatos contato1 = new Contatos("(47) 99999-9999", "(47) 12345-6789", "456@teste.com.br");
-		Contatos.cadastrarContato(contatos, contato1);
+		Contatos.cadastrarContato(listaContatos, contato1);
 		Contatos contato2 = new Contatos("(47) 99999-9999", "(47) 12345-6789", "123@teste.com.br");
-		Contatos.cadastrarContato(contatos, contato2);
-		Contatos.removerUmContatoPassandoUmContato(contatos, contato1);
-		assertEquals("47999999999", contatos.get(0).getTelefonePrincipal());
-		assertEquals("47123456789", contatos.get(0).getTelefoneSecundario());
-		assertEquals("123@teste.com.br", contatos.get(0).getEmail());
+		Contatos.cadastrarContato(listaContatos, contato2);
+		Contatos.removerUmContatoPassandoUmContato(listaContatos, contato1);
+		assertEquals("47999999999", listaContatos.get(0).getTelefonePrincipal());
+		assertEquals("47123456789", listaContatos.get(0).getTelefoneSecundario());
+		assertEquals("123@teste.com.br", listaContatos.get(0).getEmail());
 	}
 	
 	

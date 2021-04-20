@@ -7,13 +7,14 @@ import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
 import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
 import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
 
-	/**
-	 * Esta classe herda seus atributos primários da classe Pessoa. É vinculada ao
-	 * colaborador pelo atributo idColaborador. Somente será instanciada na Classe
-	 * Colaborador se o optanteDependente for true.
-	 * 
-	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
-	 */
+/**
+ * Esta classe herda seus atributos primários da classe Pessoa. É vinculada ao
+ * colaborador pelo atributo idColaborador. Somente será instanciada na Classe
+ * Colaborador se o optanteDependente for true.
+ * 
+ * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
+ *         Luiz Barbieri e Vitor Nathan Gonçalves.
+ */
 
 public class Dependente extends Pessoa {
 
@@ -67,54 +68,53 @@ public class Dependente extends Pessoa {
 	public void setOptanteIR(boolean optanteIR) {
 		this.optanteIR = optanteIR;
 	}
-	
+
 	/**
 	 * Adiciona um dependente ao ArrayList<Dependente>
 	 * 
-	 * @param dependentes
+	 * @param listaDependentes
 	 * @param dependente
-	 * @author Vitor, Samuel
 	 */
-	public static void createDependente(ArrayList<Dependente> dependentes, Dependente dependente) {
-		dependentes.add(dependente);
+	public static void cadastrarDependente(ArrayList<Dependente> listaDependentes, Dependente dependente) {
+		listaDependentes.add(dependente);
 	}
-	
-	
+
 	/**
 	 * Mostra as informações dos dependentes no console
-	 * @param dependentes
-	 * @author Vitor, Samuel
+	 * 
+	 * @param listaDependentes
 	 */
-	public static void readDependente(ArrayList<Dependente> dependentes) {
-		for (Dependente dependente : dependentes) {
+	public static void listarDependentes(ArrayList<Dependente> listaDependentes) {
+		for (Dependente dependente : listaDependentes) {
 			System.out.println(dependente.toString());
 		}
 	}
-	
+
 	/**
 	 * Realizar a atualização dos dados.
 	 * 
 	 * Altera um dependente do ArrayList para o novo dependente informado.
-	 * @param dependentes
+	 * 
+	 * @param listaDependentes
 	 * @param dependenteAntigo
 	 * @param dependenteNovo
-	 * @author Vitor, Samuel
 	 */
-	public static void updateDependente(ArrayList<Dependente> dependentes, Dependente dependenteAntigo, Dependente dependenteNovo) {
-		int indice = dependentes.indexOf(dependenteAntigo);
-		dependentes.set(indice, dependenteNovo);
+	public static void atualizarDependente(ArrayList<Dependente> listaDependentes, Dependente dependenteAntigo,
+			Dependente dependenteNovo) {
+		int indice = listaDependentes.indexOf(dependenteAntigo);
+		listaDependentes.set(indice, dependenteNovo);
 	}
-	
+
 	/**
 	 * Deletar um dependente do ArrayList.
 	 * 
 	 * Deleta o dependente selecionado do ArrayList.
-	 * @param dependentes
+	 * 
+	 * @param listaDependentes
 	 * @param dependente
 	 */
-	public static void deleteDependente(ArrayList<Dependente> dependentes, Dependente dependente) {
-		dependentes.remove(dependente);
+	public static void deletarDependente(ArrayList<Dependente> listaDependentes, Dependente dependente) {
+		listaDependentes.remove(dependente);
 	}
-		
 
 }

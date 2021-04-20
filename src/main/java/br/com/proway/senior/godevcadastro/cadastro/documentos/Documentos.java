@@ -14,90 +14,20 @@ import java.util.Date;
 
 public class Documentos {
 
-	/**
-	 * Número da carteira de trabalho do colaborador
-	 */
 	private int ctpsNumero;
-
-	/**
-	 * Série da carteira de trabalho do colaborador
-	 */
 	private int ctpsSerie;
-
-	/**
-	 * Data de emissão da carteira de trabalho
-	 */
 	private LocalDate dataEmissaoCTPS;
-
-	/**
-	 * Nome do banco para pagamento do salário do colaborador
-	 */
 	private String bancoNome;
-
-	/**
-	 * Número da agência do banco
-	 */
 	private int bancoAgencia;
-
-	/**
-	 * Número da conta da pessoa
-	 */
 	private int bancoNumeroConta;
-
-	/**
-	 * Número do título de eleitor da pessoa
-	 */
 	private long tituloNumero;
-
-	/**
-	 * Número da zona eleitoral da pessoa
-	 */
 	private int tituloZona;
-
-	/**
-	 * Número da seção eleitoral da pessoa
-	 */
 	private int tituloSecao;
-
-	/**
-	 * Número do registro de alistamento da pessoa
-	 */
 	private long raNumero;
-
-	/**
-	 * Número do RG da pessoa
-	 */
 	private long rgNumero;
-
-	/**
-	 * Órgão emissor do RG da pessoa
-	 */
 	private String orgaoEmissorRG;
-
-	/**
-	 * Data de emissão do RG da pessoa
-	 */
 	private LocalDate dataEmissaoRG;
-
-	/**
-	 * Construtor padrão da classe.
-	 * 
-	 * Inclui o registro de alistamento.
-	 * 
-	 * @param ctpsNumero
-	 * @param ctpsSerie
-	 * @param dataEmissao
-	 * @param bancoNome
-	 * @param bancoAgencia
-	 * @param bancoNumeroConta
-	 * @param tituloNumero
-	 * @param tituloZona
-	 * @param tituloSecao
-	 * @param raNumero
-	 * @param rgNumero
-	 * @param orgaoEmissorRG
-	 * @param dataEmissaoRG
-	 */
+	
 	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissao, String bancoNome, int bancoAgencia,
 			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long raNumero, long rgNumero,
 			String orgaoEmissorRG, LocalDate dataEmissaoRG) {
@@ -119,21 +49,8 @@ public class Documentos {
 	/**
 	 * Construtor secundário da classe.
 	 * 
-	 * NÃO inclui o registro de alistamento.
+	 * NÃO inclui o registro de alistamento (RA).
 	 * 
-	 * @param ctpsNumero
-	 * @param ctpsSerie
-	 * @param dataEmissao
-	 * @param bancoNome
-	 * @param bancoAgencia
-	 * @param bancoNumeroConta
-	 * @param tituloNumero
-	 * @param tituloZona
-	 * @param tituloSecao
-	 * @param raNumero
-	 * @param rgNumero
-	 * @param orgaoEmissorRG
-	 * @param dataEmissaoRG
 	 */
 	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissaoCTPS, String bancoNome, int bancoAgencia,
 			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long rgNumero,
@@ -261,11 +178,11 @@ public class Documentos {
 	 * Criação de um documento no ArrayList.
 	 * 
 	 * Adiciona uma instância de Documentos ao ArrayList
-	 * @param documentos
+	 * @param listaDocumentos
 	 * @param documento
 	 */
-	public static void createDocumentos(ArrayList<Documentos> documentos, Documentos documento) {
-		documentos.add(documento);
+	public static void cadastrarDocumentos(ArrayList<Documentos> listaDocumentos, Documentos documento) {
+		listaDocumentos.add(documento);
 	}
 	
 	/**
@@ -275,11 +192,10 @@ public class Documentos {
 	 * ArrayList de documentos.
 	 * 
 	 * @param ArrayList<Documentos> documentos: os documentos a serem mostrados
-	 * @author Vitor
 	 */
 	
-	public static void readDocumentos(ArrayList<Documentos> documentos) {
-		for (Documentos documentos2 : documentos) {
+	public static void listarDocumentos(ArrayList<Documentos> listaDocumentos) {
+		for (Documentos documentos2 : listaDocumentos) {
 			System.out.println(documentos2.toString());
 		}
 	}
@@ -288,26 +204,25 @@ public class Documentos {
 	 * Atualiza documentos.
 	 * 
 	 * Atualiza a instância de Documentos informada por outro objeto.
-	 * @param documentos
+	 * @param listaDocumentos
 	 * @param documentoAntigo
 	 * @param documentoNovo
-	 * @author Vitor
 	 */
-	public static void updateDocumentos(ArrayList<Documentos> documentos, Documentos documentoAntigo, Documentos documentoNovo) {
-		int index = documentos.indexOf(documentoAntigo);
-		documentos.set(index, documentoNovo);
+	public static void atualizarDocumentos(ArrayList<Documentos> listaDocumentos, Documentos documentoAntigo, Documentos documentoNovo) {
+		int index = listaDocumentos.indexOf(documentoAntigo);
+		listaDocumentos.set(index, documentoNovo);
 	}
 	
 	/**
 	 * Remover uma instância de Documentos.
 	 * 
 	 * Remove a instância de documentos informada do ArrayList<Documentos>
-	 * @param documentos
+	 * @param listaDocumentos
 	 * @param documento
 	 * @author Vitor
 	 */
-	public static void deleteDocumentos(ArrayList<Documentos> documentos, Documentos documento) {
-		documentos.remove(documento);
+	public static void deletarDocumentos(ArrayList<Documentos> listaDocumentos, Documentos documento) {
+		listaDocumentos.remove(documento);
 	}
 
 	@Override

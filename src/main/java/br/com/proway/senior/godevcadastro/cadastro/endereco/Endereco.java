@@ -16,18 +16,6 @@ import br.com.proway.senior.godevcadastro.cadastro.enums.UnidadesFederativas;
 	 */
 public class Endereco {
 
-	/**
-	 * Atributos da classe
-	 * 
-	 * @param logradouro  Ruas, avenidas, praças, viadutos.
-	 * @param numero      Número do endereço.
-	 * @param bairro      Bairro do endereço.
-	 * @param cidade      Cidade do endereço.
-	 * @param uf          Estado do endereço. Deve-sepreencher a sigla do Estado.
-	 * @param complemento Complemento do endereço (Ex: loja 1; Bloco A, Box. 100).
-	 * @param cep         Código de Endereçamento Postal do endereço.
-	 * @param pais        Pais do endereço.
-	 */
 	private String logradouro;
 	private Integer numero;
 	private String bairro;
@@ -37,18 +25,6 @@ public class Endereco {
 	private String cep;
 	private Paises pais;
 
-	/**
-	 * Construtor de Endereço com todos os atributos
-	 * 
-	 * @param logradouro
-	 * @param numero
-	 * @param bairro
-	 * @param cidade
-	 * @param uf
-	 * @param complemento
-	 * @param cep
-	 * @param pais
-	 */
 	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UnidadesFederativas uf,
 			String complemento, String cep, Paises pais) {
 		super();
@@ -64,14 +40,6 @@ public class Endereco {
 
 	/**
 	 * Construtor de Endereco Não inclui o complemento.
-	 * 
-	 * @param logradouro
-	 * @param numero
-	 * @param bairro
-	 * @param cidade
-	 * @param uf
-	 * @param cep
-	 * @param pais
 	 */
 	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UnidadesFederativas uf,
 			String cep, Paises pais) {
@@ -156,20 +124,20 @@ public class Endereco {
 	/**
 	 * Adiciona um novo objeto Endereco ao ArrayList enderecos
 	 * 
-	 * @param Endereco            endereco
+	 * @param Endereco endereco
 	 * @param ArrayList<Endereco> enderecos
 	 * @return
 	 */
-	public static void create(Endereco endereco, ArrayList<Endereco> enderecos) {
-		enderecos.add(endereco);
+	public static void cadastrarEndereco(Endereco endereco, ArrayList<Endereco> listaEnderecos) {
+		listaEnderecos.add(endereco);
 	}
 	
 	/**
 	 * Lista todos os elementos do ArrayList<Endereco>
-	 * @param enderecos
+	 * @param listaEnderecos
 	 */
-	public static void readAll(ArrayList<Endereco> enderecos) {
-		for (Endereco endereco : enderecos) {
+	public static void listarTodosEnderecos(ArrayList<Endereco> listaEnderecos) {
+		for (Endereco endereco : listaEnderecos) {
 			System.out.println(endereco.toString());
 		}
 	}
@@ -178,12 +146,12 @@ public class Endereco {
 	 * Lista apenas 1 elemento contido no ArrayList de enderecos.
 	 * 
 	 * Verifica se o endereco já está no banco de dados.
-	 * @param enderecos
+	 * @param listaEnderecos
 	 * @param endereco
 	 * @return
 	 */
-	public static String readOne(ArrayList<Endereco> enderecos, Endereco endereco) {
-		if (enderecos.contains(endereco)) {
+	public static String listarEnderecoCodigo(ArrayList<Endereco> listaEnderecos, Endereco endereco) {
+		if (listaEnderecos.contains(endereco)) {
 			return (endereco.toString());
 		} else {
 			return ("O endereço não consta na base de dados");
@@ -192,22 +160,22 @@ public class Endereco {
 	
 	/**
 	 * Muda um elemento do ArrayList<Endereco> para um novo elemento
-	 * @param enderecos
+	 * @param listaEnderecos
 	 * @param enderecoNovo
 	 * @param enderecoAntigo
 	 */
-	public static void update(ArrayList<Endereco> enderecos, Endereco enderecoNovo, Endereco enderecoAntigo) {
-		int index = enderecos.indexOf(enderecoAntigo);
-		enderecos.set(index, enderecoNovo);
+	public static void atualizarEndereco(ArrayList<Endereco> listaEnderecos, Endereco enderecoNovo, Endereco enderecoAntigo) {
+		int index = listaEnderecos.indexOf(enderecoAntigo);
+		listaEnderecos.set(index, enderecoNovo);
 	}
 	
 	/**
 	 * Apaga um endereco de um ArrayList<Endereco>
-	 * @param enderecos
+	 * @param listarEnderecos
 	 * @param endereco
 	 */
-	public static void delete(ArrayList<Endereco> enderecos, Endereco endereco) {
-		enderecos.remove(enderecos.indexOf(endereco));		
+	public static void deletarEndereco(ArrayList<Endereco> listarEnderecos, Endereco endereco) {
+		listarEnderecos.remove(listarEnderecos.indexOf(endereco));		
 	}
 	
 	/**
@@ -215,7 +183,7 @@ public class Endereco {
 	 * @param cep
 	 * @return
 	 */
-	public static String formataCEP(String cep) {
+	public static String formatarCEP(String cep) {
 		String output = "";
 		for (byte code : cep.getBytes()) {
 			if (code-48 < 10 && code - 48 >= 0) {
@@ -230,8 +198,8 @@ public class Endereco {
 	 * @param cep
 	 * @return
 	 */
-	public static boolean validaCEP(String cep) {
-		if(Endereco.formataCEP(cep).length() != 8) {
+	public static boolean validarCEP(String cep) {
+		if(Endereco.formatarCEP(cep).length() != 8) {
 			return false;
 		} 
 		return true;

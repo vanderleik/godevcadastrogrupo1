@@ -5,14 +5,15 @@ import java.time.LocalDate;
 import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
 import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
 
-	/**
-	 * Classe pessoa, abstrai os atributos de uma pessoa.
-	 * 
-	 * É herdada por Colaborador, PrestadorServico e Dependente.
-	 * 
-	 * @author @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
-	 *
-	 */
+/**
+ * Classe pessoa, abstrai os atributos de uma pessoa.
+ * 
+ * É herdada por Colaborador, PrestadorServico e Dependente.
+ * 
+ * @author @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger
+ *         Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
+ *
+ */
 
 public class Pessoa {
 
@@ -27,22 +28,6 @@ public class Pessoa {
 	private Nacionalidades nacionalidade;
 	private boolean pcd = false;
 
-	/**
-	 * Construtor principal para a classe Pessoa.
-	 * 
-	 * Inclui os atributos pcd e nomeSocial
-	 * 
-	 * @param nome
-	 * @param sobrenome
-	 * @param dataDeNascimento
-	 * @param nomeSocial
-	 * @param genero
-	 * @param sexo
-	 * @param nomeDaMae
-	 * @param cpf
-	 * @param nacionalidade
-	 * @param pcd
-	 */
 	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade, boolean pcd) {
 		this.nome = nome;
@@ -61,15 +46,6 @@ public class Pessoa {
 	 * Construtor secundário da classe Pessoa.
 	 * 
 	 * NÃO inclui os atributos pcd e nomeSocial.
-	 * 
-	 * @param nome
-	 * @param sobrenome
-	 * @param dataDeNascimento
-	 * @param genero
-	 * @param sexo
-	 * @param nomeDaMae
-	 * @param cpf
-	 * @param nacionalidade
 	 */
 	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String genero, SexoPessoa sexo,
 			String nomeDaMae, String cpf, Nacionalidades nacionalidade) {
@@ -87,16 +63,6 @@ public class Pessoa {
 	 * Construtor secundário da classe Pessoa.
 	 * 
 	 * NÃO inclui os atributos pcd.
-	 * 
-	 * @param nome
-	 * @param sobrenome
-	 * @param dataDeNascimento
-	 * @param nomeSocial
-	 * @param genero
-	 * @param sexo
-	 * @param nomeDaMae
-	 * @param cpf
-	 * @param nacionalidade
 	 */
 	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidades nacionalidade) {
@@ -200,8 +166,8 @@ public class Pessoa {
 	 * 
 	 * Formata uma String que contenha um CPF para que possua apenas algarismos.
 	 * 
-	 * @return
-	 * @author Vitor
+	 * @param String cpf
+	 * @return String
 	 */
 	public static String formatarCPF(String CPF) {
 		String output = "";
@@ -217,9 +183,9 @@ public class Pessoa {
 	 * Validar CPF.
 	 * 
 	 * Utiliza o algoritmo para verificar se o CPF contido na String é válido.
+	 * 
 	 * @param CPF
-	 * @return true caso o CPF seja válido
-	 * @author Vitor
+	 * @return boolean
 	 */
 	public static boolean validarCPF(String CPF) {
 		String CPFFormatado = Pessoa.formatarCPF(CPF);

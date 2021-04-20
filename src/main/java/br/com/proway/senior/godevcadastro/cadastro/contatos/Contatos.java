@@ -13,30 +13,10 @@ import java.util.ArrayList;
 
 public class Contatos {
 
-	/**
-	 * Telefone mais utilizado pela pessoa
-	 */
 	private String telefonePrincipal;
-
-	/**
-	 * Telefone menos utilizado/recado
-	 */
 	private String telefoneSecundario;
-
-	/**
-	 * Email principal da pessoa
-	 */
 	private String email;
 
-	/**
-	 * Construtor principal da classe.
-	 * 
-	 * Inclui o telefone secundário
-	 * 
-	 * @param telefonePrincipal
-	 * @param telefoneSecundario
-	 * @param email
-	 */
 	public Contatos(String telefonePrincipal, String telefoneSecundario, String email) {
 		setTelefonePrincipal(telefonePrincipal);
 		setTelefoneSecundario(telefoneSecundario);
@@ -46,7 +26,7 @@ public class Contatos {
 	/**
 	 * Construtor secundário da classe
 	 * 
-	 * NÃO inclui o telefone secundário
+	 * NÃO inclui o telefone secundário.
 	 * 
 	 * @param telefonePrincipal
 	 * @param email
@@ -56,10 +36,13 @@ public class Contatos {
 		setEmail(email);
 	}
 
-	public String getTelefonePrincipal() {
-		return telefonePrincipal;
-	}
-
+	/**
+	 * Insere o telefone principal no Objeto Contatos
+	 * 
+	 * Este metodo faz a inserção do telefone no objeto, desde que seja válido.
+	 * 
+	 * @param telefonePrincipal
+	 */
 	public void setTelefonePrincipal(String telefonePrincipal) {
 		String telFormatado = formatarTelefone(telefonePrincipal);
 		if(validarTamanhoTel(telFormatado)) {
@@ -69,14 +52,14 @@ public class Contatos {
 		}
 	}
 
-	public String getTelefoneSecundario() {
-		return telefoneSecundario;
+	public String getTelefonePrincipal() {
+		return telefonePrincipal;
 	}
-
+	
 	/**
-	 * Insere o telefone principal no Objeto Contatos
+	 * Insere o telefone secundário no Objeto Contatos
 	 * 
-	 * Este metodo faz a inserção do telefone no objeto, desde que seja valido
+	 * Este metodo faz a inserção do telefone no objeto, desde que seja válido.
 	 * 
 	 * @param telefoneSecundario
 	 */
@@ -88,16 +71,16 @@ public class Contatos {
 			System.out.println("Telefone inválido!");
 		}
 	}
-
-	public String getEmail() {
-		return email;
+	
+	public String getTelefoneSecundario() {
+		return telefoneSecundario;
 	}
 
 	/**
 	 * Insere o email no objeto
 	 * 
 	 * Este método faz a inserção do email no objeto, desde que haja o caractere "@"
-	 * na String
+	 * na String.
 	 * 
 	 * @param email
 	 */
@@ -109,16 +92,20 @@ public class Contatos {
 		}
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+	
 	/**
 	 * Valida o tamanho do telefone
 	 * 
-	 * Este metodo verifica se ha 11 digitos no telefone. Se houver ele retorna true
-	 * caso contrario retorna false.
+	 * Este método verifica se há 11 dígitos no telefone. Se houver ele retorna true
+	 * caso contrário, retorna false.
 	 * 
 	 * @param telefone
-	 * @return true || false
+	 * @return boolean
 	 */
-	public boolean validarTamanhoTel(String telefone) {
+	public static boolean validarTamanhoTel(String telefone) {
 		if(telefone.length() != 11) {
 			return false;
 		}
@@ -128,10 +115,10 @@ public class Contatos {
 	/**
 	 * Formatar telefone
 	 * 
-	 * Realiza a validação do telefone para verificar se possui apenas numeros.
+	 * Realiza a validação do telefone para verificar se possui apenas números.
 	 * 
 	 * @param String telefone
-	 * @return telefone Formatado
+	 * @return String telefoneFormatado
 	 */
 	public static String formatarTelefone(String telefone) {
 		String telefoneFormatado = "";
@@ -148,13 +135,12 @@ public class Contatos {
 	 * 
 	 * Realiza cadastro de contato no ArrayList<Contatos>
 	 * 
-	 * @param contatos
+	 * @param listaContatos
 	 * @param contato
 	 */
-	public static void cadastrarContato(ArrayList<Contatos> contatos, Contatos contato) {
-		contatos.add(contato);
+	public static void cadastrarContato(ArrayList<Contatos> listaContatos, Contatos contato) {
+		listaContatos.add(contato);
 	}
-
 
 	/**
 	 * Validar email
@@ -162,7 +148,7 @@ public class Contatos {
 	 * Realiza validação do email para verificar se possui o caracter "@".
 	 * 
 	 * @param String email
-	 * @return true caso valido
+	 * @return boolean
 	 */
 	public static boolean validarEmail(String email) {
 		if (!email.contentEquals("@")) {
@@ -175,18 +161,18 @@ public class Contatos {
 	 * Lista um contato
 	 * 
 	 * Este método verifica se o id informado é menor ou igual ao tamanho total da
-	 * lista, e se for menor ou igual, adiciona à lista de contatos
+	 * lista, e se for menor ou igual, adiciona à lista de contatos.
 	 * 
-	 * @param ArrayList<Contatos> contatos
-	 * @param Integer             id
+	 * @param ArrayList<Contatos> listaContatos
+	 * @param Integer id
 	 * @return contatos.get(id)
 	 */
-	public static Contatos listarContato(ArrayList<Contatos> contatos, Integer id) {
-		if (id <= contatos.size() - 1) {
-			contatos.get(id).getEmail();
-			contatos.get(id).getTelefonePrincipal();
-			contatos.get(id).getTelefoneSecundario();
-			return contatos.get(id);
+	public static Contatos listarContato(ArrayList<Contatos> listaContatos, Integer id) {
+		if (id <= listaContatos.size() - 1) {
+			listaContatos.get(id).getEmail();
+			listaContatos.get(id).getTelefonePrincipal();
+			listaContatos.get(id).getTelefoneSecundario();
+			return listaContatos.get(id);
 		}
 		return null;
 	}
@@ -196,16 +182,16 @@ public class Contatos {
 	 * 
 	 * Este método atualiza os dados de contato e faz uma verificação se o id
 	 * informado é menor ou igual ao tamanho total da lista, e se for, ele irá
-	 * buscar o usuário a ser atualizado pelo id e trocar seus dados
+	 * buscar o contato a ser atualizado pelo id e trocar seus dados.
 	 * 
-	 * @param ArrayList<Contatos> contatos
-	 * @param Contatos            contato
-	 * @param Integer             id
+	 * @param ArrayList<Contatos> listaContatos
+	 * @param Contatos contato
+	 * @param Integer id
 	 * @return Contatos contato
 	 */
-	public static Contatos atualizarUmContato(ArrayList<Contatos> contatos, Contatos contato, Integer id) {
-		if (id <= contatos.size() - 1) {
-			contatos.set(id, contato);
+	public static Contatos atualizarContato(ArrayList<Contatos> listaContatos, Contatos contato, Integer id) {
+		if (id <= listaContatos.size() - 1) {
+			listaContatos.set(id, contato);
 			return contato;
 		}
 		return null;
@@ -218,13 +204,13 @@ public class Contatos {
 	 * informado é menor ou igual ao tamanho total da lista, e se for, ele irá
 	 * buscar o contato a ser removido por id e removerá da lista
 	 * 
-	 * @param ArrayList<Contatos> contatos
-	 * @param Integer             id
-	 * @return String "Contato foi removido com sucesso!"
+	 * @param ArrayList<Contatos> listaContatos
+	 * @param Integer id
+	 * @return String de sucesso
 	 */
-	public static String removerUmContato(ArrayList<Contatos> contatos, Integer id) {
-		if (id <= contatos.size() - 1) {
-			contatos.remove(contatos.get(id));
+	public static String deletarContato(ArrayList<Contatos> listaContatos, Integer id) {
+		if (id <= listaContatos.size() - 1) {
+			listaContatos.remove(listaContatos.get(id));
 			return "Contato foi removido com sucesso!";
 		}
 		return "Contato não foi encontrado!";
@@ -236,17 +222,12 @@ public class Contatos {
 	 * Este método remove um contato da lista e faz uma verificação se o objeto contato
 	 * informado estiver na lista, caso não esteja, retorna uma String de aviso.
 	 * 
-	 * @param ArrayList<Contatos> contatos
+	 * @param ArrayList<Contatos> listaContatos
 	 * @param Contatos contato
-	 * @return String "Contato foi removido com sucesso!"
+	 * @return void
 	 */
-	public static String removerUmContatoPassandoUmContato(ArrayList<Contatos> contatos, Contatos contato) {
-		try {
-			contatos.remove(contato);
-			return "Contato foi removido com sucesso!";
-		} catch (Exception e) {
-			return "Contato não foi encontrado!";
-		}
+	public static void removerUmContatoPassandoUmContato(ArrayList<Contatos> listaContatos, Contatos contato) {
+		listaContatos.remove(contato);
 	}
 
 	@Override

@@ -82,26 +82,26 @@ public class DocumentosTest {
 	}
 	
 	@Test
-	public void testCreateDocumentos() {
-		ArrayList<Documentos> documentos = new ArrayList<Documentos>();
-		Documentos.createDocumentos(documentos, documentoPrincipal);
-		assertTrue(documentos.contains(documentoPrincipal));
+	public void testCadastrarDocumentos() {
+		ArrayList<Documentos> listaDocumentos = new ArrayList<Documentos>();
+		Documentos.cadastrarDocumentos(listaDocumentos, documentoPrincipal);
+		assertTrue(listaDocumentos.contains(documentoPrincipal));
 	}
 	
 	@Test
-	public void testUpdateDocumentos() {
-		ArrayList<Documentos> documentos = new ArrayList<Documentos>();
-		documentos.add(documentoPrincipal);
-		Documentos.updateDocumentos(documentos, documentoPrincipal, documentoSecundario);
-		assertTrue(documentos.contains(documentoSecundario));
-		assertFalse(documentos.contains(documentoPrincipal));
+	public void testAtualizarDocumentos() {
+		ArrayList<Documentos> listaDocumentos = new ArrayList<Documentos>();
+		listaDocumentos.add(documentoPrincipal);
+		Documentos.atualizarDocumentos(listaDocumentos, documentoPrincipal, documentoSecundario);
+		assertTrue(listaDocumentos.contains(documentoSecundario));
+		assertFalse(listaDocumentos.contains(documentoPrincipal));
 	}
 	
 	@Test
-	public void testDeleteDocumentos() {
-		ArrayList<Documentos> documentos = new ArrayList<Documentos>();
-		documentos.add(documentoPrincipal);
-		Documentos.deleteDocumentos(documentos, documentoPrincipal);
-		assertTrue(documentos.size() == 0);
+	public void testDeletarDocumentos() {
+		ArrayList<Documentos> listaDocumentos = new ArrayList<Documentos>();
+		listaDocumentos.add(documentoPrincipal);
+		Documentos.deletarDocumentos(listaDocumentos, documentoPrincipal);
+		assertTrue(listaDocumentos.size() == 0);
 	}
 }
