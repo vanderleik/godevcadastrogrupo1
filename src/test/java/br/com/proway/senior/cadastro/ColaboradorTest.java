@@ -140,26 +140,24 @@ public class ColaboradorTest {
 		assertFalse(colaboradores.indexOf(colab)<0);
 	}
 	
-//	@Test
-//	public void testListarTodosColaboradores() {
-//		assertNotEquals("Colaborador [idColaborador=5599, numCargo=302, nit=100015600, optanteVT=true, optanteVAVR=false, dataAdmissao=2021-01-06, optanteDependente=false, cidadeNascimento=BAGE, UfNascimento=RS, paisNascimento=BRASIl, "
-//				+ "documentos=Documentos [ctpsNumero=513, ctpsSerie=222, dataEmissaoCTPS=2020-09-15, bancoNome=Banco do Brasil, bancoAgencia=260, bancoNumeroConta=7777, tituloNumero=77885566, tituloZona=1080, tituloSecao=808, raNumero=0, "
-//				+ "rgNumero=808080, orgaoEmissorRG=SSP, dataEmissaoRG=2015-10-02], endereco=Endereco [logradouro=Quadra 10, numero=25, bairro=Centro, cidade=BLUMENAU, uf=SC, complemento=null, cep=89030180, pais=BRASIl], contatos=Contatos "
-//				+ "[telefonePrincipal=77788855523, telefoneSecundario=null, email=josé@gmail.com], exameMedico=ExameMedico [tipoExame=EXAME_PERIODICO, dataExame=2021-02-15, apto=true, escolha=0]]", 
-//				Colaborador.listarTodosColaboradores(colaboradores));
-//	}
-//
-//	@Test
-//	public void testListarPorCodigo() {
-//		Colaborador.cadastrarColaborador(colaboradores, colab);
-//		Colaborador.listarColaboradorCodigo(colaboradores, colab);
-//		assertNotEquals("Colaborador [idColaborador=5528, numCargo=302, nit=1000089300, optanteVT=false, optanteVAVR=true, dataAdmissao=2021-04-06, optanteDependente=false, "
-//				+ "cidadeNascimento=BLUMENAU, UfNascimento=SC, paisNascimento=BRASIl, documentos=Documentos [ctpsNumero=88999, ctpsSerie=108, dataEmissaoCTPS=2020-09-15, "
-//				+ "bancoNome=Banco do Brasil, bancoAgencia=260, bancoNumeroConta=88888, tituloNumero=80809090, tituloZona=1080, tituloSecao=808, raNumero=0, rgNumero=808080, "
-//				+ "orgaoEmissorRG=SSP, dataEmissaoRG=2015-10-02], endereco=Endereco [logradouro=Rua 10, numero=25, bairro=Centro, cidade=BLUMENAU, uf=SC, complemento=null, cep=89030180,"
-//				+ " pais=BRASIl], contatos=Contatos [telefonePrincipal=47999368888, telefoneSecundario=null, email=maria@gmail.com], exameMedico=ExameMedico [tipoExame=EXAME_PERIODICO, "
-//				+ "dataExame=2021-05-15, apto=true, escolha=0]]", Colaborador.listarColaboradorCodigo(colaboradores, colab));
-//	}
+	@Test
+	public void testListarTodosColaboradores() {
+		Colaborador.cadastrarColaborador(colaboradores, colab);
+		Colaborador.cadastrarColaborador(colaboradores, colab2);
+		Colaborador.listarTodosColaboradores(colaboradores);
+		assertEquals(Cidades.BAGE, Colaborador.listarTodosColaboradores(colaboradores).get(1).getCidadeNascimento());
+		assertEquals("Banco do Brasil", Colaborador.listarTodosColaboradores(colaboradores).get(0).getDocumentos().getBancoNome());
+		
+	}
+
+	@Test
+	public void testListarPorCodigo() {
+		Colaborador.cadastrarColaborador(colaboradores, colab);
+		Colaborador.cadastrarColaborador(colaboradores, colab2);
+		Colaborador.listarTodosColaboradores(colaboradores);
+		assertEquals("12345678966", Colaborador.listarColaboradorCodigo(colaboradores, colab2).get(1).getCpf());
+		assertEquals("Rua 10", Colaborador.listarColaboradorCodigo(colaboradores, colab).get(0).getEndereco().getLogradouro());
+	}
 	
 	@Test
 	public void testAtualizarColaborador() {
