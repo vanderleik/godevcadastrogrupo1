@@ -3,6 +3,7 @@ package br.com.proway.senior.cadastro;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -54,4 +55,18 @@ public class EmpresaTest {
 		assertEquals(empresas.get(0), novaEmpresa);
 		assertFalse(empresas.get(0)==empresa);
 	}			
+	
+	@Test
+	public void testeDeleteEmpresa() {
+		ArrayList<Empresa> empresas = new ArrayList<Empresa>();
+		empresas.add(empresa);
+		Empresa.deleteEmpresa(empresas, empresa);
+		assertEquals(empresas.size(), 0);
+	}
+	
+	@Test
+	public void testeValidaCNPJ() {
+		assertTrue(Empresa.validaCNPJ("14.572.457.0001-85"));
+		assertFalse(Empresa.validaCNPJ("14.572.457.0001-84"));
+	}
 }
