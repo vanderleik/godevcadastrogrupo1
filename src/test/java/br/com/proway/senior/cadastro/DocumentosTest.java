@@ -1,9 +1,12 @@
 package br.com.proway.senior.cadastro;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -76,5 +79,29 @@ public class DocumentosTest {
 		assertEquals(447854, documentoPrincipal.getRgNumero());
 		assertEquals("Ministério da Pesca", documentoPrincipal.getOrgaoEmissorRG());
 		assertEquals(LocalDate.of(1989, 2, 4), documentoPrincipal.getDataEmissaoRG());
+	}
+	
+	@Test
+	public void testCreateDocumentos() {
+		ArrayList<Documentos> documentos = new ArrayList<Documentos>();
+		Documentos.createDocumentos(documentos, documentoPrincipal);
+		assertTrue(documentos.contains(documentoPrincipal));
+	}
+	
+	@Test
+	public void testUpdateDocumentos() {
+		ArrayList<Documentos> documentos = new ArrayList<Documentos>();
+		documentos.add(documentoPrincipal);
+		Documentos.updateDocumentos(documentos, documentoPrincipal, documentoSecundario);
+		assertTrue(documentos.contains(documentoSecundario));
+		assertFalse(documentos.contains(documentoPrincipal));
+	}
+	
+	@Test
+	public void testDeleteDocumentos() {
+		ArrayList<Documentos> documentos = new ArrayList<Documentos>();
+		documentos.add(documentoPrincipal);
+		Documentos.deleteDocumentos(documentos, documentoPrincipal);
+		assertTrue(documentos.size() == 0);
 	}
 }

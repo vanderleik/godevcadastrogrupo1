@@ -1,7 +1,7 @@
 package br.com.proway.senior.godevcadastro.cadastro.documentos;
 
 import java.time.LocalDate;
-
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -255,6 +255,59 @@ public class Documentos {
 
 	public void setDataEmissaoRG(LocalDate dataEmissaoRG) {
 		this.dataEmissaoRG = dataEmissaoRG;
+	}
+	
+	/**
+	 * Criação de um documento no ArrayList.
+	 * 
+	 * Adiciona uma instância de Documentos ao ArrayList
+	 * @param documentos
+	 * @param documento
+	 */
+	public static void createDocumentos(ArrayList<Documentos> documentos, Documentos documento) {
+		documentos.add(documento);
+	}
+	
+	/**
+	 * Mostrar todos os documentos na tela.
+	 * 
+	 * Mostra as informações de todos os documentos contidos em um 
+	 * ArrayList de documentos.
+	 * 
+	 * @param ArrayList<Documentos> documentos: os documentos a serem mostrados
+	 * @author Vitor
+	 */
+	
+	public static void readDocumentos(ArrayList<Documentos> documentos) {
+		for (Documentos documentos2 : documentos) {
+			System.out.println(documentos2.toString());
+		}
+	}
+	
+	/**
+	 * Atualiza documentos.
+	 * 
+	 * Atualiza a instância de Documentos informada por outro objeto.
+	 * @param documentos
+	 * @param documentoAntigo
+	 * @param documentoNovo
+	 * @author Vitor
+	 */
+	public static void updateDocumentos(ArrayList<Documentos> documentos, Documentos documentoAntigo, Documentos documentoNovo) {
+		int index = documentos.indexOf(documentoAntigo);
+		documentos.set(index, documentoNovo);
+	}
+	
+	/**
+	 * Remover uma instância de Documentos.
+	 * 
+	 * Remove a instância de documentos informada do ArrayList<Documentos>
+	 * @param documentos
+	 * @param documento
+	 * @author Vitor
+	 */
+	public static void deleteDocumentos(ArrayList<Documentos> documentos, Documentos documento) {
+		documentos.remove(documento);
 	}
 
 	@Override
