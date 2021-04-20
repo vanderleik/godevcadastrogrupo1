@@ -201,6 +201,7 @@ public class Pessoa {
 	 * Formata uma String que contenha um CPF para que possua apenas algarismos.
 	 * 
 	 * @return
+	 * @author Vitor
 	 */
 	public static String formatarCPF(String CPF) {
 		String output = "";
@@ -212,26 +213,48 @@ public class Pessoa {
 		return output;
 	}
 
+	/**
+	 * Validar CPF.
+	 * 
+	 * Utiliza o algoritmo para verificar se o CPF contido na String é válido.
+	 * @param CPF
+	 * @return true caso o CPF seja válido
+	 * @author Vitor
+	 */
 	public static boolean validarCPF(String CPF) {
 		String CPFFormatado = Pessoa.formatarCPF(CPF);
 		if (CPF.length() == 11) {
-			
+
 			int soma = 0;
 			int mult = 10;
-			for(int i = 0; i < 9; i++) {
-				soma += mult * ((CPFFormatado.charAt(i) -48));
+			for (int i = 0; i < 9; i++) {
+				soma += mult * ((CPFFormatado.charAt(i) - 48));
 				mult--;
 			}
-			if(soma%11 == CPFFormatado.charAt(9) - 48) {
+			if (11 - soma % 11 == CPFFormatado.charAt(9) - 48) {
 				boolean valido;
-			} else if (soma%11 == 10 && CPFFormatado.charAt(9) - 48 == 0) {
+			} else if (11 - soma % 11 == 10 && CPFFormatado.charAt(9) - 48 == 0) {
 				boolean valido;
 			} else {
 				return false;
 			}
-			
-			
 
+			soma = 0;
+			mult = 11;
+			for (int i = 0; i < 10; i++) {
+				soma += mult * ((CPFFormatado.charAt(i) - 48));
+				mult--;
+			}
+			if (11 - soma % 11 == CPFFormatado.charAt(10) - 48) {
+				boolean valido;
+			} else if (11 - soma % 11 == 10 && CPFFormatado.charAt(10) - 48 == 0) {
+				boolean valido;
+			} else {
+				return false;
+			}
+
+		} else {
+			return false;
 		}
 		return true;
 	}
