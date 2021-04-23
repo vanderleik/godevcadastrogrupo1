@@ -2,7 +2,7 @@ package controller;
 
 import model.Pessoa;
 
-public class PessoaService {
+public class PessoaController {
 
 	/**
 	 * Formatar CPF

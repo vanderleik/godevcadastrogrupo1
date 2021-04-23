@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.PrestadorServico;
 
-public class PrestadorServicoService {
+public class PrestadorServicoController {
 
 
 	/**

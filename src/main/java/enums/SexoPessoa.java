@@ -9,6 +9,6 @@ public enum SexoPessoa {
 	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
 	 */
 	
-	FEMININO, MASCULINO
+	TRANS, CIS
 	
 }

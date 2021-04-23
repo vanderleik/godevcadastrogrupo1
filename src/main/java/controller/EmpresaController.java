@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.Empresa;
 
-public class EmpresaService {
+public class EmpresaController {
 
 	/**
 	 * Torna uma String correspondente à um CNPJ em uma String que contém apenas

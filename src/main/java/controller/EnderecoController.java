@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.Endereco;
 
-public class EnderecoService {
+public class EnderecoController {
 
 
 	/**

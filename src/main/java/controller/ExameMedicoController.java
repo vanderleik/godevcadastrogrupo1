@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import model.ExameMedico;
 
-public class ExameMedicoService {
+public class ExameMedicoController {
 
 
 	/**

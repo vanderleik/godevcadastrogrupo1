@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.Dependente;
 
-public class DependenteService {
+public class DependenteController {
 
 
 	/**

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.Contatos;
 
-public class ContatosService {
+public class ContatosController {
 
 
 	/**

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.Documentos;
 
-public class DocumentosService {
+public class DocumentosController {
 
 	/**
 	 * Criação de um documento no ArrayList.

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.Colaborador;
 
-public class ColaboradorService {
+public class ColaboradorController {
 
 
 	/**
