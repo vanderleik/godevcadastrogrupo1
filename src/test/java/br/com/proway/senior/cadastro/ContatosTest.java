@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
+import model.Contatos;
 
 public class ContatosTest {
 

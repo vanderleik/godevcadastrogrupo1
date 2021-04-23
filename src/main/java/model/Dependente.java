@@ -1,11 +1,11 @@
-package br.com.proway.senior.godevcadastro.cadastro.dependente;
+package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
-import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
+import enums.Nacionalidades;
+import enums.SexoPessoa;
+import enums.TiposDependentes;
 
 /**
  * Esta classe herda seus atributos primários da classe Pessoa. É vinculada ao

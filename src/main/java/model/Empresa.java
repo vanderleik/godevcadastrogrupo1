@@ -1,11 +1,8 @@
-package br.com.proway.senior.godevcadastro.cadastro.empresa;
+package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
-import br.com.proway.senior.godevcadastro.cadastro.endereco.Endereco;
 
 /**
  * Classe que abstrai as informações de uma Empresa contratada. Esta Classe será
@@ -87,7 +84,7 @@ public class Empresa {
 	public void setContato(Contatos contato) {
 		this.contato = contato;
 	}
-
+//retirar
 	/**
 	 * Torna uma String correspondente à um CNPJ em uma String que contém apenas
 	 * algarismos.

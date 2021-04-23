@@ -1,4 +1,4 @@
-package br.com.proway.senior.godevcadastro.cadastro.contatos;
+package model;
 
 import java.util.ArrayList;
 	
@@ -232,8 +232,8 @@ public class Contatos {
 
 	@Override
 	public String toString() {
-		return "Contatos [telefonePrincipal=" + telefonePrincipal + ", telefoneSecundario=" + telefoneSecundario
-				+ ", email=" + email + "]";
+		return "Contatos telefonePrincipal=" + telefonePrincipal + ", telefoneSecundario=" + telefoneSecundario
+				+ ", email=" + email;
 	}
 
 }

@@ -1,9 +1,9 @@
-package br.com.proway.senior.godevcadastro.cadastro.pessoa;
+package model;
 
 import java.time.LocalDate;
 
-import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
+import enums.Nacionalidades;
+import enums.SexoPessoa;
 
 /**
  * Classe pessoa, abstrai os atributos de uma pessoa.

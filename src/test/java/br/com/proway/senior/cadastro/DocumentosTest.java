@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.documentos.Documentos;
+import model.Documentos;
 
 public class DocumentosTest {
 	

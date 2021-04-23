@@ -11,17 +11,17 @@ import java.util.ArrayList;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.colaborador.Colaborador;
-import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
-import br.com.proway.senior.godevcadastro.cadastro.documentos.Documentos;
-import br.com.proway.senior.godevcadastro.cadastro.endereco.Endereco;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Cidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Paises;
-import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
-import br.com.proway.senior.godevcadastro.cadastro.enums.UnidadesFederativas;
-import br.com.proway.senior.godevcadastro.cadastro.examemedico.ExameMedico;
-import br.com.proway.senior.godevcadastro.cadastro.examemedico.TiposExame;
+import enums.Cidades;
+import enums.Nacionalidades;
+import enums.Paises;
+import enums.SexoPessoa;
+import enums.TiposExame;
+import enums.UnidadesFederativas;
+import model.Colaborador;
+import model.Contatos;
+import model.Documentos;
+import model.Endereco;
+import model.ExameMedico;
 
 public class ColaboradorTest {
 

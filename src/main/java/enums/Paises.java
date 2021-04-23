@@ -1,4 +1,4 @@
-package br.com.proway.senior.godevcadastro.cadastro.enums;
+package enums;
 
 public enum Paises {
 	

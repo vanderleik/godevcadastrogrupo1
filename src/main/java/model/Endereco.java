@@ -1,10 +1,10 @@
-package br.com.proway.senior.godevcadastro.cadastro.endereco;
+package model;
 
 import java.util.ArrayList;
 
-import br.com.proway.senior.godevcadastro.cadastro.enums.Cidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Paises;
-import br.com.proway.senior.godevcadastro.cadastro.enums.UnidadesFederativas;
+import enums.Cidades;
+import enums.Paises;
+import enums.UnidadesFederativas;
 
 	/**
 	 * Classe que engloba e abstrai as informações de endereco de um

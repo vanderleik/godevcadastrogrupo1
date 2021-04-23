@@ -10,12 +10,12 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
-import br.com.proway.senior.godevcadastro.cadastro.empresa.Empresa;
-import br.com.proway.senior.godevcadastro.cadastro.endereco.Endereco;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Cidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Paises;
-import br.com.proway.senior.godevcadastro.cadastro.enums.UnidadesFederativas;
+import enums.Cidades;
+import enums.Paises;
+import enums.UnidadesFederativas;
+import model.Contatos;
+import model.Empresa;
+import model.Endereco;
 
 public class EmpresaTest {
 	Contatos contato = new Contatos("47 00000-0000", "47 11111-1111", "exemplos@gmail.com");

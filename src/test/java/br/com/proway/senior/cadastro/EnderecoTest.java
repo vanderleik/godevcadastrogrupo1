@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.endereco.Endereco;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Cidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Paises;
-import br.com.proway.senior.godevcadastro.cadastro.enums.UnidadesFederativas;
+import enums.Cidades;
+import enums.Paises;
+import enums.UnidadesFederativas;
+import model.Endereco;
 
 public class EnderecoTest {
 

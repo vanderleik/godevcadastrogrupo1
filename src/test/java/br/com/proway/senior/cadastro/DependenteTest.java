@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.dependente.Dependente;
-import br.com.proway.senior.godevcadastro.cadastro.dependente.TiposDependentes;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
+import enums.Nacionalidades;
+import enums.SexoPessoa;
+import enums.TiposDependentes;
+import model.Dependente;
 
 public class DependenteTest {
 	Dependente dependente1 = new Dependente("Paulo", "Levi",

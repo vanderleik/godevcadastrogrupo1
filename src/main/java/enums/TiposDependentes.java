@@ -1,4 +1,4 @@
-package br.com.proway.senior.godevcadastro.cadastro.dependente;
+package enums;
 
 public enum TiposDependentes {
 	

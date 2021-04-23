@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.colaborador.Colaborador;
-import br.com.proway.senior.godevcadastro.cadastro.examemedico.ExameMedico;
-import br.com.proway.senior.godevcadastro.cadastro.examemedico.TiposExame;
+import enums.TiposExame;
+import model.Colaborador;
+import model.ExameMedico;
 
 public class ExameMedicoTest {
 

@@ -1,14 +1,11 @@
-package br.com.proway.senior.godevcadastro.cadastro.prestadorservico;
+package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
-import br.com.proway.senior.godevcadastro.cadastro.examemedico.ExameMedico;
-import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
+import enums.Nacionalidades;
+import enums.SexoPessoa;
 
 /**
  * Classe que abstrai as informações do prestador de serviço contratado.

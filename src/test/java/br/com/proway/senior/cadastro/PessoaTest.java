@@ -8,9 +8,9 @@ import java.time.LocalDate;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
-import br.com.proway.senior.godevcadastro.cadastro.pessoa.Pessoa;
+import enums.Nacionalidades;
+import enums.SexoPessoa;
+import model.Pessoa;
 
 public class PessoaTest {
 

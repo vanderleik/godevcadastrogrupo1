@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import br.com.proway.senior.godevcadastro.cadastro.contatos.Contatos;
-import br.com.proway.senior.godevcadastro.cadastro.enums.Nacionalidades;
-import br.com.proway.senior.godevcadastro.cadastro.enums.SexoPessoa;
-import br.com.proway.senior.godevcadastro.cadastro.examemedico.ExameMedico;
-import br.com.proway.senior.godevcadastro.cadastro.prestadorservico.PrestadorServico;
+import enums.Nacionalidades;
+import enums.SexoPessoa;
+import model.Contatos;
+import model.ExameMedico;
+import model.PrestadorServico;
 
 public class PrestadorServicoTest {
 	

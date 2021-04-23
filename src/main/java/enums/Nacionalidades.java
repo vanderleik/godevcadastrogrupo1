@@ -1,14 +1,14 @@
-package br.com.proway.senior.godevcadastro.cadastro.enums;
+package enums;
 
-public enum SexoPessoa {
-
+public enum Nacionalidades {
+	
 	/**
 	 * Classe de apoio par ser utilizada em Pessoa para 
-	 * setar o sexo.
+	 * setar a nacionalidade.
 	 * 
 	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
 	 */
 	
-	FEMININO, MASCULINO
-	
+	BRASILEIRA, ARGENTINA, CHILENA, HAITIANA
+
 }
