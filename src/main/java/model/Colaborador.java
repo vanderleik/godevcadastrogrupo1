@@ -86,6 +86,12 @@ public class Colaborador extends Pessoa {
 		this.contatos = contatos;
 		this.exameMedico = exameMedico;
 	}
+	
+	
+
+	public Colaborador() {
+		super();
+	}
 
 	public Integer getIdColaborador() {
 		return idColaborador;

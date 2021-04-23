@@ -1,11 +1,14 @@
 package controller;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 import model.Colaborador;
+import model.Pessoa;
 
 public class ColaboradorController {
-
+	
 
 	/**
 	 * Cadastrar colaborador
@@ -80,4 +83,8 @@ public class ColaboradorController {
 	public void deletarColaborador(ArrayList<Colaborador> listaColaboradores, Colaborador colaborador) {
 		listaColaboradores.remove(colaborador);
 	}
+
+	
+	
+	
 }

@@ -12,7 +12,6 @@ public class testedatas {
 	@Test
 	public void test() {
 		System.out.println(Math.abs(LocalDate.now().until(LocalDate.of(2020, 07, 01), ChronoUnit.DAYS)));
-		
 	}
 
 }
