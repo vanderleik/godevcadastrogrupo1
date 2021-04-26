@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+
+import controller.Model;
 	
 	/**
 	 * Armazena os contatos necessários de um colaborador, empresa ou prestador de
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
 	 */
 
-public class Contatos {
+public class Contatos implements Model{
 
 	private String telefonePrincipal;
 	private String telefoneSecundario;

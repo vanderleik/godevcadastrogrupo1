@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
+import controller.Model;
 import enums.Nacionalidades;
 import enums.SexoPessoa;
 
@@ -16,7 +17,7 @@ import enums.SexoPessoa;
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
  */
 
-public class PrestadorServico extends Pessoa {
+public class PrestadorServico extends Pessoa implements Model{
 
 	private Integer idPrestadorServico;
 	private LocalDate dataInicioContrato;

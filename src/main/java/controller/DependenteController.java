@@ -13,8 +13,9 @@ public class DependenteController {
 	 * @param listaDependentes
 	 * @param dependente
 	 */
-	public void cadastrarDependente(ArrayList<Dependente> listaDependentes, Dependente dependente) {
-		listaDependentes.add(dependente);
+	public void cadastrarDependente(Dependente dependente) {
+		DaoFactory<Dependente> dao = new DaoFactory<Dependente>();
+		dao.cadastrar(dependente);
 	}
 
 	/**
@@ -26,6 +27,11 @@ public class DependenteController {
 		for (Dependente dependente : listaDependentes) {
 			System.out.println(dependente.toString());
 		}
+	}
+	
+	public ArrayList<Dependente> buscarDependentes() {
+		DaoFactory<Dependente> dao = new DaoFactory<Dependente>();
+		return dao.listarTudo();
 	}
 
 	/**

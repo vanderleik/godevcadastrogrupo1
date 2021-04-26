@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
+import controller.Model;
 import enums.Nacionalidades;
 import enums.SexoPessoa;
 
@@ -15,7 +16,7 @@ import enums.SexoPessoa;
  *
  */
 
-public class Pessoa {
+public class Pessoa implements Model{
 
 	private String nome;
 	private String sobrenome;

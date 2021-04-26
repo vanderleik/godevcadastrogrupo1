@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import controller.GenericCrudController;
+
 import model.Pessoa;
 
 public class GenericCrudControllerTest {
@@ -17,7 +18,7 @@ public class GenericCrudControllerTest {
 		Pessoa pessoa = new Pessoa();
 		ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 
-		generic.cadastrar(pessoas, pessoa);
+		generic.cadastrar((ArrayList<>pessoas, pessoa);
 		assertTrue(pessoas.get(0)==pessoa);
 	}
 	@Test

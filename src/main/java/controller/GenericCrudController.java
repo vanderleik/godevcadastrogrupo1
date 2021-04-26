@@ -2,8 +2,12 @@ package controller;
 
 import java.util.ArrayList;
 
+import model.Pessoa;
+
 /*GenericCrudController*/
-public class GenericCrudController<T> {
+public class PessoaCrudController implements Crud<Model> {
+	
+	ArrayList pessoas
 
 	/**
 	 * Cadastra um objeto no ArrayList.
@@ -11,8 +15,9 @@ public class GenericCrudController<T> {
 	 * @param object
 	 * @param parameter
 	 */
-	public void cadastrar(ArrayList<T> object, T param) {
+	public boolean cadastrar(ArrayList<Model> object, Model param) {
 		object.add(param);
+		return true;
 
 	}
 
@@ -23,8 +28,8 @@ public class GenericCrudController<T> {
 	 * @param object
 	 * @param parameter
 	 */
-	public String listar(ArrayList<T> object, T param) {
-		
+	public String listar(ArrayList<Model> object, Model param) {
+
 		if (object.contains(param)) {
 			if (object.contains(param)) {
 				return param.toString();
@@ -43,7 +48,7 @@ public class GenericCrudController<T> {
 	 * @param param
 	 * @return
 	 */
-	public String listarTudo(ArrayList<T> object) {
+	public String listarTudo(ArrayList<Model> object) {
 		if (!object.isEmpty()) {
 			return object.toString();
 
@@ -59,12 +64,14 @@ public class GenericCrudController<T> {
 	 * @param object
 	 * @param param
 	 */
-	public void delete(ArrayList<T> object, T param) {
+	public boolean delete(ArrayList<Model> object, Model param) {
 		if (object.contains(param)) {
 			object.remove(param);
+			return true;
 		} else {
 			// Aqui vai entrar exceção
 			System.out.println("Erro ao remover");
+			return false; 
 		}
 	}
 
@@ -76,7 +83,7 @@ public class GenericCrudController<T> {
 	 * @param param
 	 * @param paramAntigo
 	 */
-	public void atualizar(ArrayList<T> object, T param, T paramAntigo) {
+	public void atualizar(ArrayList<Model> object, Model param, Model paramAntigo) {
 		if (object.contains(paramAntigo)) {
 			object.set(object.indexOf(paramAntigo), param);
 		} else {

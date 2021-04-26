@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import controller.Model;
 import enums.TiposExame;
 
 /**
@@ -14,7 +15,7 @@ import enums.TiposExame;
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
  */
-public class ExameMedico {
+public class ExameMedico implements Model{
 
 	TiposExame tipoExame;
 	private LocalDate dataExame;

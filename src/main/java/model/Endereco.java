@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+import controller.Model;
 import enums.Cidades;
 import enums.Paises;
 import enums.UnidadesFederativas;
@@ -14,7 +15,7 @@ import enums.UnidadesFederativas;
 	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
 	 *
 	 */
-public class Endereco {
+public class Endereco implements Model{
 
 	private String logradouro;
 	private Integer numero;

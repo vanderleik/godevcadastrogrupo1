@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import controller.Model;
 import enums.Nacionalidades;
 import enums.SexoPessoa;
 import enums.TiposDependentes;
@@ -16,7 +17,7 @@ import enums.TiposDependentes;
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
  */
 
-public class Dependente extends Pessoa {
+public class Dependente extends Pessoa implements Model {
 
 	private Integer id;
 	private Integer idColaborador;
