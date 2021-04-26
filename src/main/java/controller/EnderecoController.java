@@ -64,31 +64,8 @@ public class EnderecoController {
 		listarEnderecos.remove(listarEnderecos.indexOf(endereco));		
 	}
 	
-	/**
-	 * Remove todos os caracteres que não são os algarismos numéricos da String de CEP
-	 * @param cep
-	 * @return
-	 */
-	public String formatarCEP(String cep) {
-		String output = "";
-		for (byte code : cep.getBytes()) {
-			if (code-48 < 10 && code - 48 >= 0) {
-				output += Character.toString((char) code);
-			}
-		}
-		return output;
-	}
 	
-	/**
-	 * Verifica se CEP contém 8 dígitos
-	 * @param cep
-	 * @return
-	 */
-	public boolean validarCEP(String cep) {
-		if(this.formatarCEP(cep).length() != 8) {
-			return false;
-		} 
-		return true;
-	}
+	
+	
 	
 }
