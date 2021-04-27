@@ -45,49 +45,4 @@ public class EnderecoTest {
 		assertEquals("29656980", enderecoCompleto.getCep());
 		assertEquals(Paises.BRASIl, enderecoCompleto.getPais());
 	}
-
-
-	@Test
-	public void testeCadastrarEndereco() {
-		ArrayList<Endereco> listaEnderecos = new ArrayList<Endereco>();
-		Endereco.cadastrarEndereco(enderecoSemComplemento, listaEnderecos);
-		assertTrue(listaEnderecos.indexOf(enderecoSemComplemento) >= 0);
-	}
-	
-	@Test
-	public void testeListarEnderecoCodigo() {
-		ArrayList<Endereco> listaEnderecos = new ArrayList<Endereco>();
-		listaEnderecos.add(enderecoSemComplemento);
-		assertEquals("Endereco [logradouro=Sítio Côrrego de Santo Antônio, numero=10, "
-				+ "bairro=Côrrego de Santo Antonio, cidade=FLORIANOPOLIS, uf=SC, complemento=null,"
-				+ " cep=28666971, pais=BRASIl]", 
-				Endereco.listarEnderecoCodigo(listaEnderecos, enderecoSemComplemento));
-	}
-	
-	@Test
-	public void testeAtualizarEndereco() {
-		ArrayList<Endereco> listaEnderecos = new ArrayList<Endereco>();
-		listaEnderecos.add(enderecoSemComplemento);
-		Endereco.atualizarEndereco(listaEnderecos, enderecoCompleto, enderecoSemComplemento);
-		assertEquals(enderecoCompleto, listaEnderecos.get(0));
-		assertFalse(enderecoSemComplemento.equals(listaEnderecos.get(0)));
-	}
-	
-	@Test
-	public void testeDeletarEndereco() {
-		ArrayList<Endereco> listaEnderecos = new ArrayList<Endereco>();
-		listaEnderecos.add(enderecoSemComplemento);
-		Endereco.deletarEndereco(listaEnderecos, enderecoSemComplemento);
-		assertTrue(listaEnderecos.size() == 0);
-	}
-	
-	@Test 
-	public void testeFormatarCEP() {
-		assertEquals(Endereco.formatarCEP("1008383492/:"), "1008383492");
-	}
-	
-	@Test
-	public void testeValidarCEP() {
-		assertTrue(Endereco.validarCEP("45112589"));
-	}
 }

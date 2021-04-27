@@ -15,21 +15,19 @@ import enums.SexoPessoa;
 import model.Pessoa;
 
 public class PessoaTest {
-	//
-	// SexoPessoa sexoTeste1 = SexoPessoa.FEMININO;
-	// SexoPessoa sexoTeste2 = SexoPessoa.MASCULINO;
-	// Nacionalidades nacionalidadeTeste1 = Nacionalidades.BRASILEIRA;
-	// Nacionalidades nacionalidadeTeste2 = Nacionalidades.CHILENA;
-	// Nacionalidades nacionalidadeTeste3 = Nacionalidades.ARGENTINA;
-	//
-	// Pessoa pessoaTesteConstrutorPrincipal = new Pessoa("Marcos", "Antônio",
-	// LocalDate.of(2010, 8, 24), "Muriel",
-	// "Não-Binário", sexoTeste2, "Josilene Aparecida Santos", "01231545678",
-	// nacionalidadeTeste1, true);
-	// Pessoa pessoaTesteConstrutorSecundario = new Pessoa("Marco", "Antunes",
-	// LocalDate.of(2009, 4, 21), "Masculino",
-	// sexoTeste2, "Jucerléia Aparecida Santos", "87654321021",
-	// nacionalidadeTeste2);
+	
+	SexoPessoa sexoTeste1 = SexoPessoa.CIS;
+	SexoPessoa sexoTeste2 = SexoPessoa.TRANS;
+	Nacionalidades nacionalidadeTeste1 = Nacionalidades.BRASILEIRA;
+	Nacionalidades nacionalidadeTeste2 = Nacionalidades.CHILENA;
+	Nacionalidades nacionalidadeTeste3 = Nacionalidades.ARGENTINA;
+	Pessoa pessoaTesteConstrutorPrincipal = new Pessoa("Marcos", "Antônio",
+			LocalDate.of(2010, 8, 24), "Muriel",
+			"Não-Binário", sexoTeste2, "Josilene Aparecida Santos", "01231545678",
+			nacionalidadeTeste1, true);
+	Pessoa pessoaTesteConstrutorSecundario = new Pessoa("Marco", "Antunes",
+			LocalDate.of(2009, 4, 21), "Masculino",
+			sexoTeste2, "Jucerléia Aparecida Santos", "87654321021", nacionalidadeTeste2);
 
 	@Ignore
 	public void test() {
@@ -76,13 +74,5 @@ public class PessoaTest {
 		assertEquals(pessoaTesteConstrutorPrincipal.getNacionalidade(), nacionalidadeTeste3);
 		assertEquals(pessoaTesteConstrutorPrincipal.isPcd(), false);
 
-	}
-
-	@Ignore
-	public void testValidarCpf() {
-		assertTrue(Pessoa.validarCPF("11144477735"));
-		assertFalse(Pessoa.validarCPF("12345678922"));
-	}
-
-	
+	}	
 }

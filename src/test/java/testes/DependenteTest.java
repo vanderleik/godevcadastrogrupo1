@@ -39,38 +39,5 @@ public class DependenteTest {
 		assertEquals(5515, dependente1.getIdColaborador().intValue());
 		assertEquals(TiposDependentes.TIPO_FILHO, dependente1.getTipoDependente());
 		assertEquals(true, dependente1.isOptanteIR());
-	}
-	
-	@Test
-	public void testCadastrarDependente() {
-		ArrayList<Dependente> listaDependentes = new ArrayList<Dependente>();
-		Dependente.cadastrarDependente(listaDependentes, dependente1);
-		assertEquals(listaDependentes.get(0), dependente1);
-		assertEquals(listaDependentes.size(), 1);
-	}
-	
-	@Ignore
-	@Test
-	public void testListarDependente() {
-		ArrayList<Dependente> listaDependentes = new ArrayList<Dependente>();
-		Dependente.cadastrarDependente(listaDependentes, dependente1);
-		Dependente.listarDependentes(listaDependentes);
-	}
-	
-	@Test
-	public void testAtualizarDependente() {
-		ArrayList<Dependente> listaDependentes = new ArrayList<Dependente>();
-		listaDependentes.add(dependente1);
-		Dependente.atualizarDependente(listaDependentes, dependente1, dependente2);
-		assertEquals(listaDependentes.get(0), dependente2);
-		assertFalse(listaDependentes.contains(dependente1));
-	}
-	
-	@Test
-	public void testDeletarDependente() {
-		ArrayList<Dependente> listaDependentes = new ArrayList<Dependente>();
-		listaDependentes.add(dependente1);
-		Dependente.deletarDependente(listaDependentes, dependente1);
-		assertEquals(listaDependentes.size(), 0);
-	}
+	}	
 }

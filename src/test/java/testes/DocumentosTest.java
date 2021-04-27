@@ -80,28 +80,4 @@ public class DocumentosTest {
 		assertEquals("Ministério da Pesca", documentoPrincipal.getOrgaoEmissorRG());
 		assertEquals(LocalDate.of(1989, 2, 4), documentoPrincipal.getDataEmissaoRG());
 	}
-	
-	@Test
-	public void testCadastrarDocumentos() {
-		ArrayList<Documentos> listaDocumentos = new ArrayList<Documentos>();
-		Documentos.cadastrarDocumentos(listaDocumentos, documentoPrincipal);
-		assertTrue(listaDocumentos.contains(documentoPrincipal));
-	}
-	
-	@Test
-	public void testAtualizarDocumentos() {
-		ArrayList<Documentos> listaDocumentos = new ArrayList<Documentos>();
-		listaDocumentos.add(documentoPrincipal);
-		Documentos.atualizarDocumentos(listaDocumentos, documentoPrincipal, documentoSecundario);
-		assertTrue(listaDocumentos.contains(documentoSecundario));
-		assertFalse(listaDocumentos.contains(documentoPrincipal));
-	}
-	
-	@Test
-	public void testDeletarDocumentos() {
-		ArrayList<Documentos> listaDocumentos = new ArrayList<Documentos>();
-		listaDocumentos.add(documentoPrincipal);
-		Documentos.deletarDocumentos(listaDocumentos, documentoPrincipal);
-		assertTrue(listaDocumentos.size() == 0);
-	}
 }

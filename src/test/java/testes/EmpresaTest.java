@@ -39,39 +39,4 @@ public class EmpresaTest {
 		assertEquals("47111111111", empresa.getContato().getTelefoneSecundario());
 		assertEquals(Cidades.BLUMENAU, empresa.getEndereco().getCidade());
 	}
-	
-	@Test
-	public void testCadastrarEmpresa() {
-		ArrayList<Empresa> listaEmpresas = new ArrayList<Empresa>();
-		Empresa.cadastrarEmpresa(listaEmpresas, empresa);
-		assertEquals(listaEmpresas.get(0), empresa);
-	}
-
-	@Test
-	public void testeAtualizarEmpresa() {
-		ArrayList<Empresa> listaEmpresas = new ArrayList<Empresa>();
-		listaEmpresas.add(empresa);
-		Empresa.atualizarEmpresa(listaEmpresas, novaEmpresa, empresa);
-		assertEquals(listaEmpresas.get(0), novaEmpresa);
-		assertFalse(listaEmpresas.get(0) == empresa);
-	}
-
-	@Test
-	public void testeDeletarEmpresa() {
-		ArrayList<Empresa> listaEmpresas = new ArrayList<Empresa>();
-		listaEmpresas.add(empresa);
-		Empresa.deletarEmpresa(listaEmpresas, empresa);
-		assertEquals(listaEmpresas.size(), 0);
-	}
-
-	@Test
-	public void testeFormataCNPJ() {
-		assertEquals(Empresa.formataCNPJ("14.572.457.0001-85:/"), "14572457000185");
-	}
-
-	@Test
-	public void testeValidaCNPJ() {
-		assertTrue(Empresa.validaCNPJ("14.572.457.0001-85"));
-		assertFalse(Empresa.validaCNPJ("14.572.457.0001-84"));
-	}
 }

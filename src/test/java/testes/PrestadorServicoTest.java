@@ -1,4 +1,4 @@
-package testes;
+Spackage testes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -21,7 +21,7 @@ public class PrestadorServicoTest {
 	LocalDate dataDeNascimento1 = LocalDate.of(1994, 05, 9);
 	String nomeSocial1 = "";
 	String genero1 = "Cisgênero";
-	SexoPessoa sexo1 = SexoPessoa.FEMININO;
+	SexoPessoa sexo1 = SexoPessoa.CIS;
 	String nomeDaMae1 = "Dulce";
 	String cpf1 = "99599988826";
 	Nacionalidades nacionalidade1 = Nacionalidades.BRASILEIRA;
@@ -37,7 +37,7 @@ public class PrestadorServicoTest {
 	LocalDate dataDeNascimento2 = LocalDate.of(1996, 06, 11);
 	String nomeSocial2 = "";
 	String genero2 = "Transgênero";
-	SexoPessoa sexo2 = SexoPessoa.FEMININO;
+	SexoPessoa sexo2 = SexoPessoa.CIS;
 	String nomeDaMae2 = "Carla Souza";
 	String cpf2 = "88899955525";
 	Nacionalidades nacionalidade2 = Nacionalidades.BRASILEIRA;
@@ -57,7 +57,7 @@ public class PrestadorServicoTest {
 	Contatos contatos = new Contatos("47986537263", "47998877663", "steven@gmail.com");
 	
 	PrestadorServico prestServicoCompleto = new PrestadorServico("Steven", "Jobs", LocalDate.of(1955, 2, 24),
-			"Steal", "Bissexual", SexoPessoa.MASCULINO, "Reed Jobs", "18287498007", Nacionalidades.BRASILEIRA, false, 123456,
+			"Steal", "Bissexual", SexoPessoa.CIS, "Reed Jobs", "18287498007", Nacionalidades.BRASILEIRA, false, 123456,
 			LocalDate.of(2018, 7, 9), 5, 7,	contatos);
 	
 	ArrayList<PrestadorServico> listaPrestadorServico = new ArrayList<PrestadorServico>();
@@ -69,7 +69,7 @@ public class PrestadorServicoTest {
 		assertEquals(LocalDate.of(1955, 2, 24), prestServicoCompleto.getDataDeNascimento());
 		assertEquals("Steal", prestServicoCompleto.getNomeSocial());
 		assertEquals("Bissexual", prestServicoCompleto.getGenero());
-		assertEquals(SexoPessoa.MASCULINO, prestServicoCompleto.getSexo());
+		assertEquals(SexoPessoa.CIS, prestServicoCompleto.getSexo());
 		assertEquals("Reed Jobs", prestServicoCompleto.getNomeDaMae());
 		assertEquals("18287498007", prestServicoCompleto.getCpf());
 		assertEquals(Nacionalidades.BRASILEIRA, prestServicoCompleto.getNacionalidade());
@@ -80,32 +80,5 @@ public class PrestadorServicoTest {
 		assertEquals("47986537263", prestServicoCompleto.getContatos().getTelefonePrincipal());
 		assertEquals("47998877663", prestServicoCompleto.getContatos().getTelefoneSecundario());
 		assertEquals("steven@gmail.com", prestServicoCompleto.getContatos().getEmail());
-	}
-	
-	@Test
-	public void testCadastrarPrestadorServico() {
-		PrestadorServico.cadastrarPrestadorServico(listaPrestadorServico, prestador1);
-		PrestadorServico.cadastrarPrestadorServico(listaPrestadorServico, prestador2);
-		assertTrue(listaPrestadorServico.indexOf(prestador1) == 0);
-		assertTrue(listaPrestadorServico.indexOf(prestador2) == 1);
-	}
-	
-	@Test
-	public void testAtualizarPrestador() {
-		PrestadorServico.cadastrarPrestadorServico(listaPrestadorServico, prestador1);
-		PrestadorServico.atualizarPrestadorServico(listaPrestadorServico, prestador1, prestador2);
-		assertEquals("PrestadorServico [idPrestadorServico=37, dataInicioContrato=2018-12-25, idEmpresa=9, idSetor=42, "
-				+ "contatos=Contatos [telefonePrincipal=47997755333, telefoneSecundario=49922336633, email=joao@gmail.com]]", 
-				listaPrestadorServico.get(0).toString());
-	}
-	
-	@Test
-	public void testDeletarPrestador() {
-		PrestadorServico.cadastrarPrestadorServico(listaPrestadorServico, prestador1);
-		PrestadorServico.deletarPrestadorServico(listaPrestadorServico, prestador1);
-		assertTrue(listaPrestadorServico.size() == 0);
-	}
-	
-	
-	
+	}	
 }
