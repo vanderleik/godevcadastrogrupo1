@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import controller.Model;
-
 /**
  * Classe que abstrai as informações de uma Empresa contratada. Esta Classe será
  * instanciada na Classe PrestadorServico, e instanciará as classes Endereco e
@@ -15,7 +13,7 @@ import controller.Model;
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
  *
  */
-public class Empresa implements Model{
+public class Empresa{
 
 	private long empresaId;
 	private String nomeEmpresa;

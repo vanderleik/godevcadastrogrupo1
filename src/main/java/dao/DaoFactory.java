@@ -1,35 +1,37 @@
-package controller;
+package dao;
 
 import java.util.ArrayList;
 
 public class DaoFactory<T> implements DAO<T>{
 	
-	ArrayList<T> items = new ArrayList<T>();
+	public ArrayList<T> itens = new ArrayList<T>();
 	
 	public boolean cadastrar(T item) {
-		items.add(item);
+		itens.add(item);
 		return true;
 	}
 
 	public T listar(T item) {
-		// TODO Auto-generated method stub
-		return null;
+		if (itens.contains(item)) {
+			return (item);
+		} else {
+			return null;
+		}
 	}
 
 	public ArrayList<T> listarTudo() {
-		// TODO Auto-generated method stub
-		return null;
+		return itens;
 	}
 
 	public boolean delete(T item) {
-		// TODO Auto-generated method stub
-		return false;
+		itens.remove(item);
+		return true;
 	}
 
 	public boolean atualizar(T item, T itemAntigo) {
-		return false;
-		// TODO Auto-generated method stub
-		
+		int indice = itens.indexOf(itemAntigo);
+		itens.set(indice, item);
+		return true;
 	}
 
 

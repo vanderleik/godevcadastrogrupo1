@@ -2,15 +2,13 @@ package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
-import controller.Model;
 import enums.Cidades;
 import enums.Nacionalidades;
 import enums.Paises;
 import enums.SexoPessoa;
 import enums.UnidadesFederativas;
 
-public class Colaborador extends Pessoa implements Model {
+public class Colaborador extends Pessoa {
 
 	/**
 	 * Classe Colaborador.
