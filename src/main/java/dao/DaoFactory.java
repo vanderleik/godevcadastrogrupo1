@@ -6,11 +6,28 @@ public class DaoFactory<T> implements DAO<T>{
 	
 	public ArrayList<T> itens = new ArrayList<T>();
 	
+	/**
+	 * Cadastrar algo
+	 * 
+	 * Insere algo de determinado tipo no ArrayList de determinado tipo
+	 * 
+	 * @param item; de tipo flexível  
+	 * @return true; cadastro realizado com sucesso
+	 */
 	public boolean cadastrar(T item) {
 		itens.add(item);
 		return true;
 	}
 
+	/**
+	 * Retorna algo
+	 * 
+	 * Retorna algo de determiando tipo contido no ArrayList de determinado tipo
+	 * 
+	 * @param item; de tipo flexível  
+	 * @return item; algo desejado existe 
+	 * @return null; cadastro não existe
+	 */
 	public T listar(T item) {
 		if (itens.contains(item)) {
 			return (item);
@@ -19,20 +36,43 @@ public class DaoFactory<T> implements DAO<T>{
 		}
 	}
 
+	/**
+	 * Retorna ArrayList
+	 * 
+	 * Retorna o ArrayList de determinado tipo	  
+	 * 
+	 * @return itens; ArrayList que contém todos os cadastros
+	 */
 	public ArrayList<T> listarTudo() {
 		return itens;
 	}
 
+	/**
+	 * Deleta algo
+	 * 
+	 * Tira algo de determinado tipo do ArrayList de determinado tipo
+	 * 
+	 * @param item; de tipo flexível  
+	 * @return true; deletação realizada com sucesso
+	 */
 	public boolean delete(T item) {
 		itens.remove(item);
 		return true;
 	}
 
+	/**
+	 * Atualiza algo
+	 * 
+	 * Troca algo de determinado tipo no ArrayList de determinado tipo por outro do mesmo tipo;
+	 * 
+	 * @param item; de tipo flexível  
+	 * @param itemAntigo; de tipo flexível 
+	 * @return true; atualização realizada com sucesso
+	 */
 	public boolean atualizar(T item, T itemAntigo) {
 		int indice = itens.indexOf(itemAntigo);
 		itens.set(indice, item);
 		return true;
 	}
-
 
 }
