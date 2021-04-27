@@ -46,8 +46,8 @@ public class ValidacaoDeDatas {
 	 * @return true, caso a data seja válida
 	 */
 	public boolean validaDataDeNascimentoColaborador(Colaborador colaborador) {
-		if (colaborador.getDataDeNascimento().until(LocalDate.now(), ChronoUnit.YEARS) >= IDADE_MINIMA_PARA_CONTRATO &&
-				colaborador.getDataDeNascimento().until(LocalDate.now(), ChronoUnit.YEARS) <= IDADE_MAXIMA_PARA_PESSOA) {
+		if (colaborador.getPessoa().getDataDeNascimento().until(LocalDate.now(), ChronoUnit.YEARS) >= IDADE_MINIMA_PARA_CONTRATO &&
+				colaborador.getPessoa().getDataDeNascimento().until(LocalDate.now(), ChronoUnit.YEARS) <= IDADE_MAXIMA_PARA_PESSOA) {
 			return true;
 		}
 		return false;

@@ -1,78 +1,20 @@
 package testes;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import java.time.LocalDate;
-
-import org.junit.Ignore;
 import org.junit.Test;
-
-import controller.PessoaController;
-import enums.Nacionalidades;
-import enums.SexoPessoa;
+import enums.EMDadosGeograficos.Nacionalidade;
+import enums.EMDadosPessoais.SexoPessoa;
 import model.Pessoa;
 
 public class PessoaTest {
 	
-	SexoPessoa sexoTeste1 = SexoPessoa.CIS;
-	SexoPessoa sexoTeste2 = SexoPessoa.TRANS;
-	Nacionalidades nacionalidadeTeste1 = Nacionalidades.BRASILEIRA;
-	Nacionalidades nacionalidadeTeste2 = Nacionalidades.CHILENA;
-	Nacionalidades nacionalidadeTeste3 = Nacionalidades.ARGENTINA;
-	Pessoa pessoaTesteConstrutorPrincipal = new Pessoa("Marcos", "Antônio",
-			LocalDate.of(2010, 8, 24), "Muriel",
-			"Não-Binário", sexoTeste2, "Josilene Aparecida Santos", "01231545678",
-			nacionalidadeTeste1, true);
-	Pessoa pessoaTesteConstrutorSecundario = new Pessoa("Marco", "Antunes",
-			LocalDate.of(2009, 4, 21), "Masculino",
-			sexoTeste2, "Jucerléia Aparecida Santos", "87654321021", nacionalidadeTeste2);
-
-	@Ignore
-	public void test() {
-		assertEquals(pessoaTesteConstrutorPrincipal.getNome(), "Marcos");
-		assertEquals(pessoaTesteConstrutorPrincipal.getSobrenome(), "Antônio");
-		assertEquals(pessoaTesteConstrutorPrincipal.getDataDeNascimento(), LocalDate.of(2010, 8, 24));
-		assertEquals(pessoaTesteConstrutorPrincipal.getNomeSocial(), "Muriel");
-		assertEquals(pessoaTesteConstrutorPrincipal.getGenero(), "Não-Binário");
-		assertEquals(pessoaTesteConstrutorPrincipal.getSexo(), sexoTeste2);
-		assertEquals(pessoaTesteConstrutorPrincipal.getNomeDaMae(), "Josilene Aparecida Santos");
-		assertEquals(pessoaTesteConstrutorPrincipal.getCpf(), "01231545678");
-		assertEquals(pessoaTesteConstrutorPrincipal.getNacionalidade(), nacionalidadeTeste1);
-		assertEquals(pessoaTesteConstrutorPrincipal.isPcd(), true);
-
-		assertEquals(pessoaTesteConstrutorSecundario.getNome(), "Marco");
-		assertEquals(pessoaTesteConstrutorSecundario.getSobrenome(), "Antunes");
-		assertEquals(pessoaTesteConstrutorSecundario.getDataDeNascimento(), LocalDate.of(2009, 4, 21));
-		assertEquals(pessoaTesteConstrutorSecundario.getGenero(), "Masculino");
-		assertEquals(pessoaTesteConstrutorSecundario.getSexo(), sexoTeste2);
-		assertEquals(pessoaTesteConstrutorSecundario.getNomeDaMae(), "Jucerléia Aparecida Santos");
-		assertEquals(pessoaTesteConstrutorSecundario.getCpf(), "87654321021");
-		assertEquals(pessoaTesteConstrutorSecundario.getNacionalidade(), nacionalidadeTeste2);
-		assertEquals(pessoaTesteConstrutorSecundario.isPcd(), false);
-
-		pessoaTesteConstrutorPrincipal.setNome("Joana");
-		pessoaTesteConstrutorPrincipal.setSobrenome("Marques");
-		pessoaTesteConstrutorPrincipal.setDataDeNascimento(LocalDate.of(2002, 3, 11));
-		pessoaTesteConstrutorPrincipal.setNomeSocial("Antoni");
-		pessoaTesteConstrutorPrincipal.setGenero("Transsexual");
-		pessoaTesteConstrutorPrincipal.setSexo(sexoTeste1);
-		pessoaTesteConstrutorPrincipal.setNomeDaMae("Marcela Trindade Pereira");
-		pessoaTesteConstrutorPrincipal.setCpf("124512644762");
-		pessoaTesteConstrutorPrincipal.setNacionalidade(nacionalidadeTeste3);
-		pessoaTesteConstrutorPrincipal.setPcd(false);
-
-		assertEquals(pessoaTesteConstrutorPrincipal.getNome(), "Joana");
-		assertEquals(pessoaTesteConstrutorPrincipal.getSobrenome(), "Marques");
-		assertEquals(pessoaTesteConstrutorPrincipal.getDataDeNascimento(), LocalDate.of(2002, 3, 11));
-		assertEquals(pessoaTesteConstrutorPrincipal.getNomeSocial(), "Antoni");
-		assertEquals(pessoaTesteConstrutorPrincipal.getGenero(), "Transsexual");
-		assertEquals(pessoaTesteConstrutorPrincipal.getSexo(), sexoTeste1);
-		assertEquals(pessoaTesteConstrutorPrincipal.getNomeDaMae(), "Marcela Trindade Pereira");
-		assertEquals(pessoaTesteConstrutorPrincipal.getCpf(), "124512644762");
-		assertEquals(pessoaTesteConstrutorPrincipal.getNacionalidade(), nacionalidadeTeste3);
-		assertEquals(pessoaTesteConstrutorPrincipal.isPcd(), false);
-
-	}	
+	@Test
+	public void testeBuilder() {
+		Pessoa pessoa = new Pessoa.PessoaBuilder().nome("José").
+				sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).
+				genero("Masculino").sexo(SexoPessoa.CIS).nomeDaMae("Lúcia").
+				cpf("02154785488").nacionalidade(Nacionalidade.BRASILEIRA).pcd(false).criarPessoa();
+		System.out.println(pessoa.toString());
+		
+	}
 }

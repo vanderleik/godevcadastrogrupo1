@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import enums.EMDadosGeograficos.Nacionalidade;
+import enums.EMDadosPessoais.SexoPessoa;
+import model.Pessoa.PessoaBuilder;
+
 /**
  * Classe que abstrai as informações de uma Empresa contratada. Esta Classe será
  * instanciada na Classe PrestadorServico, e instanciará as classes Endereco e
@@ -83,6 +87,50 @@ public class Empresa{
 
 	public void setContato(Contatos contato) {
 		this.contato = contato;
+	}
+	
+	public static class EmpresaBuilder {
+		private long empresaId;
+		private String nomeEmpresa;
+		private LocalDate dataInicioContrato;
+		private String cnpj;
+		private Endereco endereco;
+		private Contatos contato;
+	
+		public EmpresaBuilder empresaId(long empresaId) {
+			this.empresaId = empresaId;
+			return this;
+		}
+		
+		public EmpresaBuilder nomeEmpresa(String nomeEmpresa) {
+			this.nomeEmpresa = nomeEmpresa;
+			return this;
+		}
+		
+		public EmpresaBuilder dataInicioContrato(LocalDate dataInicioContrato) {
+			this.dataInicioContrato = dataInicioContrato;
+			return this;
+		}
+		
+		public EmpresaBuilder cnpj(String cnpj) {
+			this.cnpj = cnpj;
+			return this;
+		}
+		
+		public EmpresaBuilder endereco(Endereco endereco) {
+			this.endereco = endereco;
+			return this;
+		}
+		
+		public EmpresaBuilder contato(Contatos contato) {
+			this.contato = contato;
+			return this;
+		}
+		
+		
+		public Empresa criarEmpresa() {
+			return new Empresa(empresaId, nomeEmpresa, dataInicioContrato, cnpj, endereco, contato);
+		}
 	}
 	
 	@Override

@@ -1,9 +1,9 @@
 package model;
 
 import java.util.ArrayList;
-import enums.Cidades;
-import enums.Paises;
-import enums.UnidadesFederativas;
+import enums.EMDadosGeograficos.Cidades;
+import enums.EMDadosGeograficos.Pais;
+import enums.EMDadosGeograficos.UF;
 
 	/**
 	 * Classe que engloba e abstrai as informações de endereco de um
@@ -19,13 +19,13 @@ public class Endereco {
 	private Integer numero;
 	private String bairro;
 	private Cidades cidade;
-	private UnidadesFederativas uf;
+	private UF uf;
 	private String complemento;
 	private String cep;
-	private Paises pais;
+	private Pais pais;
 
-	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UnidadesFederativas uf,
-			String complemento, String cep, Paises pais) {
+	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UF uf,
+			String complemento, String cep, Pais pais) {
 		super();
 		this.logradouro = logradouro;
 		this.numero = numero;
@@ -40,8 +40,8 @@ public class Endereco {
 	/**
 	 * Construtor de Endereco Não inclui o complemento.
 	 */
-	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UnidadesFederativas uf,
-			String cep, Paises pais) {
+	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UF uf,
+			String cep, Pais pais) {
 		super();
 		this.logradouro = logradouro;
 		this.numero = numero;
@@ -88,11 +88,11 @@ public class Endereco {
 		this.cidade = cidade;
 	}
 
-	public UnidadesFederativas getUf() {
+	public UF getUf() {
 		return uf;
 	}
 
-	public void setUf(UnidadesFederativas uf) {
+	public void setUf(UF uf) {
 		this.uf = uf;
 	}
 
@@ -112,14 +112,71 @@ public class Endereco {
 		this.cep = cep;
 	}
 
-	public Paises getPais() {
+	public Pais getPais() {
 		return pais;
 	}
 
-	public void setPais(Paises pais) {
+	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
 	
+	public static class EnderecoBuilder {
+		private String logradouro;
+		private Integer numero;
+		private String bairro;
+		private Cidades cidade;
+		private UF uf;
+		private String complemento;
+		private String cep;
+		private Pais pais;
+		
+		public EnderecoBuilder logradouro(String logradouro) {
+			this.logradouro = logradouro;
+			return this;
+		}
+
+		public EnderecoBuilder numero(Integer numero) {
+			this.numero = numero;
+			return this;
+		}
+		
+
+		public EnderecoBuilder bairro(String bairro) {
+			this.bairro = bairro;
+			return this;
+		}
+		
+		public EnderecoBuilder Cidades(Cidades cidade) {
+			this.cidade = cidade;
+			return this;
+		}
+		
+		public EnderecoBuilder uf(UF uf) {
+			this.uf = uf;
+			return this;
+		}
+		
+		public EnderecoBuilder complemento(String complemento) {
+			this.complemento = complemento;
+			return this;
+		}
+		public EnderecoBuilder cep(String cep) {
+			this.cep = cep;
+			return this;
+		}
+		
+
+		public EnderecoBuilder pais(Pais pais) {
+			this.pais = pais;
+			return this;
+		}
+		
+		public Endereco criarEndereco() {
+			return new Endereco(logradouro, numero, bairro, cidade, uf, cep, pais);
+		}
+	}
+
+
 	@Override
 	public String toString() {
 		return "Endereco [logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade

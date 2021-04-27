@@ -22,21 +22,10 @@ public class Contatos{
 		setTelefoneSecundario(telefoneSecundario);
 		setEmail(email);
 	}
-
-	/**
-	 * Construtor secundário da classe
-	 * 
-	 * NÃO inclui o telefone secundário.
-	 * 
-	 * @param telefonePrincipal
-	 * @param email
-	 */
-	public Contatos(String telefonePrincipal, String email) {
-		setTelefonePrincipal(telefonePrincipal);
-		setEmail(email);
-	}
-
 	
+	public Contatos() {
+		
+	}
 	
 	public String getTelefonePrincipal() {
 		return telefonePrincipal;
@@ -62,6 +51,35 @@ public class Contatos{
 		this.email = email;
 	}
 
+	public static class ContatosBuilder {
+		private String telefonePrincipal;
+		private String telefoneSecundario;
+		private String email;
+		
+		public ContatosBuilder() {
+		}
+		
+		
+		public ContatosBuilder telefonePrincipal(String telefonePrincipal) {
+			this.telefonePrincipal = telefonePrincipal;
+			return this;
+		}
+
+		public ContatosBuilder telefoneSecundario(String telefoneSecundario) {
+			this.telefoneSecundario = telefoneSecundario;
+			return this;
+		}
+		
+		public ContatosBuilder email(String email) {
+			this.email = email;
+			return this;
+		}
+
+	
+		public Contatos criarContato() {
+			return new Contatos(telefonePrincipal, telefoneSecundario, email);		
+		}
+	}
 
 	@Override
 	public String toString() {

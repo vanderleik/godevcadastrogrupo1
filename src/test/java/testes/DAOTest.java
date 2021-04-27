@@ -42,8 +42,7 @@ public class DAOTest {
 		ArrayList<Pessoa> arrayTeste = new ArrayList();
 		arrayTeste.add(p1);
 		arrayTeste.add(p2);
-		assertEquals(dao.listarTudo(), arrayTeste);
-		arrayTeste.remove(0);
+		assertEquals(dao.listarTudo(), arrayTeste);		
 	}
 	
 	@Test

@@ -1,8 +1,6 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 
 	/**
 	 * Classe que engloba e abstrai os documentos necessários para o Colaborador.
@@ -28,12 +26,12 @@ public class Documentos{
 	private String orgaoEmissorRG;
 	private LocalDate dataEmissaoRG;
 	
-	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissao, String bancoNome, int bancoAgencia,
+	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissaoCTPS, String bancoNome, int bancoAgencia,
 			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long raNumero, long rgNumero,
 			String orgaoEmissorRG, LocalDate dataEmissaoRG) {
 		this.ctpsNumero = ctpsNumero;
 		this.ctpsSerie = ctpsSerie;
-		this.dataEmissaoCTPS = dataEmissao;
+		this.dataEmissaoCTPS = dataEmissaoCTPS;
 		this.bancoNome = bancoNome;
 		this.bancoAgencia = bancoAgencia;
 		this.bancoNumeroConta = bancoNumeroConta;
@@ -46,28 +44,8 @@ public class Documentos{
 		this.dataEmissaoRG = dataEmissaoRG;
 	}
 
-	/**
-	 * Construtor secundário da classe.
-	 * 
-	 * NÃO inclui o registro de alistamento (RA).
-	 * 
-	 */
-	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissaoCTPS, String bancoNome, int bancoAgencia,
-			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long rgNumero,
-			String orgaoEmissorRG, LocalDate dataEmissaoRG) {
-		this.ctpsNumero = ctpsNumero;
-		this.ctpsSerie = ctpsSerie;
-		this.dataEmissaoCTPS = dataEmissaoCTPS;
-		this.bancoNome = bancoNome;
-		this.bancoAgencia = bancoAgencia;
-		this.bancoNumeroConta = bancoNumeroConta;
-		this.tituloNumero = tituloNumero;
-		this.tituloZona = tituloZona;
-		this.tituloSecao = tituloSecao;
-		this.rgNumero = rgNumero;
-		this.raNumero = 0;
-		this.orgaoEmissorRG = orgaoEmissorRG;
-		this.dataEmissaoRG = dataEmissaoRG;
+	public Documentos() {
+		
 	}
 
 	public int getCtpsNumero() {
@@ -172,6 +150,84 @@ public class Documentos{
 
 	public void setDataEmissaoRG(LocalDate dataEmissaoRG) {
 		this.dataEmissaoRG = dataEmissaoRG;
+	}
+	
+	public static class DocumentosBuilder {
+		
+		private int ctpsNumero;
+		private int ctpsSerie;
+		private LocalDate dataEmissaoCTPS;
+		private String bancoNome;
+		private int bancoAgencia;
+		private int bancoNumeroConta;
+		private long tituloNumero;
+		private int tituloZona;
+		private int tituloSecao;
+		private long raNumero;
+		private long rgNumero;
+		private String orgaoEmissorRG;
+		private LocalDate dataEmissaoRG;
+		
+		public DocumentosBuilder ctpsNumero(int ctpsNumero) {
+			this.ctpsNumero = ctpsNumero;
+			return this;
+		}
+		
+		public DocumentosBuilder ctpsSerie(int ctpsSerie) {
+			this.ctpsSerie = ctpsSerie;
+			return this;
+		}
+		public DocumentosBuilder dataEmissaoCTPS(LocalDate dataEmissaoCTPS) {
+			this.dataEmissaoCTPS = dataEmissaoCTPS;
+			return this;
+		}
+		public DocumentosBuilder bancoNome(String bancoNome) {
+			this.bancoNome = bancoNome;
+			return this;
+		}
+		public DocumentosBuilder bancoAgencia(int bancoAgencia) {
+			this.bancoAgencia = bancoAgencia;
+			return this;
+		}	
+		public DocumentosBuilder bancoNumeroConta(int bancoNumeroConta) {
+			this.bancoNumeroConta = bancoNumeroConta;
+			return this;
+		}
+
+		public DocumentosBuilder tituloNumero(long tituloNumero) {
+			this.tituloNumero = tituloNumero;
+			return this;
+		}
+		public DocumentosBuilder tituloZona(int tituloZona) {
+			this.tituloZona = tituloZona;
+			return this;
+		}
+		public DocumentosBuilder tituloSecao(int tituloSecao) {
+			this.tituloSecao = tituloSecao;
+			return this;
+		}
+		public DocumentosBuilder raNumero(long raNumero) {
+			this.raNumero = raNumero;
+			return this;
+		}
+		public DocumentosBuilder rgNumero(long rgNumero) {
+			this.rgNumero = rgNumero;
+			return this;
+		}
+		public DocumentosBuilder orgaoEmissorRG(String orgaoEmissorRG) {
+			this.orgaoEmissorRG = orgaoEmissorRG;
+			return this;
+		}
+		public DocumentosBuilder dataEmissaoRG( LocalDate dataEmissaoRG) {
+			this.dataEmissaoRG = dataEmissaoRG;
+			return this;
+		}
+		
+		public Documentos criarDocumentos() {
+			return new Documentos( ctpsNumero,  ctpsSerie,  dataEmissaoCTPS,  bancoNome,  bancoAgencia,
+					 bancoNumeroConta,  tituloNumero,  tituloZona, tituloSecao,  raNumero,  rgNumero,
+					 orgaoEmissorRG,  dataEmissaoRG);
+		}
 	}
 	
 	@Override

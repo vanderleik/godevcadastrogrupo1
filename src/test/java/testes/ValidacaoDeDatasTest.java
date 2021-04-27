@@ -44,9 +44,9 @@ public class ValidacaoDeDatasTest {
 
 		ValidacaoDeDatas validaData = new ValidacaoDeDatas();
 
-		p.setDataDeNascimento(LocalDate.of(2002, 01, 28));
-		p2.setDataDeNascimento(LocalDate.of(2020, 02, 28));
-		p3.setDataDeNascimento(LocalDate.of(1500, 01, 28));
+		p.getPessoa().setDataDeNascimento(LocalDate.of(2002, 01, 28));
+		p2.getPessoa().setDataDeNascimento(LocalDate.of(2020, 02, 28));
+		p3.getPessoa().setDataDeNascimento(LocalDate.of(1500, 01, 28));
 
 		assertTrue(validaData.validaDataDeNascimentoColaborador(p));
 		assertFalse(validaData.validaDataDeNascimentoColaborador(p2));

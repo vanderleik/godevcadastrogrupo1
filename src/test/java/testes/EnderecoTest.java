@@ -8,18 +8,18 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import enums.Cidades;
-import enums.Paises;
-import enums.UnidadesFederativas;
+import enums.EMDadosGeograficos.Cidades;
+import enums.EMDadosGeograficos.Pais;
+import enums.EMDadosGeograficos.UF;
 import model.Endereco;
 
 public class EnderecoTest {
 
 	Endereco enderecoSemComplemento = new Endereco("Sítio Côrrego de Santo Antônio", 10, "Côrrego de Santo Antonio",
-			Cidades.FLORIANOPOLIS, UnidadesFederativas.SC, "28666971", Paises.BRASIl);
+			Cidades.FLORIANOPOLIS, UF.SC, "28666971", Pais.BRASIl);
 
 	Endereco enderecoCompleto = new Endereco("Rua José Delepranni, s/n", null, "Alto Caldeirão", Cidades.PORTO_ALEGRE,
-			UnidadesFederativas.RS, "Casa", "29656980", Paises.BRASIl);
+			UF.RS, "Casa", "29656980", Pais.BRASIl);
 
 	
 
@@ -29,9 +29,9 @@ public class EnderecoTest {
 		assertEquals(10, enderecoSemComplemento.getNumero().intValue());
 		assertEquals("Côrrego de Santo Antonio", enderecoSemComplemento.getBairro());
 		assertEquals(Cidades.FLORIANOPOLIS, enderecoSemComplemento.getCidade());
-		assertEquals(UnidadesFederativas.SC, enderecoSemComplemento.getUf());
+		assertEquals(UF.SC, enderecoSemComplemento.getUf());
 		assertEquals("28666971", enderecoSemComplemento.getCep());
-		assertEquals(Paises.BRASIl, enderecoSemComplemento.getPais());
+		assertEquals(Pais.BRASIl, enderecoSemComplemento.getPais());
 	}
 
 	@Test
@@ -40,9 +40,9 @@ public class EnderecoTest {
 		assertEquals(null, enderecoCompleto.getNumero());
 		assertEquals("Alto Caldeirão", enderecoCompleto.getBairro());
 		assertEquals(Cidades.PORTO_ALEGRE, enderecoCompleto.getCidade());
-		assertEquals(UnidadesFederativas.RS, enderecoCompleto.getUf());
+		assertEquals(UF.RS, enderecoCompleto.getUf());
 		assertEquals("Casa", enderecoCompleto.getComplemento());
 		assertEquals("29656980", enderecoCompleto.getCep());
-		assertEquals(Paises.BRASIl, enderecoCompleto.getPais());
+		assertEquals(Pais.BRASIl, enderecoCompleto.getPais());
 	}
 }
