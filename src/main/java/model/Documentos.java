@@ -44,9 +44,7 @@ public class Documentos{
 		this.dataEmissaoRG = dataEmissaoRG;
 	}
 
-	public Documentos() {
-		
-	}
+	public Documentos() {}
 
 	public int getCtpsNumero() {
 		return ctpsNumero;
@@ -177,18 +175,22 @@ public class Documentos{
 			this.ctpsSerie = ctpsSerie;
 			return this;
 		}
+		
 		public DocumentosBuilder dataEmissaoCTPS(LocalDate dataEmissaoCTPS) {
 			this.dataEmissaoCTPS = dataEmissaoCTPS;
 			return this;
 		}
+		
 		public DocumentosBuilder bancoNome(String bancoNome) {
 			this.bancoNome = bancoNome;
 			return this;
 		}
+		
 		public DocumentosBuilder bancoAgencia(int bancoAgencia) {
 			this.bancoAgencia = bancoAgencia;
 			return this;
 		}	
+		
 		public DocumentosBuilder bancoNumeroConta(int bancoNumeroConta) {
 			this.bancoNumeroConta = bancoNumeroConta;
 			return this;
@@ -198,14 +200,17 @@ public class Documentos{
 			this.tituloNumero = tituloNumero;
 			return this;
 		}
+		
 		public DocumentosBuilder tituloZona(int tituloZona) {
 			this.tituloZona = tituloZona;
 			return this;
 		}
+		
 		public DocumentosBuilder tituloSecao(int tituloSecao) {
 			this.tituloSecao = tituloSecao;
 			return this;
 		}
+		
 		public DocumentosBuilder raNumero(long raNumero) {
 			this.raNumero = raNumero;
 			return this;
@@ -214,10 +219,12 @@ public class Documentos{
 			this.rgNumero = rgNumero;
 			return this;
 		}
+		
 		public DocumentosBuilder orgaoEmissorRG(String orgaoEmissorRG) {
 			this.orgaoEmissorRG = orgaoEmissorRG;
 			return this;
 		}
+		
 		public DocumentosBuilder dataEmissaoRG( LocalDate dataEmissaoRG) {
 			this.dataEmissaoRG = dataEmissaoRG;
 			return this;
@@ -238,5 +245,4 @@ public class Documentos{
 				+ tituloZona + ", tituloSecao=" + tituloSecao + ", raNumero=" + raNumero + ", rgNumero=" + rgNumero
 				+ ", orgaoEmissorRG=" + orgaoEmissorRG + ", dataEmissaoRG=" + dataEmissaoRG + "]";
 	}
-
 }

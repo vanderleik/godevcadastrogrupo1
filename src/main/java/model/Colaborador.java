@@ -21,7 +21,7 @@ public class Colaborador{
 	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
 	 *         Luiz Barbieri e Vitor Nathan Gonçalves.
 	 */
-	
+
 	private Pessoa pessoa;
 	private Integer idColaborador;
 	private Integer numCargo;
@@ -38,16 +38,16 @@ public class Colaborador{
 	private Contatos contatos;
 	private ExameMedico exameMedico;
 
-	public Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
+	protected Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd,
 			Integer idColaborador, Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR,
 			LocalDate dataAdmissao, boolean optanteDependente, Cidades cidadeNascimento,
 			UF ufNascimento, Pais paisNascimento, Documentos documentos, Endereco endereco,
 			Contatos contatos, ExameMedico exameMedico) {
-		
+
 		this.pessoa = new Pessoa.PessoaBuilder().nome(nome).sobrenome(sobrenome).dataDeNascimento(dataDeNascimento).nomeSocial(nomeSocial).genero(genero)
 				.sexo(sexo).nomeDaMae(nomeDaMae).cpf(cpf).nacionalidade(nacionalidade).pcd(pcd).criarPessoa();
-		
+
 		this.idColaborador = idColaborador;
 		this.numCargo = numCargo;
 		this.nit = nit;
@@ -63,11 +63,9 @@ public class Colaborador{
 		this.contatos = contatos;
 		this.exameMedico = exameMedico;
 	}
-
-	public Colaborador() {
-		super();
-	}
 	
+	public Colaborador() {}
+
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
@@ -197,8 +195,7 @@ public class Colaborador{
 				+ ", UfNascimento=" + UfNascimento + ", paisNascimento=" + paisNascimento + ", documentos=" + documentos
 				+ ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico=" + exameMedico + "]";
 	}
-	
-	//BUILDER
+
 	public static class ColaboradorBuilder {
 		private String nome;
 		private String sobrenome;
@@ -224,7 +221,7 @@ public class Colaborador{
 		private Endereco endereco;
 		private Contatos contatos;
 		private ExameMedico exameMedico;
-		
+
 		public ColaboradorBuilder nome(String nome) {
 			this.nome = nome;
 			return this;
@@ -234,118 +231,121 @@ public class Colaborador{
 			this.sobrenome = sobrenome;
 			return this;
 		}
-		
 
 		public ColaboradorBuilder dataDeNascimento(LocalDate dataDeNascimento) {
 			this.dataDeNascimento = dataDeNascimento;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder nomeSocial(String nomeSocial) {
 			this.nomeSocial = nomeSocial;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder genero(String genero) {
 			this.genero = genero;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder sexo(SexoPessoa sexo) {
 			this.sexo = sexo;
 			return this;
 		}
+
 		public ColaboradorBuilder nomeDaMae(String nomeDaMae) {
 			this.nomeDaMae = nomeDaMae;
 			return this;
 		}
-		
 
 		public ColaboradorBuilder cpf(String cpf) {
 			this.cpf = cpf;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder nacionalidade(Nacionalidade nacionalidade) {
 			this.nacionalidade = nacionalidade;
 			return this;
 		}
-	
+
 		public ColaboradorBuilder pcd(Boolean pcd) {
 			this.pcd = pcd;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder idColaborador(int idColaborador) {
 			this.idColaborador = idColaborador;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder numCargo(int numCargo) {
 			this.numCargo = numCargo;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder nit(int nit) {
 			this.nit = nit;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder optanteVT(boolean optanteVT) {
 			this.optanteVT = optanteVT;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder optanteVAVR(Boolean optanteVAVR) {
 			this.optanteVAVR = optanteVAVR;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder dataAdmissao(LocalDate dataAdmissao) {
 			this.dataAdmissao = dataAdmissao;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder optanteDependente(boolean optanteDependente) {
 			this.optanteDependente = optanteDependente;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder cidadeNascimento(Cidades cidadeNascimento) {
 			this.cidadeNascimento = cidadeNascimento;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder UfNascimento(UF UfNascimento) {
 			this.UfNascimento = UfNascimento;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder paisNascimento(Pais paisNascimento) {
 			this.paisNascimento = paisNascimento;
 			return this;
 		}
-		
+
 		public ColaboradorBuilder documentos(Documentos documentos) {
 			this.documentos = documentos;
 			return this;
 		}
+
 		public ColaboradorBuilder endereco(Endereco endereco) {
 			this.endereco = endereco;
 			return this;
 		}
+
 		public ColaboradorBuilder contatos(Contatos contatos) {
 			this.contatos = contatos;
 			return this;
 		}
+
 		public ColaboradorBuilder exameMedico(ExameMedico exameMedico) {
 			this.exameMedico = exameMedico;
 			return this;
 		}
+
 		public Colaborador criarColaborador() {
 			return new Colaborador(nome,sobrenome, dataDeNascimento,  nomeSocial,  genero,
-					 sexo,  nomeDaMae,  cpf,  nacionalidade, pcd, idColaborador, numCargo, nit, optanteVT, optanteVAVR, dataAdmissao,
-					 optanteDependente, cidadeNascimento, UfNascimento, paisNascimento, documentos, endereco, contatos, exameMedico);
+					sexo,  nomeDaMae,  cpf,  nacionalidade, pcd, idColaborador, numCargo, nit, optanteVT, optanteVAVR, dataAdmissao,
+					optanteDependente, cidadeNascimento, UfNascimento, paisNascimento, documentos, endereco, contatos, exameMedico);
 		}
 	}
 }

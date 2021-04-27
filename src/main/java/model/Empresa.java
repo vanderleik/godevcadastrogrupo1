@@ -1,12 +1,6 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import enums.EMDadosGeograficos.Nacionalidade;
-import enums.EMDadosPessoais.SexoPessoa;
-import model.Pessoa.PessoaBuilder;
 
 /**
  * Classe que abstrai as informações de uma Empresa contratada. Esta Classe será
@@ -126,7 +120,6 @@ public class Empresa{
 			this.contato = contato;
 			return this;
 		}
-		
 		
 		public Empresa criarEmpresa() {
 			return new Empresa(empresaId, nomeEmpresa, dataInicioContrato, cnpj, endereco, contato);

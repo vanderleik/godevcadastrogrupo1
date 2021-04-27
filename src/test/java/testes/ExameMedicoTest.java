@@ -1,9 +1,7 @@
 package testes;
 
 import java.time.LocalDate;
-
 import org.junit.Test;
-
 import enums.EMOutros.TiposExames;
 import model.ExameMedico;
 

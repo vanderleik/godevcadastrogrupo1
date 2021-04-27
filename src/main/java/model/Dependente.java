@@ -24,9 +24,6 @@ public class Dependente {
 	private TiposDependentes tipoDependente;
 	private boolean optanteIR;
 
-	public Dependente() {
-	}
-
 	public Dependente(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd, Integer id,
 			Integer idColaborador, TiposDependentes tipoDependente, boolean optanteIR) {
@@ -37,6 +34,8 @@ public class Dependente {
 		this.tipoDependente = tipoDependente;
 		this.optanteIR = optanteIR;
 	}
+
+	public Dependente() {}
 
 	public Integer getId() {
 		return idDependente;
@@ -96,7 +95,6 @@ public class Dependente {
 			return this;
 		}
 		
-
 		public DependenteBuilder dataDeNascimento(LocalDate dataDeNascimento) {
 			this.dataDeNascimento = dataDeNascimento;
 			return this;
@@ -116,12 +114,12 @@ public class Dependente {
 			this.sexo = sexo;
 			return this;
 		}
+		
 		public DependenteBuilder nomeDaMae(String nomeDaMae) {
 			this.nomeDaMae = nomeDaMae;
 			return this;
 		}
 		
-
 		public DependenteBuilder cpf(String cpf) {
 			this.cpf = cpf;
 			return this;
@@ -136,18 +134,22 @@ public class Dependente {
 			this.pcd = pcd;
 			return this;
 		}
+		
 		public DependenteBuilder idDependente(Integer idDependente) {
 			this.idDependente = idDependente;
 			return this;
 		}
+		
 		public DependenteBuilder idColaborador(Integer idColaborador) {
 			this.idColaborador = idColaborador;
 			return this;
 		}
+		
 		public DependenteBuilder tipoDependentes(TiposDependentes tipoDependente) {
 			this.tipoDependente = tipoDependente;
 			return this;
 		}
+		
 		public DependenteBuilder optanteIR(boolean optanteIR) {
 			this.optanteIR = optanteIR;
 			return this;
@@ -164,8 +166,4 @@ public class Dependente {
 		return "Dependente [pessoa=" + pessoa + ", idDependente=" + idDependente + ", idColaborador=" + idColaborador
 				+ ", tipoDependente=" + tipoDependente + ", optanteIR=" + optanteIR + "]";
 	}
-	
-	
-
-
 }

@@ -1,9 +1,7 @@
 package testes;
 
 import java.time.LocalDate;
-
 import org.junit.Test;
-
 import model.Contatos;
 import model.Empresa;
 import model.Endereco;
@@ -17,5 +15,4 @@ public class EmpresaTest {
 				endereco(new Endereco()).contato(new Contatos()).criarEmpresa();
 		System.out.println(empresa.toString());
 	}
-
 }

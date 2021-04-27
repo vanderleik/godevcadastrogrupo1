@@ -79,6 +79,7 @@ public class PrestadorServico {
 	}
 
 	public static class PrestadorServicoBuilder {
+		
 		private String nome;
 		private String sobrenome;
 		private LocalDate dataDeNascimento;
@@ -105,7 +106,6 @@ public class PrestadorServico {
 			return this;
 		}
 
-
 		public PrestadorServicoBuilder dataDeNascimento(LocalDate dataDeNascimento) {
 			this.dataDeNascimento = dataDeNascimento;
 			return this;
@@ -125,11 +125,11 @@ public class PrestadorServico {
 			this.sexo = sexo;
 			return this;
 		}
+		
 		public PrestadorServicoBuilder nomeDaMae(String nomeDaMae) {
 			this.nomeDaMae = nomeDaMae;
 			return this;
 		}
-
 
 		public PrestadorServicoBuilder cpf(String cpf) {
 			this.cpf = cpf;
@@ -183,7 +183,5 @@ public class PrestadorServico {
 		return "PrestadorServico [pessoa=" + pessoa + ", idPrestadorServico=" + idPrestadorServico
 				+ ", dataInicioContrato=" + dataInicioContrato + ", idEmpresa=" + idEmpresa + ", idSetor=" + idSetor
 				+ ", contatos=" + contatos + "]";
-	}
-	
-	
+	}	
 }

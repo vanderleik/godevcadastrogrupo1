@@ -58,6 +58,7 @@ public class ExameMedico {
 	}
 	
 	public static class ExameMedicoBuilder {
+		
 		TiposExames tipoExame;
 		private LocalDate dataExame;
 		private boolean apto;
@@ -86,5 +87,4 @@ public class ExameMedico {
 	public String toString() {
 		return "ExameMedico [tipoExame=" + tipoExame + ", dataExame=" + dataExame + ", apto=" + apto;
 	}
-
 }

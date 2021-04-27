@@ -51,6 +51,7 @@ public class ValidacaoDocumentos {
 	}
 	
 	/**
+	 * ATENÇÃO: TELEFONE MOVEL
 	 * Valida o tamanho do telefone
 	 * 
 	 * Este método verifica se há 11 dígitos no telefone. Se houver ele retorna true
@@ -59,8 +60,25 @@ public class ValidacaoDocumentos {
 	 * @param telefone
 	 * @return boolean
 	 */
-	public boolean validarTamanhoTel(String telefone) {
+	public boolean validarTamanhoTelMovel(String telefone) {
 		if(telefone.length() != 11) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * ATENÇÃO: TELEFONE FIXO
+	 * Valida o tamanho do telefone fixo.
+	 * 
+	 * Este método verifica se há 10 dígitos no telefone. Se houver ele retorna true
+	 * caso contrário, retorna false.
+	 * 
+	 * @param telefone
+	 * @return boolean
+	 */
+	public boolean validarTamanhoTelFixo(String telefone) {
+		if(telefone.length() != 10) {
 			return false;
 		}
 		return true;
@@ -74,7 +92,7 @@ public class ValidacaoDocumentos {
 	 * @param cnpj
 	 * @return
 	 */
-	public boolean validaCNPJ(String cnpj) {
+	public boolean validarCNPJ(String cnpj) {
 
 		String cnpjFormatado = formatadocumento.formataCNPJ(cnpj);
 		if (cnpjFormatado.length() == 14) {
@@ -83,7 +101,6 @@ public class ValidacaoDocumentos {
 			for (int i = 13; i >= 0; i--) {
 				cnpjInvertido += cnpjFormatado.charAt(i);
 			}
-
 			int mult = 2;
 			int soma = 0;
 			for (int i = 2; i < 14; i++) {
@@ -94,7 +111,6 @@ public class ValidacaoDocumentos {
 					mult++;
 				}
 			}
-
 			if (cnpjInvertido.charAt(1) - 48 != 11 - (soma % 11)) {
 				return false;
 			}
@@ -110,13 +126,13 @@ public class ValidacaoDocumentos {
 					mult++;
 				}
 			}
-
 			if (cnpjInvertido.charAt(0) - 48 != 11 - (soma % 11)) {
 				return false;
 			}
+			return true;
 
 		}
-		return true;
+		return false;
 	}
 	
 	/**
@@ -128,7 +144,7 @@ public class ValidacaoDocumentos {
 	 * @return boolean
 	 */
 	public boolean validarEmail(String email) {
-		if (!email.contentEquals("@")) {
+		if (!email.contains("@")) {
 			return false;
 		}
 		return true;

@@ -37,21 +37,6 @@ public class Endereco {
 		this.pais = pais;
 	}
 
-	/**
-	 * Construtor de Endereco Não inclui o complemento.
-	 */
-	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UF uf,
-			String cep, Pais pais) {
-		super();
-		this.logradouro = logradouro;
-		this.numero = numero;
-		this.bairro = bairro;
-		this.cidade = cidade;
-		this.uf = uf;
-		this.cep = cep;
-		this.pais = pais;
-	}
-
 	public Endereco() {
 		super();
 	}
@@ -140,13 +125,12 @@ public class Endereco {
 			return this;
 		}
 		
-
 		public EnderecoBuilder bairro(String bairro) {
 			this.bairro = bairro;
 			return this;
 		}
 		
-		public EnderecoBuilder Cidades(Cidades cidade) {
+		public EnderecoBuilder cidade(Cidades cidade) {
 			this.cidade = cidade;
 			return this;
 		}
@@ -160,11 +144,11 @@ public class Endereco {
 			this.complemento = complemento;
 			return this;
 		}
+		
 		public EnderecoBuilder cep(String cep) {
 			this.cep = cep;
 			return this;
 		}
-		
 
 		public EnderecoBuilder pais(Pais pais) {
 			this.pais = pais;
@@ -172,15 +156,13 @@ public class Endereco {
 		}
 		
 		public Endereco criarEndereco() {
-			return new Endereco(logradouro, numero, bairro, cidade, uf, cep, pais);
+			return new Endereco(logradouro, numero, bairro, cidade, uf, complemento, cep, pais);
 		}
 	}
-
 
 	@Override
 	public String toString() {
 		return "Endereco [logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade
 				+ ", uf=" + uf + ", complemento=" + complemento + ", cep=" + cep + ", pais=" + pais + "]";
 	}
-
 }

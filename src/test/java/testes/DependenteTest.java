@@ -1,9 +1,7 @@
 package testes;
 
 import java.time.LocalDate;
-
 import org.junit.Test;
-
 import enums.EMDadosGeograficos.Nacionalidade;
 import enums.EMDadosPessoais.SexoPessoa;
 import enums.EMDadosPessoais.TiposDependentes;
@@ -19,8 +17,6 @@ public class DependenteTest {
 				cpf("02154785488").nacionalidade(Nacionalidade.BRASILEIRA).pcd(false).
 				idDependente(456).idColaborador(78).tipoDependentes(TiposDependentes.CONJUGE).
 				optanteIR(true).criarDependente();
-		System.out.println(dependente.toString());
-				
-				
+		System.out.println(dependente.toString());			
 	}
 }

@@ -42,8 +42,7 @@ public class Pessoa{
 		this.pcd = pcd;
 	}
 
-	public Pessoa() {
-	}
+	public Pessoa() {}
 
 	public String getNome() {
 		return nome;
@@ -126,6 +125,7 @@ public class Pessoa{
 	}
 	
 	public static class PessoaBuilder {
+		
 		private String nome;
 		private String sobrenome;
 		private LocalDate dataDeNascimento;
@@ -166,12 +166,12 @@ public class Pessoa{
 			this.sexo = sexo;
 			return this;
 		}
+	
 		public PessoaBuilder nomeDaMae(String nomeDaMae) {
 			this.nomeDaMae = nomeDaMae;
 			return this;
 		}
 		
-
 		public PessoaBuilder cpf(String cpf) {
 			this.cpf = cpf;
 			return this;
@@ -186,6 +186,7 @@ public class Pessoa{
 			this.pcd = pcd;
 			return this;
 		}
+		
 		public Pessoa criarPessoa() {
 			return new Pessoa(nome,sobrenome, dataDeNascimento,  nomeSocial,  genero,
 					 sexo,  nomeDaMae,  cpf,  nacionalidade, pcd);

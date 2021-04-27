@@ -17,7 +17,6 @@ import model.ExameMedico;
 
 public class ColaboradorTest {
 	
-	
 	@Test
 	public void testeBuilderColaborador() {
 		Colaborador colaborador = new Colaborador.ColaboradorBuilder().nome("José").
@@ -32,5 +31,4 @@ public class ColaboradorTest {
 		//Realizar conferência visual no console
 		System.out.println(colaborador.toString());
 	}
-	
 }

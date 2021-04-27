@@ -1,17 +1,10 @@
 package testes;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
-
 import org.junit.Test;
-
 import enums.EMDadosGeograficos.Nacionalidade;
 import enums.EMDadosPessoais.SexoPessoa;
 import model.Contatos;
-import model.ExameMedico;
 import model.PrestadorServico;
 
 public class PrestadorServicoTest {

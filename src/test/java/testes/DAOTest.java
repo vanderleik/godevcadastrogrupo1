@@ -1,11 +1,8 @@
 package testes;
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
-
 import org.junit.Test;
-
 import dao.PessoaDAO;
 import model.Pessoa;
 
@@ -13,7 +10,7 @@ public class DAOTest {
 
 	Pessoa p1 = new Pessoa();
 	Pessoa p2 = new Pessoa();
-	
+
 	@Test
 	public void testCadastrarPessoa() {
 		p1.setNome("Marcos");
@@ -22,7 +19,7 @@ public class DAOTest {
 		dao.cadastrar(p1);
 		assertEquals(dao.itens.get(0), p1);
 	}
-	
+
 	@Test
 	public void testeListar() {
 		p1.setNome("Marcos");
@@ -31,7 +28,7 @@ public class DAOTest {
 		dao.itens.add(p1);
 		assertEquals(dao.listar(p1), p1);
 	}
-	
+
 	@Test
 	public void testeListarTudo() {
 		p1.setNome("Marcos");
@@ -44,7 +41,7 @@ public class DAOTest {
 		arrayTeste.add(p2);
 		assertEquals(dao.listarTudo(), arrayTeste);		
 	}
-	
+
 	@Test
 	public void testDeletarPessoa() {
 		p1.setNome("Marcos");
