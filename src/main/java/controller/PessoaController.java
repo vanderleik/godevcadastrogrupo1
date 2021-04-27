@@ -9,13 +9,9 @@ import model.Pessoa;
 
 public class PessoaController {
 
-	
-//Métodos foram para a classe ValidacaoDocumentos;
 	public void verPessoas() {
 		PessoaDAO dao = new PessoaDAO();
 		ArrayList<Pessoa> pessoas = dao.listarTudo();
 		Pessoa pessoa = dao.getByName("Ricardo");
 	}
-
-
 }
