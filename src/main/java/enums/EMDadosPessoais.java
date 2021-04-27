@@ -11,7 +11,7 @@ import java.util.EnumMap;
 public class EMDadosPessoais {
 	
 	public enum SexoPessoa {
-		TRANS, CIS
+		TRANS, CIS, MASCULINO, FEMININO
 	}
 
 	/**
