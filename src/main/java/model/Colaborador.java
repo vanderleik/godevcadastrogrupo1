@@ -1,25 +1,31 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import enums.EMDadosGeograficos.Cidades;
 import enums.EMDadosGeograficos.Nacionalidade;
 import enums.EMDadosGeograficos.Pais;
-import enums.EMDadosPessoais.SexoPessoa;
+import enums.EMDadosPessoais.IdentidadeGenero;
 import enums.EMDadosGeograficos.UF;
-import model.Pessoa.PessoaBuilder;
 
 public class Colaborador{
 
 	/**
 	 * Classe Colaborador.
 	 * 
-	 * A classe Colaborador extende da classe mãe Pessoa e instancia as classes
+	 * A classe Colaborador instancia as classes Pessoa,
 	 * Documentos, Enderecos, Contatos e ExameMedico para concluir o cadastro do
 	 * colaborador.
 	 * 
+	 * Deve ser instanciado utilizando o ColaboradorBuilder.
+	 * 
 	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
 	 *         Luiz Barbieri e Vitor Nathan Gonçalves.
+	 * 
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
 	 */
 
 	private Pessoa pessoa;
@@ -39,14 +45,14 @@ public class Colaborador{
 	private ExameMedico exameMedico;
 
 	protected Colaborador(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd,
+			IdentidadeGenero identidadeGenero, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd,
 			Integer idColaborador, Integer numCargo, Integer nit, boolean optanteVT, boolean optanteVAVR,
 			LocalDate dataAdmissao, boolean optanteDependente, Cidades cidadeNascimento,
 			UF ufNascimento, Pais paisNascimento, Documentos documentos, Endereco endereco,
 			Contatos contatos, ExameMedico exameMedico) {
 
 		this.pessoa = new Pessoa.PessoaBuilder().nome(nome).sobrenome(sobrenome).dataDeNascimento(dataDeNascimento).nomeSocial(nomeSocial).genero(genero)
-				.sexo(sexo).nomeDaMae(nomeDaMae).cpf(cpf).nacionalidade(nacionalidade).pcd(pcd).criarPessoa();
+				.identidadeGenero(identidadeGenero).nomeDaMae(nomeDaMae).cpf(cpf).nacionalidade(nacionalidade).pcd(pcd).criarPessoa();
 
 		this.idColaborador = idColaborador;
 		this.numCargo = numCargo;
@@ -196,13 +202,29 @@ public class Colaborador{
 				+ ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico=" + exameMedico + "]";
 	}
 
+	/**
+	 * Cria colaborador.
+	 * É utilizado para criar um objeto da classe Colaborador.
+	 * 
+	 * Exemplo de uso:
+	 * Colaborador colaborador = new Colaborador.ColaboradorBuilder().nome("José").
+				sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).
+				genero("Masculino").identidadeGenero(SexoPessoa.CIS).nomeDaMae("Lúcia").....criarColaborador() //Colocar quantos atributos
+				forem necessários
+	 * 
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
+	 */
 	public static class ColaboradorBuilder {
 		private String nome;
 		private String sobrenome;
 		private LocalDate dataDeNascimento;
 		private String nomeSocial;
 		private String genero;
-		private SexoPessoa sexo;
+		private IdentidadeGenero identidadeGenero;
 		private String nomeDaMae;
 		private String cpf;
 		private Nacionalidade nacionalidade;
@@ -247,8 +269,8 @@ public class Colaborador{
 			return this;
 		}
 
-		public ColaboradorBuilder sexo(SexoPessoa sexo) {
-			this.sexo = sexo;
+		public ColaboradorBuilder identidadeGenero(IdentidadeGenero identidadeGenero) {
+			this.identidadeGenero = identidadeGenero;
 			return this;
 		}
 
@@ -344,7 +366,7 @@ public class Colaborador{
 
 		public Colaborador criarColaborador() {
 			return new Colaborador(nome,sobrenome, dataDeNascimento,  nomeSocial,  genero,
-					sexo,  nomeDaMae,  cpf,  nacionalidade, pcd, idColaborador, numCargo, nit, optanteVT, optanteVAVR, dataAdmissao,
+					identidadeGenero,  nomeDaMae,  cpf,  nacionalidade, pcd, idColaborador, numCargo, nit, optanteVT, optanteVAVR, dataAdmissao,
 					optanteDependente, cidadeNascimento, UfNascimento, paisNascimento, documentos, endereco, contatos, exameMedico);
 		}
 	}

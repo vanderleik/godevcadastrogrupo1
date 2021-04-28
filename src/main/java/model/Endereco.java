@@ -1,18 +1,25 @@
 package model;
 
-import java.util.ArrayList;
 import enums.EMDadosGeograficos.Cidades;
 import enums.EMDadosGeograficos.Pais;
 import enums.EMDadosGeograficos.UF;
 
-	/**
-	 * Classe que engloba e abstrai as informações de endereco de um
-	 * Colaborador/Empresa Esta classe será instanciada nas classes Colaborador e
-	 * Empresa
-	 * 
-	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
-	 *
-	 */
+/**
+ * Classe que engloba e abstrai as informações de endereco de um
+ * Colaborador/Empresa. Esta classe será instanciada nas classes Colaborador e
+ * Empresa.
+ * 
+ * Deve ser instanciada utilizando o EnderecoBuilder.
+ * 
+ * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
+ * 
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
+ *
+ */
 public class Endereco {
 
 	private String logradouro;
@@ -104,7 +111,23 @@ public class Endereco {
 	public void setPais(Pais pais) {
 		this.pais = pais;
 	}
-	
+
+	/**
+	 * Cria Endereco.
+	 *
+	 * É utilizado para criar um objeto da classe Endereco.
+	 * 
+	 * Exemplo de uso:
+	 * Endereco endereco = new Endereco.EnderecoBuilder().logradouro("Rua 7 de Setembro").
+				numero(461).bairro("Caldas Novas").cidade(Cidades.BLUMENAU).uf(UF.SC).....criarEndereco() //Colocar quantos atributos
+				forem necessários
+	 * 
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
+	 */
 	public static class EnderecoBuilder {
 		private String logradouro;
 		private Integer numero;
@@ -114,7 +137,7 @@ public class Endereco {
 		private String complemento;
 		private String cep;
 		private Pais pais;
-		
+
 		public EnderecoBuilder logradouro(String logradouro) {
 			this.logradouro = logradouro;
 			return this;
@@ -124,27 +147,27 @@ public class Endereco {
 			this.numero = numero;
 			return this;
 		}
-		
+
 		public EnderecoBuilder bairro(String bairro) {
 			this.bairro = bairro;
 			return this;
 		}
-		
+
 		public EnderecoBuilder cidade(Cidades cidade) {
 			this.cidade = cidade;
 			return this;
 		}
-		
+
 		public EnderecoBuilder uf(UF uf) {
 			this.uf = uf;
 			return this;
 		}
-		
+
 		public EnderecoBuilder complemento(String complemento) {
 			this.complemento = complemento;
 			return this;
 		}
-		
+
 		public EnderecoBuilder cep(String cep) {
 			this.cep = cep;
 			return this;
@@ -154,7 +177,7 @@ public class Endereco {
 			this.pais = pais;
 			return this;
 		}
-		
+
 		public Endereco criarEndereco() {
 			return new Endereco(logradouro, numero, bairro, cidade, uf, complemento, cep, pais);
 		}

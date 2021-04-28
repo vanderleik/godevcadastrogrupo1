@@ -1,19 +1,24 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 import enums.EMDadosGeograficos.Nacionalidade;
-import enums.EMDadosPessoais.SexoPessoa;
-import model.Pessoa.PessoaBuilder;
+import enums.EMDadosPessoais.IdentidadeGenero;
 
 /**
  * Classe que abstrai as informações do prestador de serviço contratado.
  * 
- * Possui instância de Contatos.
+ * Possui instância de Pessoa e Contatos.
+ * 
+ * Deve ser instanciada utilizando o PrestadorServicoBuilder.
  * 
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
+ * 
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
  */
 
 public class PrestadorServico {
@@ -26,11 +31,11 @@ public class PrestadorServico {
 	private Contatos contatos;
 
 	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd,
+			IdentidadeGenero identidadeGenero, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd,
 			Integer idPrestadorServico, LocalDate dataInicioContrato, Integer idEmpresa, Integer idSetor,
 			Contatos contatos) {
 		this.pessoa = new Pessoa.PessoaBuilder().nome(nome).sobrenome(sobrenome).dataDeNascimento(dataDeNascimento).nomeSocial(nomeSocial).genero(genero)
-				.sexo(sexo).nomeDaMae(nomeDaMae).cpf(cpf).nacionalidade(nacionalidade).pcd(pcd).criarPessoa();
+				.identidadeGenero(identidadeGenero).nomeDaMae(nomeDaMae).cpf(cpf).nacionalidade(nacionalidade).pcd(pcd).criarPessoa();
 		this.idPrestadorServico = idPrestadorServico;
 		this.dataInicioContrato = dataInicioContrato;
 		this.idEmpresa = idEmpresa;
@@ -78,14 +83,30 @@ public class PrestadorServico {
 		this.contatos = contatos;
 	}
 
+	/**
+	 * Cria PrestadorServico.
+	 *
+	 * É utilizado para criar um objeto da classe PrestadorServico.
+	 * 
+	 * Exemplo de uso:
+	 * PrestadorServico prestadorServico = new PrestadorServico.PrestadorServicoBuilder().
+	 		nome("Luana").sobrenome("Silva").dataDeNascimento(LocalDate.of(2002, 05, 21)).
+	  		genero("Feminino")....criarPessoa(); //Utilizar quantos atributos forem necessários
+	 *
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
+	 */
 	public static class PrestadorServicoBuilder {
-		
+
 		private String nome;
 		private String sobrenome;
 		private LocalDate dataDeNascimento;
 		private String nomeSocial;
 		private String genero;
-		private SexoPessoa sexo;
+		private IdentidadeGenero identidadeGenero;
 		private String nomeDaMae;
 		private String cpf;
 		private Nacionalidade nacionalidade;
@@ -121,11 +142,11 @@ public class PrestadorServico {
 			return this;
 		}
 
-		public PrestadorServicoBuilder sexo(SexoPessoa sexo) {
-			this.sexo = sexo;
+		public PrestadorServicoBuilder identidadeGenero(IdentidadeGenero identidadeGenero) {
+			this.identidadeGenero = identidadeGenero;
 			return this;
 		}
-		
+
 		public PrestadorServicoBuilder nomeDaMae(String nomeDaMae) {
 			this.nomeDaMae = nomeDaMae;
 			return this;
@@ -173,7 +194,7 @@ public class PrestadorServico {
 
 		public PrestadorServico criarPrestadorServico() {
 			return new PrestadorServico(nome,sobrenome, dataDeNascimento,  nomeSocial,  genero,
-					sexo,  nomeDaMae,  cpf,  nacionalidade, pcd, idPrestadorServico,
+					identidadeGenero,  nomeDaMae,  cpf,  nacionalidade, pcd, idPrestadorServico,
 					dataInicioContrato, idEmpresa, idSetor, contatos);
 		}
 	}

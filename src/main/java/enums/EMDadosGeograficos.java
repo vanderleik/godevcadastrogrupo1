@@ -8,7 +8,11 @@ public class EMDadosGeograficos {
 	 * Classe de apoio para ser utilizada em Pessoa, Endereco e Colaborador para 
 	 * setar informações de local de nascimento e endereço.
 	 * 
-	 * @author Vanderlei, Vitor Gonçalves, Sabrina, Enzo Moura e Bruna.
+	  * @author Bruna <sh4323202@gmail.com>
+	  * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	  * @author Sabrina <sabrinaschmidt335@gmail.com>
+	  * @author Vanderlei <vanderleik@yahoo.com.br>
+	  * @author Vitor <vitornathang@gmail.com>
 	 */
 	
 	public enum Cidades {
@@ -19,7 +23,11 @@ public class EMDadosGeograficos {
 	 * Classe de apoio para ser utilizada em Pessoa, Endereco e Colaborador para 
 	 * setar informações de local de nascimento e endereço.
 	 * 
-	 * @author Vanderlei, Vitor Gonçalves, Sabrina, Enzo Moura e Bruna.
+	  * @author Bruna <sh4323202@gmail.com>
+	  * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	  * @author Sabrina <sabrinaschmidt335@gmail.com>
+	  * @author Vanderlei <vanderleik@yahoo.com.br>
+	  * @author Vitor <vitornathang@gmail.com>
 	 */
 	public enum UF {
 		AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO
@@ -29,7 +37,11 @@ public class EMDadosGeograficos {
 	 * Classe de apoio para ser utilizada em Colaborador e Endereco para 
 	 * setar o local de nascimento e os endereços.
 	 * 
-	 * @author Vanderlei, Vitor Gonçalves, Sabrina, Enzo Moura e Bruna.
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
 	 */
 	
 	public enum Pais {
@@ -40,7 +52,11 @@ public class EMDadosGeograficos {
 	 * Classe de apoio para ser utilizada em Pessoa para 
 	 * setar a nacionalidade.
 	 * 
-	 * @author Vanderlei, Vitor Gonçalves, Sabrina, Enzo Moura e Bruna.
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
 	 */
 	
 	public enum Nacionalidade {
@@ -50,7 +66,11 @@ public class EMDadosGeograficos {
 	/**
 	 * Classe de apoio contendo dois EnumMaps, utilizados para setar dados geográficos.
 	 * 
-	 * @author Vanderlei, Vitor Gonçalves, Sabrina, Enzo Moura e Bruna.
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
 	 */
 	
 	public EnumMap<?, ?> Geograficos;

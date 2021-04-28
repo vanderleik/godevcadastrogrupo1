@@ -1,36 +1,39 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-
-import enums.EMDadosGeograficos.Nacionalidade;
-import enums.EMDadosPessoais.SexoPessoa;
 import enums.EMOutros.TiposExames;
-import model.Pessoa.PessoaBuilder;
 
 /**
- * Classe ExameMedico
+ * Classe ExameMedico.
  * 
- * Classe recebe informações para cadastro dos exames médicos que será
- * instanciada na classe Colaborador para o cadastramento do mesmo
+ * Classe recebe informações para cadastro dos exames médicos que serão
+ * instanciados na classe Colaborador para o cadastramento do mesmo.
+ * 
+ * Deve ser instanciada utilizando o ExameMedicoBuilder.
  * 
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
+ *         
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
  */
 public class ExameMedico {
 
 	TiposExames tipoExame;
 	private LocalDate dataExame;
 	private boolean apto;
-	
+
 	public ExameMedico(TiposExames tipoExame, LocalDate dataExame, boolean apto) {
 		this.tipoExame = tipoExame;
 		this.dataExame = dataExame;
 		this.apto = apto;
 	}
-	
+
 	public ExameMedico() {
-		
+
 	}
 
 	public TiposExames getTipoExame() {
@@ -56,13 +59,29 @@ public class ExameMedico {
 	public void setApto(boolean apto) {
 		this.apto = apto;
 	}
-	
+
+	/**
+	 * Cria ExameMedico.
+	 *
+	 * É utilizado para criar um objeto da classe ExameMedico.
+	 * 
+	 * Exemplo de uso:
+	 * ExameMedico exameMedico = new ExameMedico.ExameMedicoBuilder().
+				tipoExame(TiposExames.ADMISSIONAL).dataExame(LocalDate.of(2016, 11, 5)).
+				apto(true).criarExameMedico();
+	 *
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
+	 */
 	public static class ExameMedicoBuilder {
-		
+
 		TiposExames tipoExame;
 		private LocalDate dataExame;
 		private boolean apto;
-		
+
 		public ExameMedicoBuilder tipoExame(TiposExames tipoExame) {
 			this.tipoExame = tipoExame;
 			return this;
@@ -77,7 +96,7 @@ public class ExameMedico {
 			this.apto = apto;
 			return this;
 		}
-		
+
 		public ExameMedico criarExameMedico() {
 			return new ExameMedico(tipoExame, dataExame, apto);
 		}

@@ -1,19 +1,23 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import enums.EMDadosGeograficos.Nacionalidade;
-import enums.EMDadosPessoais.SexoPessoa;
+import enums.EMDadosPessoais.IdentidadeGenero;
 import enums.EMDadosPessoais.TiposDependentes;
-import model.Pessoa.PessoaBuilder;
 
 /**
- * Esta classe herda seus atributos primários da classe Pessoa. É vinculada ao
- * colaborador pelo atributo idColaborador. Somente será instanciada na Classe
- * Colaborador se o optanteDependente for true.
+ * Classe Dependente
+ * Esta classe instancia a classe Pessoa para o cadastro de Dependente.
+ * Deve ser instancianda usando DependenteBuilder.
  * 
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
+ *         
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
  */
 
 public class Dependente {
@@ -25,10 +29,10 @@ public class Dependente {
 	private boolean optanteIR;
 
 	public Dependente(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd, Integer id,
+			IdentidadeGenero identidadeGenero, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd, Integer id,
 			Integer idColaborador, TiposDependentes tipoDependente, boolean optanteIR) {
 		this.pessoa = new Pessoa.PessoaBuilder().nome(nome).sobrenome(sobrenome).dataDeNascimento(dataDeNascimento).nomeSocial(nomeSocial).
-				genero(genero).sexo(sexo).nomeDaMae(nomeDaMae).cpf(cpf).nacionalidade(nacionalidade).pcd(pcd).criarPessoa();
+				genero(genero).identidadeGenero(identidadeGenero).nomeDaMae(nomeDaMae).cpf(cpf).nacionalidade(nacionalidade).pcd(pcd).criarPessoa();
 		this.idDependente = id;
 		this.idColaborador = idColaborador;
 		this.tipoDependente = tipoDependente;
@@ -69,13 +73,29 @@ public class Dependente {
 		this.optanteIR = optanteIR;
 	}
 	
+	/**
+	 * Cria Dependente.
+	 *
+	 * É utilizado para criar um objeto da classe Dependente.
+	 * 
+	 * Exemplo de uso:
+	 * Dependente dependente = new Dependente.DependenteBuilder().nome("José").
+				sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).....criarDependente() //Colocar quantos atributos
+				forem necessários
+	 * 
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
+	 */
 	public static class DependenteBuilder {
 		private String nome;
 		private String sobrenome;
 		private LocalDate dataDeNascimento;
 		private String nomeSocial;
 		private String genero;
-		private SexoPessoa sexo;
+		private IdentidadeGenero identidadeGenero;
 		private String nomeDaMae;
 		private String cpf;
 		private Nacionalidade nacionalidade;
@@ -110,8 +130,8 @@ public class Dependente {
 			return this;
 		}
 		
-		public DependenteBuilder sexo(SexoPessoa sexo) {
-			this.sexo = sexo;
+		public DependenteBuilder identidadeGenero(IdentidadeGenero identidadeGenero) {
+			this.identidadeGenero = identidadeGenero;
 			return this;
 		}
 		
@@ -157,7 +177,7 @@ public class Dependente {
 		
 		public Dependente criarDependente() {
 			return new Dependente(nome,sobrenome, dataDeNascimento,  nomeSocial,  genero,
-					 sexo,  nomeDaMae,  cpf,  nacionalidade, pcd, idDependente, idColaborador, tipoDependente, optanteIR);
+					 identidadeGenero,  nomeDaMae,  cpf,  nacionalidade, pcd, idDependente, idColaborador, tipoDependente, optanteIR);
 		}
 	}
 

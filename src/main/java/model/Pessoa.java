@@ -3,16 +3,23 @@ package model;
 import java.time.LocalDate;
 
 import enums.EMDadosGeograficos.Nacionalidade;
-import enums.EMDadosPessoais.SexoPessoa;
+import enums.EMDadosPessoais.IdentidadeGenero;
 
 /**
  * Classe pessoa, abstrai os atributos de uma pessoa.
  * 
- * É herdada por Colaborador, PrestadorServico e Dependente.
+ * É instanciada em Colaborador, PrestadorServico e Dependente.
  * 
- * @author @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger
+ * Deve ser instanciada utilizando o PessoaBuilder.
+ * 
+ * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger
  *         Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
- *
+ *         
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
  */
 
 public class Pessoa{
@@ -22,20 +29,20 @@ public class Pessoa{
 	private LocalDate dataDeNascimento;
 	private String nomeSocial;
 	private String genero;
-	private SexoPessoa sexo;
+	private IdentidadeGenero identidadeGenero;
 	private String nomeDaMae;
 	private String cpf;
 	private Nacionalidade nacionalidade;
 	private boolean pcd = false;
 
 	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			SexoPessoa sexo, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd) {
+			IdentidadeGenero identidadeGenero, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.dataDeNascimento = dataDeNascimento;
 		this.nomeSocial = nomeSocial;
 		this.genero = genero;
-		this.sexo = sexo;
+		this.identidadeGenero = identidadeGenero;
 		this.nomeDaMae = nomeDaMae;
 		this.cpf = cpf;
 		this.nacionalidade = nacionalidade;
@@ -84,12 +91,12 @@ public class Pessoa{
 		this.genero = genero;
 	}
 
-	public SexoPessoa getSexo() {
-		return sexo;
+	public IdentidadeGenero getSexo() {
+		return identidadeGenero;
 	}
 
-	public void setSexo(SexoPessoa sexo) {
-		this.sexo = sexo;
+	public void setSexo(IdentidadeGenero identidadeGenero) {
+		this.identidadeGenero = identidadeGenero;
 	}
 
 	public String getNomeDaMae() {
@@ -124,6 +131,22 @@ public class Pessoa{
 		this.pcd = pcd;
 	}
 	
+	/**
+	 * Cria Pessoa.
+	 *
+	 * É utilizado para criar um objeto da classe Pessoa.
+	 * 
+	 * Exemplo de uso:
+	 * Pessoa pessoa = new Pessoa.PessoaBuilder().nome("José").
+				sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).....criarPessoa(); //Utilizar quantos atributos
+				forem necessários
+	 *
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
+	 */
 	public static class PessoaBuilder {
 		
 		private String nome;
@@ -131,7 +154,7 @@ public class Pessoa{
 		private LocalDate dataDeNascimento;
 		private String nomeSocial;
 		private String genero;
-		private SexoPessoa sexo;
+		private IdentidadeGenero identidadeGenero;
 		private String nomeDaMae;
 		private String cpf;
 		private Nacionalidade nacionalidade;
@@ -162,8 +185,8 @@ public class Pessoa{
 			return this;
 		}
 		
-		public PessoaBuilder sexo(SexoPessoa sexo) {
-			this.sexo = sexo;
+		public PessoaBuilder identidadeGenero(IdentidadeGenero identidadeGenero) {
+			this.identidadeGenero = identidadeGenero;
 			return this;
 		}
 	
@@ -189,14 +212,14 @@ public class Pessoa{
 		
 		public Pessoa criarPessoa() {
 			return new Pessoa(nome,sobrenome, dataDeNascimento,  nomeSocial,  genero,
-					 sexo,  nomeDaMae,  cpf,  nacionalidade, pcd);
+					 identidadeGenero,  nomeDaMae,  cpf,  nacionalidade, pcd);
 		}
 	}
 
 	@Override
 	public String toString() {
 		return "Pessoa [nome=" + nome + ", sobrenome=" + sobrenome + ", dataDeNascimento=" + dataDeNascimento
-				+ ", nomeSocial=" + nomeSocial + ", genero=" + genero + ", sexo=" + sexo + ", nomeDaMae=" + nomeDaMae
+				+ ", nomeSocial=" + nomeSocial + ", genero=" + genero + ", identidadeGenero=" + identidadeGenero + ", nomeDaMae=" + nomeDaMae
 				+ ", cpf=" + cpf + ", nacionalidade=" + nacionalidade + ", pcd=" + pcd + "]";
 	}
 }

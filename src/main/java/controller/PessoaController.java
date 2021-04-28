@@ -1,17 +1,16 @@
 package controller;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-
-import dao.PessoaDAO;
-import model.Pessoa;
-
+/**
+ * Classe Controller.
+ * 
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
+ *
+ */
 public class PessoaController {
 
-	public void verPessoas() {
-		PessoaDAO dao = new PessoaDAO();
-		ArrayList<Pessoa> pessoas = dao.listarTudo();
-		Pessoa pessoa = dao.getByName("Ricardo");
-	}
+
 }

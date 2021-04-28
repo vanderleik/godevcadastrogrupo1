@@ -8,8 +8,13 @@ import model.Pessoa;
 import model.PrestadorServico;
 
 /**
- * Classe utilizada na validação das datas no cadastro.
- *
+ * Classe utilizada na validação das datas do cadastro.
+ * 
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
  */
 public class ValidacaoDeDatas {
 	

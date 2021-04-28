@@ -7,7 +7,7 @@ import org.junit.Test;
 import enums.EMDadosGeograficos.Cidades;
 import enums.EMDadosGeograficos.Nacionalidade;
 import enums.EMDadosGeograficos.Pais;
-import enums.EMDadosPessoais.SexoPessoa;
+import enums.EMDadosPessoais.IdentidadeGenero;
 import enums.EMDadosGeograficos.UF;
 import model.Colaborador;
 import model.Contatos;
@@ -21,7 +21,7 @@ public class ColaboradorTest {
 	public void testeBuilderColaborador() {
 		Colaborador colaborador = new Colaborador.ColaboradorBuilder().nome("José").
 				sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).
-				genero("Masculino").sexo(SexoPessoa.CIS).nomeDaMae("Lúcia").
+				genero("Masculino").identidadeGenero(IdentidadeGenero.CIS).nomeDaMae("Lúcia").
 				cpf("02154785488").nacionalidade(Nacionalidade.BRASILEIRA).pcd(false).
 				idColaborador(2).numCargo(13).nit(20363636).optanteVT(true).optanteVAVR(true).
 				dataAdmissao(LocalDate.of(2017, 5, 4)).optanteDependente(false).cidadeNascimento(Cidades.BLUMENAU).

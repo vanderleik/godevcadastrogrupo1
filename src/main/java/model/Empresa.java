@@ -5,10 +5,18 @@ import java.time.LocalDate;
 /**
  * Classe que abstrai as informações de uma Empresa contratada. Esta Classe será
  * instanciada na Classe PrestadorServico, e instanciará as classes Endereco e
- * Contato
+ * Contato.
+ * 
+ * Deve ser instanciada utilizando o EmpresaBuilder.
  *
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
+ *         
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
  *
  */
 public class Empresa{
@@ -82,6 +90,23 @@ public class Empresa{
 	public void setContato(Contatos contato) {
 		this.contato = contato;
 	}
+	
+	/**
+	 * Cria Empresa.
+	 *
+	 * É utilizado para criar um objeto da classe Empresa.
+	 * 
+	 * Exemplo de uso:
+	 * Empresa empresa = new Empresa.EmpresaBuilder().empresaId(56).nomeEmpresa("Nome Ilustrativo").
+				dataInicioContrato(LocalDate.of(2004, 6, 26)).cnpj("567895463214").....criarEmpresa() //Colocar quantos atributos
+				forem necessários
+	 * 
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
+	 */
 	
 	public static class EmpresaBuilder {
 		private long empresaId;
