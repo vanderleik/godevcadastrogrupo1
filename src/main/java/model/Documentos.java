@@ -1,6 +1,6 @@
 package model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 /**
  * Classe que engloba e abstrai os documentos necessários para o Colaborador.
@@ -19,143 +19,170 @@ import java.time.LocalDate;
 
 public class Documentos{
 
-	private int ctpsNumero;
-	private int ctpsSerie;
-	private LocalDate dataEmissaoCTPS;
+	private String ctpsNumero;
+	private String ctpsSerie;
+	private Date dataEmissaoCTPS;
 	private String bancoNome;
-	private int bancoAgencia;
-	private int bancoNumeroConta;
-	private long tituloNumero;
-	private int tituloZona;
-	private int tituloSecao;
-	private long raNumero;
-	private long rgNumero;
+	private String bancoAgencia;
+	private String bancoNumeroConta;
+	private String tituloNumero;
+	private String tituloZona;
+	private String tituloSecao;
+	private String raNumero;
+	private String rgNumero;
 	private String orgaoEmissorRG;
-	private LocalDate dataEmissaoRG;
+	private Date dataEmissaoRG;
 
-	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissaoCTPS, String bancoNome, int bancoAgencia,
-			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long raNumero, long rgNumero,
-			String orgaoEmissorRG, LocalDate dataEmissaoRG) {
-		this.ctpsNumero = ctpsNumero;
-		this.ctpsSerie = ctpsSerie;
-		this.dataEmissaoCTPS = dataEmissaoCTPS;
-		this.bancoNome = bancoNome;
-		this.bancoAgencia = bancoAgencia;
-		this.bancoNumeroConta = bancoNumeroConta;
-		this.tituloNumero = tituloNumero;
-		this.tituloZona = tituloZona;
-		this.tituloSecao = tituloSecao;
-		this.raNumero = raNumero;
-		this.rgNumero = rgNumero;
-		this.orgaoEmissorRG = orgaoEmissorRG;
-		this.dataEmissaoRG = dataEmissaoRG;
-	}
+//	public Documentos(int ctpsNumero, int ctpsSerie, Date dataEmissaoCTPS, String bancoNome, int bancoAgencia,
+//			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long raNumero, long rgNumero,
+//			String orgaoEmissorRG, Date dataEmissaoRG) {
+//		this.ctpsNumero = ctpsNumero;
+//		this.ctpsSerie = ctpsSerie;
+//		this.dataEmissaoCTPS = dataEmissaoCTPS;
+//		this.bancoNome = bancoNome;
+//		this.bancoAgencia = bancoAgencia;
+//		this.bancoNumeroConta = bancoNumeroConta;
+//		this.tituloNumero = tituloNumero;
+//		this.tituloZona = tituloZona;
+//		this.tituloSecao = tituloSecao;
+//		this.raNumero = raNumero;
+//		this.rgNumero = rgNumero;
+//		this.orgaoEmissorRG = orgaoEmissorRG;
+//		this.dataEmissaoRG = dataEmissaoRG;
+//	}
 
 	public Documentos() {}
 
-	public int getCtpsNumero() {
+
+	public String getCtpsNumero() {
 		return ctpsNumero;
 	}
 
-	public void setCtpsNumero(int ctpsNumero) {
+
+	public void setCtpsNumero(String ctpsNumero) {
 		this.ctpsNumero = ctpsNumero;
 	}
 
-	public int getCtpsSerie() {
+
+	public String getCtpsSerie() {
 		return ctpsSerie;
 	}
 
-	public void setCtpsSerie(int ctpsSerie) {
+
+	public void setCtpsSerie(String ctpsSerie) {
 		this.ctpsSerie = ctpsSerie;
 	}
 
-	public LocalDate getDataEmissaoCTPS() {
+
+	public Date getDataEmissaoCTPS() {
 		return dataEmissaoCTPS;
 	}
 
-	public void setDataEmissaoCTPS(LocalDate dataEmissaoCTPS) {
+
+	public void setDataEmissaoCTPS(Date dataEmissaoCTPS) {
 		this.dataEmissaoCTPS = dataEmissaoCTPS;
 	}
+
 
 	public String getBancoNome() {
 		return bancoNome;
 	}
 
+
 	public void setBancoNome(String bancoNome) {
 		this.bancoNome = bancoNome;
 	}
 
-	public int getBancoAgencia() {
+
+	public String getBancoAgencia() {
 		return bancoAgencia;
 	}
 
-	public void setBancoAgencia(int bancoAgencia) {
+
+	public void setBancoAgencia(String bancoAgencia) {
 		this.bancoAgencia = bancoAgencia;
 	}
 
-	public int getBancoNumeroConta() {
+
+	public String getBancoNumeroConta() {
 		return bancoNumeroConta;
 	}
 
-	public void setBancoNumeroConta(int bancoNumeroConta) {
+
+	public void setBancoNumeroConta(String bancoNumeroConta) {
 		this.bancoNumeroConta = bancoNumeroConta;
 	}
 
-	public long getTituloNumero() {
+
+	public String getTituloNumero() {
 		return tituloNumero;
 	}
 
-	public void setTituloNumero(long tituloNumero) {
+
+	public void setTituloNumero(String tituloNumero) {
 		this.tituloNumero = tituloNumero;
 	}
 
-	public int getTituloZona() {
+
+	public String getTituloZona() {
 		return tituloZona;
 	}
 
-	public void setTituloZona(int tituloZona) {
+
+	public void setTituloZona(String tituloZona) {
 		this.tituloZona = tituloZona;
 	}
 
-	public int getTituloSecao() {
+
+	public String getTituloSecao() {
 		return tituloSecao;
 	}
 
-	public void setTituloSecao(int tituloSecao) {
+
+	public void setTituloSecao(String tituloSecao) {
 		this.tituloSecao = tituloSecao;
 	}
 
-	public long getRaNumero() {
+
+	public String getRaNumero() {
 		return raNumero;
 	}
 
-	public void setRaNumero(long raNumero) {
+
+	public void setRaNumero(String raNumero) {
 		this.raNumero = raNumero;
 	}
 
-	public long getRgNumero() {
+
+	public String getRgNumero() {
 		return rgNumero;
 	}
 
-	public void setRgNumero(long rgNumero) {
+
+	public void setRgNumero(String rgNumero) {
 		this.rgNumero = rgNumero;
 	}
+
 
 	public String getOrgaoEmissorRG() {
 		return orgaoEmissorRG;
 	}
 
+
 	public void setOrgaoEmissorRG(String orgaoEmissorRG) {
 		this.orgaoEmissorRG = orgaoEmissorRG;
 	}
 
-	public LocalDate getDataEmissaoRG() {
+
+	public Date getDataEmissaoRG() {
 		return dataEmissaoRG;
 	}
 
-	public void setDataEmissaoRG(LocalDate dataEmissaoRG) {
+
+	public void setDataEmissaoRG(Date dataEmissaoRG) {
 		this.dataEmissaoRG = dataEmissaoRG;
 	}
+
 
 	/**
 	 * Cria Documentos.
@@ -164,7 +191,7 @@ public class Documentos{
 	 * 
 	 * Exemplo de uso:
 	 * Documentos documento = new Documentos.DocumentosBuilder().ctpsNumero(123456789).
-	 			ctpsSerie(123456).dataEmissaoCTPS(LocalDate.of(2009, 02, 21)).....criarDocumentos() //Colocar quantos atributos
+	 			ctpsSerie(123456).dataEmissaoCTPS(Date.of(2009, 02, 21)).....criarDocumentos() //Colocar quantos atributos
 				forem necessários
 	 * 
 	 * @author Bruna <sh4323202@gmail.com>
@@ -177,7 +204,7 @@ public class Documentos{
 
 		private int ctpsNumero;
 		private int ctpsSerie;
-		private LocalDate dataEmissaoCTPS;
+		private Date dataEmissaoCTPS;
 		private String bancoNome;
 		private int bancoAgencia;
 		private int bancoNumeroConta;
@@ -187,7 +214,7 @@ public class Documentos{
 		private long raNumero;
 		private long rgNumero;
 		private String orgaoEmissorRG;
-		private LocalDate dataEmissaoRG;
+		private Date dataEmissaoRG;
 
 		public DocumentosBuilder ctpsNumero(int ctpsNumero) {
 			this.ctpsNumero = ctpsNumero;
@@ -199,7 +226,7 @@ public class Documentos{
 			return this;
 		}
 
-		public DocumentosBuilder dataEmissaoCTPS(LocalDate dataEmissaoCTPS) {
+		public DocumentosBuilder dataEmissaoCTPS(Date dataEmissaoCTPS) {
 			this.dataEmissaoCTPS = dataEmissaoCTPS;
 			return this;
 		}
@@ -248,24 +275,16 @@ public class Documentos{
 			return this;
 		}
 
-		public DocumentosBuilder dataEmissaoRG( LocalDate dataEmissaoRG) {
+		public DocumentosBuilder dataEmissaoRG( Date dataEmissaoRG) {
 			this.dataEmissaoRG = dataEmissaoRG;
 			return this;
 		}
 
-		public Documentos criarDocumentos() {
-			return new Documentos( ctpsNumero,  ctpsSerie,  dataEmissaoCTPS,  bancoNome,  bancoAgencia,
-					bancoNumeroConta,  tituloNumero,  tituloZona, tituloSecao,  raNumero,  rgNumero,
-					orgaoEmissorRG,  dataEmissaoRG);
-		}
+//		public Documentos criarDocumentos() {
+//			return new Documentos( ctpsNumero,  ctpsSerie,  dataEmissaoCTPS,  bancoNome,  bancoAgencia,
+//					bancoNumeroConta,  tituloNumero,  tituloZona, tituloSecao,  raNumero,  rgNumero,
+//					orgaoEmissorRG,  dataEmissaoRG);
+//		}
 	}
 
-	@Override
-	public String toString() {
-		return "Documentos [ctpsNumero=" + ctpsNumero + ", ctpsSerie=" + ctpsSerie + ", dataEmissaoCTPS="
-				+ dataEmissaoCTPS + ", bancoNome=" + bancoNome + ", bancoAgencia=" + bancoAgencia
-				+ ", bancoNumeroConta=" + bancoNumeroConta + ", tituloNumero=" + tituloNumero + ", tituloZona="
-				+ tituloZona + ", tituloSecao=" + tituloSecao + ", raNumero=" + raNumero + ", rgNumero=" + rgNumero
-				+ ", orgaoEmissorRG=" + orgaoEmissorRG + ", dataEmissaoRG=" + dataEmissaoRG + "]";
-	}
 }
