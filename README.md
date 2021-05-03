@@ -10,3 +10,5 @@ Utilizamos o JUnit
 ## Versionamento do Código
 
 Uso do Git, com o repositório do GitHub
+
+
