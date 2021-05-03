@@ -28,6 +28,9 @@ public class DaoFactory<T> implements DAO<T>{
 	 */
 	public boolean cadastrar(T item) {
 		itens.add(item);
+		// vamos chamar o singleton do db
+		// vamos definir o comando sql para inclusao de dados
+		// definir argumentos necessarios (tabela, item, etc)
 		return true;
 	}
 
