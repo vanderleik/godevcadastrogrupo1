@@ -20,9 +20,7 @@ public final class JdbcController {
 	
 	private static Connection con;
 	
-	public static Connection get_con() {
-		return con;
-	}
+	
 	
 	private JdbcController() {
 		try {
@@ -42,13 +40,17 @@ public final class JdbcController {
 		return instance;
 	}
 	
+	public Connection get_con() {
+		return con;
+	}
+	
 	/** 
 	 * Funcao do Singleton responsavel por executar uma query sem argumentos externos.
 	 * 
 	 * @param query : String com a query em SQL postgres;
 	 * @return
 	 */
-	public static ResultSet executarQuerySemArg(String query) {
+	public ResultSet executarQuerySemArg(String query) {
 		try {
 			ps = con.prepareStatement(query);
 			rs = ps.executeQuery();
@@ -60,7 +62,7 @@ public final class JdbcController {
 	}
 	
 	
-	public static ResultSet listarPorTabela(String nomeTabela) {
+	public ResultSet listarPorTabela(String nomeTabela) {
 		String query = "SELECT * FROM ?";
 		rs = null; //Limpa resultado anterior
 		try {
@@ -75,7 +77,7 @@ public final class JdbcController {
 	}
 	
 	
-	public static ResultSet buscarPorId(String nomeTabela, int id) {
+	public ResultSet buscarPorId(String nomeTabela, int id) {
 		String query = "SELECT * FROM ? WHERE id = ?";
 		rs = null; //Limpa resultado anterior
 		try {
@@ -88,5 +90,39 @@ public final class JdbcController {
 			e.printStackTrace();
 		}
 		return rs;
+	}
+	
+	public ResultSet buscarPorFK(String nomeTabela, String nomeFK, int id_fk) {
+		String query = "SELECT * FROM ? WHERE ? = ?";
+		rs = null;
+		
+		try {
+			ps = con.prepareStatement(query);
+			ps.setString(1, nomeTabela);
+			ps.setString(2, nomeFK);
+			ps.setInt(3, id_fk);
+			
+			rs = ps.executeQuery();
+			return rs;
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	
+	public boolean deletarPorId(String nomeTabela, int id) {
+		String query = "DELETE * FROM ? WHERE id = ?";
+		try {
+			ps = con.prepareStatement(query);
+			ps.setString(1, nomeTabela);
+			ps.setInt(2, id);
+			rs = ps.executeQuery();
+			return true;
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }
