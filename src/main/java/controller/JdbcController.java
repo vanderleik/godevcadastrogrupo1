@@ -1,6 +1,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -112,7 +113,7 @@ public final class JdbcController {
 	}
 	
 	public boolean deletarPorId(String nomeTabela, int id) {
-		String query = "DELETE * FROM ? WHERE id = ?";
+		String query = "DELETE FROM ? WHERE id = ?";
 		try {
 			ps = con.prepareStatement(query);
 			ps.setString(1, nomeTabela);
@@ -125,4 +126,89 @@ public final class JdbcController {
 		}
 		return false;
 	}
+	
+	public Boolean atualizarInteiro(String nomeTabela, String nomeColuna, int valorColuna, String nomeFK, int id) {
+		String query = "UPDATE ? SET ? = ? WHERE ?=?";
+		rs = null;
+		
+		try {
+			ps = con.prepareStatement(query);
+			ps.setString(1, nomeTabela);
+			ps.setString(2, nomeColuna);
+			ps.setInt(3, valorColuna);
+			ps.setString(4, nomeFK);
+			ps.setInt(5, id);
+			
+			rs = ps.executeQuery();
+			return true;
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public Boolean atualizarBoolean(String nomeTabela, String nomeColuna, boolean valorColuna, String nomeFK, int id) {
+		String query = "UPDATE ? SET ? = ? WHERE ?=?";
+		rs = null;
+		
+		try {
+			ps = con.prepareStatement(query);
+			ps.setString(1, nomeTabela);
+			ps.setString(2, nomeColuna);
+			ps.setBoolean(3, valorColuna);
+			ps.setString(4, nomeFK);
+			ps.setInt(5, id);
+			
+			rs = ps.executeQuery();
+			return true;
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public Boolean atualizarString(String nomeTabela, String nomeColuna, String valorColuna, String nomeFK, int id) {
+		String query = "UPDATE ? SET ? = ? WHERE ?=?";
+		rs = null;
+		
+		try {
+			ps = con.prepareStatement(query);
+			ps.setString(1, nomeTabela);
+			ps.setString(2, nomeColuna);
+			ps.setString(3, valorColuna);
+			ps.setString(4, nomeFK);
+			ps.setInt(5, id);
+			
+			rs = ps.executeQuery();
+			return true;
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public Boolean atualizarDate(String nomeTabela, String nomeColuna, Date valorColuna, String nomeFK, int id) {
+		String query = "UPDATE ? SET ? = ? WHERE ?=?";
+		rs = null;
+		
+		try {
+			ps = con.prepareStatement(query);
+			ps.setString(1, nomeTabela);
+			ps.setString(2, nomeColuna);
+			ps.setDate(3, valorColuna);
+			ps.setString(4, nomeFK);
+			ps.setInt(5, id);
+			
+			rs = ps.executeQuery();
+			return true;
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 }

@@ -18,7 +18,8 @@ import java.sql.Date;
  */
 
 public class Documentos{
-
+	private int colaboradorId; //TODO: LEmbrar de preencher isso no objeto
+	
 	private String ctpsNumero;
 	private String ctpsSerie;
 	private Date dataEmissaoCTPS;
@@ -29,6 +30,7 @@ public class Documentos{
 	private String tituloZona;
 	private String tituloSecao;
 	private String raNumero;
+	private String raSerie;
 	private String rgNumero;
 	private String orgaoEmissorRG;
 	private Date dataEmissaoRG;
@@ -181,6 +183,26 @@ public class Documentos{
 
 	public void setDataEmissaoRG(Date dataEmissaoRG) {
 		this.dataEmissaoRG = dataEmissaoRG;
+	}
+
+
+	public int getColaboradorId() {
+		return colaboradorId;
+	}
+
+
+	public void setColaboradorId(int colaboradorId) {
+		this.colaboradorId = colaboradorId;
+	}
+
+
+	public String getRaSerie() {
+		return raSerie;
+	}
+
+
+	public void setRaSerie(String raSerie) {
+		this.raSerie = raSerie;
 	}
 
 
