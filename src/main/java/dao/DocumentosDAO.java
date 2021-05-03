@@ -13,7 +13,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 	public boolean cadastrar(Documentos item) {
 		JdbcController control = JdbcController.getInstance();
 		control.executarQuerySemArg(
-				"INSERT INTO rg("
+				"INSERT INTO rg VALUES ("
 				+ item.getRgNumero()+","
 				+ item.getOrgaoEmissorRG()+","
 				+ item.getDataEmissaoRG()+","
