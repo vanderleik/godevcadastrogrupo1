@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  * Classe que engloba e abstrai os documentos necessários para o Colaborador.
@@ -22,7 +23,7 @@ public class Documentos{
 	
 	private String ctpsNumero;
 	private String ctpsSerie;
-	private Date dataEmissaoCTPS;
+	private LocalDate dataEmissaoCTPS;
 	private String bancoNome;
 	private String bancoAgencia;
 	private String bancoNumeroConta;
@@ -33,7 +34,7 @@ public class Documentos{
 	private String raSerie;
 	private String rgNumero;
 	private String orgaoEmissorRG;
-	private Date dataEmissaoRG;
+	private LocalDate dataEmissaoRG;
 
 //	public Documentos(int ctpsNumero, int ctpsSerie, Date dataEmissaoCTPS, String bancoNome, int bancoAgencia,
 //			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long raNumero, long rgNumero,
@@ -76,12 +77,12 @@ public class Documentos{
 	}
 
 
-	public Date getDataEmissaoCTPS() {
+	public LocalDate getDataEmissaoCTPS() {
 		return dataEmissaoCTPS;
 	}
 
 
-	public void setDataEmissaoCTPS(Date dataEmissaoCTPS) {
+	public void setDataEmissaoCTPS(LocalDate dataEmissaoCTPS) {
 		this.dataEmissaoCTPS = dataEmissaoCTPS;
 	}
 
@@ -176,12 +177,12 @@ public class Documentos{
 	}
 
 
-	public Date getDataEmissaoRG() {
+	public LocalDate getDataEmissaoRG() {
 		return dataEmissaoRG;
 	}
 
 
-	public void setDataEmissaoRG(Date dataEmissaoRG) {
+	public void setDataEmissaoRG(LocalDate dataEmissaoRG) {
 		this.dataEmissaoRG = dataEmissaoRG;
 	}
 

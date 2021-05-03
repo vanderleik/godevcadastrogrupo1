@@ -2,6 +2,7 @@ package controller;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,10 +11,11 @@ import java.sql.SQLException;
 public final class JdbcController {
 	private static JdbcController instance;
 	
-	private static String driver = "com.postgres.jdbc.Driver";
-	private static String url = "jdbc:postgres://localhost:5432/";
-	private static String database = "cadastro_colaborador";
-	private static String schema = "grupo1";
+	//private static String driver = "com.postgresql.jdbc.Driver";
+	private static String url = "jdbc:postgresql://localhost:5432/cadastro_colaborador";
+
+	//private static String database = "cadastro_colaborador";
+	//private static String schema = "grupo1";
 	private static String user = "postgres";
 	private static String pass = "admin";
 	private static PreparedStatement ps;
@@ -25,11 +27,12 @@ public final class JdbcController {
 	
 	private JdbcController() {
 		try {
-			con = DriverManager.getConnection(url+database, user, pass );
+			//Class.forName("com.example.jdbc.Driver");
+			con = DriverManager.getConnection(url, user, pass );
 			
 		}
 		catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 	}
@@ -54,7 +57,8 @@ public final class JdbcController {
 	public ResultSet executarQuerySemArg(String query) {
 		try {
 			ps = con.prepareStatement(query);
-			rs = ps.executeQuery();
+			
+			ps.executeUpdate();
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
