@@ -22,9 +22,9 @@ import enums.EMOutros.TiposExames;
  */
 public class ExameMedico {
 	private Integer colaboradorId;
-	private Integer tipoExameId;
+	private Integer tipoExameId; //TODO: verificar se necessario
 	
-	private String tipoExame;
+	private int tipoExame;
 	private LocalDate dataExame;
 	private boolean apto;
 
@@ -39,6 +39,46 @@ public class ExameMedico {
 //	}
 
 	
+
+	public Integer getColaboradorId() {
+		return colaboradorId;
+	}
+
+	public void setColaboradorId(Integer colaboradorId) {
+		this.colaboradorId = colaboradorId;
+	}
+
+	public Integer getTipoExameId() {
+		return tipoExameId;
+	}
+
+	public void setTipoExameId(Integer tipoExameId) {
+		this.tipoExameId = tipoExameId;
+	}
+
+	public int getTipoExame() {
+		return tipoExame;
+	}
+
+	public void setTipoExame(int tipoExame) {
+		this.tipoExame = tipoExame;
+	}
+
+	public LocalDate getDataExame() {
+		return dataExame;
+	}
+
+	public void setDataExame(LocalDate dataExame) {
+		this.dataExame = dataExame;
+	}
+
+	public boolean isApto() {
+		return apto;
+	}
+
+	public void setApto(boolean apto) {
+		this.apto = apto;
+	}
 
 	/**
 	 * Cria ExameMedico.
