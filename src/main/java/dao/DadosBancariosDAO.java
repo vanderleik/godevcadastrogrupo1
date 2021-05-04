@@ -1,13 +1,17 @@
 package dao;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import controller.DataParser;
 import controller.JdbcController;
 import model.DadosBancarios;
+
+/**
+ * 
+ * @author David Willian
+ *
+ */
 
 public class DadosBancariosDAO implements DAO<DadosBancarios> {
 
