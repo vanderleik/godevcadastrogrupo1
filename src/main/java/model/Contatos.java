@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  * Armazena os contatos necessários de um colaborador, empresa ou prestador de
  * serviço.
@@ -16,40 +18,39 @@ package model;
  */
 
 public class Contatos{
+	private int pessoaId;
+	
+	private ArrayList<String> telefonePrincipal;
+	private ArrayList<String> email;
 
-	private String telefonePrincipal;
-	private String telefoneSecundario;
-	private String email;
-
-	private Contatos(String telefonePrincipal, String telefoneSecundario, String email) {
+	private Contatos(ArrayList<String> telefonePrincipal, ArrayList<String> email) {
 		setTelefonePrincipal(telefonePrincipal);
-		setTelefoneSecundario(telefoneSecundario);
 		setEmail(email);
 	}
 
-	public String getTelefonePrincipal() {
+
+	public ArrayList<String> getTelefonePrincipal() {
 		return telefonePrincipal;
 	}
 
-	public void setTelefonePrincipal(String telefonePrincipal) {
+	public void setTelefonePrincipal(ArrayList<String> telefonePrincipal) {
 		this.telefonePrincipal = telefonePrincipal;
 	}
 
-	public String getTelefoneSecundario() {
-		return telefoneSecundario;
-	}
-
-	public void setTelefoneSecundario(String telefoneSecundario) {
-		this.telefoneSecundario = telefoneSecundario;
-	}
-
-	public String getEmail() {
+	public ArrayList<String> getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(ArrayList<String> email) {
 		this.email = email;
 	}
+	
+	@Override
+	public String toString() {
+		return "Contatos [telefonePrincipal=" + telefonePrincipal + ", email=" + email + "]";
+	}
+
+
 
 	/**
 	 * Cria contato.
@@ -88,16 +89,8 @@ public class Contatos{
 			return this;
 		}
 
-		public Contatos criarContato() {
-			return new Contatos(telefonePrincipal, telefoneSecundario, email);		
-		}
-	}
-	
-	public Contatos() {}
-
-	@Override
-	public String toString() {
-		return "Contatos telefonePrincipal=" + telefonePrincipal + ", telefoneSecundario=" + telefoneSecundario
-				+ ", email=" + email;
+//		public Contatos criarContato() {
+//			return 
+//		}
 	}
 }

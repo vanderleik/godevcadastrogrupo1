@@ -148,7 +148,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 						entradaDocumento.setTituloZona(zona);
 					}
 				}
-				
+
 				if(carteira_trabalho.next()) {
 					if(id == carteira_trabalho.getInt("colaborador_id")) {
 						String num = carteira_trabalho.getString("numero");
@@ -208,6 +208,5 @@ public class DocumentosDAO implements DAO<Documentos>{
 		
 		return true;
 	}
-
 
 }

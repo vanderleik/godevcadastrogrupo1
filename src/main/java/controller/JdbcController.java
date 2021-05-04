@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public final class JdbcController {
 	private static JdbcController instance;
@@ -16,15 +17,14 @@ public final class JdbcController {
 
 	//private static String database = "cadastro_colaborador";
 	//private static String schema = "grupo1";
+
 	private static String user = "postgres";
 	private static String pass = "admin";
 	private static PreparedStatement ps;
 	private static ResultSet rs = null;
 	
 	private static Connection con;
-	
-	
-	
+
 	private JdbcController() {
 		try {
 			//Class.forName("com.example.jdbc.Driver");
@@ -47,7 +47,7 @@ public final class JdbcController {
 	public Connection get_con() {
 		return con;
 	}
-	
+
 	/** 
 	 * Funcao do Singleton responsavel por executar uma query sem argumentos externos.
 	 * 
@@ -57,7 +57,6 @@ public final class JdbcController {
 	public ResultSet executarQuerySemArg(String query) {
 		try {
 			ps = con.prepareStatement(query);
-			
 			ps.executeUpdate();
 		} 
 		catch (SQLException e) {
@@ -66,7 +65,7 @@ public final class JdbcController {
 		return rs;
 	}
 	
-	
+
 	public ResultSet listarPorTabela(String nomeTabela) {
 		String query = "SELECT * FROM ?";
 		rs = null; //Limpa resultado anterior
@@ -96,7 +95,6 @@ public final class JdbcController {
 		}
 		return rs;
 	}
-	
 	public ResultSet buscarPorFK(String nomeTabela, String nomeFK, int id_fk) {
 		String query = "SELECT * FROM ? WHERE ? = ?";
 		rs = null;
@@ -214,5 +212,4 @@ public final class JdbcController {
 		}
 		return false;
 	}
-	
 }

@@ -20,76 +20,27 @@ import java.time.LocalDate;
  *
  */
 public class Empresa{
+	private Integer enderecoId;
+	private Integer telefoneId;
 
-	private long empresaId;
-	private String nomeEmpresa;
-	private LocalDate dataInicioContrato;
+	private Integer empresaId;
+	
+	private String empresaNome;
+	private LocalDate contratoDataInicio;
 	private String cnpj;
 	private Endereco endereco;
 	private Contatos contato;
 
-	public Empresa(long empresaId, String nomeEmpresa, LocalDate dataInicioContrato, String cnpj, Endereco endereco,
-			Contatos contato) {
-		super();
-		this.empresaId = empresaId;
-		this.nomeEmpresa = nomeEmpresa;
-		this.dataInicioContrato = dataInicioContrato;
-		this.cnpj = cnpj;
-		this.endereco = endereco;
-		this.contato = contato;
-	}
+//	public Empresa(long empresaId, String nomeEmpresa, LocalDate dataInicioContrato, String cnpj, Endereco endereco,
+//			Contatos contato) {
+//		super();
+//		this.empresaId = empresaId;
+//		this.cnpj = cnpj;
+//		this.endereco = endereco;
+//		this.contato = contato;
+//	}
 
-	public Empresa() {
-		super();
-	}
-
-	public long getEmpresaId() {
-		return empresaId;
-	}
-
-	public void setEmpresaId(long empresaId) {
-		this.empresaId = empresaId;
-	}
-
-	public String getNomeEmpresa() {
-		return nomeEmpresa;
-	}
-
-	public void setNomeEmpresa(String nomeEmpresa) {
-		this.nomeEmpresa = nomeEmpresa;
-	}
-
-	public LocalDate getDataInicioContrato() {
-		return dataInicioContrato;
-	}
-
-	public void setDataInicioContrato(LocalDate dataInicioContrato) {
-		this.dataInicioContrato = dataInicioContrato;
-	}
-
-	public String getCnpj() {
-		return cnpj;
-	}
-
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
-	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public Contatos getContato() {
-		return contato;
-	}
-
-	public void setContato(Contatos contato) {
-		this.contato = contato;
-	}
+	
 	
 	/**
 	 * Cria Empresa.
@@ -109,6 +60,54 @@ public class Empresa{
 	 */
 	
 	public static class EmpresaBuilder {
+		public long getEmpresaId() {
+			return empresaId;
+		}
+
+		public void setEmpresaId(long empresaId) {
+			this.empresaId = empresaId;
+		}
+
+		public String getNomeEmpresa() {
+			return nomeEmpresa;
+		}
+
+		public void setNomeEmpresa(String nomeEmpresa) {
+			this.nomeEmpresa = nomeEmpresa;
+		}
+
+		public LocalDate getDataInicioContrato() {
+			return dataInicioContrato;
+		}
+
+		public void setDataInicioContrato(LocalDate dataInicioContrato) {
+			this.dataInicioContrato = dataInicioContrato;
+		}
+
+		public String getCnpj() {
+			return cnpj;
+		}
+
+		public void setCnpj(String cnpj) {
+			this.cnpj = cnpj;
+		}
+
+		public Endereco getEndereco() {
+			return endereco;
+		}
+
+		public void setEndereco(Endereco endereco) {
+			this.endereco = endereco;
+		}
+
+		public Contatos getContato() {
+			return contato;
+		}
+
+		public void setContato(Contatos contato) {
+			this.contato = contato;
+		}
+
 		private long empresaId;
 		private String nomeEmpresa;
 		private LocalDate dataInicioContrato;
@@ -145,16 +144,15 @@ public class Empresa{
 			this.contato = contato;
 			return this;
 		}
-		
-		public Empresa criarEmpresa() {
-			return new Empresa(empresaId, nomeEmpresa, dataInicioContrato, cnpj, endereco, contato);
-		}
-	}
-	
-	@Override
-	public String toString() {
-		return "Empresa [empresaId=" + empresaId + ", nomeEmpresa=" + nomeEmpresa + ", dataInicioContrato="
-				+ dataInicioContrato + ", cnpj=" + cnpj + ", endereco=" + endereco + ", contato= " + contato + "]";
-	}
 
+		@Override
+		public String toString() {
+			return "EmpresaBuilder [empresaId=" + empresaId + ", nomeEmpresa=" + nomeEmpresa + ", dataInicioContrato="
+					+ dataInicioContrato + ", cnpj=" + cnpj + ", endereco=" + endereco + ", contato=" + contato + "]";
+		}
+		
+//		public Empresa criarEmpresa() {
+//			return new Empresa(empresaId, nomeEmpresa, dataInicioContrato, cnpj, endereco, contato);
+//		}
+	}
 }

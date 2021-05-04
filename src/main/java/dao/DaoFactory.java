@@ -18,7 +18,7 @@ public class DaoFactory<T> implements DAO<T>{
 
 	public boolean cadastrar(T item) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	public T listar(int id) {
