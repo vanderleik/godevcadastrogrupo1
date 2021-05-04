@@ -12,21 +12,24 @@ import enums.EMDadosPessoais.IdentidadeGenero;
  * 
  * Deve ser instanciada utilizando o PrestadorServicoBuilder.
  * 
- * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
- *         Luiz Barbieri e Vitor Nathan Gonçalves.
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail>
  * 
  * @author Bruna <sh4323202@gmail.com>
- * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Enzo <enzomm.bodyandmind@gmail.com>
  * @author Sabrina <sabrinaschmidt335@gmail.com>
- * @author Vanderlei <vanderleik@yahoo.com.br>
  * @author Vitor <vitornathang@gmail.com>
+ * 
+ * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
+ *         Luiz Barbieri e Vitor Nathan Gonçalves.
+ *  
  */
 
 public class PrestadorServico {
 	private Integer empresaId;
 	private Integer pessoaId;
 	private Date dataInicioContrato;
-	
+
 //
 //	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
 //			IdentidadeGenero identidadeGenero, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd,
@@ -41,22 +44,17 @@ public class PrestadorServico {
 //		this.contatos = contatos;
 //	}
 
-	
 	/**
 	 * Cria PrestadorServico.
 	 *
 	 * É utilizado para criar um objeto da classe PrestadorServico.
 	 * 
-	 * Exemplo de uso:
-	 * PrestadorServico prestadorServico = new PrestadorServico.PrestadorServicoBuilder().
-	 		nome("Luana").sobrenome("Silva").dataDeNascimento(LocalDate.of(2002, 05, 21)).
-	  		genero("Feminino")....criarPessoa(); //Utilizar quantos atributos forem necessários
-	 * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
-	 * @author Bruna <sh4323202@gmail.com>
-	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
-	 * @author Sabrina <sabrinaschmidt335@gmail.com>
-	 * @author Vanderlei <vanderleik@yahoo.com.br>
-	 * @author Vitor <vitornathang@gmail.com>
+	 * Exemplo de uso: PrestadorServico prestadorServico = new
+	 * PrestadorServico.PrestadorServicoBuilder().
+	 * nome("Luana").sobrenome("Silva").dataDeNascimento(LocalDate.of(2002, 05, 21)).
+	 * genero("Feminino")....criarPessoa(); 
+	 * Utilizar quantos atributos forem necessários
+	 *  
 	 */
 	public static class PrestadorServicoBuilder {
 
@@ -284,5 +282,4 @@ public class PrestadorServico {
 				+ dataInicioContrato + "]";
 	}
 
-	
 }

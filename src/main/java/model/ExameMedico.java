@@ -7,23 +7,26 @@ import enums.EMOutros.TiposExames;
  * Classe ExameMedico.
  * 
  * Classe recebe informações para cadastro dos exames médicos que serão
- * instanciados na classe Colaborador para o cadastramento do mesmo.
+ * instanciados na classe Colaborador para cadastramento.
  * 
- * Deve ser instanciada utilizando o ExameMedicoBuilder.
+ * Deve ser instanciada utilizando o ExameMedicoBuilder. *
  * 
- * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
- *         Luiz Barbieri e Vitor Nathan Gonçalves.
- *         
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail>
+ * 
  * @author Bruna <sh4323202@gmail.com>
- * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Enzo <enzomm.bodyandmind@gmail.com>
  * @author Sabrina <sabrinaschmidt335@gmail.com>
  * @author Vanderlei <vanderleik@yahoo.com.br>
  * @author Vitor <vitornathang@gmail.com>
+ * 
+ * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
+ *         Luiz Barbieri e Vitor Nathan Gonçalves.
  */
 public class ExameMedico {
 	private Integer colaboradorId;
 	private Integer tipoExameId;
-	
+
 	private String tipoExame;
 	private LocalDate dataExame;
 	private boolean apto;
@@ -38,24 +41,18 @@ public class ExameMedico {
 //
 //	}
 
-	
-
 	/**
 	 * Cria ExameMedico.
 	 *
 	 * É utilizado para criar um objeto da classe ExameMedico.
 	 * 
-	 * Exemplo de uso:
-	 * ExameMedico exameMedico = new ExameMedico.ExameMedicoBuilder().
-				tipoExame(TiposExames.ADMISSIONAL).dataExame(LocalDate.of(2016, 11, 5)).
-				apto(true).criarExameMedico();
-	 * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
-	 * @author Bruna <sh4323202@gmail.com>
-	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
-	 * @author Sabrina <sabrinaschmidt335@gmail.com>
-	 * @author Vanderlei <vanderleik@yahoo.com.br>
-	 * @author Vitor <vitornathang@gmail.com>
+	 * Exemplo de uso: ExameMedico exameMedico = new
+	 * ExameMedico.ExameMedicoBuilder().
+	 * tipoExame(TiposExames.ADMISSIONAL).dataExame(LocalDate.of(2016, 11, 5)).
+	 * apto(true).criarExameMedico();
+	 * 
 	 */
+
 	public static class ExameMedicoBuilder {
 
 		public TiposExames getTipoExame() {
@@ -111,6 +108,4 @@ public class ExameMedico {
 		return "ExameMedico [colaboradorId=" + colaboradorId + ", tipoExameId=" + tipoExameId + ", tipoExame="
 				+ tipoExame + ", dataExame=" + dataExame + ", apto=" + apto + "]";
 	}
-
-	
 }
