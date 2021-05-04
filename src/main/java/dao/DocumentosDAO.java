@@ -184,6 +184,33 @@ public class DocumentosDAO implements DAO<Documentos>{
 		return out;
 	}
 
+	public boolean atualizar(int id_colab, Documentos itemNovo) { //id do usuario
+		JdbcController control = JdbcController.getInstance();
+		
+		try {
+			control.atualizarString("rg", "numero", itemNovo.getRgNumero(),"colaborador_id", id_colab);
+			control.atualizarString("rg", "orgao_emissor", itemNovo.getOrgaoEmissorRG(),"colaborador_id", id_colab);
+			control.atualizarDate("rg", "data_emissao", itemNovo.getDataEmissaoRG(),"colaborador_id", id_colab);
+			
+			control.atualizarString("titulo", "numero", itemNovo.getTituloNumero(),"colaborador_id", id_colab);
+			control.atualizarString("titulo", "zona", itemNovo.getTituloZona(),"colaborador_id", id_colab);
+			control.atualizarString("titulo", "sessao", itemNovo.getTituloSecao(),"colaborador_id", id_colab);
+			
+			control.atualizarString("carteira_trabalho", "numero", itemNovo.getCtpsNumero(),"colaborador_id", id_colab);
+			control.atualizarString("carteira_trabalho", "serie", itemNovo.getCtpsSerie(),"colaborador_id", id_colab);
+			control.atualizarDate("carteira_trabalho", "emissao", itemNovo.getDataEmissaoCTPS(),"colaborador_id", id_colab);
+			
+			control.atualizarString("registro_alistamento", "numero", itemNovo.getRaNumero(),"colaborador_id", id_colab);
+			control.atualizarString("registro_alistamento", "serie", itemNovo.getRaSerie(),"colaborador_id", id_colab);
+			
+			return true;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	public boolean delete(int id) {
 		JdbcController control = JdbcController.getInstance();
 		
@@ -193,27 +220,6 @@ public class DocumentosDAO implements DAO<Documentos>{
 		Boolean registro_alistamento = control.deletarPorId("registro_alistamento", id);
 		
 		return (rg && titulo && carteira_trabalho && registro_alistamento );
-	}
-
-	public boolean atualizar(int id_colab, Documentos itemNovo) { //id do usuario
-		JdbcController control = JdbcController.getInstance();
-		
-		control.atualizarString("rg", "numero", itemNovo.getRgNumero(),"colaborador_id", id_colab);
-		control.atualizarString("rg", "orgao_emissor", itemNovo.getOrgaoEmissorRG(),"colaborador_id", id_colab);
-		control.atualizarDate("rg", "data_emissao", itemNovo.getDataEmissaoRG(),"colaborador_id", id_colab);
-		
-		control.atualizarString("titulo", "numero", itemNovo.getTituloNumero(),"colaborador_id", id_colab);
-		control.atualizarString("titulo", "zona", itemNovo.getTituloZona(),"colaborador_id", id_colab);
-		control.atualizarString("titulo", "sessao", itemNovo.getTituloSecao(),"colaborador_id", id_colab);
-		
-		control.atualizarString("carteira_trabalho", "numero", itemNovo.getCtpsNumero(),"colaborador_id", id_colab);
-		control.atualizarString("carteira_trabalho", "serie", itemNovo.getCtpsSerie(),"colaborador_id", id_colab);
-		control.atualizarDate("carteira_trabalho", "emissao", itemNovo.getDataEmissaoCTPS(),"colaborador_id", id_colab);
-		
-		control.atualizarString("registro_alistamento", "numero", itemNovo.getRaNumero(),"colaborador_id", id_colab);
-		control.atualizarString("registro_alistamento", "serie", itemNovo.getRaSerie(),"colaborador_id", id_colab);
-		
-		return true;
 	}
 
 }

@@ -70,5 +70,42 @@ public class DAODocumentosTest {
 		
 		assertTrue(output.size() > 0);
 	}
+	
+	@Test
+	public void D_UpdateDocumentByColabId() {
+		DocumentosDAO docdao = new DocumentosDAO();
+		
+		int idFuncionario = 42;
+		
+		Documentos doc = new Documentos();
+		doc.setColaboradorId(idFuncionario);
+		
+		doc.setCtpsNumero("6666666");
+		doc.setCtpsSerie("9999");
+		doc.setDataEmissaoCTPS(LocalDate.of(2021, 5, 1));
+		
+		doc.setTituloNumero("0001123");
+		doc.setTituloZona("666");
+		doc.setTituloSecao("4220");
+		
+		doc.setRaNumero("123456789101213");
+		doc.setRaSerie("999");
+		
+		doc.setRgNumero("7444441");
+		doc.setDataEmissaoRG(LocalDate.of(2021, 05, 22));
+		doc.setOrgaoEmissorRG("95556");
+
+		assertTrue(docdao.atualizar(idFuncionario, doc));
+	}
+	
+	@Test
+	public void E_DeleteDocumentByColabId() {
+		DocumentosDAO docdao = new DocumentosDAO();
+		
+		int idFuncionario = 42;
+		assertTrue(docdao.delete(idFuncionario));
+	}
+	
+	
 
 }
