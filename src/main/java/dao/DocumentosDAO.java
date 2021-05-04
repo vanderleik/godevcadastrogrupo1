@@ -61,12 +61,17 @@ public class DocumentosDAO implements DAO<Documentos>{
 	public Documentos listar(int id) {
 		JdbcController control = JdbcController.getInstance();
 		
-		ResultSet rg = control.buscarPorFK("rg", "id_funcionario", id);
-		ResultSet titulo = control.buscarPorFK("titulo", "id_funcionario", id);
-		ResultSet carteira_trabalho = control.buscarPorFK("carteira_trabalho", "id_funcionario", id);
-		ResultSet registro_alistamento = control.buscarPorFK("registro_alistamento", "id_funcionario", id);
+		ResultSet rg = 
+				control.buscarPorFK("rg", "colaborador_id", id);
+		ResultSet titulo = 
+				control.buscarPorFK("titulo", "colaborador_id", id);
+		ResultSet carteira_trabalho = 
+				control.buscarPorFK("carteira_trabalho", "colaborador_id", id);
+		ResultSet registro_alistamento = 
+				control.buscarPorFK("registro_alistamento", "colaborador_id", id);
 		
 		Documentos entradaDocumento = new Documentos();
+		entradaDocumento.setColaboradorId(id);
 		
 		try {
 				if(rg.next()) {
@@ -120,23 +125,24 @@ public class DocumentosDAO implements DAO<Documentos>{
 		ArrayList<Documentos> out = new ArrayList<Documentos>();
 		
 		JdbcController control = JdbcController.getInstance();
-		ResultSet colab = control.listarPorTabela("colaboradores");
+		ResultSet colab = control.listarPorTabela("colaborador");
 		
 		try {
 			while(colab.next()) {
 				int id = colab.getInt("id");
 				Documentos entradaDocumento = new Documentos();
+				entradaDocumento.setColaboradorId(id);
 				
-				ResultSet rg = control.buscarPorFK("rg", "id_funcionario", id);
-				ResultSet titulo = control.buscarPorFK("titulo", "id_funcionario", id);
-				ResultSet carteira_trabalho = control.buscarPorFK("carteira_trabalho", "id_funcionario", id);
-				ResultSet registro_alistamento = control.buscarPorFK("registro_alistamento", "id_funcionario", id);
+				ResultSet rg = control.buscarPorFK("rg", "colaborador_id", id);
+				ResultSet titulo = control.buscarPorFK("titulo", "colaborador_id", id);
+				ResultSet carteira_trabalho = control.buscarPorFK("carteira_trabalho", "colaborador_id", id);
+				ResultSet registro_alistamento = control.buscarPorFK("registro_alistamento", "colaborador_id", id);
 				
 				if(rg.next()) {
 					if(id == rg.getInt("colaborador_id")) {
 						String num = rg.getString("numero");
 						String orgao = rg.getString("orgao_emissor");
-						Date data = rg.getDate("data_emisassao");
+						Date data = rg.getDate("data_emissao");
 						entradaDocumento.setRgNumero(num);
 						entradaDocumento.setOrgaoEmissorRG(orgao);
 						entradaDocumento.setDataEmissaoRG(DataParser.sqlDateToLocalDate(data));

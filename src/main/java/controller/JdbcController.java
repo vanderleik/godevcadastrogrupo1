@@ -62,11 +62,11 @@ public final class JdbcController {
 	
 
 	public ResultSet listarPorTabela(String nomeTabela) {
-		String query = "SELECT * FROM "+schema+"?";
-		rs = null; //Limpa resultado anterior
+		String query = "SELECT * FROM "+schema+nomeTabela;
+		rs = null; 
 		try {
 			ps = con.prepareStatement(query);
-			ps.setString(1, nomeTabela);
+//			ps.setString(1, nomeTabela);
 			rs = ps.executeQuery();
 		} 
 		catch (SQLException e) {
@@ -77,12 +77,12 @@ public final class JdbcController {
 	
 	
 	public ResultSet buscarPorId(String nomeTabela, int id) {
-		String query = "SELECT * FROM "+schema+"? WHERE id = ?";
+		String query = "SELECT * FROM "+schema+nomeTabela+" WHERE id ="+id;
 		rs = null; //Limpa resultado anterior
 		try {
 			ps = con.prepareStatement(query);
-			ps.setString(1, nomeTabela);
-			ps.setInt(2, id);
+//			ps.setString(1, nomeTabela);
+//			ps.setInt(2, id);
 			rs = ps.executeQuery();
 		} 
 		catch (SQLException e) {
@@ -91,14 +91,14 @@ public final class JdbcController {
 		return rs;
 	}
 	public ResultSet buscarPorFK(String nomeTabela, String nomeFK, int id_fk) {
-		String query = "SELECT * FROM "+schema+"? WHERE ? = ?";
+		String query = "SELECT * FROM "+schema+nomeTabela+" WHERE "+nomeFK+" ="+id_fk;
 		rs = null;
 		
 		try {
 			ps = con.prepareStatement(query);
-			ps.setString(1, nomeTabela);
-			ps.setString(2, nomeFK);
-			ps.setInt(3, id_fk);
+//			ps.setString(1, nomeTabela);
+//			ps.setString(2, nomeFK);
+//			ps.setInt(3, id_fk);
 			
 			rs = ps.executeQuery();
 			return rs;
@@ -110,12 +110,12 @@ public final class JdbcController {
 	}
 	
 	public boolean deletarPorId(String nomeTabela, int id) {
-		String query = "DELETE FROM "+schema+"? WHERE id = ?";
+		String query = "DELETE FROM "+schema+nomeTabela+" WHERE id = "+id;
 		try {
 			ps = con.prepareStatement(query);
-			ps.setString(1, nomeTabela);
-			ps.setInt(2, id);
-			rs = ps.executeQuery();
+//			ps.setString(1, nomeTabela);
+//			ps.setInt(2, id);
+			ps.executeUpdate();
 			return true;
 		} 
 		catch (SQLException e) {
@@ -124,19 +124,22 @@ public final class JdbcController {
 		return false;
 	}
 	
-	public Boolean atualizarInteiro(String nomeTabela, String nomeColuna, int valorColuna, String nomeFK, int id) {
-		String query = "UPDATE "+schema+"? SET ? = ? WHERE ?=?";
+	//TODO: Replace/Split String para criar as Queries com elegancia
+	public Boolean atualizarInteiro(String nomeTabela, String nomeColuna, int valorColuna, String nomeFK, int idFK) {
+		String query = "UPDATE "+schema+nomeTabela+" "
+				+ "SET "+nomeColuna+" = "+valorColuna+
+				" WHERE "+nomeFK+"="+idFK;
 		rs = null;
 		
 		try {
 			ps = con.prepareStatement(query);
-			ps.setString(1, nomeTabela);
-			ps.setString(2, nomeColuna);
-			ps.setInt(3, valorColuna);
-			ps.setString(4, nomeFK);
-			ps.setInt(5, id);
+//			ps.setString(1, nomeTabela);
+//			ps.setString(2, nomeColuna);
+//			ps.setInt(3, valorColuna);
+//			ps.setString(4, nomeFK);
+//			ps.setInt(5, id);
 			
-			rs = ps.executeQuery();
+			ps.executeUpdate();
 			return true;
 		} 
 		catch (SQLException e) {
@@ -145,19 +148,21 @@ public final class JdbcController {
 		return false;
 	}
 	
-	public Boolean atualizarBoolean(String nomeTabela, String nomeColuna, boolean valorColuna, String nomeFK, int id) {
-		String query = "UPDATE "+schema+"? SET ? = ? WHERE ?=?";
+	public Boolean atualizarBoolean(String nomeTabela, String nomeColuna, boolean valorColuna, String nomeFK, int idFK) {
+		String query = "UPDATE "+schema+nomeTabela+" "
+				+ "SET "+nomeColuna+" = "+valorColuna+
+				" WHERE "+nomeFK+"="+idFK;
 		rs = null;
 		
 		try {
 			ps = con.prepareStatement(query);
-			ps.setString(1, nomeTabela);
-			ps.setString(2, nomeColuna);
-			ps.setBoolean(3, valorColuna);
-			ps.setString(4, nomeFK);
-			ps.setInt(5, id);
+//			ps.setString(1, nomeTabela);
+//			ps.setString(2, nomeColuna);
+//			ps.setBoolean(3, valorColuna);
+//			ps.setString(4, nomeFK);
+//			ps.setInt(5, id);
 			
-			rs = ps.executeQuery();
+			ps.executeUpdate();
 			return true;
 		} 
 		catch (SQLException e) {
@@ -166,19 +171,21 @@ public final class JdbcController {
 		return false;
 	}
 	
-	public Boolean atualizarString(String nomeTabela, String nomeColuna, String valorColuna, String nomeFK, int id) {
-		String query = "UPDATE "+schema+"? SET ? = ? WHERE ?=?";
+	public Boolean atualizarString(String nomeTabela, String nomeColuna, String valorColuna, String nomeFK, int idFK) {
+		String query = "UPDATE "+schema+nomeTabela+" "
+				+ "SET "+nomeColuna+" = "+valorColuna+
+				" WHERE "+nomeFK+"="+idFK;
 		rs = null;
 		
 		try {
 			ps = con.prepareStatement(query);
-			ps.setString(1, nomeTabela);
-			ps.setString(2, nomeColuna);
-			ps.setString(3, valorColuna);
-			ps.setString(4, nomeFK);
-			ps.setInt(5, id);
+//			ps.setString(1, nomeTabela);
+//			ps.setString(2, nomeColuna);
+//			ps.setString(3, valorColuna);
+//			ps.setString(4, nomeFK);
+//			ps.setInt(5, id);
 			
-			rs = ps.executeQuery();
+			ps.executeUpdate();
 			return true;
 		} 
 		catch (SQLException e) {
@@ -187,19 +194,21 @@ public final class JdbcController {
 		return false;
 	}
 	
-	public Boolean atualizarDate(String nomeTabela, String nomeColuna, LocalDate valorColuna, String nomeFK, int id) {
-		String query = "UPDATE "+schema+"? SET ? = ? WHERE ?=?";
+	public Boolean atualizarDate(String nomeTabela, String nomeColuna, LocalDate valorColuna, String nomeFK, int idFK) {
+		String query = "UPDATE "+schema+nomeTabela+" "
+				+ "SET "+nomeColuna+" = "+DataParser.localDateToSQLQuery(valorColuna)+
+				" WHERE "+nomeFK+"="+idFK;
 		rs = null;
 		
 		try {
 			ps = con.prepareStatement(query);
-			ps.setString(1, nomeTabela);
-			ps.setString(2, nomeColuna);
-			ps.setDate(3, DataParser.localDateToSQLDate(valorColuna));
-			ps.setString(4, nomeFK);
-			ps.setInt(5, id);
+//			ps.setString(1, nomeTabela);
+//			ps.setString(2, nomeColuna);
+//			ps.setDate(3, DataParser.localDateToSQLDate(valorColuna));
+//			ps.setString(4, nomeFK);
+//			ps.setInt(5, id);
 			
-			rs = ps.executeQuery();
+			ps.executeUpdate();
 			return true;
 		} 
 		catch (SQLException e) {

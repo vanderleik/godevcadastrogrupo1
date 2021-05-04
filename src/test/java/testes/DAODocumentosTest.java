@@ -105,7 +105,4 @@ public class DAODocumentosTest {
 		int idFuncionario = 42;
 		assertTrue(docdao.delete(idFuncionario));
 	}
-	
-	
-
 }
