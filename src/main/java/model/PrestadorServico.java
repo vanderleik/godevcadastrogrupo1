@@ -26,9 +26,33 @@ import enums.EMDadosPessoais.IdentidadeGenero;
  */
 
 public class PrestadorServico {
+	public Integer getEmpresaId() {
+		return empresaId;
+	}
+
+	public void setEmpresaId(Integer empresaId) {
+		this.empresaId = empresaId;
+	}
+
+	public Integer getPessoaId() {
+		return pessoaId;
+	}
+
+	public void setPessoaId(Integer pessoaId) {
+		this.pessoaId = pessoaId;
+	}
+
+	public LocalDate getDataInicioContrato() {
+		return dataInicioContrato;
+	}
+
+	public void setDataInicioContrato(LocalDate dataInicioContrato) {
+		this.dataInicioContrato = dataInicioContrato;
+	}
+
 	private Integer empresaId;
 	private Integer pessoaId;
-	private Date dataInicioContrato;
+	private LocalDate dataInicioContrato;
 
 //
 //	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
