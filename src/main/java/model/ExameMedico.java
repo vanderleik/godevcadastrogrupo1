@@ -21,44 +21,24 @@ import enums.EMOutros.TiposExames;
  * @author Vitor <vitornathang@gmail.com>
  */
 public class ExameMedico {
-
-	TiposExames tipoExame;
+	private Integer colaboradorId;
+	private Integer tipoExameId;
+	
+	private String tipoExame;
 	private LocalDate dataExame;
 	private boolean apto;
 
-	public ExameMedico(TiposExames tipoExame, LocalDate dataExame, boolean apto) {
-		this.tipoExame = tipoExame;
-		this.dataExame = dataExame;
-		this.apto = apto;
-	}
+//	public ExameMedico(TiposExames tipoExame, LocalDate dataExame, boolean apto) {
+//		this.tipoExame = tipoExame;
+//		this.dataExame = dataExame;
+//		this.apto = apto;
+//	}
+//
+//	public ExameMedico() {
+//
+//	}
 
-	public ExameMedico() {
-
-	}
-
-	public TiposExames getTipoExame() {
-		return tipoExame;
-	}
-
-	public void setTipoExame(TiposExames tipoExame) {
-		this.tipoExame = tipoExame;
-	}
-
-	public LocalDate getDataExame() {
-		return dataExame;
-	}
-
-	public void setDataExame(LocalDate dataExame) {
-		this.dataExame = dataExame;
-	}
-
-	public boolean isApto() {
-		return apto;
-	}
-
-	public void setApto(boolean apto) {
-		this.apto = apto;
-	}
+	
 
 	/**
 	 * Cria ExameMedico.
@@ -69,7 +49,7 @@ public class ExameMedico {
 	 * ExameMedico exameMedico = new ExameMedico.ExameMedicoBuilder().
 				tipoExame(TiposExames.ADMISSIONAL).dataExame(LocalDate.of(2016, 11, 5)).
 				apto(true).criarExameMedico();
-	 *
+	 * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
 	 * @author Bruna <sh4323202@gmail.com>
 	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
 	 * @author Sabrina <sabrinaschmidt335@gmail.com>
@@ -77,6 +57,30 @@ public class ExameMedico {
 	 * @author Vitor <vitornathang@gmail.com>
 	 */
 	public static class ExameMedicoBuilder {
+
+		public TiposExames getTipoExame() {
+			return tipoExame;
+		}
+
+		public void setTipoExame(TiposExames tipoExame) {
+			this.tipoExame = tipoExame;
+		}
+
+		public LocalDate getDataExame() {
+			return dataExame;
+		}
+
+		public void setDataExame(LocalDate dataExame) {
+			this.dataExame = dataExame;
+		}
+
+		public boolean isApto() {
+			return apto;
+		}
+
+		public void setApto(boolean apto) {
+			this.apto = apto;
+		}
 
 		TiposExames tipoExame;
 		private LocalDate dataExame;
@@ -97,13 +101,16 @@ public class ExameMedico {
 			return this;
 		}
 
-		public ExameMedico criarExameMedico() {
-			return new ExameMedico(tipoExame, dataExame, apto);
-		}
+//		public ExameMedico criarExameMedico() {
+//			return new ExameMedico(tipoExame, dataExame, apto);
+//		}
 	}
 
 	@Override
 	public String toString() {
-		return "ExameMedico [tipoExame=" + tipoExame + ", dataExame=" + dataExame + ", apto=" + apto;
+		return "ExameMedico [colaboradorId=" + colaboradorId + ", tipoExameId=" + tipoExameId + ", tipoExame="
+				+ tipoExame + ", dataExame=" + dataExame + ", apto=" + apto + "]";
 	}
+
+	
 }
