@@ -298,7 +298,7 @@ public class Documentos{
 			return this;
 		}
 
-		public DocumentosBuilder dataEmissaoRG( Date dataEmissaoRG) {
+		public DocumentosBuilder dataEmissaoRG(Date dataEmissaoRG) {
 			this.dataEmissaoRG = dataEmissaoRG;
 			return this;
 		}

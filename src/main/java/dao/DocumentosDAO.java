@@ -68,10 +68,10 @@ public class DocumentosDAO implements DAO<Documentos>{
 				if(rg.next()) {
 						String num = rg.getString("numero");
 						String orgao = rg.getString("orgao_emissor");
-						Date data = rg.getDate("data_emisassao");
+						Date data = rg.getDate("data_emissao");
 						entradaDocumento.setRgNumero(num);
 						entradaDocumento.setOrgaoEmissorRG(orgao);
-						entradaDocumento.setDataEmissaoRG(data);
+						entradaDocumento.setDataEmissaoRG(data.toLocalDate());
 				}
 				if(titulo.next()) {
 					if(id == titulo.getInt("colaborador_id")) {
@@ -92,7 +92,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 						
 						entradaDocumento.setCtpsNumero(num);
 						entradaDocumento.setCtpsSerie(serie);
-						entradaDocumento.setDataEmissaoCTPS(emissao);
+						entradaDocumento.setDataEmissaoCTPS(emissao.toLocalDate());
 					}
 				}
 				
@@ -134,7 +134,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 						Date data = rg.getDate("data_emisassao");
 						entradaDocumento.setRgNumero(num);
 						entradaDocumento.setOrgaoEmissorRG(orgao);
-						entradaDocumento.setDataEmissaoRG(data);
+						entradaDocumento.setDataEmissaoRG(data.toLocalDate());
 					}
 				}
 				
@@ -158,7 +158,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 						
 						entradaDocumento.setCtpsNumero(num);
 						entradaDocumento.setCtpsSerie(serie);
-						entradaDocumento.setDataEmissaoCTPS(emissao);
+						entradaDocumento.setDataEmissaoCTPS(emissao.toLocalDate());
 					}
 				}
 				

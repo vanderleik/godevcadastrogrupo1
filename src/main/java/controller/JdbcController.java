@@ -194,7 +194,7 @@ public final class JdbcController {
 		return false;
 	}
 	
-	public Boolean atualizarDate(String nomeTabela, String nomeColuna, Date valorColuna, String nomeFK, int id) {
+	public Boolean atualizarDate(String nomeTabela, String nomeColuna, LocalDate valorColuna, String nomeFK, int id) {
 		String query = "UPDATE ? SET ? = ? WHERE ?=?";
 		rs = null;
 		
