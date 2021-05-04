@@ -29,6 +29,7 @@ public class Endereco {
 	private Integer estadoId;
 	private Integer cidadeId;
 	private Integer bairroId;
+	
 	private String logradouro;
 	private String numero;
 	private String complemento;
@@ -37,6 +38,103 @@ public class Endereco {
 	private String cidade;
 	private String uf;
 	private String pais;
+	
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+	
+	public Integer getPaisId() {
+		return paisId;
+	}
+
+	public void setPaisId(Integer paisId) {
+		this.paisId = paisId;
+	}
+
+	public Integer getEstadoId() {
+		return estadoId;
+	}
+
+	public void setEstadoId(Integer estadoId) {
+		this.estadoId = estadoId;
+	}
+
+	public Integer getCidadeId() {
+		return cidadeId;
+	}
+
+	public void setCidadeId(Integer cidadeId) {
+		this.cidadeId = cidadeId;
+	}
+
+	public Integer getBairroId() {
+		return bairroId;
+	}
+
+	public void setBairroId(Integer bairroId) {
+		this.bairroId = bairroId;
+	}
+
 //
 //	public Endereco(String logradouro, Integer numero, String bairro, Cidades cidade, UF uf,
 //			String complemento, String cep, Pais pais) {
@@ -55,6 +153,7 @@ public class Endereco {
 //		super();
 //	}
 
+
 	/**
 	 * Cria Endereco.
 	 *
@@ -67,71 +166,7 @@ public class Endereco {
 	 * quantos atributos forem necessários.
 	 * 
 	 */
-	public static class EnderecoBuilder {
-		public String getLogradouro() {
-			return logradouro;
-		}
-
-		public void setLogradouro(String logradouro) {
-			this.logradouro = logradouro;
-		}
-
-		public Integer getNumero() {
-			return numero;
-		}
-
-		public void setNumero(Integer numero) {
-			this.numero = numero;
-		}
-
-		public String getBairro() {
-			return bairro;
-		}
-
-		public void setBairro(String bairro) {
-			this.bairro = bairro;
-		}
-
-		public Cidades getCidade() {
-			return cidade;
-		}
-
-		public void setCidade(Cidades cidade) {
-			this.cidade = cidade;
-		}
-
-		public UF getUf() {
-			return uf;
-		}
-
-		public void setUf(UF uf) {
-			this.uf = uf;
-		}
-
-		public String getComplemento() {
-			return complemento;
-		}
-
-		public void setComplemento(String complemento) {
-			this.complemento = complemento;
-		}
-
-		public String getCep() {
-			return cep;
-		}
-
-		public void setCep(String cep) {
-			this.cep = cep;
-		}
-
-		public Pais getPais() {
-			return pais;
-		}
-
-		public void setPais(Pais pais) {
-			this.pais = pais;
-		}
-
+	/*public static class EnderecoBuilder {
 		private String logradouro;
 		private Integer numero;
 		private String bairro;
@@ -191,5 +226,5 @@ public class Endereco {
 		return "Endereco [paisId=" + paisId + ", estadoId=" + estadoId + ", cidadeId=" + cidadeId + ", bairroId="
 				+ bairroId + ", logradouro=" + logradouro + ", numero=" + numero + ", complemento=" + complemento
 				+ ", cep=" + cep + ", bairro=" + bairro + ", cidade=" + cidade + ", uf=" + uf + ", pais=" + pais + "]";
-	}
+	}*/
 }
