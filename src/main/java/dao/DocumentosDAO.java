@@ -13,43 +13,42 @@ public class DocumentosDAO implements DAO<Documentos>{
 
 	public boolean cadastrar(Documentos item) {
 		JdbcController control = JdbcController.getInstance();
-		//System.out.println(item.getDataEmissaoRG());
-//		control.executarQuerySemArg(
-//				"INSERT INTO grupo1.rg "
-//				+ "(numero, orgao_emissor, data_emissao, colaborador_id) "
-//				+ "values("
-//				+ item.getRgNumero()+","
-//				+ item.getOrgaoEmissorRG()+",'"
-//				+ item.getDataEmissaoRG().toString() +"',"
-//				+ item.getColaboradorId()
-//				+")");
-//		
-//		control.executarQuerySemArg(
-//			"INSERT INTO grupo1.titulo (numero, zona, sessao, colaborador_id)"
-//			+ "values("
-//			+ item.getTituloNumero()+","
-//			+ item.getTituloZona()+","
-//			+ item.getTituloSecao()+","
-//			+ item.getColaboradorId()
-//			+")");
+		control.executarQuerySemArg(
+			"INSERT INTO grupo1.rg "
+			+ "(numero, orgao_emissor, data_emissao, colaborador_id) "
+			+ "values("
+			+ item.getRgNumero()+","
+			+ item.getOrgaoEmissorRG()+",'"
+			+ item.getDataEmissaoRG().toString() +"',"
+			+ item.getColaboradorId()
+			+")");
+		
+		control.executarQuerySemArg(
+			"INSERT INTO grupo1.titulo (numero, zona, sessao, colaborador_id)"
+			+ "values("
+			+ item.getTituloNumero()+","
+			+ item.getTituloZona()+","
+			+ item.getTituloSecao()+","
+			+ item.getColaboradorId()
+			+")");
 	
-	control.executarQuerySemArg(
-				"INSERT INTO grupo1.carteira_trabalho (numero, serie, emissao, colaborador_id)"
-				+ "values("
-				+ item.getCtpsNumero()+","
-				+ item.getCtpsSerie()+",'"
-				+ item.getDataEmissaoCTPS().toString() +"',"
-				+ item.getColaboradorId()
-				+")"
+	        control.executarQuerySemArg(
+			"INSERT INTO grupo1.carteira_trabalho (numero, serie, emissao, colaborador_id)"
+			+ "values("
+			+ item.getCtpsNumero()+","
+			+ item.getCtpsSerie()+",'"
+			+ item.getDataEmissaoCTPS().toString() +"',"
+			+ item.getColaboradorId()
+			+")"
 			);
 		
-//		control.executarQuerySemArg(
-//				"INSERT INTO grupo1.registro_alistamento (numero, serie, colaborador_id)"
-//				+ "values("
-//				+ item.getRaNumero()+","
-//				+ item.getRaSerie()+","
-//				+ item.getColaboradorId()
-//				+")");
+		control.executarQuerySemArg(
+			"INSERT INTO grupo1.registro_alistamento (numero, serie, colaborador_id)"
+			+ "values("
+			+ item.getRaNumero()+","
+			+ item.getRaSerie()+","
+			+ item.getColaboradorId()
+			+")");
 		
 		return true;
 	}
