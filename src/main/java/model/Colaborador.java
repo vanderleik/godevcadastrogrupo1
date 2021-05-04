@@ -18,7 +18,6 @@ public class Colaborador{
 	 * Documentos, Enderecos, Contatos e ExameMedico para concluir o cadastro do
 	 * colaborador.
 	 * 
-	 * Deve ser instanciado utilizando o ColaboradorBuilder.
 	 * 
 	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
 	 *         Luiz Barbieri e Vitor Nathan Gonçalves.
@@ -217,10 +216,11 @@ public class Colaborador{
 	}
 	@Override
 	public String toString() {
-		return "Colaborador [pessoa=" + pessoa + ", idColaborador=" + idColaborador + ", numCargo=" + numCargo
-				+ ", nit=" + nit + ", optanteVT=" + optanteVT + ", optanteVAVR=" + optanteVAVR + ", dataAdmissao="
-				+ dataAdmissao + ", optanteDependente=" + optanteDependente + ", documentos=" + documentos
-				+ ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico=" + exameMedico + "]";
+		return "Colaborador [pessoaId=" + pessoaId + ", pessoa=" + pessoa + ", idColaborador=" + idColaborador
+				+ ", numCargo=" + numCargo + ", nit=" + nit + ", optanteVT=" + optanteVT + ", optanteVAVR="
+				+ optanteVAVR + ", dataAdmissao=" + dataAdmissao + ", optanteDependente=" + optanteDependente
+				+ ", documentos=" + documentos + ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico="
+				+ exameMedico + "]";
 	}
 	/**
 	 * Cria colaborador.
@@ -231,12 +231,7 @@ public class Colaborador{
 				sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).
 				genero("Masculino").identidadeGenero(SexoPessoa.CIS).nomeDaMae("Lúcia").....criarColaborador() //Colocar quantos atributos
 				forem necessários
-	 * 
-	 * @author Bruna <sh4323202@gmail.com>
-	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
-	 * @author Sabrina <sabrinaschmidt335@gmail.com>
-	 * @author Vanderlei <vanderleik@yahoo.com.br>
-	 * @author Vitor <vitornathang@gmail.com>
+				
 	 */
 	public static class ColaboradorBuilder {
 		private String nome;

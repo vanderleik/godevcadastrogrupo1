@@ -10,14 +10,21 @@ import enums.EMDadosPessoais.TiposDependentes;
  * Esta classe instancia a classe Pessoa para o cadastro de Dependente.
  * Deve ser instancianda usando DependenteBuilder.
  * 
+ * 
+ * 
+ * 
+ * 
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
+ * 
+ * 
+ * 
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
- *         Luiz Barbieri e Vitor Nathan Gonçalves.
- *         
+ *         Luiz Barbieri e Vitor Nathan Gonçalves.        
  * @author Bruna <sh4323202@gmail.com>
  * @author Enzo <enzomm.bodyandmind@gmail.com> 
  * @author Sabrina <sabrinaschmidt335@gmail.com>
- * @author Vanderlei <vanderleik@yahoo.com.br>
- * @author Vitor <vitornathang@gmail.com>
+ *
  */
 
 public class Dependente {
@@ -51,13 +58,8 @@ public class Dependente {
 	 * Dependente dependente = new Dependente.DependenteBuilder().nome("José").
 				sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).....criarDependente() //Colocar quantos atributos
 				forem necessários
-	 * 
-	 * @author Bruna <sh4323202@gmail.com>
-	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
-	 * @author Sabrina <sabrinaschmidt335@gmail.com>
-	 * @author Vanderlei <vanderleik@yahoo.com.br>
-	 * @author Vitor <vitornathang@gmail.com>
-	 */
+	*/
+	
 	public static class DependenteBuilder {
 		public String getNome() {
 			return nome;
