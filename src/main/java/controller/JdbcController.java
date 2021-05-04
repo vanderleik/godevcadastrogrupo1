@@ -20,6 +20,13 @@ public final class JdbcController {
 	private static final String user = "postgres";
 	private static final String pass = "admin";
 
+	/** Singleton responsavel por se conectar e comunicar com o  banco de dados.
+	 * 
+	 *  Tambem possui funcoes auxiliares para interacao com banco de dados 
+	 *  que devem ser chamadas pela instancia do singleton (getInstance()).
+	 *  
+	 *  @author Willian Kenji Nishizawa
+	 */
 	private JdbcController() {
 		try {
 			con = DriverManager.getConnection(url + database, user, pass);
@@ -29,6 +36,12 @@ public final class JdbcController {
 
 	}
 
+	/** Obter a instancia do JdbcController.
+	 * 
+	 * @author Willian Kenji Nishizawa
+	 * 
+	 * @return objeto do tipo JdbcController
+	 */
 	public static JdbcController getInstance() {
 		if (instance == null) {
 			instance = new JdbcController();
@@ -36,6 +49,13 @@ public final class JdbcController {
 		return instance;
 	}
 
+	/**
+	 * Retorna a conexao do JdbcController com o banco de dados.
+	 * 
+	 * @author Willian Kenji Nishizawa
+	 * 
+	 * @return Connection
+	 */
 	public Connection get_con() {
 		return con;
 	}
@@ -44,8 +64,11 @@ public final class JdbcController {
 	 * Funcao do Singleton responsavel por executar uma query sem argumentos
 	 * externos.
 	 * 
-	 * @param query : String com a query em SQL postgres;
 	 * @author Willian Kenji Nishizawa
+	 * 
+	 * @param query : String com a query em SQL postgres;
+	 * @return objeto ReturnSet contendo os resultados da query.
+	 * 
 	 */
 	public ResultSet executarQuerySemArg(String query) {
 		try {
@@ -58,14 +81,13 @@ public final class JdbcController {
 	}
 
 	/**
-	 * Funcao do Singleton que lista por tabela do BD.
+	 * Funcao do Singleton que retorna todas as linhas da coluna 'nomeTabela' desejada.
 	 * 
+	 * @author Willian Kenji Nishizawa
 	 * 
-	 * 
-	 * @param query : String com a query em SQL postgres
-	 * @return
+	 * @param nomeTabela : String que representa o nome da tabela representada no banco de dados;
+	 * @return ResultSet com todas as linhas encontradas na tabela 'nomeTabela'
 	 */
-
 	public ResultSet listarPorTabela(String nomeTabela) {
 		String query = "SELECT * FROM " + schema + nomeTabela;
 		rs = null;
@@ -80,13 +102,13 @@ public final class JdbcController {
 	}
 
 	/**
-	 * Funcao do Singleton que busca por ID na tebela informada.
+	 * Retorna a linha da tabela 'nomeTabela' que tem o PK (PrimaryKey) = 'id'
 	 * 
+	 * @author Willian Kenji Nishizawa
 	 * 
 	 * @param nomeTabela
-	 * @param id
-	 * @param query      : String com a query em SQL postgres
-	 * @return
+	 * @param id : pk da linha desejada
+	 * @return ResultSet com 1 ou 0 itens.
 	 */
 
 	public ResultSet buscarPorId(String nomeTabela, int id) {
@@ -104,14 +126,14 @@ public final class JdbcController {
 	}
 
 	/**
-	 * Funcao do Singleton que busca por foreign key na tebela informada.
+	 * Retorna as linhas da tabela 'nomeTabela' com valores 'id_fk' na sua coluna 'nomeFK'
 	 * 
+	 * @author Willian Kenji Nishizawa
 	 * 
-	 * @param nomeTabela
-	 * @param nomeFK
-	 * @param id_fk
-	 * @param query      : String com a query em SQL postgres
-	 * @return
+	 * @param nomeTabela : Nome da tabela na qual a busca vai ocorrer
+	 * @param nomeFK  : nome da coluna onde se encontra o valor de referencia para a busca
+	 * @param id_fk   : valor da coluna de referencia
+	 * @return ResultSet com todas as linhas encontradas na tabela 'nomeTabela'
 	 */
 	public ResultSet buscarPorFK(String nomeTabela, String nomeFK, int id_fk) {
 		String query = "SELECT * FROM " + schema + nomeTabela + " WHERE " + nomeFK + " =" + id_fk;
@@ -132,14 +154,13 @@ public final class JdbcController {
 	}
 
 	/**
-	 * Deleta o item da tabela selecionada pelo ID.
+	 * Deleta a linha/item da tabela 'nomeTabela' que tenha PK = id.
 	 * 
-	 * 
+	 * @author Willian Kenji Nishizawa
 	 * 
 	 * @param nomeTabela
-	 * @param id
-	 * @param query      : String com a query em SQL postgres
-	 * @return
+	 * @param id : PrimaryKey do item a ser removido
+	 * @return True/False para o sucesso da operacao.
 	 */
 	public boolean deletarPorId(String nomeTabela, int id) {
 		String query = "DELETE FROM " + schema + nomeTabela + " WHERE id = " + id;
@@ -156,15 +177,18 @@ public final class JdbcController {
 	}
 
 	/**
-	 * Atualiza um número inteiro da tabela selecionada.
+	 * Na tabela 'nomeTabela' em sua coluna 'nomeColuna' vai atualizar
+	 * o valor Inteiro atual para 'valorColuna'
+	 * nas linhas onde a coluna 'nomeFK' tem valor 'id'
 	 * 
+	 * @author Willian Kenji Nishizawa
 	 * 
-	 * @param nomeTabela
-	 * @param nomeColuna
-	 * @param valorColuna
-	 * @param nomeFK
-	 * @param id
-	 * @return
+	 * @param nomeTabela : Nome da tabela que desejamos alterar
+	 * @param nomeColuna : Nome da coluna que vai ter seu valor alterado
+	 * @param valorColuna : Novo valor Integer para a coluna desejada
+	 * @param nomeFK : Nome da coluna de referencia (WHERE nomeFK=id)
+	 * @param id : Valor esperado na coluna de referencia (WHERE nomeFK=id)
+	 * @return True/False para o sucesso da operacao.
 	 */
 	public Boolean atualizarInteiro(String nomeTabela, String nomeColuna, int valorColuna, String nomeFK, int id) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = " + valorColuna + " WHERE "
@@ -189,14 +213,18 @@ public final class JdbcController {
 	}
 
 	/**
-	 * Atualiza um booleano da tabela selecionada.
+	 * Na tabela 'nomeTabela' em sua coluna 'nomeColuna' vai atualizar
+	 * o valor Booleano atual para 'valorColuna'
+	 * nas linhas onde a coluna 'nomeFK' tem valor 'id'
 	 * 
-	 * @param nomeTabela
-	 * @param nomeColuna
-	 * @param valorColuna
-	 * @param nomeFK
-	 * @param id
-	 * @return
+	 * @author Willian Kenji Nishizawa
+	 * 
+	 * @param nomeTabela : Nome da tabela que desejamos alterar
+	 * @param nomeColuna : Nome da coluna que vai ter seu valor alterado
+	 * @param valorColuna : Novo valor Boolean para a coluna desejada
+	 * @param nomeFK : Nome da coluna de referencia (WHERE nomeFK=id)
+	 * @param id : Valor esperado na coluna de referencia (WHERE nomeFK=id)
+	 * @return True/False para o sucesso da operacao.
 	 */
 	public Boolean atualizarBoolean(String nomeTabela, String nomeColuna, boolean valorColuna, String nomeFK, int id) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = " + valorColuna + " WHERE "
@@ -220,14 +248,18 @@ public final class JdbcController {
 	}
 
 	/**
-	 * Atualiza uma String da tabela selecionada.
+	 * Na tabela 'nomeTabela' em sua coluna 'nomeColuna' vai atualizar
+	 * o valor String atual para 'valorColuna'
+	 * nas linhas onde a coluna 'nomeFK' tem valor 'id'
 	 * 
-	 * @param nomeTabela
-	 * @param nomeColuna
-	 * @param valorColuna
-	 * @param nomeFK
-	 * @param id
-	 * @return
+	 * @author Willian Kenji Nishizawa
+	 * 
+	 * @param nomeTabela : Nome da tabela que desejamos alterar
+	 * @param nomeColuna : Nome da coluna que vai ter seu valor alterado
+	 * @param valorColuna : Novo valor String para a coluna desejada
+	 * @param nomeFK : Nome da coluna de referencia (WHERE nomeFK=id)
+	 * @param id : Valor esperado na coluna de referencia (WHERE nomeFK=id)
+	 * @return True/False para o sucesso da operacao.
 	 */
 	public Boolean atualizarString(String nomeTabela, String nomeColuna, String valorColuna, String nomeFK, int idFK) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = " + valorColuna + " WHERE "
@@ -251,15 +283,18 @@ public final class JdbcController {
 	}
 
 	/**
-	 * Atualiza um Date da tabela selecionada.
+	 * Na tabela 'nomeTabela' em sua coluna 'nomeColuna' vai atualizar
+	 * o valor de Data atual para 'valorColuna'
+	 * nas linhas onde a coluna 'nomeFK' tem valor 'id'
 	 * 
+	 * @author Willian Kenji Nishizawa
 	 * 
-	 * @param nomeTabela
-	 * @param nomeColuna
-	 * @param valorColuna
-	 * @param nomeFK
-	 * @param id
-	 * @return
+	 * @param nomeTabela : Nome da tabela que desejamos alterar
+	 * @param nomeColuna : Nome da coluna que vai ter seu valor alterado
+	 * @param valorColuna : Novo valor LocalDate para a coluna desejada
+	 * @param nomeFK : Nome da coluna de referencia (WHERE nomeFK=id)
+	 * @param id : Valor esperado na coluna de referencia (WHERE nomeFK=id)
+	 * @return True/False para o sucesso da operacao.
 	 */
 	public Boolean atualizarDate(String nomeTabela, String nomeColuna, LocalDate valorColuna, String nomeFK, int idFK) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = "
