@@ -13,28 +13,28 @@ import enums.EMDadosPessoais.IdentidadeGenero;
  * 
  * Deve ser instanciada utilizando o PessoaBuilder.
  * 
- * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger
- *         Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
- *         
- * @author Bruna <sh4323202@gmail.com>
- * @author Enzo <enzomm.bodyandmind@gmail.com> 
- * @author Sabrina <sabrinaschmidt335@gmail.com>
  * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail>
+ * 
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com>
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
  * @author Vitor <vitornathang@gmail.com>
+ * 
+ * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
+ *         Luiz Barbieri e Vitor Nathan Gonçalves.
  */
 
-public class Pessoa{
+public class Pessoa {
 	private Integer generoId;
 	private Integer identidadeGeneroId;
 	private Integer enderecoId;
 	private Integer telefoneId;
-
 	private String nome;
 	private String sobrenome;
 	private String nomeSocial;
 	private Date dataDeNascimento;
 	private String naturalidade;
-
 	private String genero;
 	private IdentidadeGenero identidadeGenero;
 	private String nomeDaMae;
@@ -64,19 +64,14 @@ public class Pessoa{
 	 *
 	 * É utilizado para criar um objeto da classe Pessoa.
 	 * 
-	 * Exemplo de uso:
-	 * Pessoa pessoa = new Pessoa.PessoaBuilder().nome("José").
-				sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).....criarPessoa(); //Utilizar quantos atributos
-				forem necessários
-	 *@author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
-	 * @author Bruna <sh4323202@gmail.com>
-	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
-	 * @author Sabrina <sabrinaschmidt335@gmail.com>
-	 * @author Vanderlei <vanderleik@yahoo.com.br>
-	 * @author Vitor <vitornathang@gmail.com>
+	 * Exemplo de uso: Pessoa pessoa = new Pessoa.PessoaBuilder().nome("José").
+	 * sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4,
+	 * 23)).....criarPessoa();
+	 * Utilizar quantos atributos forem necessários
+	 * 
 	 */
 	public static class PessoaBuilder {
-		
+
 		public String getNome() {
 			return nome;
 		}
@@ -167,7 +162,7 @@ public class Pessoa{
 		private String cpf;
 		private Nacionalidade nacionalidade;
 		private boolean pcd;
-		
+
 		public PessoaBuilder nome(String nome) {
 			this.nome = nome;
 			return this;
@@ -182,42 +177,42 @@ public class Pessoa{
 			this.dataDeNascimento = dataDeNascimento;
 			return this;
 		}
-		
+
 		public PessoaBuilder nomeSocial(String nomeSocial) {
 			this.nomeSocial = nomeSocial;
 			return this;
 		}
-		
+
 		public PessoaBuilder genero(String genero) {
 			this.genero = genero;
 			return this;
 		}
-		
+
 		public PessoaBuilder identidadeGenero(IdentidadeGenero identidadeGenero) {
 			this.identidadeGenero = identidadeGenero;
 			return this;
 		}
-	
+
 		public PessoaBuilder nomeDaMae(String nomeDaMae) {
 			this.nomeDaMae = nomeDaMae;
 			return this;
 		}
-		
+
 		public PessoaBuilder cpf(String cpf) {
 			this.cpf = cpf;
 			return this;
 		}
-		
+
 		public PessoaBuilder nacionalidade(Nacionalidade nacionalidade) {
 			this.nacionalidade = nacionalidade;
 			return this;
 		}
-	
+
 		public PessoaBuilder pcd(Boolean pcd) {
 			this.pcd = pcd;
 			return this;
 		}
-		
+
 //		public Pessoa criarPessoa() {
 //			return new Pessoa(nome,sobrenome, dataDeNascimento,  nomeSocial,  genero,
 //					 identidadeGenero,  nomeDaMae,  cpf,  nacionalidade, pcd);

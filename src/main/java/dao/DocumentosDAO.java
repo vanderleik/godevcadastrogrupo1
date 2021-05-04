@@ -3,6 +3,8 @@ package dao;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import controller.DataParser;
@@ -137,7 +139,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 				ResultSet titulo = control.buscarPorFK("titulo", "colaborador_id", id);
 				ResultSet carteira_trabalho = control.buscarPorFK("carteira_trabalho", "colaborador_id", id);
 				ResultSet registro_alistamento = control.buscarPorFK("registro_alistamento", "colaborador_id", id);
-				
+
 				if(rg.next()) {
 					if(id == rg.getInt("colaborador_id")) {
 						String num = rg.getString("numero");
@@ -176,9 +178,9 @@ public class DocumentosDAO implements DAO<Documentos>{
 				if(registro_alistamento.next()) {
 					if(id == registro_alistamento.getInt("colaborador_id")) {
 						String num = registro_alistamento.getString("numero");
-						//serie nao implementado no objeto
 						String serie = registro_alistamento.getString("serie"); 
 						entradaDocumento.setRaNumero(num);
+						entradaDocumento.setCtpsSerie(serie);
 					}
 				}
 				out.add(entradaDocumento);
@@ -216,7 +218,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 			return false;
 		}
 	}
-	
+
 	public boolean delete(int id) {
 		JdbcController control = JdbcController.getInstance();
 		
@@ -227,5 +229,4 @@ public class DocumentosDAO implements DAO<Documentos>{
 		
 		return (rg && titulo && carteira_trabalho && registro_alistamento );
 	}
-
 }

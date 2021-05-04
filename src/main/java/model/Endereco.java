@@ -11,13 +11,17 @@ import enums.EMDadosGeograficos.UF;
  * 
  * Deve ser instanciada utilizando o EnderecoBuilder.
  * 
- * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail>
  * 
  * @author Bruna <sh4323202@gmail.com>
- * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Enzo <enzomm.bodyandmind@gmail.com>
  * @author Sabrina <sabrinaschmidt335@gmail.com>
  * @author Vanderlei <vanderleik@yahoo.com.br>
  * @author Vitor <vitornathang@gmail.com>
+ * 
+ * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
+ *         Luiz Barbieri e Vitor Nathan Gonçalves.
  *
  */
 public class Endereco {
@@ -51,22 +55,17 @@ public class Endereco {
 //		super();
 //	}
 
-
 	/**
 	 * Cria Endereco.
 	 *
 	 * É utilizado para criar um objeto da classe Endereco.
 	 * 
-	 * Exemplo de uso:
-	 * Endereco endereco = new Endereco.EnderecoBuilder().logradouro("Rua 7 de Setembro").
-				numero(461).bairro("Caldas Novas").cidade(Cidades.BLUMENAU).uf(UF.SC).....criarEndereco() //Colocar quantos atributos
-				forem necessários
-	 * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
-	 * @author Bruna <sh4323202@gmail.com>
-	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
-	 * @author Sabrina <sabrinaschmidt335@gmail.com>
-	 * @author Vanderlei <vanderleik@yahoo.com.br>
-	 * @author Vitor <vitornathang@gmail.com>
+	 * Exemplo de uso: Endereco endereco = new
+	 * Endereco.EnderecoBuilder().logradouro("Rua 7 de Setembro").
+	 * numero(461).bairro("Caldas
+	 * Novas").cidade(Cidades.BLUMENAU).uf(UF.SC).....criarEndereco() Colocar
+	 * quantos atributos forem necessários.
+	 * 
 	 */
 	public static class EnderecoBuilder {
 		public String getLogradouro() {
@@ -186,7 +185,6 @@ public class Endereco {
 //			return new Endereco(logradouro, numero, bairro, cidade, uf, complemento, cep, pais);
 //		}
 	}
-
 
 	@Override
 	public String toString() {
