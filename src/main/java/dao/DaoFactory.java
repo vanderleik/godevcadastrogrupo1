@@ -3,18 +3,18 @@ package dao;
 import java.util.ArrayList;
 
 /**
- * Implementa métodos do DAO.
- * Classe responsável por implementar de forma genérica os métodos da interface DAO.
- * Deve ser extendida pelas classes específicas para os métodos serem utilizáveis.
+ * Implementa métodos do DAO. Classe responsável por implementar de forma
+ * genérica os métodos da interface DAO. Deve ser extendida pelas classes
+ * específicas para os métodos serem utilizáveis.
  * 
  * @author Bruna <sh4323202@gmail.com>
- * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Enzo <enzomm.bodyandmind@gmail.com>
  * @author Sabrina <sabrinaschmidt335@gmail.com>
  * @author Vanderlei <vanderleik@yahoo.com.br>
  * @author Vitor <vitornathang@gmail.com>
  * @param <T>
  */
-public class DaoFactory<T> implements DAO<T>{
+public class DaoFactory<T> implements DAO<T> {
 
 	public boolean cadastrar(T item) {
 		// TODO Auto-generated method stub
@@ -40,7 +40,7 @@ public class DaoFactory<T> implements DAO<T>{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 //	public ArrayList<T> itens = new ArrayList<T>();
 //	
 //	/**
