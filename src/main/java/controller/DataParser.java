@@ -14,8 +14,9 @@ public class DataParser {
 	
 	/**
 	 * Funcao responsavel por receber uma LocalDate e traduzi-la para uma String
-	 * utilizavel em Queries.
+	 * utilizavel em Queries. 
 	 * 
+	 * @author Willian Kenji Nishizawa <wk.nishizawa@gmail.com>
 	 * @param entrada
 	 * @return String
 	 */

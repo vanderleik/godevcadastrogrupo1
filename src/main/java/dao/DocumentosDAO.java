@@ -13,44 +13,49 @@ public class DocumentosDAO implements DAO<Documentos>{
 
 	public boolean cadastrar(Documentos item) {
 		JdbcController control = JdbcController.getInstance();
-		control.executarQuerySemArg(
-			"INSERT INTO "+JdbcController.schema+"rg "
-			+ "(numero, orgao_emissor, data_emissao, colaborador_id) "
-			+ "values("
-			+ item.getRgNumero()+","
-			+ item.getOrgaoEmissorRG()+","
-			+ DataParser.localDateToSQLQuery(item.getDataEmissaoRG()) +","
-			+ item.getColaboradorId()
-			+")");
+		try {
+			control.executarQuerySemArg(
+				"INSERT INTO "+JdbcController.schema+"rg "
+				+ "(numero, orgao_emissor, data_emissao, colaborador_id) "
+				+ "values("
+				+ item.getRgNumero()+","
+				+ item.getOrgaoEmissorRG()+","
+				+ DataParser.localDateToSQLQuery(item.getDataEmissaoRG()) +","
+				+ item.getColaboradorId()
+				+")");
+			
+			control.executarQuerySemArg(
+				"INSERT INTO "+JdbcController.schema+"titulo (numero, zona, sessao, colaborador_id)"
+				+ "values("
+				+ item.getTituloNumero()+","
+				+ item.getTituloZona()+","
+				+ item.getTituloSecao()+","
+				+ item.getColaboradorId()
+				+")");
 		
-		control.executarQuerySemArg(
-			"INSERT INTO "+JdbcController.schema+"titulo (numero, zona, sessao, colaborador_id)"
-			+ "values("
-			+ item.getTituloNumero()+","
-			+ item.getTituloZona()+","
-			+ item.getTituloSecao()+","
-			+ item.getColaboradorId()
-			+")");
-	
-	        control.executarQuerySemArg(
-			"INSERT INTO "+JdbcController.schema+"carteira_trabalho (numero, serie, emissao, colaborador_id)"
-			+ "values("
-			+ item.getCtpsNumero()+","
-			+ item.getCtpsSerie()+","
-			+ DataParser.localDateToSQLQuery(item.getDataEmissaoCTPS()) +","
-			+ item.getColaboradorId()
-			+")"
-			);
-		
-		control.executarQuerySemArg(
-			"INSERT INTO "+JdbcController.schema+"registro_alistamento (numero, serie, colaborador_id)"
-			+ "values("
-			+ item.getRaNumero()+","
-			+ item.getRaSerie()+","
-			+ item.getColaboradorId()
-			+")");
-		
-		return true;
+		        control.executarQuerySemArg(
+				"INSERT INTO "+JdbcController.schema+"carteira_trabalho (numero, serie, emissao, colaborador_id)"
+				+ "values("
+				+ item.getCtpsNumero()+","
+				+ item.getCtpsSerie()+","
+				+ DataParser.localDateToSQLQuery(item.getDataEmissaoCTPS()) +","
+				+ item.getColaboradorId()
+				+")"
+				);
+			
+			control.executarQuerySemArg(
+				"INSERT INTO "+JdbcController.schema+"registro_alistamento (numero, serie, colaborador_id)"
+				+ "values("
+				+ item.getRaNumero()+","
+				+ item.getRaSerie()+","
+				+ item.getColaboradorId()
+				+")");
+			return true;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public Documentos listar(int id) {
@@ -100,6 +105,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 						String num = registro_alistamento.getString("numero");
 						String serie = registro_alistamento.getString("serie");
 						entradaDocumento.setRaNumero(num);
+						entradaDocumento.setRaSerie(serie);
 					}
 				}
 		} 
