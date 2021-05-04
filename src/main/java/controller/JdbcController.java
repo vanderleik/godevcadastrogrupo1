@@ -11,25 +11,20 @@ import java.time.LocalDate;
 
 public final class JdbcController {
 	private static JdbcController instance;
-	
-	//private static String driver = "com.postgresql.jdbc.Driver";
-	private static String url = "jdbc:postgresql://localhost:5432/cadastro_colaborador";
-
-	//private static String database = "cadastro_colaborador";
-	//private static String schema = "grupo1";
-
-	private static String user = "postgres";
-	private static String pass = "admin";
+	private static Connection con;
 	private static PreparedStatement ps;
 	private static ResultSet rs = null;
 	
-	private static Connection con;
-
+	public static final String schema = "grupo1.";
+	
+	private static final String url = "jdbc:postgresql://localhost:5432/";
+	private static final String database = "cadastro_colaborador";
+	private static final String user = "postgres";
+	private static final String pass = "admin";
+	
 	private JdbcController() {
 		try {
-			//Class.forName("com.example.jdbc.Driver");
-			con = DriverManager.getConnection(url, user, pass );
-			
+			con = DriverManager.getConnection(url+database, user, pass );
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -67,7 +62,7 @@ public final class JdbcController {
 	
 
 	public ResultSet listarPorTabela(String nomeTabela) {
-		String query = "SELECT * FROM ?";
+		String query = "SELECT * FROM "+schema+"?";
 		rs = null; //Limpa resultado anterior
 		try {
 			ps = con.prepareStatement(query);
@@ -82,7 +77,7 @@ public final class JdbcController {
 	
 	
 	public ResultSet buscarPorId(String nomeTabela, int id) {
-		String query = "SELECT * FROM ? WHERE id = ?";
+		String query = "SELECT * FROM "+schema+"? WHERE id = ?";
 		rs = null; //Limpa resultado anterior
 		try {
 			ps = con.prepareStatement(query);
@@ -96,7 +91,7 @@ public final class JdbcController {
 		return rs;
 	}
 	public ResultSet buscarPorFK(String nomeTabela, String nomeFK, int id_fk) {
-		String query = "SELECT * FROM ? WHERE ? = ?";
+		String query = "SELECT * FROM "+schema+"? WHERE ? = ?";
 		rs = null;
 		
 		try {
@@ -115,7 +110,7 @@ public final class JdbcController {
 	}
 	
 	public boolean deletarPorId(String nomeTabela, int id) {
-		String query = "DELETE FROM ? WHERE id = ?";
+		String query = "DELETE FROM "+schema+"? WHERE id = ?";
 		try {
 			ps = con.prepareStatement(query);
 			ps.setString(1, nomeTabela);
@@ -130,7 +125,7 @@ public final class JdbcController {
 	}
 	
 	public Boolean atualizarInteiro(String nomeTabela, String nomeColuna, int valorColuna, String nomeFK, int id) {
-		String query = "UPDATE ? SET ? = ? WHERE ?=?";
+		String query = "UPDATE "+schema+"? SET ? = ? WHERE ?=?";
 		rs = null;
 		
 		try {
@@ -151,7 +146,7 @@ public final class JdbcController {
 	}
 	
 	public Boolean atualizarBoolean(String nomeTabela, String nomeColuna, boolean valorColuna, String nomeFK, int id) {
-		String query = "UPDATE ? SET ? = ? WHERE ?=?";
+		String query = "UPDATE "+schema+"? SET ? = ? WHERE ?=?";
 		rs = null;
 		
 		try {
@@ -172,7 +167,7 @@ public final class JdbcController {
 	}
 	
 	public Boolean atualizarString(String nomeTabela, String nomeColuna, String valorColuna, String nomeFK, int id) {
-		String query = "UPDATE ? SET ? = ? WHERE ?=?";
+		String query = "UPDATE "+schema+"? SET ? = ? WHERE ?=?";
 		rs = null;
 		
 		try {
@@ -193,14 +188,14 @@ public final class JdbcController {
 	}
 	
 	public Boolean atualizarDate(String nomeTabela, String nomeColuna, LocalDate valorColuna, String nomeFK, int id) {
-		String query = "UPDATE ? SET ? = ? WHERE ?=?";
+		String query = "UPDATE "+schema+"? SET ? = ? WHERE ?=?";
 		rs = null;
 		
 		try {
 			ps = con.prepareStatement(query);
 			ps.setString(1, nomeTabela);
 			ps.setString(2, nomeColuna);
-			ps.setDate(3, valorColuna);
+			ps.setDate(3, DataParser.localDateToSQLDate(valorColuna));
 			ps.setString(4, nomeFK);
 			ps.setInt(5, id);
 			

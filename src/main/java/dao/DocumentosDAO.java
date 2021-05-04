@@ -3,9 +3,9 @@ package dao;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
+import controller.DataParser;
 import controller.JdbcController;
 import model.Documentos;
 
@@ -14,17 +14,17 @@ public class DocumentosDAO implements DAO<Documentos>{
 	public boolean cadastrar(Documentos item) {
 		JdbcController control = JdbcController.getInstance();
 		control.executarQuerySemArg(
-			"INSERT INTO grupo1.rg "
+			"INSERT INTO "+JdbcController.schema+"rg "
 			+ "(numero, orgao_emissor, data_emissao, colaborador_id) "
 			+ "values("
 			+ item.getRgNumero()+","
-			+ item.getOrgaoEmissorRG()+",'"
-			+ item.getDataEmissaoRG().toString() +"',"
+			+ item.getOrgaoEmissorRG()+","
+			+ DataParser.localDateToSQLQuery(item.getDataEmissaoRG()) +","
 			+ item.getColaboradorId()
 			+")");
 		
 		control.executarQuerySemArg(
-			"INSERT INTO grupo1.titulo (numero, zona, sessao, colaborador_id)"
+			"INSERT INTO "+JdbcController.schema+"titulo (numero, zona, sessao, colaborador_id)"
 			+ "values("
 			+ item.getTituloNumero()+","
 			+ item.getTituloZona()+","
@@ -33,17 +33,17 @@ public class DocumentosDAO implements DAO<Documentos>{
 			+")");
 	
 	        control.executarQuerySemArg(
-			"INSERT INTO grupo1.carteira_trabalho (numero, serie, emissao, colaborador_id)"
+			"INSERT INTO "+JdbcController.schema+"carteira_trabalho (numero, serie, emissao, colaborador_id)"
 			+ "values("
 			+ item.getCtpsNumero()+","
-			+ item.getCtpsSerie()+",'"
-			+ item.getDataEmissaoCTPS().toString() +"',"
+			+ item.getCtpsSerie()+","
+			+ DataParser.localDateToSQLQuery(item.getDataEmissaoCTPS()) +","
 			+ item.getColaboradorId()
 			+")"
 			);
 		
 		control.executarQuerySemArg(
-			"INSERT INTO grupo1.registro_alistamento (numero, serie, colaborador_id)"
+			"INSERT INTO "+JdbcController.schema+"registro_alistamento (numero, serie, colaborador_id)"
 			+ "values("
 			+ item.getRaNumero()+","
 			+ item.getRaSerie()+","
@@ -70,7 +70,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 						Date data = rg.getDate("data_emissao");
 						entradaDocumento.setRgNumero(num);
 						entradaDocumento.setOrgaoEmissorRG(orgao);
-						entradaDocumento.setDataEmissaoRG(data.toLocalDate());
+						entradaDocumento.setDataEmissaoRG(DataParser.sqlDateToLocalDate(data));
 				}
 				if(titulo.next()) {
 					if(id == titulo.getInt("colaborador_id")) {
@@ -91,7 +91,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 						
 						entradaDocumento.setCtpsNumero(num);
 						entradaDocumento.setCtpsSerie(serie);
-						entradaDocumento.setDataEmissaoCTPS(emissao.toLocalDate());
+						entradaDocumento.setDataEmissaoCTPS(DataParser.sqlDateToLocalDate(emissao));
 					}
 				}
 				
@@ -133,7 +133,7 @@ public class DocumentosDAO implements DAO<Documentos>{
 						Date data = rg.getDate("data_emisassao");
 						entradaDocumento.setRgNumero(num);
 						entradaDocumento.setOrgaoEmissorRG(orgao);
-						entradaDocumento.setDataEmissaoRG(data.toLocalDate());
+						entradaDocumento.setDataEmissaoRG(DataParser.sqlDateToLocalDate(data));
 					}
 				}
 				
@@ -157,14 +157,15 @@ public class DocumentosDAO implements DAO<Documentos>{
 						
 						entradaDocumento.setCtpsNumero(num);
 						entradaDocumento.setCtpsSerie(serie);
-						entradaDocumento.setDataEmissaoCTPS(emissao.toLocalDate());
+						entradaDocumento.setDataEmissaoCTPS(DataParser.sqlDateToLocalDate(emissao));
 					}
 				}
 				
 				if(registro_alistamento.next()) {
 					if(id == registro_alistamento.getInt("colaborador_id")) {
 						String num = registro_alistamento.getString("numero");
-						String serie = registro_alistamento.getString("serie"); //nao implementado no objeto
+						//serie nao implementado no objeto
+						String serie = registro_alistamento.getString("serie"); 
 						entradaDocumento.setRaNumero(num);
 					}
 				}
