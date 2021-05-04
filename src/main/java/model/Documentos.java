@@ -7,12 +7,15 @@ import java.time.LocalDate;
  * É instanciada na classe Colaborador. 
  * Deve ser instanciada usando o ColaboradorBuilder.
  * 
+ * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * 
+ * 
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
  *
  * @author Bruna <sh4323202@gmail.com>
  * @author Enzo <enzomm.bodyandmind@gmail.com> 
  * @author Sabrina <sabrinaschmidt335@gmail.com>
- * @author Vanderlei <vanderleik@yahoo.com.br>
  * @author Vitor <vitornathang@gmail.com>
  */
 
@@ -176,6 +179,17 @@ public class Documentos{
 		this.raSerie = raSerie;
 	}
 
+
+	@Override
+	public String toString() {
+		return "Documentos [colaboradorId=" + colaboradorId + ", ctpsNumero=" + ctpsNumero + ", ctpsSerie=" + ctpsSerie
+				+ ", dataEmissaoCTPS=" + dataEmissaoCTPS + ", tituloNumero=" + tituloNumero + ", tituloZona="
+				+ tituloZona + ", tituloSecao=" + tituloSecao + ", raNumero=" + raNumero + ", raSerie=" + raSerie
+				+ ", rgNumero=" + rgNumero + ", rgOrgaoEmissor=" + rgOrgaoEmissor + ", dataEmissaoRG=" + dataEmissaoRG
+				+ "]";
+	}
+	
+
 //	/**
 //	 * Cria Documentos.
 //	 *
@@ -185,12 +199,6 @@ public class Documentos{
 //	 * Documentos documento = new Documentos.DocumentosBuilder().ctpsNumero(123456789).
 //	 			ctpsSerie(123456).dataEmissaoCTPS(Date.of(2009, 02, 21)).....criarDocumentos() //Colocar quantos atributos
 //				forem necessários
-//	 * 
-//	 * @author Bruna <sh4323202@gmail.com>
-//	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
-//	 * @author Sabrina <sabrinaschmidt335@gmail.com>
-//	 * @author Vanderlei <vanderleik@yahoo.com.br>
-//	 * @author Vitor <vitornathang@gmail.com>
 //	 */
 //	public static class DocumentosBuilder {
 //		

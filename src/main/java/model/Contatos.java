@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Deve ser instanciado utilizando o ContatosBuilder. 
  * 
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
- *
+ * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
  * @author Bruna <sh4323202@gmail.com>
  * @author Enzo <enzomm.bodyandmind@gmail.com> 
  * @author Sabrina <sabrinaschmidt335@gmail.com>
@@ -59,12 +59,9 @@ public class Contatos{
 	 * Exemplo de uso:
 	 * Contatos contatos = new Contatos.ContatosBuilder().telefonePrincipal("1140028922").
 				telefoneSecundario("08002014007").email("email@testeemail.net").criarContato();
-	 * 
-	 * @author Bruna <sh4323202@gmail.com>
-	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
-	 * @author Sabrina <sabrinaschmidt335@gmail.com>
-	 * @author Vanderlei <vanderleik@yahoo.com.br>
-	 * @author Vitor <vitornathang@gmail.com>
+				
+	 * 			
+
 	 */
 	public static class ContatosBuilder {
 		

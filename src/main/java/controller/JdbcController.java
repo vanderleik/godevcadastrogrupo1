@@ -52,7 +52,7 @@ public final class JdbcController {
 	 * Funcao do Singleton responsavel por executar uma query sem argumentos externos.
 	 * 
 	 * @param query : String com a query em SQL postgres;
-	 * @return
+	 * @author Willian Kenji Nishizawa
 	 */
 	public ResultSet executarQuerySemArg(String query) {
 		try {
@@ -64,7 +64,14 @@ public final class JdbcController {
 		}
 		return rs;
 	}
-	
+	/**
+	 * Funcao do Singleton que lista por tabela do BD.
+	 * 
+	 * 
+	 * 
+	 * @param query : String com a query em SQL postgres
+	 * @return
+	 */
 
 	public ResultSet listarPorTabela(String nomeTabela) {
 		String query = "SELECT * FROM ?";
@@ -79,7 +86,15 @@ public final class JdbcController {
 		}
 		return rs;
 	}
-	
+	/**
+	 * Funcao do Singleton que busca por ID na tebela informada.
+	 * 
+	 * 
+	 * @param nomeTabela
+	 * @param id
+	 * @param query : String com a query em SQL postgres
+	 * @return 
+	 */
 	
 	public ResultSet buscarPorId(String nomeTabela, int id) {
 		String query = "SELECT * FROM ? WHERE id = ?";
@@ -95,6 +110,16 @@ public final class JdbcController {
 		}
 		return rs;
 	}
+	/**
+	 * Funcao do Singleton que busca por foreign key na tebela informada.
+	 * 
+	 * 
+	 * @param nomeTabela
+	 * @param nomeFK
+	 * @param id_fk
+	 * @param query : String com a query em SQL postgres
+	 * @return
+	 */
 	public ResultSet buscarPorFK(String nomeTabela, String nomeFK, int id_fk) {
 		String query = "SELECT * FROM ? WHERE ? = ?";
 		rs = null;
@@ -113,7 +138,16 @@ public final class JdbcController {
 		}
 		return rs;
 	}
-	
+	/**
+	 * Deleta o item da tabela selecionada pelo ID.
+	 * 
+	 * 
+	 * 
+	 * @param nomeTabela
+	 * @param id
+	 * @param query : String com a query em SQL postgres
+	 * @return
+	 */
 	public boolean deletarPorId(String nomeTabela, int id) {
 		String query = "DELETE FROM ? WHERE id = ?";
 		try {
@@ -128,9 +162,19 @@ public final class JdbcController {
 		}
 		return false;
 	}
-	
+	/**
+	 * Atualiza um número inteiro da tabela selecionada.
+	 * 
+	 * 
+	 * @param nomeTabela
+	 * @param nomeColuna
+	 * @param valorColuna
+	 * @param nomeFK
+	 * @param id
+	 * @return
+	 */
 	public Boolean atualizarInteiro(String nomeTabela, String nomeColuna, int valorColuna, String nomeFK, int id) {
-		String query = "UPDATE ? SET ? = ? WHERE ?=?";
+		String query = "UPDATE ?+ SET ? = ? WHERE ?=?";
 		rs = null;
 		
 		try {
@@ -149,7 +193,16 @@ public final class JdbcController {
 		}
 		return false;
 	}
-	
+	/**
+	 * Atualiza um booleano da tabela selecionada.
+	 * 
+	 * @param nomeTabela
+	 * @param nomeColuna
+	 * @param valorColuna
+	 * @param nomeFK
+	 * @param id
+	 * @return
+	 */
 	public Boolean atualizarBoolean(String nomeTabela, String nomeColuna, boolean valorColuna, String nomeFK, int id) {
 		String query = "UPDATE ? SET ? = ? WHERE ?=?";
 		rs = null;
@@ -170,7 +223,16 @@ public final class JdbcController {
 		}
 		return false;
 	}
-	
+	/**
+	 * Atualiza uma String da tabela selecionada.
+	 * 
+	 * @param nomeTabela
+	 * @param nomeColuna
+	 * @param valorColuna
+	 * @param nomeFK
+	 * @param id
+	 * @return
+	 */
 	public Boolean atualizarString(String nomeTabela, String nomeColuna, String valorColuna, String nomeFK, int id) {
 		String query = "UPDATE ? SET ? = ? WHERE ?=?";
 		rs = null;
@@ -191,7 +253,17 @@ public final class JdbcController {
 		}
 		return false;
 	}
-	
+/**
+ * Atualiza um Date da tabela selecionada.
+ * 
+ * 
+ * @param nomeTabela
+ * @param nomeColuna
+ * @param valorColuna
+ * @param nomeFK
+ * @param id
+ * @return
+ */
 	public Boolean atualizarDate(String nomeTabela, String nomeColuna, LocalDate valorColuna, String nomeFK, int id) {
 		String query = "UPDATE ? SET ? = ? WHERE ?=?";
 		rs = null;

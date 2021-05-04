@@ -1,6 +1,6 @@
 package model;
 /**
- * 
+ * Armazena os dados bancários do colaborador, como: código e nome do banco e agencia.
  * 
  * 
  * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
@@ -26,6 +26,7 @@ public class DadosBancarios {
 	public Integer getColaboradorId() {
 		return colaboradorId;
 	}
+	
 	public void setColaboradorId(Integer colaboradorId) {
 		this.colaboradorId = colaboradorId;
 	}
@@ -78,5 +79,6 @@ public class DadosBancarios {
 				+ ", agenciaDigitoVerficador=" + agenciaDigitoVerficador + ", contaNumero=" + contaNumero
 				+ ", contaDigitoVerficador=" + contaDigitoVerficador + "]";
 	}
+	//TODO builder
 
 }
