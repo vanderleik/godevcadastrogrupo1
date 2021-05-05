@@ -63,11 +63,11 @@ public class DadosBancariosDAO implements DAO<DadosBancarios> {
 		JdbcController control = JdbcController.getInstance();
 		
 		ResultSet banco = 
-				control.buscarPorFK("banco", "colaborador_id", id);
+				control.buscarPorReferenciaDeColuna("banco", "colaborador_id", id);
 		ResultSet agencia = 
-				control.buscarPorFK("agencia", "colaborador_id", id);
+				control.buscarPorReferenciaDeColuna("agencia", "colaborador_id", id);
 		ResultSet conta = 
-				control.buscarPorFK("conta", "colaborador_id", id);
+				control.buscarPorReferenciaDeColuna("conta", "colaborador_id", id);
 //		ResultSet conta_has_colaborador = 
 //				control.buscarPorFK("conta_has_colaborador", "colaborador_id", id);
 //		
@@ -132,9 +132,9 @@ public class DadosBancariosDAO implements DAO<DadosBancarios> {
 				DadosBancarios entradaDadosBancarios = new DadosBancarios();
 				entradaDadosBancarios.setColaboradorId(id);
 				
-				ResultSet banco = control.buscarPorFK("banco", "colaborador_id", id);
-				ResultSet agencia = control.buscarPorFK("agencia", "colaborador_id", id);
-				ResultSet conta = control.buscarPorFK("conta", "colaborador_id", id);
+				ResultSet banco = control.buscarPorReferenciaDeColuna("banco", "colaborador_id", id);
+				ResultSet agencia = control.buscarPorReferenciaDeColuna("agencia", "colaborador_id", id);
+				ResultSet conta = control.buscarPorReferenciaDeColuna("conta", "colaborador_id", id);
 	
 
 				if(banco.next()) {

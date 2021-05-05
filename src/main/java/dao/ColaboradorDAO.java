@@ -39,7 +39,7 @@ public class ColaboradorDAO extends DaoFactory<Colaborador>{
 		Colaborador output = new Colaborador();
 
 		try {
-			ResultSet colab = control.buscarPorFK("colaborador", "nit", id);
+			ResultSet colab = control.buscarPorReferenciaDeColuna("colaborador", "nit", id);
 			
 			if (colab.next()) {
 				
@@ -54,7 +54,7 @@ public class ColaboradorDAO extends DaoFactory<Colaborador>{
 			output.setNit(nit);
 			output.setOptanteVT(optante_vt);
 			output.setOptanteVAVR(optante_vavr);
-			output.setDataAdmissao(data_admissao);
+			output.setDataAdmissao(DataParser.sqlDateToLocalDate(data_admissao));
 			output.setOptanteDependente(optante_dependente);
 			
 			}
@@ -77,7 +77,7 @@ public class ColaboradorDAO extends DaoFactory<Colaborador>{
 				int id = colab.getInt("id");
 				Colaborador entradaColab = new Colaborador();
 				
-				ResultSet em = control.buscarPorFK("colaborador", "nit", id);
+				ResultSet em = control.buscarPorReferenciaDeColuna("colaborador", "nit", id);
 				
 				if (em.next()) {
 					if (id == em.getInt("colaborador_id")) {
@@ -110,7 +110,7 @@ public class ColaboradorDAO extends DaoFactory<Colaborador>{
 			control.atualizarInteiro("colaborador", "nit", itemNovo.getNit(),"colaborador_id", id);
 			control.atualizarBoolean("colaborador", "optante_vt", itemNovo.isOptanteVT(),"colaborador_id", id);
 			control.atualizarBoolean("colaborador", "optante_vavr", itemNovo.isOptanteVAVR(),"colaborador_id", id);
-			control.atualizarDate("colaborador", "data_admissao", DataParser.sqlDateToLocalDate(itemNovo.getDataAdmissao()),"colaborador_id", id);
+			control.atualizarDate("colaborador", "data_admissao", itemNovo.getDataAdmissao(),"colaborador_id", id);
 			control.atualizarBoolean("colaborador", "optante_dependente", itemNovo.isOptanteDependente(),"colaborador_id", id);
 			return true;
 		}

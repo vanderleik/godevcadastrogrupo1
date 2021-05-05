@@ -11,8 +11,7 @@ public final class JdbcController {
 	private static JdbcController instance;
 	private static Connection con;
 	private static PreparedStatement ps;
-	private static ResultSet rs = null;
-
+	
 	public static final String schema = "grupo1.";
 
 	private static final String url = "jdbc:postgresql://localhost:5432/";
@@ -71,6 +70,7 @@ public final class JdbcController {
 	 * 
 	 */
 	public ResultSet executarQuerySemArg(String query) {
+		ResultSet rs = null;
 		try {
 			ps = con.prepareStatement(query);
 			ps.executeUpdate();
@@ -90,7 +90,7 @@ public final class JdbcController {
 	 */
 	public ResultSet listarPorTabela(String nomeTabela) {
 		String query = "SELECT * FROM " + schema + nomeTabela;
-		rs = null;
+		ResultSet rs = null;
 		try {
 			ps = con.prepareStatement(query);
 //			ps.setString(1, nomeTabela);
@@ -102,23 +102,23 @@ public final class JdbcController {
 	}
 
 	/**
-	 * Retorna a linha da tabela 'nomeTabela' que tem o PK (PrimaryKey) = 'id'
+	 * Retorna a linha da tabela 'nomeTabela' que tem o id (PrimaryKey) = 'pkValue'
 	 * 
 	 * @author Willian Kenji Nishizawa
 	 * 
 	 * @param nomeTabela
-	 * @param id : pk da linha desejada
+	 * @param pkValue : pk da linha desejada
 	 * @return ResultSet com 1 ou 0 itens.
 	 */
 
-	public ResultSet buscarPorId(String nomeTabela, int id) {
-		String query = "SELECT * FROM " + schema + nomeTabela + " WHERE id =" + id;
-		rs = null; // Limpa resultado anterior
+	public ResultSet buscarPorId(String nomeTabela, int pkValue) {
+		String query = "SELECT * FROM " + schema + nomeTabela + " WHERE id =" + pkValue;
+		ResultSet rs = null;
 		try {
 			ps = con.prepareStatement(query);
 //			ps.setString(1, nomeTabela);
 //			ps.setInt(2, id);
-			rs = ps.execute();
+			rs = ps.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -131,13 +131,13 @@ public final class JdbcController {
 	 * @author Willian Kenji Nishizawa
 	 * 
 	 * @param nomeTabela : Nome da tabela na qual a busca vai ocorrer
-	 * @param nomeFK  : nome da coluna onde se encontra o valor de referencia para a busca
-	 * @param id_fk   : valor da coluna de referencia
+	 * @param colunaRef  : nome da coluna onde se encontra o valor de referencia para a busca
+	 * @param valorRef   : valor da coluna de referencia
 	 * @return ResultSet com todas as linhas encontradas na tabela 'nomeTabela'
 	 */
-	public ResultSet buscarPorFK(String nomeTabela, String nomeFK, int id_fk) {
-		String query = "SELECT * FROM " + schema + nomeTabela + " WHERE " + nomeFK + " =" + id_fk;
-		rs = null;
+	public ResultSet buscarPorReferenciaDeColuna(String nomeTabela, String colunaRef, int valorRef) {
+		String query = "SELECT * FROM " + schema + nomeTabela + " WHERE " + colunaRef + " =" + valorRef;
+		ResultSet rs = null;
 
 		try {
 			ps = con.prepareStatement(query);
@@ -194,8 +194,6 @@ public final class JdbcController {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = " + valorColuna + " WHERE "
 				+ nomeFK + "=" + id;
 
-		rs = null;
-
 		try {
 			ps = con.prepareStatement(query);
 //			ps.setString(1, nomeTabela);
@@ -229,7 +227,6 @@ public final class JdbcController {
 	public Boolean atualizarBoolean(String nomeTabela, String nomeColuna, boolean valorColuna, String nomeFK, int id) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = " + valorColuna + " WHERE "
 				+ nomeFK + "=" + id;
-		rs = null;
 
 		try {
 			ps = con.prepareStatement(query);
@@ -264,7 +261,6 @@ public final class JdbcController {
 	public Boolean atualizarString(String nomeTabela, String nomeColuna, String valorColuna, String nomeFK, int idFK) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = " + valorColuna + " WHERE "
 				+ nomeFK + "=" + idFK;
-		rs = null;
 
 		try {
 			ps = con.prepareStatement(query);
@@ -299,7 +295,6 @@ public final class JdbcController {
 	public Boolean atualizarDate(String nomeTabela, String nomeColuna, LocalDate valorColuna, String nomeFK, int idFK) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = "
 				+ DataParser.localDateToSQLQuery(valorColuna) + " WHERE " + nomeFK + "=" + idFK;
-		rs = null;
 
 		try {
 			ps = con.prepareStatement(query);

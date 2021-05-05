@@ -62,13 +62,13 @@ public class DocumentosDAO implements DAO<Documentos>{
 		JdbcController control = JdbcController.getInstance();
 		
 		ResultSet rg = 
-				control.buscarPorFK("rg", "colaborador_id", id);
+				control.buscarPorReferenciaDeColuna("rg", "colaborador_id", id);
 		ResultSet titulo = 
-				control.buscarPorFK("titulo", "colaborador_id", id);
+				control.buscarPorReferenciaDeColuna("titulo", "colaborador_id", id);
 		ResultSet carteira_trabalho = 
-				control.buscarPorFK("carteira_trabalho", "colaborador_id", id);
+				control.buscarPorReferenciaDeColuna("carteira_trabalho", "colaborador_id", id);
 		ResultSet registro_alistamento = 
-				control.buscarPorFK("registro_alistamento", "colaborador_id", id);
+				control.buscarPorReferenciaDeColuna("registro_alistamento", "colaborador_id", id);
 		
 		Documentos entradaDocumento = new Documentos();
 		entradaDocumento.setColaboradorId(id);
@@ -133,10 +133,10 @@ public class DocumentosDAO implements DAO<Documentos>{
 				Documentos entradaDocumento = new Documentos();
 				entradaDocumento.setColaboradorId(id);
 				
-				ResultSet rg = control.buscarPorFK("rg", "colaborador_id", id);
-				ResultSet titulo = control.buscarPorFK("titulo", "colaborador_id", id);
-				ResultSet carteira_trabalho = control.buscarPorFK("carteira_trabalho", "colaborador_id", id);
-				ResultSet registro_alistamento = control.buscarPorFK("registro_alistamento", "colaborador_id", id);
+				ResultSet rg = control.buscarPorReferenciaDeColuna("rg", "colaborador_id", id);
+				ResultSet titulo = control.buscarPorReferenciaDeColuna("titulo", "colaborador_id", id);
+				ResultSet carteira_trabalho = control.buscarPorReferenciaDeColuna("carteira_trabalho", "colaborador_id", id);
+				ResultSet registro_alistamento = control.buscarPorReferenciaDeColuna("registro_alistamento", "colaborador_id", id);
 
 				if(rg.next()) {
 					if(id == rg.getInt("colaborador_id")) {

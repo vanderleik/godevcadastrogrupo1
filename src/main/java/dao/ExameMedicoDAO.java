@@ -32,7 +32,7 @@ public class ExameMedicoDAO implements DAO<ExameMedico> {
 		ExameMedico output = new ExameMedico();
 
 		try {
-			ResultSet em = control.buscarPorFK("exame_medico", "colaborador_id", id);
+			ResultSet em = control.buscarPorReferenciaDeColuna("exame_medico", "colaborador_id", id);
 			
 			if (em.next()) {
 				
@@ -64,7 +64,7 @@ public class ExameMedicoDAO implements DAO<ExameMedico> {
 				int id = colab.getInt("id");
 				ExameMedico entradaExame = new ExameMedico();
 				
-				ResultSet em = control.buscarPorFK("exame_medico", "colaborador_id", id);
+				ResultSet em = control.buscarPorReferenciaDeColuna("exame_medico", "colaborador_id", id);
 				
 				if (em.next()) {
 					if (id == em.getInt("colaborador_id")) {
