@@ -1,15 +1,11 @@
 package dao;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import controller.DataParser;
 import controller.JdbcController;
-import model.Documentos;
 import model.Endereco;
-import model.Pessoa;
 
 public class EnderecoDAO implements DAO<Endereco> {
 

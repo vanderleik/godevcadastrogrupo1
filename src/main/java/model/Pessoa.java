@@ -25,133 +25,6 @@ import enums.EMDadosPessoais.IdentidadeGenero;
  */
 
 public class Pessoa {
-	public Integer getGeneroId() {
-		return generoId;
-	}
-
-	public void setGeneroId(Integer generoId) {
-		this.generoId = generoId;
-	}
-
-	public Integer getIdentidadeGeneroId() {
-		return identidadeGeneroId;
-	}
-
-	public void setIdentidadeGeneroId(Integer identidadeGeneroId) {
-		this.identidadeGeneroId = identidadeGeneroId;
-	}
-
-	public Integer getEnderecoId() {
-		return enderecoId;
-	}
-
-	public void setEnderecoId(Integer enderecoId) {
-		this.enderecoId = enderecoId;
-	}
-
-	public Integer getTelefoneId() {
-		return telefoneId;
-	}
-
-	public void setTelefoneId(Integer telefoneId) {
-		this.telefoneId = telefoneId;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getSobrenome() {
-		return sobrenome;
-	}
-
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
-
-	public String getNomeSocial() {
-		return nomeSocial;
-	}
-
-	public void setNomeSocial(String nomeSocial) {
-		this.nomeSocial = nomeSocial;
-	}
-
-	public LocalDate getDataDeNascimento() {
-		return dataDeNascimento;
-	}
-
-	public void setDataDeNascimento(LocalDate dataDeNascimento) {
-		this.dataDeNascimento = dataDeNascimento;
-	}
-
-	public String getNaturalidade() {
-		return naturalidade;
-	}
-
-	public void setNaturalidade(String naturalidade) {
-		this.naturalidade = naturalidade;
-	}
-
-	public String getGenero() {
-		return genero;
-	}
-
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
-
-	public IdentidadeGenero getIdentidadeGenero() {
-		return identidadeGenero;
-	}
-
-	public void setIdentidadeGenero(IdentidadeGenero identidadeGenero) {
-		this.identidadeGenero = identidadeGenero;
-	}
-
-	public String getNomeDaMae() {
-		return nomeDaMae;
-	}
-
-	public void setNomeDaMae(String nomeDaMae) {
-		this.nomeDaMae = nomeDaMae;
-	}
-
-	public String getNomeDoPai() {
-		return nomeDoPai;
-	}
-
-	public void setNomeDoPai(String nomeDoPai) {
-		this.nomeDoPai = nomeDoPai;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getNacionalidade() {
-		return nacionalidade;
-	}
-
-	public void setNacionalidade(String nacionalidade) {
-		this.nacionalidade = nacionalidade;
-	}
-
-	public String getPcd() {
-		return pcd;
-	}
-
-	public void setPcd(String pcd) {
-		this.pcd = pcd;
-	}
 
 	private Integer generoId;
 	private Integer identidadeGeneroId;
@@ -169,23 +42,7 @@ public class Pessoa {
 	private String cpf;
 	private String nacionalidade;
 	private String pcd;
-
-//	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-//			IdentidadeGenero identidadeGenero, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd) {
-//		this.nome = nome;
-//		this.sobrenome = sobrenome;
-//		this.dataDeNascimento = dataDeNascimento;
-//		this.nomeSocial = nomeSocial;
-//		this.genero = genero;
-//		this.identidadeGenero = identidadeGenero;
-//		this.nomeDaMae = nomeDaMae;
-//		this.cpf = cpf;
-//		this.nacionalidade = nacionalidade;
-//		this.pcd = pcd;
-//	}
-//
-//	public Pessoa() {}
-
+	
 	public Integer getGeneroId() {
 		return generoId;
 	}
@@ -313,6 +170,23 @@ public class Pessoa {
 	public void setPcd(String pcd) {
 		this.pcd = pcd;
 	}
+
+
+//	public Pessoa(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
+//			IdentidadeGenero identidadeGenero, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd) {
+//		this.nome = nome;
+//		this.sobrenome = sobrenome;
+//		this.dataDeNascimento = dataDeNascimento;
+//		this.nomeSocial = nomeSocial;
+//		this.genero = genero;
+//		this.identidadeGenero = identidadeGenero;
+//		this.nomeDaMae = nomeDaMae;
+//		this.cpf = cpf;
+//		this.nacionalidade = nacionalidade;
+//		this.pcd = pcd;
+//	}
+//
+//	public Pessoa() {}
 
 	/**
 	 * Cria Pessoa.

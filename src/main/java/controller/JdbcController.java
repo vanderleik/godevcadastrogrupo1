@@ -186,13 +186,13 @@ public final class JdbcController {
 	 * @param nomeTabela : Nome da tabela que desejamos alterar
 	 * @param nomeColuna : Nome da coluna que vai ter seu valor alterado
 	 * @param valorColuna : Novo valor Integer para a coluna desejada
-	 * @param nomeFK : Nome da coluna de referencia (WHERE nomeFK=id)
-	 * @param id : Valor esperado na coluna de referencia (WHERE nomeFK=id)
+	 * @param colunaRef : Nome da coluna de referencia (WHERE nomeFK=id)
+	 * @param valorRef : Valor esperado na coluna de referencia (WHERE nomeFK=id)
 	 * @return True/False para o sucesso da operacao.
 	 */
-	public Boolean atualizarInteiro(String nomeTabela, String nomeColuna, int valorColuna, String nomeFK, int id) {
+	public Boolean atualizarInteiro(String nomeTabela, String nomeColuna, int valorColuna, String colunaRef, int valorRef) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = " + valorColuna + " WHERE "
-				+ nomeFK + "=" + id;
+				+ colunaRef + "=" + valorRef;
 
 		try {
 			ps = con.prepareStatement(query);
@@ -220,13 +220,13 @@ public final class JdbcController {
 	 * @param nomeTabela : Nome da tabela que desejamos alterar
 	 * @param nomeColuna : Nome da coluna que vai ter seu valor alterado
 	 * @param valorColuna : Novo valor Boolean para a coluna desejada
-	 * @param nomeFK : Nome da coluna de referencia (WHERE nomeFK=id)
-	 * @param id : Valor esperado na coluna de referencia (WHERE nomeFK=id)
+	 * @param colunaRef : Nome da coluna de referencia (WHERE nomeFK=id)
+	 * @param valorRef : Valor esperado na coluna de referencia (WHERE nomeFK=id)
 	 * @return True/False para o sucesso da operacao.
 	 */
-	public Boolean atualizarBoolean(String nomeTabela, String nomeColuna, boolean valorColuna, String nomeFK, int id) {
+	public Boolean atualizarBoolean(String nomeTabela, String nomeColuna, boolean valorColuna, String colunaRef, int valorRef) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = " + valorColuna + " WHERE "
-				+ nomeFK + "=" + id;
+				+ colunaRef + "=" + valorRef;
 
 		try {
 			ps = con.prepareStatement(query);
@@ -254,13 +254,13 @@ public final class JdbcController {
 	 * @param nomeTabela : Nome da tabela que desejamos alterar
 	 * @param nomeColuna : Nome da coluna que vai ter seu valor alterado
 	 * @param valorColuna : Novo valor String para a coluna desejada
-	 * @param nomeFK : Nome da coluna de referencia (WHERE nomeFK=id)
+	 * @param colunaRef : Nome da coluna de referencia (WHERE nomeFK=id)
 	 * @param id : Valor esperado na coluna de referencia (WHERE nomeFK=id)
 	 * @return True/False para o sucesso da operacao.
 	 */
-	public Boolean atualizarString(String nomeTabela, String nomeColuna, String valorColuna, String nomeFK, int idFK) {
+	public Boolean atualizarString(String nomeTabela, String nomeColuna, String valorColuna, String colunaRef, int valorRef) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = " + valorColuna + " WHERE "
-				+ nomeFK + "=" + idFK;
+				+ colunaRef + "=" + valorRef;
 
 		try {
 			ps = con.prepareStatement(query);
@@ -288,13 +288,13 @@ public final class JdbcController {
 	 * @param nomeTabela : Nome da tabela que desejamos alterar
 	 * @param nomeColuna : Nome da coluna que vai ter seu valor alterado
 	 * @param valorColuna : Novo valor LocalDate para a coluna desejada
-	 * @param nomeFK : Nome da coluna de referencia (WHERE nomeFK=id)
+	 * @param colunaRef : Nome da coluna de referencia (WHERE nomeFK=id)
 	 * @param id : Valor esperado na coluna de referencia (WHERE nomeFK=id)
 	 * @return True/False para o sucesso da operacao.
 	 */
-	public Boolean atualizarDate(String nomeTabela, String nomeColuna, LocalDate valorColuna, String nomeFK, int idFK) {
+	public Boolean atualizarDate(String nomeTabela, String nomeColuna, LocalDate valorColuna, String colunaRef, int valorRef) {
 		String query = "UPDATE " + schema + nomeTabela + " " + "SET " + nomeColuna + " = "
-				+ DataParser.localDateToSQLQuery(valorColuna) + " WHERE " + nomeFK + "=" + idFK;
+				+ DataParser.localDateToSQLQuery(valorColuna) + " WHERE " + colunaRef + "=" + valorRef;
 
 		try {
 			ps = con.prepareStatement(query);
