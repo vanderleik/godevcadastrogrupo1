@@ -118,7 +118,7 @@ public final class JdbcController {
 			ps = con.prepareStatement(query);
 //			ps.setString(1, nomeTabela);
 //			ps.setInt(2, id);
-			rs = ps.executeQuery();
+			rs = ps.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
