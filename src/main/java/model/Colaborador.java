@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 import enums.EMDadosGeograficos.Cidades;
@@ -9,26 +8,25 @@ import enums.EMDadosGeograficos.Pais;
 import enums.EMDadosGeograficos.UF;
 import enums.EMDadosPessoais.IdentidadeGenero;
 
-public class Colaborador{
+public class Colaborador {
 
 	/**
 	 * Classe Colaborador.
 	 * 
-	 * A classe Colaborador instancia as classes Pessoa,
-	 * Documentos, Enderecos, Contatos e ExameMedico para concluir o cadastro do
-	 * colaborador.
+	 * A classe Colaborador instancia as classes Pessoa, Documentos, Enderecos,
+	 * Contatos e ExameMedico para concluir o cadastro do colaborador.
 	 * 
 	 * 
 	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
 	 *         Luiz Barbieri e Vitor Nathan Gonçalves.
 	 * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
 	 * @author Bruna <sh4323202@gmail.com>
-	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Enzo <enzomm.bodyandmind@gmail.com>
 	 * @author Sabrina <sabrinaschmidt335@gmail.com>
 	 * @author Vanderlei <vanderleik@yahoo.com.br>
 	 * @author Vitor <vitornathang@gmail.com>
 	 */
-	
+
 	private int pessoaId;
 	private Pessoa pessoa;
 	private Integer idColaborador;
@@ -36,7 +34,7 @@ public class Colaborador{
 	private Integer nit;
 	private boolean optanteVT;
 	private boolean optanteVAVR;
-	private Date dataAdmissao;
+	private LocalDate dataAdmissao;
 	private boolean optanteDependente;
 	private Documentos documentos;
 	private Endereco endereco;
@@ -69,151 +67,113 @@ public class Colaborador{
 //		this.exameMedico = exameMedico;
 //	}
 //	
-	public Colaborador() {}
-
-	
+	public Colaborador() {
+	}
 
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
 
+	public int getPessoaId() {
+		return pessoaId;
+	}
 
+	public void setPessoaId(int pessoaId) {
+		this.pessoaId = pessoaId;
+	}
 
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
 
-
-
 	public Integer getIdColaborador() {
 		return idColaborador;
 	}
-
-
 
 	public void setIdColaborador(Integer idColaborador) {
 		this.idColaborador = idColaborador;
 	}
 
-
-
 	public Integer getNumCargo() {
 		return numCargo;
 	}
-
-
 
 	public void setNumCargo(Integer numCargo) {
 		this.numCargo = numCargo;
 	}
 
-
-
 	public Integer getNit() {
 		return nit;
 	}
-
-
 
 	public void setNit(Integer nit) {
 		this.nit = nit;
 	}
 
-
-
 	public boolean isOptanteVT() {
 		return optanteVT;
 	}
-
-
 
 	public void setOptanteVT(boolean optanteVT) {
 		this.optanteVT = optanteVT;
 	}
 
-
-
 	public boolean isOptanteVAVR() {
 		return optanteVAVR;
 	}
-
-
 
 	public void setOptanteVAVR(boolean optanteVAVR) {
 		this.optanteVAVR = optanteVAVR;
 	}
 
-
-
-	public Date getDataAdmissao() {
+	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
 
-
-
-	public void setDataAdmissao(Date dataAdmissao) {
+	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
-
-
 
 	public boolean isOptanteDependente() {
 		return optanteDependente;
 	}
 
-
-
 	public void setOptanteDependente(boolean optanteDependente) {
 		this.optanteDependente = optanteDependente;
 	}
-
-
 
 	public Documentos getDocumentos() {
 		return documentos;
 	}
 
-
-
 	public void setDocumentos(Documentos documentos) {
 		this.documentos = documentos;
 	}
-
-
 
 	public Endereco getEndereco() {
 		return endereco;
 	}
 
-
-
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-
-
 
 	public Contatos getContatos() {
 		return contatos;
 	}
 
-
-
 	public void setContatos(Contatos contatos) {
 		this.contatos = contatos;
 	}
-
-
 
 	public ExameMedico getExameMedico() {
 		return exameMedico;
 	}
 
-
-
 	public void setExameMedico(ExameMedico exameMedico) {
 		this.exameMedico = exameMedico;
 	}
+
 	@Override
 	public String toString() {
 		return "Colaborador [pessoaId=" + pessoaId + ", pessoa=" + pessoa + ", idColaborador=" + idColaborador
@@ -222,16 +182,16 @@ public class Colaborador{
 				+ ", documentos=" + documentos + ", endereco=" + endereco + ", contatos=" + contatos + ", exameMedico="
 				+ exameMedico + "]";
 	}
+
 	/**
-	 * Cria colaborador.
-	 * É utilizado para criar um objeto da classe Colaborador.
+	 * Cria colaborador. É utilizado para criar um objeto da classe Colaborador.
 	 * 
-	 * Exemplo de uso:
-	 * Colaborador colaborador = new Colaborador.ColaboradorBuilder().nome("José").
-				sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).
-				genero("Masculino").identidadeGenero(SexoPessoa.CIS).nomeDaMae("Lúcia").....criarColaborador() //Colocar quantos atributos
-				forem necessários
-				
+	 * Exemplo de uso: Colaborador colaborador = new
+	 * Colaborador.ColaboradorBuilder().nome("José").
+	 * sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).
+	 * genero("Masculino").identidadeGenero(SexoPessoa.CIS).nomeDaMae("Lúcia").....criarColaborador()
+	 * //Colocar quantos atributos forem necessários
+	 * 
 	 */
 	public static class ColaboradorBuilder {
 		private String nome;
@@ -379,10 +339,12 @@ public class Colaborador{
 			return this;
 		}
 
-		/*public Colaborador criarColaborador() {
-			return new Colaborador(nome,sobrenome, dataDeNascimento,  nomeSocial,  genero,
-					identidadeGenero,  nomeDaMae,  cpf, pcd, idColaborador, numCargo, nit, optanteVT, optanteVAVR, dataAdmissao,
-					optanteDependente, documentos, endereco, contatos, exameMedico);
-		}*/
+		/*
+		 * public Colaborador criarColaborador() { return new
+		 * Colaborador(nome,sobrenome, dataDeNascimento, nomeSocial, genero,
+		 * identidadeGenero, nomeDaMae, cpf, pcd, idColaborador, numCargo, nit,
+		 * optanteVT, optanteVAVR, dataAdmissao, optanteDependente, documentos,
+		 * endereco, contatos, exameMedico); }
+		 */
 	}
 }

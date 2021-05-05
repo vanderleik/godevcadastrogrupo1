@@ -1,7 +1,7 @@
 package model;
 
-import java.sql.Date;
 import java.time.LocalDate;
+
 import enums.EMDadosGeograficos.Nacionalidade;
 import enums.EMDadosPessoais.IdentidadeGenero;
 
@@ -22,18 +22,10 @@ import enums.EMDadosPessoais.IdentidadeGenero;
  * 
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
- *  
+ * 
  */
 
 public class PrestadorServico {
-	public Integer getEmpresaId() {
-		return empresaId;
-	}
-
-	public void setEmpresaId(Integer empresaId) {
-		this.empresaId = empresaId;
-	}
-
 	public Integer getPessoaId() {
 		return pessoaId;
 	}
@@ -48,6 +40,14 @@ public class PrestadorServico {
 
 	public void setDataInicioContrato(LocalDate dataInicioContrato) {
 		this.dataInicioContrato = dataInicioContrato;
+	}
+
+	public void setEmpresaId(Integer empresaId) {
+		this.empresaId = empresaId;
+	}
+
+	public Integer getEmpresaId() {
+		return empresaId;
 	}
 
 	private Integer empresaId;
@@ -75,10 +75,10 @@ public class PrestadorServico {
 	 * 
 	 * Exemplo de uso: PrestadorServico prestadorServico = new
 	 * PrestadorServico.PrestadorServicoBuilder().
-	 * nome("Luana").sobrenome("Silva").dataDeNascimento(LocalDate.of(2002, 05, 21)).
-	 * genero("Feminino")....criarPessoa(); 
-	 * Utilizar quantos atributos forem necessários
-	 *  
+	 * nome("Luana").sobrenome("Silva").dataDeNascimento(LocalDate.of(2002, 05,
+	 * 21)). genero("Feminino")....criarPessoa(); Utilizar quantos atributos forem
+	 * necessários
+	 * 
 	 */
 	public static class PrestadorServicoBuilder {
 
