@@ -113,29 +113,34 @@ public class EnderecoDAO implements DAO<Endereco> {
 		JdbcController control = JdbcController.getInstance();
 		Integer pais_id, estado_id = 0, cidade_id = 0, bairro_id = 0, endereco_id = 0;
 		
-		ResultSet endereco = control.buscarPorId("endereco", id);
-		endereco_id = endereco.getInt("id");
-		if (endereco.next()) {
-			bairro_id = endereco.getInt("bairro_id");
-
-			ResultSet bairro = control.buscarPorId("bairro", bairro_id);
-			if (bairro.next()) {
-				cidade_id = bairro.getInt("cidade_id");
-
-				ResultSet cidade = control.buscarPorId("cidade", cidade_id);
-				if (cidade.next()) {
-					estado_id = cidade.getInt("estado_id");
-
-					ResultSet estado = control.buscarPorId("estado", estado_id);
-					if (estado.next()) {
-						pais_id = estado.getInt("pais_id");
-
-						ResultSet pais = control.buscarPorId("pais", pais_id);
-						if (pais.next()) {
+		try {
+			ResultSet endereco = control.buscarPorId("endereco", id);
+			endereco_id = endereco.getInt("id");
+			if (endereco.next()) {
+				bairro_id = endereco.getInt("bairro_id");
+	
+				ResultSet bairro = control.buscarPorId("bairro", bairro_id);
+				if (bairro.next()) {
+					cidade_id = bairro.getInt("cidade_id");
+	
+					ResultSet cidade = control.buscarPorId("cidade", cidade_id);
+					if (cidade.next()) {
+						estado_id = cidade.getInt("estado_id");
+	
+						ResultSet estado = control.buscarPorId("estado", estado_id);
+						if (estado.next()) {
+							pais_id = estado.getInt("pais_id");
+	
+							ResultSet pais = control.buscarPorId("pais", pais_id);
+							if (pais.next()) {
+							}
 						}
 					}
 				}
 			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
 		}
 		Boolean pais = control.deletarPorId("pais", pais_id);
 		Boolean estado = control.deletarPorId("estado", estado_id);
