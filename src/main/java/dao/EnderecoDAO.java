@@ -111,26 +111,26 @@ public class EnderecoDAO implements DAO<Endereco> {
 
 	public boolean delete(int id) {
 		JdbcController control = JdbcController.getInstance();
-		Integer pais_id, estado_id = 0, cidade_id = 0, bairro_id = 0, endereco_id = 0;
-		
+		Integer pais_id = 0, estado_id = 0, cidade_id = 0, bairro_id = 0, endereco_id = 0;
+
 		try {
 			ResultSet endereco = control.buscarPorId("endereco", id);
 			endereco_id = endereco.getInt("id");
 			if (endereco.next()) {
 				bairro_id = endereco.getInt("bairro_id");
-	
+
 				ResultSet bairro = control.buscarPorId("bairro", bairro_id);
 				if (bairro.next()) {
 					cidade_id = bairro.getInt("cidade_id");
-	
+
 					ResultSet cidade = control.buscarPorId("cidade", cidade_id);
 					if (cidade.next()) {
 						estado_id = cidade.getInt("estado_id");
-	
+
 						ResultSet estado = control.buscarPorId("estado", estado_id);
 						if (estado.next()) {
 							pais_id = estado.getInt("pais_id");
-	
+
 							ResultSet pais = control.buscarPorId("pais", pais_id);
 							if (pais.next()) {
 							}
@@ -138,8 +138,7 @@ public class EnderecoDAO implements DAO<Endereco> {
 					}
 				}
 			}
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		Boolean pais = control.deletarPorId("pais", pais_id);
@@ -153,12 +152,50 @@ public class EnderecoDAO implements DAO<Endereco> {
 
 	public boolean atualizar(int id, Endereco itemNovo) {
 		JdbcController control = JdbcController.getInstance();
-
+		Integer pais_id = 0, estado_id = 0, cidade_id = 0, bairro_id = 0, endereco_id = 0;
+		
 		try {
-			control.atualizarString("endereco", "logradouro", itemNovo.getLogradouro(), "colaborador_id", id_colab);
-			control.atualizarString("endereco", "orgao_emissor", itemNovo.getOrgaoEmissorRG(), "colaborador_id",
-					id_colab);
-			control.atualizarDate("endereco", "data_emissao", itemNovo.getDataEmissaoRG(), "colaborador_id", id_colab);
+			ResultSet endereco = control.buscarPorId("endereco", id);
+			endereco_id = endereco.getInt("id");
+			if (endereco.next()) {
+				bairro_id = endereco.getInt("bairro_id");
+
+				ResultSet bairro = control.buscarPorId("bairro", bairro_id);
+				if (bairro.next()) {
+					cidade_id = bairro.getInt("cidade_id");
+
+					ResultSet cidade = control.buscarPorId("cidade", cidade_id);
+					if (cidade.next()) {
+						estado_id = cidade.getInt("estado_id");
+
+						ResultSet estado = control.buscarPorId("estado", estado_id);
+						if (estado.next()) {
+							pais_id = estado.getInt("pais_id");
+
+							ResultSet pais = control.buscarPorId("pais", pais_id);
+							if (pais.next()) {
+							}
+						}
+					}
+				}
+			}
+
+			control.atualizarString("pais", "sigla", itemNovo.getPais(), "id", pais_id);
+
+			control.atualizarString("estado", "sigla", itemNovo.getUf(), "id", estado_id);
+			control.atualizarInteiro("estado", "pais_id", itemNovo.getPaisId(), "id", estado_id);
+
+			control.atualizarString("cidade", "nome", itemNovo.getCidade(), "id", cidade_id);
+			control.atualizarInteiro("cidade", "estado_id", itemNovo.getEstadoId(), "id", cidade_id);
+
+			control.atualizarString("bairro", "nome", itemNovo.getBairro(), "id", bairro_id);
+			control.atualizarInteiro("bairro", "cidade_id", itemNovo.getCidadeId(), "id", bairro_id);
+
+			control.atualizarString("endereco", "logradouro", itemNovo.getLogradouro(), "id", id);
+			control.atualizarString("endereco", "numero", itemNovo.getNumero(), "id", id);
+			control.atualizarString("endereco", "complemento", itemNovo.getComplemento(), "id", id);
+			control.atualizarString("endereco", "cep", itemNovo.getCep(), "id", id);
+			control.atualizarInteiro("endereco", "bairro_id", itemNovo.getBairroId(), "id", id);
 
 			return true;
 		} catch (Exception e) {
