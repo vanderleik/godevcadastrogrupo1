@@ -1,66 +1,46 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-
-import controller.Model;
-import enums.TiposExame;
+import enums.EMOutros.TiposExames;
 
 /**
- * Classe ExameMedico
+ * Classe ExameMedico.
  * 
- * Classe recebe informações para cadastro dos exames médicos que será
- * instanciada na classe Colaborador para o cadastramento do mesmo
+ * Classe recebe informações para cadastro dos exames médicos que serão
+ * instanciados na classe Colaborador para o cadastramento do mesmo.
+ * 
+ * Deve ser instanciada utilizando o ExameMedicoBuilder.
  * 
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
+ *         
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
  */
-public class ExameMedico implements Model{
+public class ExameMedico {
 
-	TiposExame tipoExame;
+	TiposExames tipoExame;
 	private LocalDate dataExame;
 	private boolean apto;
-	
-	public ExameMedico(TiposExame tipoExame, LocalDate dataExame, boolean apto) {
+
+	public ExameMedico(TiposExames tipoExame, LocalDate dataExame, boolean apto) {
 		this.tipoExame = tipoExame;
 		this.dataExame = dataExame;
 		this.apto = apto;
 	}
 
-	/**
-	 * Selecionar o tipo de exame.
-	 * 
-	 * O método realiza o check do tipo do exame a partir do seu ID (de 0 à 2) para
-	 * retornar o nome do referido exame.
-	 * 
-	 * @param int tipo Valor númerico que representa o exame.
-	 * @return resultado
-	 */
-	@Deprecated
-	public String selecionarTipoExame(int tipo) {
-		String resultadoExame = null;
-		switch (tipo) {
-		case 0:
-			resultadoExame = tipoExame.EXAME_ADMISSIONAL.toString();
-			break;
-		case 1:
-			resultadoExame = tipoExame.EXAME_PERIODICO.toString();
-			break;
-		case 2:
-			resultadoExame = tipoExame.EXAME_DEMISSIONAL.toString();
-			break;
-		default:
-			System.out.println("Insira uma opção válida.");
-		}
+	public ExameMedico() {
 
-		return resultadoExame;
 	}
 
-	public TiposExame getTipoExame() {
+	public TiposExames getTipoExame() {
 		return tipoExame;
 	}
 
-	public void setTipoExame(TiposExame tipoExame) {
+	public void setTipoExame(TiposExames tipoExame) {
 		this.tipoExame = tipoExame;
 	}
 
@@ -80,9 +60,50 @@ public class ExameMedico implements Model{
 		this.apto = apto;
 	}
 
-	@Override
-	public String toString() {
-		return "ExameMedico [tipoExame=" + tipoExame + ", dataExame=" + dataExame + ", apto=" + apto + ", escolha=]";
+	/**
+	 * Cria ExameMedico.
+	 *
+	 * É utilizado para criar um objeto da classe ExameMedico.
+	 * 
+	 * Exemplo de uso:
+	 * ExameMedico exameMedico = new ExameMedico.ExameMedicoBuilder().
+				tipoExame(TiposExames.ADMISSIONAL).dataExame(LocalDate.of(2016, 11, 5)).
+				apto(true).criarExameMedico();
+	 *
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
+	 */
+	public static class ExameMedicoBuilder {
+
+		TiposExames tipoExame;
+		private LocalDate dataExame;
+		private boolean apto;
+
+		public ExameMedicoBuilder tipoExame(TiposExames tipoExame) {
+			this.tipoExame = tipoExame;
+			return this;
+		}
+
+		public ExameMedicoBuilder dataExame(LocalDate dataExame) {
+			this.dataExame = dataExame;
+			return this;
+		}
+
+		public ExameMedicoBuilder apto(boolean apto) {
+			this.apto = apto;
+			return this;
+		}
+
+		public ExameMedico criarExameMedico() {
+			return new ExameMedico(tipoExame, dataExame, apto);
+		}
 	}
 
+	@Override
+	public String toString() {
+		return "ExameMedico [tipoExame=" + tipoExame + ", dataExame=" + dataExame + ", apto=" + apto;
+	}
 }

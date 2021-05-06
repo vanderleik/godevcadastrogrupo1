@@ -3,10 +3,7 @@ package testes;
 import static org.junit.Assert.*;
 
 import java.time.LocalDate;
-
 import org.junit.Test;
-
-import controller.PessoaController;
 import controller.ValidacaoDeDatas;
 import model.Colaborador;
 import model.Pessoa;
@@ -32,21 +29,19 @@ public class ValidacaoDeDatasTest {
 		assertTrue(validaData.validaDataDeNascimento(p2));
 		assertFalse(validaData.validaDataDeNascimento(p3));
 		assertFalse(validaData.validaDataDeNascimento(p4));
-
 	}
 
 	@Test
 	public void testValidaDataDeNascimentoColaborador() {
-
-		Colaborador p = new Colaborador();
-		Colaborador p2 = new Colaborador();
-		Colaborador p3 = new Colaborador();
+		Colaborador p = new Colaborador.ColaboradorBuilder().criarColaborador();
+		Colaborador p2 = new Colaborador.ColaboradorBuilder().criarColaborador();
+		Colaborador p3 = new Colaborador.ColaboradorBuilder().criarColaborador();
 
 		ValidacaoDeDatas validaData = new ValidacaoDeDatas();
 
-		p.setDataDeNascimento(LocalDate.of(2002, 01, 28));
-		p2.setDataDeNascimento(LocalDate.of(2020, 02, 28));
-		p3.setDataDeNascimento(LocalDate.of(1500, 01, 28));
+		p.getPessoa().setDataDeNascimento(LocalDate.of(2002, 01, 28));
+		p2.getPessoa().setDataDeNascimento(LocalDate.of(2020, 02, 28));
+		p3.getPessoa().setDataDeNascimento(LocalDate.of(1500, 01, 28));
 
 		assertTrue(validaData.validaDataDeNascimentoColaborador(p));
 		assertFalse(validaData.validaDataDeNascimentoColaborador(p2));
@@ -72,5 +67,4 @@ public class ValidacaoDeDatasTest {
 		assertFalse(validaData.validaDataAdmissao(p3));
 		assertFalse(validaData.validaDataAdmissao(p4));
 	}
-
 }

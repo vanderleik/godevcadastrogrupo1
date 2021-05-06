@@ -1,7 +1,18 @@
 package controller;
 
+/**
+ * Classe responsável por validar os dados dos documentos. Utilizado em conjunto
+ * com a classe FormatacaoDocumentos.
+ *
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com>
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
+ *
+ */
 public class ValidacaoDocumentos {
-	FormataDocumentos formatadocumento = new FormataDocumentos();
+	FormatacaoDocumentos formatadocumento = new FormatacaoDocumentos();
 
 	/**
 	 * Validar CPF.
@@ -12,46 +23,44 @@ public class ValidacaoDocumentos {
 	 * @return boolean
 	 */
 	public boolean validarCPF(String CPF) {
-		
-		String CPFFormatado = formatadocumento.formatarCPF(CPF);
-		if (CPF.length() == 11) {
 
-			int soma = 0;
-			int mult = 10;
-			for (int i = 0; i < 9; i++) {
-				soma += mult * ((CPFFormatado.charAt(i) - 48));
-				mult--;
-			}
-			if (11 - soma % 11 == CPFFormatado.charAt(9) - 48) {
-				boolean valido;
-			} else if (11 - soma % 11 == 10 && CPFFormatado.charAt(9) - 48 == 0) {
-				boolean valido;
-			} else {
-				return false;
-			}
-
-			soma = 0;
-			mult = 11;
-			for (int i = 0; i < 10; i++) {
-				soma += mult * ((CPFFormatado.charAt(i) - 48));
-				mult--;
-			}
-			if (11 - soma % 11 == CPFFormatado.charAt(10) - 48) {
-				boolean valido;
-			} else if (11 - soma % 11 == 10 && CPFFormatado.charAt(10) - 48 == 0) {
-				boolean valido;
-			} else {
-				return false;
-			}
-
-		} else {
+		String CPFFormatado = formatadocumento.removerCaracteres(CPF);
+		if (CPF.length() != 11) {
 			return false;
 		}
-		return true;
+
+		return this.validaPrimeiroDigitoCPF(CPFFormatado) &&
+				this.validaSegundoDigitoCPF(CPFFormatado);
 	}
-	
+
+	public boolean validaPrimeiroDigitoCPF(String CPFFormatado) {
+		int soma = 0;
+		int mult = 10;
+
+		for (int i = 0; i < 9; i++) {
+			soma += mult * ((CPFFormatado.charAt(i) - 48));
+			mult--;
+		}
+
+		return ((11 - soma % 11 == CPFFormatado.charAt(9) - 48)
+				^ (11 - soma % 11 == 10 && CPFFormatado.charAt(9) - 48 == 0));
+
+	}
+
+	public boolean validaSegundoDigitoCPF(String CPFFormatado) {
+		int soma = 0;
+		int mult = 11;
+
+		for (int i = 0; i < 10; i++) {
+			soma += mult * ((CPFFormatado.charAt(i) - 48));
+			mult--;
+		}
+		return ((11 - soma % 11 == CPFFormatado.charAt(10) - 48)
+				^ (11 - soma % 11 == 10 && CPFFormatado.charAt(10) - 48 == 0));
+	}
+
 	/**
-	 * Valida o tamanho do telefone
+	 * ATENÇÃO: TELEFONE MOVEL Valida o tamanho do telefone
 	 * 
 	 * Este método verifica se há 11 dígitos no telefone. Se houver ele retorna true
 	 * caso contrário, retorna false.
@@ -59,13 +68,29 @@ public class ValidacaoDocumentos {
 	 * @param telefone
 	 * @return boolean
 	 */
-	public boolean validarTamanhoTel(String telefone) {
-		if(telefone.length() != 11) {
+	public boolean validarTamanhoTelMovel(String telefone) {
+		if (telefone.length() != 11) {
 			return false;
 		}
 		return true;
 	}
-	
+
+	/**
+	 * ATENÇÃO: TELEFONE FIXO Valida o tamanho do telefone fixo.
+	 * 
+	 * Este método verifica se há 10 dígitos no telefone. Se houver ele retorna true
+	 * caso contrário, retorna false.
+	 * 
+	 * @param telefone
+	 * @return boolean
+	 */
+	public boolean validarTamanhoTelFixo(String telefone) {
+		if (telefone.length() != 10) {
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * Verifica se um número de CNPJ é valido.
 	 * 
@@ -74,16 +99,15 @@ public class ValidacaoDocumentos {
 	 * @param cnpj
 	 * @return
 	 */
-	public boolean validaCNPJ(String cnpj) {
+	public boolean validarCNPJ(String cnpj) {
 
-		String cnpjFormatado = formatadocumento.formataCNPJ(cnpj);
+		String cnpjFormatado = formatadocumento.removerCaracteres(cnpj);
 		if (cnpjFormatado.length() == 14) {
 			String cnpjInvertido = "";
 
 			for (int i = 13; i >= 0; i--) {
 				cnpjInvertido += cnpjFormatado.charAt(i);
 			}
-
 			int mult = 2;
 			int soma = 0;
 			for (int i = 2; i < 14; i++) {
@@ -94,7 +118,6 @@ public class ValidacaoDocumentos {
 					mult++;
 				}
 			}
-
 			if (cnpjInvertido.charAt(1) - 48 != 11 - (soma % 11)) {
 				return false;
 			}
@@ -110,15 +133,15 @@ public class ValidacaoDocumentos {
 					mult++;
 				}
 			}
-
 			if (cnpjInvertido.charAt(0) - 48 != 11 - (soma % 11)) {
 				return false;
 			}
+			return true;
 
 		}
-		return true;
+		return false;
 	}
-	
+
 	/**
 	 * Validar email
 	 * 
@@ -128,7 +151,7 @@ public class ValidacaoDocumentos {
 	 * @return boolean
 	 */
 	public boolean validarEmail(String email) {
-		if (!email.contentEquals("@")) {
+		if (!email.contains("@")) {
 			return false;
 		}
 		return true;
@@ -136,14 +159,15 @@ public class ValidacaoDocumentos {
 
 	/**
 	 * Verifica se CEP contém 8 dígitos
+	 * 
 	 * @param cep
 	 * @return
 	 */
 	public boolean validarCEP(String cep) {
-		if(formatadocumento.formatarCEP(cep).length() != 8) {
+		if (formatadocumento.removerCaracteres(cep).length() != 8) {
 			return false;
-		} 
+		}
 		return true;
 	}
-	
+
 }

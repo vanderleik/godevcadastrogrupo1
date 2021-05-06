@@ -1,32 +1,34 @@
 package testes;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import controller.ColaboradorController;
-import controller.PessoaController;
-import enums.Cidades;
-import enums.Nacionalidades;
-import enums.Paises;
-import enums.SexoPessoa;
-import enums.TiposExame;
-import enums.UnidadesFederativas;
+import enums.EMDadosGeograficos.Cidades;
+import enums.EMDadosGeograficos.Nacionalidade;
+import enums.EMDadosGeograficos.Pais;
+import enums.EMDadosPessoais.IdentidadeGenero;
+import enums.EMDadosGeograficos.UF;
 import model.Colaborador;
 import model.Contatos;
 import model.Documentos;
 import model.Endereco;
 import model.ExameMedico;
-import model.Pessoa;
 
 public class ColaboradorTest {
 	
+	@Test
+	public void testeBuilderColaborador() {
+		Colaborador colaborador = new Colaborador.ColaboradorBuilder().nome("José").
+				sobrenome("Bezerra").dataDeNascimento(LocalDate.of(1986, 4, 23)).
+				genero("Masculino").identidadeGenero(IdentidadeGenero.CIS).nomeDaMae("Lúcia").
+				cpf("02154785488").nacionalidade(Nacionalidade.BRASILEIRA).pcd(false).
+				idColaborador(2).numCargo(13).nit(20363636).optanteVT(true).optanteVAVR(true).
+				dataAdmissao(LocalDate.of(2017, 5, 4)).optanteDependente(false).cidadeNascimento(Cidades.BLUMENAU).
+				UfNascimento(UF.SC).paisNascimento(Pais.BRASIl).
+				documentos(new Documentos()).endereco(new Endereco()).
+				contatos(new Contatos()).exameMedico(new ExameMedico()).criarColaborador();
+		//Realizar conferência visual no console
+		System.out.println(colaborador.toString());
+	}
 }

@@ -1,20 +1,23 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 
-import controller.Model;
+/**
+ * Classe que engloba e abstrai os documentos necessários para o Colaborador.
+ * 
+ * É instanciada na classe Colaborador. 
+ * Deve ser instanciada usando o ColaboradorBuilder.
+ * 
+ * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
+ *
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com> 
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Vitor <vitornathang@gmail.com>
+ */
 
-	/**
-	 * Classe que engloba e abstrai os documentos necessários para o Colaborador.
-	 * 
-	 * É instanciada na classe Colaborador.
-	 * 
-	 * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
-	 */
-
-public class Documentos implements Model{
+public class Documentos{
 
 	private int ctpsNumero;
 	private int ctpsSerie;
@@ -29,13 +32,13 @@ public class Documentos implements Model{
 	private long rgNumero;
 	private String orgaoEmissorRG;
 	private LocalDate dataEmissaoRG;
-	
-	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissao, String bancoNome, int bancoAgencia,
+
+	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissaoCTPS, String bancoNome, int bancoAgencia,
 			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long raNumero, long rgNumero,
 			String orgaoEmissorRG, LocalDate dataEmissaoRG) {
 		this.ctpsNumero = ctpsNumero;
 		this.ctpsSerie = ctpsSerie;
-		this.dataEmissaoCTPS = dataEmissao;
+		this.dataEmissaoCTPS = dataEmissaoCTPS;
 		this.bancoNome = bancoNome;
 		this.bancoAgencia = bancoAgencia;
 		this.bancoNumeroConta = bancoNumeroConta;
@@ -48,29 +51,7 @@ public class Documentos implements Model{
 		this.dataEmissaoRG = dataEmissaoRG;
 	}
 
-	/**
-	 * Construtor secundário da classe.
-	 * 
-	 * NÃO inclui o registro de alistamento (RA).
-	 * 
-	 */
-	public Documentos(int ctpsNumero, int ctpsSerie, LocalDate dataEmissaoCTPS, String bancoNome, int bancoAgencia,
-			int bancoNumeroConta, long tituloNumero, int tituloZona, int tituloSecao, long rgNumero,
-			String orgaoEmissorRG, LocalDate dataEmissaoRG) {
-		this.ctpsNumero = ctpsNumero;
-		this.ctpsSerie = ctpsSerie;
-		this.dataEmissaoCTPS = dataEmissaoCTPS;
-		this.bancoNome = bancoNome;
-		this.bancoAgencia = bancoAgencia;
-		this.bancoNumeroConta = bancoNumeroConta;
-		this.tituloNumero = tituloNumero;
-		this.tituloZona = tituloZona;
-		this.tituloSecao = tituloSecao;
-		this.rgNumero = rgNumero;
-		this.raNumero = 0;
-		this.orgaoEmissorRG = orgaoEmissorRG;
-		this.dataEmissaoRG = dataEmissaoRG;
-	}
+	public Documentos() {}
 
 	public int getCtpsNumero() {
 		return ctpsNumero;
@@ -175,7 +156,110 @@ public class Documentos implements Model{
 	public void setDataEmissaoRG(LocalDate dataEmissaoRG) {
 		this.dataEmissaoRG = dataEmissaoRG;
 	}
-	
+
+	/**
+	 * Cria Documentos.
+	 *
+	 * É utilizado para criar um objeto da classe Documentos.
+	 * 
+	 * Exemplo de uso:
+	 * Documentos documento = new Documentos.DocumentosBuilder().ctpsNumero(123456789).
+	 			ctpsSerie(123456).dataEmissaoCTPS(LocalDate.of(2009, 02, 21)).....criarDocumentos() //Colocar quantos atributos
+				forem necessários
+	 * 
+	 * @author Bruna <sh4323202@gmail.com>
+	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
+	 * @author Sabrina <sabrinaschmidt335@gmail.com>
+	 * @author Vanderlei <vanderleik@yahoo.com.br>
+	 * @author Vitor <vitornathang@gmail.com>
+	 */
+	public static class DocumentosBuilder {
+
+		private int ctpsNumero;
+		private int ctpsSerie;
+		private LocalDate dataEmissaoCTPS;
+		private String bancoNome;
+		private int bancoAgencia;
+		private int bancoNumeroConta;
+		private long tituloNumero;
+		private int tituloZona;
+		private int tituloSecao;
+		private long raNumero;
+		private long rgNumero;
+		private String orgaoEmissorRG;
+		private LocalDate dataEmissaoRG;
+
+		public DocumentosBuilder ctpsNumero(int ctpsNumero) {
+			this.ctpsNumero = ctpsNumero;
+			return this;
+		}
+
+		public DocumentosBuilder ctpsSerie(int ctpsSerie) {
+			this.ctpsSerie = ctpsSerie;
+			return this;
+		}
+
+		public DocumentosBuilder dataEmissaoCTPS(LocalDate dataEmissaoCTPS) {
+			this.dataEmissaoCTPS = dataEmissaoCTPS;
+			return this;
+		}
+
+		public DocumentosBuilder bancoNome(String bancoNome) {
+			this.bancoNome = bancoNome;
+			return this;
+		}
+
+		public DocumentosBuilder bancoAgencia(int bancoAgencia) {
+			this.bancoAgencia = bancoAgencia;
+			return this;
+		}	
+
+		public DocumentosBuilder bancoNumeroConta(int bancoNumeroConta) {
+			this.bancoNumeroConta = bancoNumeroConta;
+			return this;
+		}
+
+		public DocumentosBuilder tituloNumero(long tituloNumero) {
+			this.tituloNumero = tituloNumero;
+			return this;
+		}
+
+		public DocumentosBuilder tituloZona(int tituloZona) {
+			this.tituloZona = tituloZona;
+			return this;
+		}
+
+		public DocumentosBuilder tituloSecao(int tituloSecao) {
+			this.tituloSecao = tituloSecao;
+			return this;
+		}
+
+		public DocumentosBuilder raNumero(long raNumero) {
+			this.raNumero = raNumero;
+			return this;
+		}
+		public DocumentosBuilder rgNumero(long rgNumero) {
+			this.rgNumero = rgNumero;
+			return this;
+		}
+
+		public DocumentosBuilder orgaoEmissorRG(String orgaoEmissorRG) {
+			this.orgaoEmissorRG = orgaoEmissorRG;
+			return this;
+		}
+
+		public DocumentosBuilder dataEmissaoRG( LocalDate dataEmissaoRG) {
+			this.dataEmissaoRG = dataEmissaoRG;
+			return this;
+		}
+
+		public Documentos criarDocumentos() {
+			return new Documentos( ctpsNumero,  ctpsSerie,  dataEmissaoCTPS,  bancoNome,  bancoAgencia,
+					bancoNumeroConta,  tituloNumero,  tituloZona, tituloSecao,  raNumero,  rgNumero,
+					orgaoEmissorRG,  dataEmissaoRG);
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "Documentos [ctpsNumero=" + ctpsNumero + ", ctpsSerie=" + ctpsSerie + ", dataEmissaoCTPS="
@@ -184,5 +268,4 @@ public class Documentos implements Model{
 				+ tituloZona + ", tituloSecao=" + tituloSecao + ", raNumero=" + raNumero + ", rgNumero=" + rgNumero
 				+ ", orgaoEmissorRG=" + orgaoEmissorRG + ", dataEmissaoRG=" + dataEmissaoRG + "]";
 	}
-
 }
