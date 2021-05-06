@@ -19,12 +19,12 @@ public interface DAO<T> {
 	
 	public boolean cadastrar(T item);
 
-	public T listar(T item);
+	public T listar(int id);
 
 	public ArrayList<T> listarTudo();
 
-	public boolean delete(T item);
+	public boolean delete(int id);
 	
-	public boolean atualizar(T item, T itemAntigo);
+	public boolean atualizar(int id, T itemNovo);
 	
 }

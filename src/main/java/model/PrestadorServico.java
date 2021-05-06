@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+
 import enums.EMDadosGeograficos.Nacionalidade;
 import enums.EMDadosPessoais.IdentidadeGenero;
 
@@ -11,44 +12,26 @@ import enums.EMDadosPessoais.IdentidadeGenero;
  * 
  * Deve ser instanciada utilizando o PrestadorServicoBuilder.
  * 
+ * @author Vanderlei <vanderleik@yahoo.com.br>
+ * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail>
+ * 
+ * @author Bruna <sh4323202@gmail.com>
+ * @author Enzo <enzomm.bodyandmind@gmail.com>
+ * @author Sabrina <sabrinaschmidt335@gmail.com>
+ * @author Vitor <vitornathang@gmail.com>
+ * 
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago
  *         Luiz Barbieri e Vitor Nathan Gonçalves.
  * 
- * @author Bruna <sh4323202@gmail.com>
- * @author Enzo <enzomm.bodyandmind@gmail.com> 
- * @author Sabrina <sabrinaschmidt335@gmail.com>
- * @author Vanderlei <vanderleik@yahoo.com.br>
- * @author Vitor <vitornathang@gmail.com>
  */
 
 public class PrestadorServico {
-
-	private Pessoa pessoa;
-	private Integer idPrestadorServico;
-	private LocalDate dataInicioContrato;
-	private Integer idEmpresa;
-	private Integer idSetor;
-	private Contatos contatos;
-
-	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
-			IdentidadeGenero identidadeGenero, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd,
-			Integer idPrestadorServico, LocalDate dataInicioContrato, Integer idEmpresa, Integer idSetor,
-			Contatos contatos) {
-		this.pessoa = new Pessoa.PessoaBuilder().nome(nome).sobrenome(sobrenome).dataDeNascimento(dataDeNascimento).nomeSocial(nomeSocial).genero(genero)
-				.identidadeGenero(identidadeGenero).nomeDaMae(nomeDaMae).cpf(cpf).nacionalidade(nacionalidade).pcd(pcd).criarPessoa();
-		this.idPrestadorServico = idPrestadorServico;
-		this.dataInicioContrato = dataInicioContrato;
-		this.idEmpresa = idEmpresa;
-		this.idSetor = idSetor;
-		this.contatos = contatos;
+	public Integer getPessoaId() {
+		return pessoaId;
 	}
 
-	public long getIdPrestadorServico() {
-		return idPrestadorServico;
-	}
-
-	public void setIdPrestadorServico(Integer idPrestadorServico) {
-		this.idPrestadorServico = idPrestadorServico;
+	public void setPessoaId(Integer pessoaId) {
+		this.pessoaId = pessoaId;
 	}
 
 	public LocalDate getDataInicioContrato() {
@@ -59,47 +42,165 @@ public class PrestadorServico {
 		this.dataInicioContrato = dataInicioContrato;
 	}
 
-	public long getIdEmpresa() {
-		return idEmpresa;
+	public void setEmpresaId(Integer empresaId) {
+		this.empresaId = empresaId;
 	}
 
-	public void setIdEmpresa(Integer idEmpresa) {
-		this.idEmpresa = idEmpresa;
+	public Integer getEmpresaId() {
+		return empresaId;
 	}
 
-	public long getIdSetor() {
-		return idSetor;
-	}
+	private Integer empresaId;
+	private Integer pessoaId;
+	private LocalDate dataInicioContrato;
 
-	public void setIdSetor(Integer idSetor) {
-		this.idSetor = idSetor;
-	}
-
-	public Contatos getContatos() {
-		return this.contatos;
-	}
-
-	public void setContatos(Contatos contatos) {
-		this.contatos = contatos;
-	}
+//
+//	public PrestadorServico(String nome, String sobrenome, LocalDate dataDeNascimento, String nomeSocial, String genero,
+//			IdentidadeGenero identidadeGenero, String nomeDaMae, String cpf, Nacionalidade nacionalidade, boolean pcd,
+//			Integer idPrestadorServico, LocalDate dataInicioContrato, Integer idEmpresa, Integer idSetor,
+//			Contatos contatos) {
+//		this.pessoa = new Pessoa.PessoaBuilder().nome(nome).sobrenome(sobrenome).dataDeNascimento(dataDeNascimento).nomeSocial(nomeSocial).genero(genero)
+//				.identidadeGenero(identidadeGenero).nomeDaMae(nomeDaMae).cpf(cpf).nacionalidade(nacionalidade).pcd(pcd).criarPessoa();
+//		this.idPrestadorServico = idPrestadorServico;
+//		this.dataInicioContrato = dataInicioContrato;
+//		this.idEmpresa = idEmpresa;
+//		this.idSetor = idSetor;
+//		this.contatos = contatos;
+//	}
 
 	/**
 	 * Cria PrestadorServico.
 	 *
 	 * É utilizado para criar um objeto da classe PrestadorServico.
 	 * 
-	 * Exemplo de uso:
-	 * PrestadorServico prestadorServico = new PrestadorServico.PrestadorServicoBuilder().
-	 		nome("Luana").sobrenome("Silva").dataDeNascimento(LocalDate.of(2002, 05, 21)).
-	  		genero("Feminino")....criarPessoa(); //Utilizar quantos atributos forem necessários
-	 *
-	 * @author Bruna <sh4323202@gmail.com>
-	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
-	 * @author Sabrina <sabrinaschmidt335@gmail.com>
-	 * @author Vanderlei <vanderleik@yahoo.com.br>
-	 * @author Vitor <vitornathang@gmail.com>
+	 * Exemplo de uso: PrestadorServico prestadorServico = new
+	 * PrestadorServico.PrestadorServicoBuilder().
+	 * nome("Luana").sobrenome("Silva").dataDeNascimento(LocalDate.of(2002, 05,
+	 * 21)). genero("Feminino")....criarPessoa(); Utilizar quantos atributos forem
+	 * necessários
+	 * 
 	 */
 	public static class PrestadorServicoBuilder {
+
+		public String getNome() {
+			return nome;
+		}
+
+		public void setNome(String nome) {
+			this.nome = nome;
+		}
+
+		public String getSobrenome() {
+			return sobrenome;
+		}
+
+		public void setSobrenome(String sobrenome) {
+			this.sobrenome = sobrenome;
+		}
+
+		public LocalDate getDataDeNascimento() {
+			return dataDeNascimento;
+		}
+
+		public void setDataDeNascimento(LocalDate dataDeNascimento) {
+			this.dataDeNascimento = dataDeNascimento;
+		}
+
+		public String getNomeSocial() {
+			return nomeSocial;
+		}
+
+		public void setNomeSocial(String nomeSocial) {
+			this.nomeSocial = nomeSocial;
+		}
+
+		public String getGenero() {
+			return genero;
+		}
+
+		public void setGenero(String genero) {
+			this.genero = genero;
+		}
+
+		public IdentidadeGenero getIdentidadeGenero() {
+			return identidadeGenero;
+		}
+
+		public void setIdentidadeGenero(IdentidadeGenero identidadeGenero) {
+			this.identidadeGenero = identidadeGenero;
+		}
+
+		public String getNomeDaMae() {
+			return nomeDaMae;
+		}
+
+		public void setNomeDaMae(String nomeDaMae) {
+			this.nomeDaMae = nomeDaMae;
+		}
+
+		public String getCpf() {
+			return cpf;
+		}
+
+		public void setCpf(String cpf) {
+			this.cpf = cpf;
+		}
+
+		public Nacionalidade getNacionalidade() {
+			return nacionalidade;
+		}
+
+		public void setNacionalidade(Nacionalidade nacionalidade) {
+			this.nacionalidade = nacionalidade;
+		}
+
+		public boolean isPcd() {
+			return pcd;
+		}
+
+		public void setPcd(boolean pcd) {
+			this.pcd = pcd;
+		}
+
+		public Integer getIdPrestadorServico() {
+			return idPrestadorServico;
+		}
+
+		public void setIdPrestadorServico(Integer idPrestadorServico) {
+			this.idPrestadorServico = idPrestadorServico;
+		}
+
+		public LocalDate getDataInicioContrato() {
+			return dataInicioContrato;
+		}
+
+		public void setDataInicioContrato(LocalDate dataInicioContrato) {
+			this.dataInicioContrato = dataInicioContrato;
+		}
+
+		public Integer getIdEmpresa() {
+			return idEmpresa;
+		}
+
+		public void setIdEmpresa(Integer idEmpresa) {
+			this.idEmpresa = idEmpresa;
+		}
+
+		public Integer getIdSetor() {
+			return idSetor;
+		}
+
+		public void setIdSetor(Integer idSetor) {
+			this.idSetor = idSetor;
+		}
+
+		public Contatos getContatos() {
+			return contatos;
+		}
+
+		public void setContatos(Contatos contatos) {
+			this.contatos = contatos;
+		}
 
 		private String nome;
 		private String sobrenome;
@@ -192,17 +293,17 @@ public class PrestadorServico {
 			return this;
 		}
 
-		public PrestadorServico criarPrestadorServico() {
-			return new PrestadorServico(nome,sobrenome, dataDeNascimento,  nomeSocial,  genero,
-					identidadeGenero,  nomeDaMae,  cpf,  nacionalidade, pcd, idPrestadorServico,
-					dataInicioContrato, idEmpresa, idSetor, contatos);
-		}
+//		public PrestadorServico criarPrestadorServico() {
+//			return new PrestadorServico(nome,sobrenome, dataDeNascimento,  nomeSocial,  genero,
+//					identidadeGenero,  nomeDaMae,  cpf,  nacionalidade, pcd, idPrestadorServico,
+//					dataInicioContrato, idEmpresa, idSetor, contatos);
+//		}
 	}
 
 	@Override
 	public String toString() {
-		return "PrestadorServico [pessoa=" + pessoa + ", idPrestadorServico=" + idPrestadorServico
-				+ ", dataInicioContrato=" + dataInicioContrato + ", idEmpresa=" + idEmpresa + ", idSetor=" + idSetor
-				+ ", contatos=" + contatos + "]";
-	}	
+		return "PrestadorServico [empresaId=" + empresaId + ", pessoaId=" + pessoaId + ", dataInicioContrato="
+				+ dataInicioContrato + "]";
+	}
+
 }

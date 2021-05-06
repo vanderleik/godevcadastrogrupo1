@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  * Armazena os contatos necessários de um colaborador, empresa ou prestador de
  * serviço.
@@ -7,7 +9,7 @@ package model;
  * Deve ser instanciado utilizando o ContatosBuilder. 
  * 
  * @author Lorran Pereira dos Santos, Samuel Levi, Sarah Neuburger Brito, Thiago Luiz Barbieri e Vitor Nathan Gonçalves.
- *
+ * @author Guilherme Ezequiel <guilhermeezequieldasilva@gmail.com>
  * @author Bruna <sh4323202@gmail.com>
  * @author Enzo <enzomm.bodyandmind@gmail.com> 
  * @author Sabrina <sabrinaschmidt335@gmail.com>
@@ -16,40 +18,39 @@ package model;
  */
 
 public class Contatos{
+	private int pessoaId;
+	
+	private ArrayList<String> telefonePrincipal;
+	private ArrayList<String> email;
 
-	private String telefonePrincipal;
-	private String telefoneSecundario;
-	private String email;
-
-	private Contatos(String telefonePrincipal, String telefoneSecundario, String email) {
+	private Contatos(ArrayList<String> telefonePrincipal, ArrayList<String> email) {
 		setTelefonePrincipal(telefonePrincipal);
-		setTelefoneSecundario(telefoneSecundario);
 		setEmail(email);
 	}
 
-	public String getTelefonePrincipal() {
+
+	public ArrayList<String> getTelefonePrincipal() {
 		return telefonePrincipal;
 	}
 
-	public void setTelefonePrincipal(String telefonePrincipal) {
+	public void setTelefonePrincipal(ArrayList<String> telefonePrincipal) {
 		this.telefonePrincipal = telefonePrincipal;
 	}
 
-	public String getTelefoneSecundario() {
-		return telefoneSecundario;
-	}
-
-	public void setTelefoneSecundario(String telefoneSecundario) {
-		this.telefoneSecundario = telefoneSecundario;
-	}
-
-	public String getEmail() {
+	public ArrayList<String> getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(ArrayList<String> email) {
 		this.email = email;
 	}
+	
+	@Override
+	public String toString() {
+		return "Contatos [telefonePrincipal=" + telefonePrincipal + ", email=" + email + "]";
+	}
+
+
 
 	/**
 	 * Cria contato.
@@ -58,12 +59,9 @@ public class Contatos{
 	 * Exemplo de uso:
 	 * Contatos contatos = new Contatos.ContatosBuilder().telefonePrincipal("1140028922").
 				telefoneSecundario("08002014007").email("email@testeemail.net").criarContato();
-	 * 
-	 * @author Bruna <sh4323202@gmail.com>
-	 * @author Enzo <enzomm.bodyandmind@gmail.com> 
-	 * @author Sabrina <sabrinaschmidt335@gmail.com>
-	 * @author Vanderlei <vanderleik@yahoo.com.br>
-	 * @author Vitor <vitornathang@gmail.com>
+				
+	 * 			
+
 	 */
 	public static class ContatosBuilder {
 		
@@ -88,16 +86,8 @@ public class Contatos{
 			return this;
 		}
 
-		public Contatos criarContato() {
-			return new Contatos(telefonePrincipal, telefoneSecundario, email);		
-		}
-	}
-	
-	public Contatos() {}
-
-	@Override
-	public String toString() {
-		return "Contatos telefonePrincipal=" + telefonePrincipal + ", telefoneSecundario=" + telefoneSecundario
-				+ ", email=" + email;
+//		public Contatos criarContato() {
+//			return 
+//		}
 	}
 }
